@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && tail -F anything"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - 'db'
+volumes:
+  db:

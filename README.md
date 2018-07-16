@@ -87,7 +87,7 @@ docker exec -it <container_id> bash
 3. Create and migrate database
 
 ```
-RAILS_ENV=development db:create
+RAILS_ENV=development rails db:create
 RAILS_ENV=development rails db:migrate
 ```
 This will create and migrate all databases in `config/database.yml`.

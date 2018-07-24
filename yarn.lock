@@ -13,7 +13,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@rails/webpacker@^4.0.0.pre.pre.2":
+"@rails/webpacker@4.0.0-pre.2":
   version "4.0.0-pre.2"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.0-pre.2.tgz#66be9b5eac9e5f54030de4dde93820a626e70657"
   dependencies:
@@ -2556,7 +2556,7 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-extract-text-webpack-plugin@^4.0.0-beta.0:
+extract-text-webpack-plugin@4.0.0-beta.0:
   version "4.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-4.0.0-beta.0.tgz#f7361d7ff430b42961f8d1321ba8c1757b5d4c42"
   dependencies:
@@ -7368,10 +7368,6 @@ yargs@~1.2.6:
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-1.2.6.tgz#9c7b4a82fd5d595b2bf17ab6dcc43135432fe34b"
   dependencies:
     minimist "^0.1.0"
-
-yarn@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.7.0.tgz#0076b9fde6010e01950526a609bc53bc175ef925"
 
 yeoman-environment@^2.0.5, yeoman-environment@^2.1.1:
   version "2.3.1"

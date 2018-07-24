@@ -1,2 +1,2 @@
-server: bin/rails server
+server: rails server
 assets: ruby ./bin/webpack-dev-server

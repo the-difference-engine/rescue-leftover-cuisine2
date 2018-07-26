@@ -1,5 +1,27 @@
 {
   "name": "rlc",
   "private": true,
-  "dependencies": {}
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-2"
+    ]
+  },
+  "dependencies": {
+    "@rails/webpacker": "4.0.0-pre.2",
+    "webpack": "4.16.1",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.5",
+    "babel-preset-react-hmre": "^1.1.1",
+    "react": "16.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "extract-text-webpack-plugin": "4.0.0-beta.0"
+  }
 }

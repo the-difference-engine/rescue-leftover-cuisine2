@@ -47,6 +47,8 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
 
+  config.action_mailer.default_url_options = { host: '0.0.0.0:', port: 3000 }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

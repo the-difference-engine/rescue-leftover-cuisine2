@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1
+    #   environment:
+    steps:
+      - checkout
+      - run: bash build/build-setup.sh
+      - run: npm install && npm install dev-dependencies
+      - run: RAILS_ENV="test" && bundle install
+      # - run: gem install rubocop
+      # - run: gem install rspec
+      - run: npm test
+        # Put this into your .rubocop.yml.
+        #(inside the rubocop.yml file add:) require: rubocop-rspec
+      - run: rubocop

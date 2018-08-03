@@ -8,13 +8,20 @@
       "stage-2"
     ]
   },
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
+    "flow": "flow"
+  },
   "dependencies": {
     "@rails/webpacker": "4.0.0-pre.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "react": "16.4.1",
+    "test": "^0.6.0",
     "webpack": "4.16.1",
     "webpack-cli": "3.1.0",
-    "webpack-dev-server": "3.1.5",
-    "babel-preset-react-hmre": "^1.1.1",
-    "react": "16.4.1"
+    "webpack-dev-server": "3.1.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -22,6 +29,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "extract-text-webpack-plugin": "4.0.0-beta.0"
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
+    "flow-bin": "^0.77.0"
   }
 }

@@ -14,4 +14,4 @@ jobs:
       - run: npm test
         # Put this into your .rubocop.yml.
         #(inside the rubocop.yml file add:) require: rubocop-rspec
-      - run: rubocop
+      # - run: rubocop

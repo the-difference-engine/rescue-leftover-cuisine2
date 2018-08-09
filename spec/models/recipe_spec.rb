@@ -2,15 +2,18 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Recipe, :type => :model do
-	recipe = Recipe.new(title: "Beef Stew", ingredients: "beef", directions: "don't make soup by accident", difficulty: "Beginner")
+	if Recipe.count == 0
+		recipe = Recipe.create(id: 1, title: "Beef Stew", ingredients: "beef", directions: "don't make soup by accident", difficulty: "Beginner")
+	end
+	recipe_outside = Recipe.new(title: "Beef Stew", ingredients: "beef", directions: "don't make soup by accident", difficulty: "Beginner")
 	it ("is valid with all valid attributes") do
-		expect(recipe).to be_valid
+		expect(recipe_outside).to be_valid
 	end
 	it ("does not have a difficulty of Intermediate") do
-		expect(recipe[:difficulty]).to_not eq("Intermediate")
+		expect(recipe_outside[:difficulty]).to_not eq("Intermediate")
 	end
 	it ("does not have a difficulty of Advanced") do
-		expect(recipe[:difficulty]).to_not eq("Advanced")
+		expect(recipe_outside[:difficulty]).to_not eq("Advanced")
 	end
 	recipe_full = Recipe.new(title: "Chicken Soup", description: "best medicine", ingredients: "chicken broth and noodles", directions: "don't make soup by accident", difficulty: "Beginner", duration: "50 minutes", servings: 10, tag1: "hearty", tag2: "main dish", tag3: "under 10 ingredients", photo: "puppy")
 	it ("is valid with all possible attributes") do

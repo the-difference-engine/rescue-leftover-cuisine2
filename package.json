@@ -8,6 +8,11 @@
       "stage-2"
     ]
   },
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "start:dev": "webpack-dev-server --mode development"
+  },
   "dependencies": {
     "@rails/webpacker": "4.0.0-pre.2",
     "babel-preset-react-hmre": "^1.1.1",
@@ -19,11 +24,19 @@
     "webpack-dev-server": "3.1.5"
   },
   "devDependencies": {
+    "autoprefixer": "^9.1.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "extract-text-webpack-plugin": "4.0.0-beta.0"
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "postcss-loader": "^2.1.6",
+    "style-loader": "^0.21.0",
+    "webpack-md5-hash": "0.0.6"
   }
 }

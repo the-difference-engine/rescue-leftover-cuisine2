@@ -94,18 +94,18 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./frontend/src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n\nconsole.log(\"hello alyssa\");\nconsole.log(\"something\");\n\n//# sourceURL=webpack:///./frontend/src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ \"./frontend/src/styles/style.css\");\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconsole.log(\"hello alyssa\");\nconsole.log(\"something\");\n\n//# sourceURL=webpack:///./frontend/src/index.js?");
 
 /***/ }),
 
-/***/ "./frontend/src/style.css":
-/*!********************************!*\
-  !*** ./frontend/src/style.css ***!
-  \********************************/
+/***/ "./frontend/src/styles/style.css":
+/*!***************************************!*\
+  !*** ./frontend/src/styles/style.css ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./frontend/src/style.css?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./frontend/src/styles/style.css?");
 
 /***/ })
 

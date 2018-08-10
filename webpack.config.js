@@ -2,19 +2,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: { main: './src/index.js' },
     output: { 
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'frontend'),
         filename: '[name].[chunkhash].js'
     },
     plugins: [
+        new CleanWebpackPlugin('frontend', {}),
         new MiniCssExtractPlugin(
             {
-                filename: '[name].[chunkhash].css',
-                disable: false,
-                allChunks: true
+                filename: 'style.[chunkhash].css',
             }
         ),
         new HtmlWebpackPlugin({
@@ -22,7 +22,8 @@ module.exports = {
             hash: true,
             template: './src/index.html',
             filename: 'index.html'
-        })
+        }),
+        new WebpackMd5Hash()
     ],
     module: {
         rules: [
@@ -35,6 +36,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -42,7 +44,8 @@ module.exports = {
                             publicPath: './src/style.css'
                         }
                     },
-                    "css-loader"
+                    "css-loader",
+                    "postcss-loader"
                 ]
             }
         ]

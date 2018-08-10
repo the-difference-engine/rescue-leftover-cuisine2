@@ -5,13 +5,13 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: { main: './src/index.js' },
+    entry: { main: './frontend/src/index.js' },
     output: { 
-        path: path.resolve(__dirname, 'frontend'),
+        path: path.resolve(__dirname, 'frontend/pack'),
         filename: '[name].[chunkhash].js'
     },
     plugins: [
-        new CleanWebpackPlugin('frontend', {}),
+        new CleanWebpackPlugin('frontend/pack', {}),
         new MiniCssExtractPlugin(
             {
                 filename: 'style.[chunkhash].css',
@@ -20,7 +20,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: false,
             hash: true,
-            template: './src/index.html',
+            template: './frontend/src/index.html',
             filename: 'index.html'
         }),
         new WebpackMd5Hash()

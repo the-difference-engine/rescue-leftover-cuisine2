@@ -4,13 +4,23 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name, autofocus: true, autocomplete:"user_name" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "First Name" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name,  autofocus: true, autocomplete: "Last Name" %>
   </div>
 
   <div class="field">
-    <%= f.label :user_name %><br/>
-    <%= f.user_name_field :user_name, autocomplete: "user_name" %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -24,6 +34,16 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :profile_photo %><br />
+    <%= f.file_field :profile_photo, autofocus: true, autocomplete: "Profile Photo" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_field :interests, autofocus: true, autocomplete: "Interests" %>
   </div>
 
   <div class="actions">

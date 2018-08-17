@@ -81,20 +81,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./frontend/src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./frontend/src/application.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./frontend/src/index.js":
-/*!*******************************!*\
-  !*** ./frontend/src/index.js ***!
-  \*******************************/
+/***/ "./frontend/src/application.js":
+/*!*************************************!*\
+  !*** ./frontend/src/application.js ***!
+  \*************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ \"./frontend/src/styles/style.css\");\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconsole.log(\"hello alyssa\");\nconsole.log(\"something\");\n\n//# sourceURL=webpack:///./frontend/src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.css */ \"./frontend/src/styles/style.css\");\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_css__WEBPACK_IMPORTED_MODULE_0__);\n\n// import \"bootstrap/dist/css/bootstrap.min.css\";  \n\nconsole.log(\"hello alyssa\");\nconsole.log(\"something\");\n\n//# sourceURL=webpack:///./frontend/src/application.js?");
 
 /***/ }),
 

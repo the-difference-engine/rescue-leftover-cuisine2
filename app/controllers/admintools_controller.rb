@@ -1,5 +1,8 @@
 class AdmintoolsController < ApplicationController
-  def userbase
-  	@users = User.all
-  end
+
+	before_action :authenticate_admin!
+
+		def userbase
+			@users = User.all
+		end
 end

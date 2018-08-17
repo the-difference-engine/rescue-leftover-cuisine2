@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
   root to: "pages#home"
-  resources :admintools do
+  resources :admintools, only: [:show] do
   	collection do
   		get :userbase
   	end

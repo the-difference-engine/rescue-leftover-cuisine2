@@ -6,7 +6,7 @@
      <% if admin_signed_in? %>
      	<li class="nav-item active"><%= link_to current_admin.email, edit_admin_registration_path %></li>
      	<li class="nav-item active"><%= link_to 'Sign out', destroy_admin_session_path, :method => :delete %></li>
-     	<a href="<%= userbase_admintools_path %>">Click!!!</a>
+     	<a href="<%= admintools_path %>">Click!!!</a>
      	<% else %>
      	<li class="nav-item active"><%= link_to "Sign Up", new_user_registration_path %></li>
      	<li class="nav-item active"><%= link_to "Login", new_user_session_path %></li>

@@ -5,12 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'style' %>
+    
   </head>
 
   <body>
-
     <!-- Devise Alert/Notice, for sign up, sign up, log out, edit account, etc.-->
     <div class="XXX">
       <p class="notice"><%= notice %></p>
@@ -19,6 +18,6 @@
 
     <%= yield %>
 
-
+    <%= javascript_pack_tag 'main' %>
   </body>
 </html>

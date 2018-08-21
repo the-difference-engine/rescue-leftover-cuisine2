@@ -8,4 +8,8 @@
 
 <br/>
 
+<% if current_admin.super_admin.eql? true %>
+	<p>Test successful</p>
+<% end %>
+
 <h3><%= link_to "Home", root_path %></h3>

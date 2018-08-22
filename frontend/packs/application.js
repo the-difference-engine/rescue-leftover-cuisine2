@@ -1,4 +1,4 @@
-import "./styles/style.css";
+import "./application.css";
 
 console.log("hello alyssa");
 console.log("something");

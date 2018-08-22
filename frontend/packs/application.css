@@ -1,0 +1,207 @@
+div {
+    color: red;
+  }
+  body {
+    background: yellow;
+    color: red;
+  }
+  
+  /*--- TYPOGRAPHY ---*/
+  /* Body */
+  body {
+  /* background: lightyellow; */
+  font-family: 'Nunito', sans-serif;
+  font-weight: lighter;
+  font-size: 17.7px;
+  }
+  
+  /* Heading Large */
+  h1 {
+  font-size: 45px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  }
+  
+  /* Heading Medium */
+  h3 {
+  font-size: 28.5px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  }
+  
+  /* Heading Small */
+  h5 {
+  font-size: 17.7px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  }
+  
+  /*--- LABELS ---*/
+  
+  /* Label class */
+  .Label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  }
+  
+  /* label */
+  label {
+  font-size: 11px ;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  background-color: $ninja-green;
+  border: solid $ninja-green 2px;
+  text-align: center;
+  border-radius:   3rem;/*50%; /*50px;*/
+  padding: 0.45rem 2rem;
+  }
+  
+  /*--- COLOR PALETTE ---*/
+  /* postCSS */
+  $attention-yellow: #ffc837;
+  $dark-yellow: #cea22e;
+  $light-yellow: #f9d26b;
+  $trust-blue: #4ec8ed;
+  $dark-blue: #06a6d3;
+  $light-blue: #aae8f9;
+  $ninja-green: #32e37f;
+  $dark-green: #00bc52;
+  $light-green: #89f2b7;
+  $happy-purple: #495be1;
+  $dark-purple: #1023b7;
+  $light-purple: #95a0f1;
+  $gray-1: #f2f2f2;
+  $gray-2: #9b9b9b;
+  $gray-3: #696969;
+  $gray-4: #2e2a25;
+  
+  /*--- Background Colors Classes ---*/
+  .BCattentionYellow {
+   background-color: $attention-yellow;
+  }
+  
+  .BCdarkYellow {
+   background-color: $dark-yellow;
+  }
+  
+  .BClightYellow {
+   background-color: $light-yellow;
+  }
+  
+  .BCtrustBlue {
+   background-color: $trust-blue;
+  }
+  
+  .BCdarkBlue {
+   background-color: $dark-blue;
+  }
+  
+  .BClightBlue {
+   background-color: $light-blue;
+  }
+  
+  .BCninjaGreen {
+   background-color: $ninja-green;
+  }
+  
+  .BCdarkGreen {
+   background-color: $dark-green
+  }
+  
+  .BClightGreen {
+   background-color: $light-green
+  }
+  
+  .BChappyPurple {
+   background-color: $happy-purple
+  }
+  
+  .BCdarkPurple {
+   background-color: $dark-purple
+  }
+  
+  .BClightPurple {
+   background-color: $light-purple
+  }
+  
+  .BCgray1 {
+   background-color: $gray-1
+  }
+  
+  .BCgray2 {
+   background-color: $gray-2
+  }
+  
+  .BCgray3 {
+   background-color: $gray-3
+  }
+  
+  .BCgray4 {
+   background-color: $gray-4
+  }
+  
+  /*--- Font Colors Classes ---*/
+  .attentionYellow {
+  color: $attention-yellow;
+  }
+  
+  .darkYellow {
+  color: $dark-yellow;
+  }
+  
+  .lightYellow {
+  color: $light-yellow;
+  }
+  
+  .trustBlue {
+   color: $trust-blue;
+  }
+  
+  .darkBlue {
+  color: $dark-blue;
+  }
+  
+  .lightBlue {
+  color: $light-blue
+  }
+  
+  .ninjaGreen {
+  color: $ninja-green;
+  }
+  
+  .darkGreen {
+  color: $dark-green
+  }
+  
+  .lightGreen {
+  color: $light-green
+  }
+  
+  .happyPurple {
+  color: $happy-purple
+  }
+  
+  .darkPurple {
+  color: $dark-purple
+  }
+  
+  .lightPurple {
+  color: $light-purple
+  }
+  
+  .gray1 {
+  color: $gray-1
+  }
+  
+  .gray2 {
+  color: $gray-2
+  }
+  
+  .gray3 {
+  color: $gray-3
+  }
+  
+  .gray4 {
+  color: $gray-4
+  }

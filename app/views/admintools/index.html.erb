@@ -9,7 +9,7 @@
 <br/>
 
 <% if current_admin.super_admin? %>
-	<p>Test successful</p>
+	<h3><%= link_to "Create New Admin Account", new_admin_registration_path %></h3>
 <% end %>
 
 <h3><%= link_to "Home", root_path %></h3>

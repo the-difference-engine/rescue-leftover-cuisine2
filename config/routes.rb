@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :controllers => {:registrations => "registrations"}
   devise_for :users
   root to: "pages#home"
   resources :admintools, only: [:index, :show, :create] do

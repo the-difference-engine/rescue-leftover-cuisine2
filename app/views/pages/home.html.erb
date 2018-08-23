@@ -1,4 +1,6 @@
 <% if user_signed_in? %>
+	 <h1>Hey there, <%= current_user.first_name %></h1>
+	 <p>You really enjoy <%= current_user.interests %>?</p>
 	 <li><%= link_to current_user.email, edit_user_registration_path %></li>
      <li class="nav-item active"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 

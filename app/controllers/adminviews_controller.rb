@@ -1,4 +1,4 @@
-class AdmintoolsController < ApplicationController
+class AdminviewsController < ApplicationController
 
 	before_action :authenticate_admin!
 

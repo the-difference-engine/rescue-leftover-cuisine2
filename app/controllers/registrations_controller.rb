@@ -1,25 +1,18 @@
 class RegistrationsController < Devise::RegistrationsController
+
+  skip_before_action :require_no_authentication, only: [:new, :create]
+
   def new
     super
   end
 
   def create
-    super
-  end
+    build_resource(sign_up_params)
 
-  def edit
-  	super
-  end
+    resource.save
+    yield resource if block_given?
 
-  def update
-  	super
-  end
-
-  def destroy
-    super
-  end
-
-  def cancel
-  	super
+    set_flash_message! :notice, :admin_signed_up
+    redirect_to root_path
   end
 end 

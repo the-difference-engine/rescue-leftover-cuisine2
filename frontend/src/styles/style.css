@@ -2,14 +2,12 @@ div {
     color: red;
 }
 body {
-    background: yellow;
     color: red;
 }
 
 /*--- TYPOGRAPHY ---*/
  /* Body */
  body {
-  background: lightyellow;
   font-family: 'Nunito', sans-serif;
   font-weight: lighter;
   font-size: 17.7px;

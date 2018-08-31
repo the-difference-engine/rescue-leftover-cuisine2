@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root to: "pages#home"
   get 'hello' => 'users#hello'
+  resources :admins do
+  	get 'passwordchange'
+  end
   resources :adminviews, only: [:index, :show, :create] do
   end
 end

@@ -1,5 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  #below line ensures that an error is not thrown
+  #due to devise by default not letting an admin
+  #access the sign_up page while already signed in
   skip_before_action :require_no_authentication, only: [:new, :create]
 
   def new

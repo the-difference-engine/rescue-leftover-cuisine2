@@ -31,7 +31,8 @@
     <% end %>
 
   <% else %>
-
+  <!-- view for admins that are not superadmins -->
+  
     <h5>You do not have superadmin permission to create a new admin account. Please contact RLC staff to arrange setting up a new admin account.</h5>
 
     <h4><%= link_to "Home", root_path %></h4>
@@ -41,6 +42,7 @@
   <%= render "admins/shared/links" %>
 
 <% else %>
+  <!-- view for users or unsigned visitors who visit this route -->
 
   <h5>You do not have permission to view this page.</h5>
 

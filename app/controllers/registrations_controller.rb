@@ -15,4 +15,10 @@ class RegistrationsController < Devise::RegistrationsController
     set_flash_message! :notice, :admin_signed_up
     redirect_to root_path
   end
+
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 end 

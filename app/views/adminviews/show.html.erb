@@ -4,7 +4,7 @@
 
 <br/>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <%= f.label :user_name %>
       <%= f.text_field :user_name, class: 'form-control' %>

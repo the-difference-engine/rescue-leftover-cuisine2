@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => "registrations"}
   devise_for :users
+  scope "/adminviews" do
+  	resources :users
+  end
   root to: "pages#home"
   get 'hello' => 'users#hello'
   resources :admins do

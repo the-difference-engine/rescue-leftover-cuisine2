@@ -19,7 +19,7 @@ class AdminviewsController < ApplicationController
 		helper_method :resource_name
 
 		def resource
-			@resource ||= User.new
+			@resource = User.find(params[:id])
 		end
 		helper_method :resource
 

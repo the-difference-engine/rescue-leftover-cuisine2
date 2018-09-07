@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class AdminRegistrationsController < Devise::RegistrationsController
 
   skip_before_action :require_no_authentication, only: [:new, :create]
 

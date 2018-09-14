@@ -7,6 +7,19 @@ class AdminviewsController < ApplicationController
 		end
 		def show
 			@user = User.find(params[:id])
+			@user[:interests] = 'ponies'
+			@user.save
+		end
+		def suspend
+			@user = User.find(params[:id])
+			@user[:suspended_status] = !@user[:suspended_status]
+			@user.save
+		end
+		def byebye
+			@user = User.find(params[:id])
+			prev_name = @user.user_name
+			@user.destroy
+			#redirect to informational page saying user has been deleted
 		end
 		def create
 		end

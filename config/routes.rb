@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :adminviews, only: [:index, :show, :create] do
   end
+  get 'adminviews/:id/suspend', to: 'adminviews#suspend'
 end
 
 

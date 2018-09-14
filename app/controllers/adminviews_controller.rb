@@ -7,8 +7,6 @@ class AdminviewsController < ApplicationController
 		end
 		def show
 			@user = User.find(params[:id])
-			@user[:interests] = 'ponies'
-			@user.save
 		end
 		def suspend
 			@user = User.find(params[:id])

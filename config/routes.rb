@@ -1,8 +1,10 @@
-	Rails.application.routes.draw do
-  devise_for :users #, controllers: { sessions: 'users/sessions' }
+Rails.application.routes.draw do
+  devise_for :admins, :controllers => {:registrations => "registrations"}
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   root to: "pages#home"
-
-  get 'login' => 'pages#login'
+  get 'hello' => 'users#hello'
+  resources :adminviews, only: [:index, :show, :create] do
+  end
 end
 
 

@@ -1,18 +1,17 @@
-<p>Profile View: <%= @user.user_name %></p>
+<h3>User Info Page</h3>
+
+<p>Username: <%= @user.user_name %></p>
 
 <p>Email: <%= @user.email %> </p>
 
-<br/>
-
 <% if @user.suspended_status? %>
 
-	<p><%= @user.user_name %> is a jerk.</p>
-	<a href="/adminviews/<%= @user.id %>/suspend">Forgive them.</a>
+	<p><%= @user.user_name %> is currently suspended.</p>
+	<a href="/adminviews/<%= @user.id %>/suspend"><button>Lift Suspension</button></a>
 
 <% else %>
 
-	<p><%= @user.user_name %> is cool.</p>
-	<a href="/adminviews/<%= @user.id %>/suspend">Suspend them.</a>
+	<a href="/adminviews/<%= @user.id %>/suspend"><button>Suspend User</button></a>
 
 <% end %>
 

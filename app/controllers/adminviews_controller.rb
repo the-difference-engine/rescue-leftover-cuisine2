@@ -12,6 +12,7 @@ class AdminviewsController < ApplicationController
 			@user = User.find(params[:id])
 			@user[:suspended_status] = !@user[:suspended_status]
 			@user.save
+			redirect_to adminviews_path
 		end
 		def byebye
 			@user = User.find(params[:id])

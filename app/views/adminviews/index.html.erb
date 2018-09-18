@@ -1,9 +1,15 @@
-<p>These are all the website's users.</p>
+<h3>Admin Dashboard</h3>
+
+<h5>All Members</h5>
+
+<p class="user-line">
+<span class="user-title">User Name</span> | <span class="user-creation-date">Member Since</span>
+</p>
 
 <% @users.each do |user| %>
-    <li>
-    	<a href="/adminviews/<%= user.id %>"><%= user.email %></a>
-    </li>
+    <p class="user-line">
+    	<span class="user-title"><%= user.email %></span> | <span class="user-creation-date"><%= user.created_at %></span> | <a href="/adminviews/<%= user.id %>"><button>Edit</button></a>
+    </p>
 <% end %>
 
 <br/>

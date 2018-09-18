@@ -1,6 +1,15 @@
 <% if user_signed_in? %>
-	 <li><%= link_to current_user.email, edit_user_registration_path %></li>
-     <li class="nav-item active"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+    <% if current_user.suspended_status? %>
+
+        <p>Your account is currently suspended. Please contact site administration if you need more information.</p>
+        <p class="nav-item active"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
+
+    <% else %>
+
+        <li><%= link_to current_user.email, edit_user_registration_path %></li>
+        <li class="nav-item active"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+
+    <% end %>
 
 <% else %>
     <% if admin_signed_in? %>

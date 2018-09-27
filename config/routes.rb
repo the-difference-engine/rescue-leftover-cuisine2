@@ -4,12 +4,17 @@ Rails.application.routes.draw do
   scope "/adminviews" do
   	resources :users
   end
+  scope "/superadminviews" do
+    resources :admins
+  end
   root to: "pages#home"
   get 'hello' => 'users#hello'
   resources :admins do
   	get 'passwordchange'
   end
   resources :adminviews do
+  end
+  resources :superadminviews do
   end
   get 'adminviews/:id/suspend', to: 'adminviews#suspend'
 end

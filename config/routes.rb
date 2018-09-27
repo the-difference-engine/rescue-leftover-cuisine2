@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :admins do
   	get 'passwordchange'
   end
-  resources :adminviews, only: [:index, :show, :create] do
+  resources :adminviews do
   end
   get 'adminviews/:id/suspend', to: 'adminviews#suspend'
 end

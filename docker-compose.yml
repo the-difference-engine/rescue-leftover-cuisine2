@@ -6,7 +6,7 @@ services:
       - "5432"
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle install && npm install && tail -F anything"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && npm install && rails server"
     volumes:
       - .:/app
     ports:

@@ -1,4 +1,6 @@
-<p>Test succeeded.</p>
+<h3>Admin Dashboard</h3>
+
+<h5>All Administrators</h5>
 
 <p class="user-line">
 <span class="user-title">Admin Name</span> | <span class="user-creation-date">Member Since</span>
@@ -6,7 +8,11 @@
 
 <% @admins.each do |admin| %>
     <p class="user-line">
-    	<span class="user-title"><%= admin.email %></span> | <span class="user-creation-date"><%= admin.created_at %></span> | <button>Edit</button>
+    	<span class="user-title"><%= admin.email %></span>
+    	| <span class="user-creation-date"><%= admin.created_at %></span>
+    	<% if !admin.super_admin? %>
+    		| <button>Edit</button>
+    	<% end %>
     </p>
 <% end %>
 

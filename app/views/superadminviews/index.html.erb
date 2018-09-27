@@ -1,0 +1,13 @@
+<p>Test succeeded.</p>
+
+<p class="user-line">
+<span class="user-title">Admin Name</span> | <span class="user-creation-date">Member Since</span>
+</p>
+
+<% @admins.each do |admin| %>
+    <p class="user-line">
+    	<span class="user-title"><%= admin.email %></span> | <span class="user-creation-date"><%= admin.created_at %></span> | <button>Edit</button>
+    </p>
+<% end %>
+
+<h3><%= link_to "Home", root_path %></h3>

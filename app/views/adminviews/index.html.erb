@@ -11,6 +11,9 @@
     <li>
     	<a href="/adminviews/<%= recipe.id %>"><%= recipe.title %></a>
     	<a href="/adminviews/<%= recipe.id %>"><%= recipe.description %></a>
+    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.description %></a>
+    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.created_at %></a>
+    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.user.first_name %></a>
 
     </li>
 <% end %>

@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :user_name, uniqueness: true, presence: true
+
+  has_many :recipes
+
+
 end

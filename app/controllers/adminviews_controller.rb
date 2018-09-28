@@ -4,7 +4,10 @@ class AdminviewsController < ApplicationController
 
 		def index
 			@users = User.all
+			@recipes = Recipe.all
 		end
+
+		
 		def show
 			@user = User.find(params[:id])
 		end

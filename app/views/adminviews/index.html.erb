@@ -7,5 +7,16 @@
 <% end %>
 
 <br/>
+<% @recipes.each do |recipe| %>
+    <li>
+    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.title %></a>
+    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.description %></a>
+
+    </li>
+<% end %>
+
+
+
+
 
 <h3><%= link_to "Home", root_path %></h3>

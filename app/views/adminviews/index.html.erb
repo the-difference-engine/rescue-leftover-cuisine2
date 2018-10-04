@@ -1,4 +1,6 @@
-<p>These are all the website's users.</p>
+
+<h3>All Members</h3>
+
 
 <% @users.each do |user| %>
     <li>
@@ -7,15 +9,29 @@
 <% end %>
 
 <br/>
+<h3>All Recipes</h3>
+<br/>
 <% @recipes.each do |recipe| %>
-    <li>
-    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.title %></a>
-    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.description %></a>
-    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.description %></a>
-    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.created_at %></a>
-    	<a href="/adminviews/<%= recipe.id %>"><%= recipe.user.first_name %></a>
+<% @comments.each do |comment| %>
+<table>
+	<tr>
+		<th>Recipe Name</th>
+		<th> Created By</th>
+		<th> Date Created</th>
+		<th># Comments</th>
 
-    </li>
+	</tr>
+	<tr>
+		<td><%= recipe.title %></td>
+		<td><%= recipe.user.first_name %></td>
+		<td><%= recipe.user.created_at.strftime(' %m/%d/%Y') %></td>
+		<td><%= comment.recipe.id %></td>
+		<td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
+		<td><%= link_to "Delete", recipe_path(recipe), method: :delete %></td>
+	</tr>
+</table>
+
+<% end %>
 <% end %>
 
 

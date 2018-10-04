@@ -5,6 +5,7 @@ class AdminviewsController < ApplicationController
 		def index
 			@users = User.all
 			@recipes = Recipe.all
+			@comments = Comment.all 
 		end
 
 		

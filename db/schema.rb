@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2018_09_28_015001) do
     t.bigint "recipe_id"
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
   end
-
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.string "description"

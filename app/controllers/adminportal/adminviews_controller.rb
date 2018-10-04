@@ -14,10 +14,11 @@ class Adminportal::AdminviewsController < ApplicationController
 			@user.save
 			redirect_to adminviews_path
 		end
-		def byebye
+		def delete
 			@user = User.find(params[:id])
 			prev_name = @user.user_name
 			@user.destroy
+			redirect_to root_path
 			#redirect to informational page saying user has been deleted
 		end
 		def create

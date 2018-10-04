@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'hello' => 'users#hello'
   resources :adminviews, only: [:index, :show, :create] do
   end
+end
 
 
 

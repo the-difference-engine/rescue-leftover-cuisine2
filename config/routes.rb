@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :superadminviews do
   end
   get 'adminviews/:id/suspend', to: 'adminviews#suspend'
+  get 'superadminviews/:id/suspend', to: 'superadminviews#suspend'
 end
 
 

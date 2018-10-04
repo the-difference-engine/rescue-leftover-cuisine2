@@ -13,14 +13,17 @@
 
 <% else %>
     <% if admin_signed_in? %>
-     	<li class="nav-item active"><%= link_to current_admin.email, edit_admin_registration_path %></li>
-     	<li class="nav-item active"><%= link_to 'Sign out', destroy_admin_session_path, :method => :delete %></li>
-        <% if current_admin.super_admin? %>
-            <li class="nav-item active"><%= link_to "Create New Admin Account", new_admin_registration_path %></li>
+        <% if current_admin.suspended_status? %>
+         	<p>Your account is currently suspended. Please contact site administration if you need more information.</p>
+         	<li class="nav-item active"><%= link_to 'Sign out', destroy_admin_session_path, :method => :delete %></li>
+        <% else %>
+            <li class="nav-item active"><%= link_to current_admin.email, edit_admin_registration_path %></li>
+            <li class="nav-item active"><%= link_to 'Sign out', destroy_admin_session_path, :method => :delete %></li>
+            <% if current_admin.super_admin? %>
+                <li class="nav-item active"><%= link_to "Create New Admin Account", new_admin_registration_path %></li>
+            <% end %>
+            <li class="nav-item active"><%= link_to 'Admin Portal', adminviews_path %></li>
         <% end %>
-
- 	<li class="nav-item active"><%= link_to 'Admin Portal', adminviews_path %></li>
-
  	<% else %>
      	<li class="nav-item active"><%= link_to "Sign Up", new_user_registration_path %></li>
      	<li class="nav-item active"><%= link_to "Login", new_user_session_path %></li>

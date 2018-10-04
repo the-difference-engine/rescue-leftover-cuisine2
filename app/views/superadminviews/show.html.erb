@@ -1,0 +1,18 @@
+<h3>Admin Info Page</h3>
+
+<p>Username: <%= @admin.user_name %></p>
+
+<p>Email: <%= @admin.email %> </p>
+
+<% if @admin.suspended_status? %>
+
+	<p><%= @admin.user_name %> is currently suspended.</p>
+	<a href="/superadminviews/<%= @admin.id %>/suspend"><button>Lift Suspension</button></a>
+
+<% else %>
+
+	<a href="/superadminviews/<%= @admin.id %>/suspend"><button>Suspend Admin Access</button></a>
+
+<% end %>
+
+<h3><%= link_to "Full Admin List", root_url + 'superadminviews' %></h3>

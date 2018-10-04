@@ -8,6 +8,12 @@ class SuperadminviewsController < ApplicationController
 		def show
 			@admin = Admin.find(params[:id])
 		end
+		def suspend
+			@admin = Admin.find(params[:id])
+			@admin[:suspended_status] = !@admin[:suspended_status]
+			@admin.save
+			redirect_to superadminviews_path
+		end
 		def create
 		end
 

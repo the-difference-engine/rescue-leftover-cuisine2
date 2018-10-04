@@ -12,12 +12,11 @@ Rails.application.routes.draw do
   resources :admins do
   	get 'passwordchange'
   end
-  resources :adminviews do
+  namespace :adminportal do
+    resources :adminviews, :superadminviews
   end
-  resources :superadminviews do
-  end
-  get 'adminviews/:id/suspend', to: 'adminviews#suspend'
-  get 'superadminviews/:id/suspend', to: 'superadminviews#suspend'
+  get 'adminportal/adminviews/:id/suspend', to: 'adminportal/adminviews#suspend'
+  get 'adminportal/superadminviews/:id/suspend', to: 'adminportal/superadminviews#suspend'
 end
 
 

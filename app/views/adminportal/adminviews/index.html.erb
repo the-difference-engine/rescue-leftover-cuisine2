@@ -8,12 +8,12 @@
 
 <% @users.each do |user| %>
     <p class="user-line">
-    	<span class="user-title"><%= user.email %></span> | <span class="user-creation-date"><%= user.created_at %></span> | <a href="/adminviews/<%= user.id %>"><button>Edit</button></a>
+    	<span class="user-title"><%= user.email %></span> | <span class="user-creation-date"><%= user.created_at %></span> | <a href="/adminportal/adminviews/<%= user.id %>"><button>Edit</button></a>
     </p>
 <% end %>
 
 <br/>
 
-<a href="/superadminviews/">View Admin Accounts</a>
+<a href="/adminportal/superadminviews/">View Admin Accounts</a>
 
 <h3><%= link_to "Home", root_path %></h3>

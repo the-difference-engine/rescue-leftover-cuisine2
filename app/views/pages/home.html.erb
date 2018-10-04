@@ -22,7 +22,7 @@
             <% if current_admin.super_admin? %>
                 <li class="nav-item active"><%= link_to "Create New Admin Account", new_admin_registration_path %></li>
             <% end %>
-            <li class="nav-item active"><%= link_to 'Admin Portal', adminviews_path %></li>
+            <a href="/adminportal/adminviews"><li class="nav-item active">Admin Portal</li></a>
         <% end %>
  	<% else %>
      	<li class="nav-item active"><%= link_to "Sign Up", new_user_registration_path %></li>

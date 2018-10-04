@@ -1,4 +1,4 @@
-class SuperadminviewsController < ApplicationController
+class Adminportal::SuperadminviewsController < ApplicationController
 
 	before_action :authenticate_admin!
 

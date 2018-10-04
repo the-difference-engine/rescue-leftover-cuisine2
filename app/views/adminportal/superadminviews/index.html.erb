@@ -12,7 +12,7 @@
     	| <span class="user-creation-date"><%= admin.created_at %></span>
     	<% if current_admin.super_admin? %>
 	    	<% if !admin.super_admin? %>
-	    		| <a href="/superadminviews/<%= admin.id %>"><button>Edit</button></a>
+	    		| <a href="/adminportal/superadminviews/<%= admin.id %>"><button>Edit</button></a>
 	    	<% end %>
     	<% end %>
     </p>

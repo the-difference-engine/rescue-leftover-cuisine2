@@ -1,4 +1,4 @@
-class AdminviewsController < ApplicationController
+class Adminportal::AdminviewsController < ApplicationController
 
 	before_action :authenticate_admin!
 

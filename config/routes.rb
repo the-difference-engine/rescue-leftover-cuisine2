@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => "admin_registrations"}
   devise_for :users, :controllers => {:registrations => "user_registrations"}

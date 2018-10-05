@@ -5,12 +5,12 @@
         <p class="nav-item active"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
 
     <% else %>
-
+        <h1>Hey there, <%= current_user.first_name %></h1>
+        <p>You really enjoy <%= current_user.interests %>?</p>
         <li><%= link_to current_user.email, edit_user_registration_path %></li>
         <li class="nav-item active"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
 
     <% end %>
-
 <% else %>
     <% if admin_signed_in? %>
         <% if current_admin.suspended_status? %>

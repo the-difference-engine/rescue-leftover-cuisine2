@@ -12,7 +12,7 @@ class Adminportal::AdminviewsController < ApplicationController
 			@user = User.find(params[:id])
 			@user[:suspended_status] = !@user[:suspended_status]
 			@user.save
-			redirect_to adminviews_path
+			redirect_to root_path
 		end
 		def delete
 			@user = User.find(params[:id])

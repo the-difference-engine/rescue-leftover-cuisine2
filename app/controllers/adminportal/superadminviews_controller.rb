@@ -12,7 +12,7 @@ class Adminportal::SuperadminviewsController < ApplicationController
 			@admin = Admin.find(params[:id])
 			@admin[:suspended_status] = !@admin[:suspended_status]
 			@admin.save
-			redirect_to superadminviews_path
+			redirect_to root_path
 		end
 		def create
 		end

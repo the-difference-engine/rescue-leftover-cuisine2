@@ -20,3 +20,7 @@
      	<li class="nav-item active"><%= link_to "Admin Portal", new_admin_session_path %></li>
  	<% end %>
 <% end %>
+
+<%= render 'components/page/page' do %>
+	<p>Hello from our first component!</p>
+<% end %>

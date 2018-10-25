@@ -13,5 +13,8 @@ RUN mkdir /app
 WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-RUN bundle install && yarn install
+RUN bundle install
+WORKDIR /app/frontend
+RUN yarn install
+WORKDIR /app
 COPY . /app

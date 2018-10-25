@@ -6,6 +6,7 @@
   "scripts": {
     "build": "cd frontend && npm install && npm run build && cd ..",
     "deploy": "cp -a frontend/build/. public/",
+    "start": "cd frontend && npm start",
     "postinstall": "npm run build && npm run deploy"
   }
 }

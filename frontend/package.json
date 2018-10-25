@@ -2,14 +2,11 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:3001"
-    }
-  },
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "react-scripts": "2.0.5"

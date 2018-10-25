@@ -9,12 +9,12 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev sudo net-
     sudo apt-get update && sudo apt-get install yarn
 
 ENV PATH=/usr/src/app/bin:$PATH RAILS_ENV=development
-RUN mkdir /app
+RUN mkdir -p /app/frontend
 WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-WORKDIR /app/frontend
-RUN yarn install
-WORKDIR /app
+COPY package.json /app/package.json
+COPY frontend/package.json /app/frontend/package.json
+RUN npm install
 COPY . /app

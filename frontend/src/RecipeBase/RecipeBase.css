@@ -1,0 +1,31 @@
+.overall-container {
+  margin: 0px;
+  padding: 0px;
+  background-color: #222222;
+  text-align: center;
+}
+
+.recipe-path {
+  height: 5vh;
+  line-height: 5vh;
+  background-color: #333333;
+  text-align: left;
+  font-size: 1.8vh;
+  color: white;
+  padding: 0px;
+}
+
+.path-information {
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.separator {
+  height: 2px;
+  background-color: #eeeeee;
+  margin-bottom: 20px;
+}
+

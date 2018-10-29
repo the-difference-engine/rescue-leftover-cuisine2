@@ -1,0 +1,46 @@
+#diff-text {
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 16px;
+	position: relative;
+	top: -2px;
+}
+
+#diff-graphic {
+	display: inline-block;
+}
+
+#difficulty-scale1 {
+	height: 10px;
+	width: 6px;
+	background-color: #55ffff;
+	border-radius: 40%;
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	left: -1px;
+	box-shadow: 0 0 1px 1px #55ffff;
+}
+
+#difficulty-scale2 {
+	height: 16px;
+	width: 6px;
+	background-color: #eeeeee;
+	border-radius: 40%;
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	box-shadow: 0 0 1px 1px #eeeeee;
+}
+
+#difficulty-scale3 {
+	height: 22px;
+	width: 6px;
+	background-color: #eeeeee;
+	border-radius: 40%;
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	left: 1px;
+	box-shadow: 0 0 1px 1px #eeeeee;
+}

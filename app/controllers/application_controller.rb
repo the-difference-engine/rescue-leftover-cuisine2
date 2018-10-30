@@ -14,4 +14,7 @@ class ApplicationController < ActionController::Base
 	  devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :first_name, :last_name, :email, :profile_photo, :interests, :password])
 	end 	
 
+	def fallback_index_html
+		render :file => 'public/index.html'
+	end
 end

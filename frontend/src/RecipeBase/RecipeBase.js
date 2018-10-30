@@ -9,7 +9,7 @@ import {IngredientList} from '../IngredientList/IngredientList.js';
 import {Directions} from '../Directions/Directions.js';
 import {CommentSection} from '../CommentSection/CommentSection.js';
 
-class App extends Component {
+class Base extends Component {
   render() {
     return (
       <div className="overall-container">
@@ -30,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Base;

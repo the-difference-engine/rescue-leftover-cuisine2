@@ -11,7 +11,7 @@ export class Directions extends Component {
 	}
 	render() {
 		return (
-			<div id="direction-container">
+			<div id="direction-container" className="col-sm-10 offset-sm-1">
 				<h4 id="direction-title">Directions</h4>
 				<ul>
 					{this.state.directions.map((direction, index) => {

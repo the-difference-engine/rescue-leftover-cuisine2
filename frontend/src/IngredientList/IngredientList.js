@@ -14,9 +14,9 @@ export class IngredientList extends Component {
 			<div id="ingredient-list">
 				<h4 id="ingredient-title">Ingredients</h4>
 				<ul>
-					{this.state.ingredients.map((ingred) => {
+					{this.state.ingredients.map((ingred, i) => {
 						return (<li><SingleIngredient
-							ingredient={ingred} /></li>
+							ingredient={ingred} key={i} /></li>
 						)
 					})}
 				</ul>

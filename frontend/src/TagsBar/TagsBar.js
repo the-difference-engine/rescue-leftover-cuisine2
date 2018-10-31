@@ -13,9 +13,9 @@ export class TagsBar extends Component {
 	render() {
 		return (
 			<div className="tags-bar">
-				{this.state.tags.map((tag) => {
+				{this.state.tags.map((tag, i) => {
 					return (<SingleTag
-						tag={tag} />
+						tag={tag} key={i} />
 					)
 				})}
 				<AddTag />

@@ -16,7 +16,7 @@ export class Directions extends Component {
 				<ul>
 					{this.state.directions.map((direction, index) => {
 						return (<SingleDirection
-							direction={direction} index={index + 1} />
+							direction={direction} index={index + 1} key={index} />
 						)
 					})}
 				</ul>

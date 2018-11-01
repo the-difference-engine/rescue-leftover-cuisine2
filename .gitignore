@@ -26,6 +26,6 @@
 
 .env
 /public
-/node_modules
+/frontend/node_modules
 yarn-debug.log*
 .yarn-integrity

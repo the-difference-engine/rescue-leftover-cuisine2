@@ -4,11 +4,9 @@
   "private": true,
   "proxy": "http://localhost:3000",
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "axios": "^0.18.0"
-  },
-  "devDependencies": {
     "react-scripts": "2.0.5"
   },
   "scripts": {

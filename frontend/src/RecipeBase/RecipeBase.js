@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './RecipeBase.css';
-import {MainImage} from '../MainImage/MainImage.js';
+import {MainImage} from './MainImage/MainImage.js';
 import {SpecsBar} from '../SpecsBar/SpecsBar.js';
 import {TagsBar} from '../TagsBar/TagsBar.js';
-import {MainBody} from '../MainBody/MainBody.js';
-import {IngredientList} from '../IngredientList/IngredientList.js';
-import {Directions} from '../Directions/Directions.js';
-import {CommentSection} from '../CommentSection/CommentSection.js';
+import {MainBody} from './MainBody/MainBody.js';
+import {IngredientList} from './IngredientList/IngredientList.js';
+import {Directions} from './Directions/Directions.js';
+import {CommentSection} from './CommentSection/CommentSection.js';
 
 class Base extends Component {
   render() {

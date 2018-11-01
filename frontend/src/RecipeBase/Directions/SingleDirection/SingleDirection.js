@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './SingleDirection.css';
 
 export class SingleDirection extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		return (
 			<div className="single-direction">

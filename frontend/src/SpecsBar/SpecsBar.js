@@ -9,13 +9,13 @@ export class SpecsBar extends Component {
 		return (
 			<div className="specs-bar">
 				<div className="row">
-					<div id="diff-spec-container1" className="col-sm-4 text-center">
+					<div id="diff-spec-container1" className="spec-element col-sm-4 text-center">
 						<DifficultySpec/>
 					</div>
-					<div id="diff-spec-container2" className="spec-element" className="col-sm-4 text-center">
+					<div id="diff-spec-container2" className="spec-element col-sm-4 text-center">
 						<DurationSpec/>
 					</div>
-					<div id="diff-spec-container3" className="spec-element" className="col-sm-4 text-center">
+					<div id="diff-spec-container3" className="spec-element col-sm-4 text-center">
 						<ServingsSpec/>
 					</div>
 				</div>

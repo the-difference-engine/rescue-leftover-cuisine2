@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import SignIn from './components/sign_in/sign_in';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
+          <SignIn />
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.

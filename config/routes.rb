@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => "admin_registrations"}
   devise_for :users, :controllers => {:registrations => "user_registrations"}
@@ -19,10 +18,12 @@ Rails.application.routes.draw do
   get 'adminportal/adminviews/:id/suspend', to: 'adminportal/adminviews#suspend'
   get 'adminportal/adminviews/:id/delete', to: 'adminportal/adminviews#delete'
   get 'adminportal/superadminviews/:id/suspend', to: 'adminportal/superadminviews#suspend'
+
+  namespace :api do
+    resources :message
+  end
+
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
 end
-
-
-
-  
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-

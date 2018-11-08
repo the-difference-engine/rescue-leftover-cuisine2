@@ -13,3 +13,8 @@
 #new-comment-box {
 	height: 20vh;
 }
+
+#submitted-comments {
+	margin-top: 20px;
+	padding-bottom: 1.6em;
+}

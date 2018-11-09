@@ -10,12 +10,42 @@ export class CommentSection extends Component {
 			nextText: ''
 		}
 	}
+	handleInput = (e) => {
+		this.setState({ nextText: e.currentTarget.value });
+	}
+	enterComment = (event) => {
+		if (event.which === 13 && !event.shiftKey){
+			event.target.form.dispatchEvent(new Event("submit", {cancelable: true}));
+			console.log('operationsl');
+			event.preventDefault();
+		}
+	}
+	submitComment = () => {
+		document.getElementById("new-comment-box").addEventListener("keypress", this.enterComment);
+	}
+	handleSubmit = (e) => {
+		e.preventDefault();
+		this.setState(state => {
+			const comments = state.comments.concat({user: 'anonymous', body: state.nextText});
+
+			return {
+				comments,
+				nextText: '',
+			};
+		});
+		document.getElementById('new-comment-box').value = '';
+	}
+	handleKeyPress = (event) => {
+	  if(event.key === 'Enter'){
+	    this.handleSubmit(event);
+	  }
+	}
 	render() {
 		return (
 			<div>
 				<div id="comment-container">
 					<h2 id="comments-title">Comments</h2>
-					<textarea id="new-comment-box" className="col-sm-10" placeholder="Type a comment" />
+					<textarea id="new-comment-box" className="col-sm-10" placeholder="Type a comment" onChange={this.handleInput} onKeyPress={this.handleKeyPress} />
 					<div id="submitted-comments">
 						{this.state.comments.map((item, index) => {
 							return (<SingleComment

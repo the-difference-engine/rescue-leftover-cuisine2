@@ -116,11 +116,11 @@ span {
 
 #inputFirstName {
   margin-right: 0.5em;
-  max-width: 190px;
+  max-width: 180px;
 }
 
 #inputLastName {
-  max-width: 190px;
+  max-width: 180px;
 }
 
 #inputEmail14,

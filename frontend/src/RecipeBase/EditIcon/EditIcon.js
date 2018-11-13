@@ -5,7 +5,7 @@ export class EditIcon extends Component {
 	render() {
 		return (
 			<div id="edit-icon-container">
-				Edit
+				<span id="edit-icon-text">EDIT</span>
 			</div>
 		);
 	}

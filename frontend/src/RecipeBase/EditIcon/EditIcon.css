@@ -1,5 +1,18 @@
 #edit-icon-container {
 	display: inline-block;
 	float: right;
-	margin: 0 2vw;
+	margin: 20px 2vw;
+	border: 2px solid #ffa616;
+	border-radius: 13%;
+	color: #ffa616;
+	font-family: 'Nunito', sans-serif;
+	font-size: 13px;
+	height: 3em;
+	padding-left: .5em;
+	padding-right: .8em;
+	line-height: 3em;
+  	background-color: #ececec;
+  	font-weight: 600;
+  	width: 94px;
+  	text-align: center;
 }

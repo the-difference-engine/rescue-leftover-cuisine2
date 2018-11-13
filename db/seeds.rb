@@ -11,3 +11,5 @@ Recipe.create(title: "Lasagna", description: "Lots of tomato sauce and cheese an
 Recipe.create(title: "Cookies", description: "chocolate chip", ingredients: "other stuff", directions: "use the ones on the box", difficulty: "Beginner")
 
 Comment.create(name: "Hal", text: "This is pretty good i guess", recipe_id: 1)
+
+Comment.create(name: "Billy", text: "Hal sucks", recipe_id: 1)

@@ -9,10 +9,59 @@
 	font-size: 13px;
 	height: 3em;
 	padding-left: .5em;
-	padding-right: .8em;
+	padding-right: 1.6em;
 	line-height: 3em;
   	background-color: #ececec;
   	font-weight: 600;
-  	width: 94px;
-  	text-align: center;
+  	text-align: right;
+}
+
+#pencil-icon-x-1 {
+	display: inline-block;
+	height: 2px;
+	width: 24px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	background-color: #ffa616;
+}
+
+#pencil-icon-x-2 {
+	display: inline-block;
+	height: 2px;
+	width: 24px;
+	position: relative;
+	left: -24px;
+	top: 4px;
+	background-color: #ffa616;
+}
+
+#pencil-icon-x-3 {
+	display: inline-block;
+	background-color: #ffa616;
+	height: 1px;
+	width: 1px;
+	position: relative;
+	left: -24px;
+	top: -10px;
+}
+
+#pencil-icon-x-4 {
+	display: inline-block;
+	background-color: #ffa616;
+	height: 1px;
+	width: 1px;
+	position: relative;
+	left: -24px;
+	top: -10px;
+}
+
+#pencil-icon-x-5 {
+	display: inline-block;
+	background-color: #ffa616;
+	height: 1px;
+	width: 1px;
+	position: relative;
+	left: -24px;
+	top: -10px;
 }

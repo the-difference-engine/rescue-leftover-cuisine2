@@ -7,13 +7,18 @@ import {MainBody} from './MainBody/MainBody.js';
 import {IngredientList} from './IngredientList/IngredientList.js';
 import {Directions} from './Directions/Directions.js';
 import {CommentSection} from './CommentSection/CommentSection.js';
+import {DeleteIcon} from './DeleteIcon/DeleteIcon.js';
+import {EditIcon} from './EditIcon/EditIcon.js';
+
 
 class Base extends Component {
   render() {
     return (
       <div className="overall-container">
         <header className="recipe-path">
-          <p className="path-information">User > Jason Oliver > Recipe > Easy Creamy Vegan Macaroni and Cheese</p>
+          <p className="path-information">Jason Oliver > Easy Creamy Vegan Macaroni and Cheese</p>
+          <EditIcon />
+          <DeleteIcon />
         </header>
         <MainImage />
         <SpecsBar />

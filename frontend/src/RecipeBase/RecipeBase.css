@@ -2,12 +2,11 @@
   margin: 0px 10px;
   padding: 0px;
   background-color: #222222;
-  text-align: center;
 }
 
 .recipe-path {
-  height: 5vh;
-  line-height: 5vh;
+  height: 80px;
+  line-height: 80px;
   background-color: #333333;
   text-align: left;
   font-size: 1.8vh;
@@ -16,7 +15,8 @@
 }
 
 .path-information {
-
+  display: inline-block;
+  text-align: left;
 }
 
 .App-link {

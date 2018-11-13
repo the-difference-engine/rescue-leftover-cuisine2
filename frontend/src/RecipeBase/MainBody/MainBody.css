@@ -1,11 +1,13 @@
 #recipe-title {
 	color: #f5f5dc;
+	text-align: center;
 }
 
 #recipe-descrip {
 	color: white;
 	font-size: 12px;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 #blurb-title {

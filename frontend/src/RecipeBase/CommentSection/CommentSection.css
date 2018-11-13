@@ -12,6 +12,8 @@
 
 #new-comment-box {
 	height: 20vh;
+	width: 80vw;
+	margin-left: 8.33vw;
 }
 
 #submitted-comments {

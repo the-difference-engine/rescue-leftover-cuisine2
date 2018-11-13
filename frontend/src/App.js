@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from "./common/Header/Header.js"
+// import './App.css';
 import axios from 'axios';
 
 class App extends Component {
@@ -19,11 +19,8 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>{this.state.message}</p>
-        </header>
+      <div> 
+        <Header />
       </div>
     );
   }

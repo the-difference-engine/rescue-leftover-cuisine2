@@ -102,7 +102,9 @@ h3 {
   color: #495057;
 }
 
-i {
-  /* position: left; */
-  background-color: #495057;
+span {
+  color: #495057;
+  position: absolute;
+  left: 200px;
+  bottom: 17px;
 }

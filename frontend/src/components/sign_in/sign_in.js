@@ -27,14 +27,14 @@ class SignIn extends Component {
           </div>
 
           <div className="form-label-group">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword4" className="form-control-lg" placeholder="Password" required="" />
-            <label htmlFor="inputPassword4">Password</label>
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword3" className="form-control-lg" placeholder="Password" required="" />
+            <label htmlFor="inputPassword3">Password</label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group">
             <a href="">I forgot my password</a>
           </div>
-          <button className="btn btn-lg btn-block" type="submit">Sign Up</button>
+          <button className="btn btn-lg btn-block" type="submit">Log In</button>
         </form>
       </div>
     );

@@ -21,8 +21,8 @@
 	height: 2px;
 	width: 24px;
 	position: relative;
-	left: 0px;
-	top: 0px;
+	left: 25px;
+	top: -5px;
 	background-color: #ffa616;
 }
 
@@ -31,37 +31,59 @@
 	height: 2px;
 	width: 24px;
 	position: relative;
-	left: -24px;
-	top: 4px;
+	left: 1px;
+	top: 1px;
 	background-color: #ffa616;
 }
 
 #pencil-icon-x-3 {
 	display: inline-block;
 	background-color: #ffa616;
-	height: 1px;
-	width: 1px;
+	height: 6px;
+	width: 2px;
 	position: relative;
-	left: -24px;
-	top: -10px;
+	left: -1px;
+	top: 1px;
 }
 
 #pencil-icon-x-4 {
 	display: inline-block;
 	background-color: #ffa616;
-	height: 1px;
-	width: 1px;
+	height: 8px;
+	width: 2px;
 	position: relative;
-	left: -24px;
-	top: -10px;
+	left: -9px;
+	top: 1px;
 }
 
 #pencil-icon-x-5 {
 	display: inline-block;
 	background-color: #ffa616;
-	height: 1px;
+	height: 8px;
 	width: 1px;
 	position: relative;
-	left: -24px;
-	top: -10px;
+	left: -27px;
+	top: 1px;
+}
+
+#pencil-icon-x-6 {
+	display: inline-block;
+	background-color: #ffa616;
+	height: 2px;
+	width: 6px;
+	position: relative;
+	left: -33px;
+	top: 0px;
+	transform: rotate(30deg);
+}
+
+#pencil-icon-x-7 {
+	display: inline-block;
+	background-color: #ffa616;
+	height: 2px;
+	width: 6px;
+	position: relative;
+	left: -39px;
+	top: -4px;
+	transform: rotate(-30deg);
 }

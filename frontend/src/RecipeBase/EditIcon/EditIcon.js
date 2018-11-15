@@ -15,6 +15,10 @@ export class EditIcon extends Component {
 				</div>
 				<div id="pencil-icon-x-5">
 				</div>
+				<div id="pencil-icon-x-6">
+				</div>
+				<div id="pencil-icon-x-7">
+				</div>
 				<span id="edit-icon-text">EDIT</span>
 			</div>
 		);

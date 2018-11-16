@@ -1,0 +1,20 @@
+<h3>User Info Page</h3>
+
+<p>Username: <%= @user.user_name %></p>
+
+<p>Email: <%= @user.email %> </p>
+
+<% if @user.suspended_status? %>
+
+	<p><%= @user.user_name %> is currently suspended.</p>
+	<a href="/adminportal/adminviews/<%= @user.id %>/suspend"><button>Lift Suspension</button></a>
+
+<% else %>
+
+	<a href="/adminportal/adminviews/<%= @user.id %>/suspend"><button>Suspend User</button></a>
+
+<% end %>
+
+<a href="/adminportal/adminviews/<%= @user.id %>/delete"><button>Delete User</button></a>
+
+<h3><%= link_to "Full User List", root_url + 'adminportal/adminviews' %></h3>

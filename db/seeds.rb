@@ -11,3 +11,5 @@ Recipe.create(title: "Lasagna", description: "Lots of tomato sauce and cheese an
 Recipe.create(title: "Cookies", description: "chocolate chip", ingredients: "other stuff", directions: "use the ones on the box", difficulty: "Beginner")
 
 Comment.create(name: "Hal", text: "This is pretty good i guess", recipe_id: 1)
+
+Admin.create(email: "generico@hotmail.com", password: "Complicated&3", password_confirmation: "Complicated&3", sign_in_count: 0, created_at: "2018-04-27 09:34:41.306138", updated_at: "2018-04-27 09:34:41.306138", super_admin: true)

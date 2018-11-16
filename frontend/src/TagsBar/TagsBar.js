@@ -12,7 +12,7 @@ export class TagsBar extends Component {
 	}
 	render() {
 		return (
-			<div className="tags-bar">
+			<div className="tags-bar col-sm-10 offset-sm-1">
 				{this.state.tags.map((tag, i) => {
 					return (<SingleTag
 						tag={tag} key={i} />

@@ -11,7 +11,7 @@ import {DeleteIcon} from './DeleteIcon/DeleteIcon.js';
 import {EditIcon} from './EditIcon/EditIcon.js';
 
 
-class Base extends Component {
+class RecipeBase extends Component {
   render() {
     return (
       <div className="overall-container">
@@ -35,4 +35,4 @@ class Base extends Component {
   }
 }
 
-export default Base;
+export default RecipeBase;

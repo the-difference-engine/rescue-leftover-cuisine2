@@ -1,0 +1,17 @@
+.card-container {
+  width: 30%;
+  height: 400px;
+  padding: 10px;
+  border: 2px solid #c7ced4;
+  border-radius: 10px;
+  background: white;
+}
+
+.card-title{
+  text-align: center;
+  color: #4EC8ED
+}
+
+.card {
+  color: #495057;
+}

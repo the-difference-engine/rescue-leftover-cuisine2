@@ -1,12 +1,7 @@
 import React, {Component } from 'react';      
 
 class PageFooter extends Component {
-  constructor(props) {
-    super(props)
-    // this.state = {
-    //   none: ''
-    // }
-  }
+
 
   render (){
     // Colors are different shades of grey
@@ -32,7 +27,7 @@ class PageFooter extends Component {
             opacity: ".7",
             color: "#666565"
           },
-          contnr: {
+          containerSection: {
             width: "100%",
             height: "50px",
             marginLeft: "0",
@@ -54,7 +49,7 @@ class PageFooter extends Component {
       };
 
     return (
-      <div className='container-fluid' style={styles.contnr}>
+      <div className='container-fluid' style={styles.containerSection}>
         <div className="footer">
           <div className='row'>
             {/* Empty placeholder section */}

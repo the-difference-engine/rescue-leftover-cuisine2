@@ -1,4 +1,4 @@
-# rescue-leftover-cuisine
+# Rescue Leftover Cuisine
 
 Inside the README:
 How to install all necessary software/dependencies for a dev to be able to run the app locally.
@@ -91,3 +91,14 @@ RAILS_ENV=development rails db:create
 RAILS_ENV=development rails db:migrate
 ```
 This will create and migrate all databases in `config/database.yml`.
+
+## Staging
+You can preview what the applicaton will look a production-ish environment by merging changes into the `staging` branch:
+
+```
+git checkout staging
+git merge my-feature-branch
+git push origin staging
+```
+
+This will kick off a build in Heroku, and, after a minute or three, your changes should be visible at https://rescue-leftover-cuisine-stage.herokuapp.com/

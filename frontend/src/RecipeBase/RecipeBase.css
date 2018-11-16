@@ -67,6 +67,43 @@ li::before {
   display: inline;
 }
 
+#recipe-title {
+  color: #f5f5dc;
+  text-align: center;
+}
+
+#recipe-descrip {
+  color: white;
+  font-size: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#direction-container {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#direction-title {
+  color: white;
+  text-align: center;
+}
+
+.single-direction {
+  display: inline;
+  color: pink;
+  text-align: left;
+}
+
+.direction-index {
+  display: inline;
+  margin-right: 8px;
+}
+
+.direction-action {
+  display: inline;
+}
+
 @media (max-width: 600px) {
   .path-information {
     display: none;

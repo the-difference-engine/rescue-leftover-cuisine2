@@ -35,5 +35,11 @@
 	display: inline-block;
 	margin-left: 6px;
 	position: relative;
-	top: 2px;
+	top: 0px;
+}
+
+@media (max-width: 675px) {
+	#dura-text {
+		font-size: 12px;
+	}
 }

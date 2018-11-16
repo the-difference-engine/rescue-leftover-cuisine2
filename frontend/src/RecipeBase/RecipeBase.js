@@ -17,6 +17,7 @@ class Base extends Component {
       <div className="overall-container">
         <header className="recipe-path">
           <p className="path-information">Jason Oliver > Easy Creamy Vegan Macaroni and Cheese</p>
+          <p className="path-information-mobile">> Jason Oliver > Recipe</p>
           <EditIcon />
           <DeleteIcon />
         </header>

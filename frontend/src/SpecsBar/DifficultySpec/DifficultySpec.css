@@ -44,3 +44,11 @@
 	left: 1px;
 	box-shadow: 0 0 1px 1px #eeeeee;
 }
+
+@media (max-width: 675px) {
+	#diff-text {
+		font-size: 12px;
+		left: -2px;
+		top: -4px;
+	}
+}

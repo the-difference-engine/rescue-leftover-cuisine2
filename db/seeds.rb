@@ -12,4 +12,4 @@ Recipe.create(title: "Cookies", description: "chocolate chip", ingredients: "oth
 
 Comment.create(name: "Hal", text: "This is pretty good i guess", recipe_id: 1)
 
-Comment.create(name: "Billy", text: "Hal sucks", recipe_id: 1)
+Comment.create(name: "Billy", text: "Hal is the worst", recipe_id: 1)

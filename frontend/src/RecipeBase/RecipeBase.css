@@ -35,6 +35,38 @@
   margin-bottom: 20px;
 }
 
+#ingredient-title {
+  color: #f5f5dc;
+  text-align: center;
+}
+
+#ingredient-list {
+  color: white;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+li {
+  padding-left: 1em;
+  text-indent: -.7em;
+  text-align: center;
+}
+
+li::before {
+  content: "• ";
+  color: silver;
+}
+
+#single-ingredient {
+  color: white;
+  display: inline;
+}
+
 @media (max-width: 600px) {
   .path-information {
     display: none;

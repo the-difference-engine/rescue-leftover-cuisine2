@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import PageFooter from './common/Footer';
+import { Router, Route, Link, Switch } from 'react-router-dom'
+import MainFooter from './components/Footer/Footer.js';
 import axios from 'axios';
+import history from './history';
 
 class App extends Component {
   constructor(props) {
@@ -18,15 +20,22 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-         {/*  
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" /> 
-              <p>{this.state.message}</p>
-            </header>        
-        */}       
-        <PageFooter />
-      </div>
+      <Router history={history}> 
+        <div>
+            <h1 className="jumbotron text-center">{this.state.message}</h1>
+            <button className="btn">
+              <Link to="/footer">Render Footer</Link>
+            </button>
+            <hr></hr>
+            <button className="btn">
+              <Link to="/">Now make it go away with a new route</Link>
+            </button>
+
+            <Route exact path="/" />
+            <Route path="/footer" component={MainFooter} />
+        </div>
+      </Router>
+    
     )
   }
 }

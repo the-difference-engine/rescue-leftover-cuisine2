@@ -40,7 +40,7 @@ class App extends Component {
             </nav>
           </div>
 
-          <div className="wrapper">
+          <div className="">
             <Route exact path="/" />
             <Route path="/footer" component={MainFooter} />
             <Route path="/login" component={LoginPage} />

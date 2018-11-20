@@ -12,7 +12,7 @@ class LoginPage extends Component {
         isAuthorized: false
     }
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.login = this.login.bind(this);
+    //this.login = this.login.bind(this);
   }
 
   handleInputChange(event) {
@@ -21,7 +21,7 @@ class LoginPage extends Component {
   }
 
   
-  login(event) {
+ /* login(event) {
     axios.post('api/v1/login', {
         email: this.state.email,
         encrypted_password: this.state.encrypted_password
@@ -34,12 +34,14 @@ class LoginPage extends Component {
     })
     .catch(console.error)
   }
+  */
 
   render() {
 
-    if(this.state.isAuthorized === false) {
+    if(!this.state.isAuthorized) {
       return (
-        <div className="container card form-control">
+        <div className="container card">
+            <br></br>
             <div className="form-group">
               <label>Email address</label>
               <input 

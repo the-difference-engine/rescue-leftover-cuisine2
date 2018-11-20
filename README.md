@@ -103,27 +103,31 @@ frontend/
 |   |-- index.html
 |
 |-- src/
+|   |-- assets/  # This is only temporary!
+|   |
 |   |-- components/
 |   |   |-- App/
-|   |   |   |-- index.js
-|   |   |   |-- styles.css
+|   |   |   |-- App.js
+|   |   |   |-- App.css
 |   |   |
 |   |   |-- LogIn/
-|   |   |   |-- index.js
-|   |   |   |-- styles.css
+|   |   |   |-- LogIn.js
+|   |   |   |-- LogIn.css
 |   |   |
 |   |   |-- RecipeCard/
-|   |   |   |-- index.js
-|   |   |   |-- styles.css
+|   |   |   |-- RecipeCard.js
+|   |   |   |-- RecipeCard.css
 |   |   |
 |   |   |-- YetAnotherComponent/
-|   |       |-- index.js
-|   |       |-- styles.css
+|   |       |-- YetAnotherComponent.js
+|   |       |-- YetAnotherComponent.css
 |   |
 |   |-- containers/
-|       |-- HomePage/
-|           |-- index.js
-|           |-- styles.css
+|   |   |-- HomePage/
+|   |       |-- HomePage.js
+|   |       |-- HomePage.css
+|   |
+|   |-- index.js
 |
 |-- package.json
 |-- README.md

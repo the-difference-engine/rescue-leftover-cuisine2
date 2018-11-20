@@ -17,6 +17,7 @@
 # Ignore uploaded files in development
 /storage/*
 
+/frontend/node_modules
 /node_modules
 /yarn-error.log
 
@@ -27,7 +28,7 @@
 
 .env
 /public
-/node_modules
+/frontend/node_modules
 yarn-debug.log*
 .yarn-integrity
 

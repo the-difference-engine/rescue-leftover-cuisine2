@@ -1,6 +1,6 @@
 .card-container {
   width: 30%;
-  height: 400px;
+  height: auto;
   padding: 10px;
   border: 2px solid #c7ced4;
   border-radius: 10px;
@@ -14,4 +14,24 @@
 
 .card {
   color: #495057;
+  max-height: 100%;
+}
+
+.image-holder{
+  position: relative;
+}
+
+button{
+  border-radius: 20px;
+  height: 40px;
+  width: 80px;
+  font-size: 75%;
+  background-color: #31df7d;
+  position: absolute;
+  top: 3%;
+  right: 3%; 
+}
+
+button:hover{
+  background-color: #c7ced4;
 }

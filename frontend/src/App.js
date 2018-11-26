@@ -4,6 +4,7 @@ import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
 import axios from 'axios';
 import history from './history';
+import Test from './components/Test/Test.js'
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends Component {
             <Route exact path="/" />
             <Route path="/footer" component={MainFooter} />
             <Route path="/login" component={LoginPage} />
+            <Route exact path="/users" history={history} render={(props) => <Test {...props} />} />
           </div>
 
         </div>

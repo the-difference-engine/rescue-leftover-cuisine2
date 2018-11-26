@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PageFooter from './common/Footer';
+import MainFooter from './components/Footer/Footer';
 import axios from 'axios';
+import MainSearch from './components/MainSearch/MainSearch';
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +25,9 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" /> 
               <p>{this.state.message}</p>
             </header>        
-        */}       
-        <PageFooter />
+        */}   
+        <MainSearch/>    
+        <MainFooter />
       </div>
     )
   }

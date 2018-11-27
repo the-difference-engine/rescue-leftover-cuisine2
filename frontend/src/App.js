@@ -19,15 +19,9 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-         {/*  
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" /> 
-              <p>{this.state.message}</p>
-            </header>        
-        */}   
+      <div className="App"> 
         <MainSearch/>    
-        <MainFooter />
+        <MainFooter/>
       </div>
     )
   }

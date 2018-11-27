@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './recipe_card.css';
-import PunkCat from './../../assets/punk_cat.jpg';
 
-const RecipeCard = () => {
+const Recipe = (props) => {
   return (
-    <div className="card-container">
+    <div className="card-container d-inline-flex col-4">
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={PunkCat} alt="cat in punk rock vest" />
-          <button>DINNER</button>
+          <img className="card-img-top" src={props.name} alt={props.alternate} />
+          <button>{props.meal}</button>
         </div>
         <div className="card-body">
-          <div className="card-title">I am a recipe title!</div>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div className="card-title">{props.title}</div>
+          <p className="card-text">{props.text}</p>
         </div>
         {/* insert recipe dfficulty, time and serving components here */}
       </div>
@@ -21,8 +20,21 @@ const RecipeCard = () => {
   )
 }
 
-RecipeCard.propTypes = {
+const RecipeList = (props) => {
+  return (
+    <div className="container">
+      {props.recipes.map(recipe =>
+        <Recipe
+          {...recipe}
+          key={recipe.id}
+        />
+      )}
+    </div>
+  )
+}
+
+RecipeList.propTypes = {
   
 }
 
-export default RecipeCard;
+export default RecipeList;

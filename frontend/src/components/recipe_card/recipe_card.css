@@ -1,10 +1,16 @@
+.wrapper{
+  height: auto;
+  width: auto;
+}
+
 .card-container {
-  width: 30%;
+  max-width: 18rem;
   height: auto;
   padding: 10px;
   border: 2px solid #c7ced4;
   border-radius: 10px;
   background: white;
+  margin: 5px;
 }
 
 .card-title{
@@ -13,6 +19,7 @@
 }
 
 .card {
+  max-width: 300px;
   color: #495057;
   max-height: 100%;
 }
@@ -24,7 +31,9 @@
 button{
   border-radius: 20px;
   height: 40px;
-  width: 80px;
+  padding-left: 20px;
+  padding-right: 20px; 
+  width: auto;
   font-size: 75%;
   background-color: #31df7d;
   position: absolute;

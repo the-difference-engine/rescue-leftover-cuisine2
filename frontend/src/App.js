@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, Switch } from 'react-router-dom'
+import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
 import axios from 'axios';
 import history from './history';
-import Test from './components/Test/Test.js'
+import UsersAll from './components/AdminControls/UsersAll.js'
+import User from './components/AdminControls/User.js'
 
 class App extends Component {
   constructor(props) {
@@ -45,7 +46,8 @@ class App extends Component {
             <Route exact path="/" />
             <Route path="/footer" component={MainFooter} />
             <Route path="/login" component={LoginPage} />
-            <Route exact path="/users" history={history} render={(props) => <Test {...props} />} />
+            <Route exact path="/users" history={history} render={(props) => <UsersAll {...props} />} />
+            <Route exact path="/users/:id" history={history} render={(props) => <User {...props} />} />
           </div>
 
         </div>

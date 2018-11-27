@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   resources :users
   
-
   scope "/superadminviews" do
     resources :admins
   end

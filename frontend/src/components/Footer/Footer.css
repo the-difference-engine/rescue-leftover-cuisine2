@@ -1,16 +1,16 @@
 .designBySection {
-    font-size: 1vw;
+    font-size: 1.5vw;
     opacity: 0.5;
     color: #757373;
     text-align: center;
-    padding-top: 12px;
+    padding-top: 2vw;
     font-weight: 500;
 }
 
 .designByCo {
-    font-size: 1vw;
+    font-size: 1.5vw;
     color: #1f1e1e;
-    font-weight: 600;
+ /*   font-weight: 500;*/
 }
 
 .company {
@@ -21,8 +21,7 @@
 }
 
 .containerSection {
-    padding-top: 1vw;
-    font-weight: 600;
+    padding-top: 2vw;
     padding-left: 0;
     padding-right: 0;
     text-align: center;
@@ -30,12 +29,12 @@
 }
 
 .iconSection {
-	padding-right: 40px;
+	padding-right: 5vw;
 }
 
 .iconStyle {
     color: #a49f9f;
     font-weight: 700;
-    padding-left: 9px;
-    padding-right: 9px;
+    padding-left: .75vw;
+    padding-right: .75vw;
 }

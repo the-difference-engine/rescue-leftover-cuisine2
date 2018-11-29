@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 			render json: {users: @users, message: "successfully submited data from users table"}
 		end
 
+		def create
+			@user = User.new
+		end
+
 		def show
 			@user = User.find(params[:id])
 			#@user = User.where(id: 15)
@@ -21,4 +25,10 @@ class UsersController < ApplicationController
 			  params[:user].delete(:password_confirmation)
 			end
 		end
+
+		def destroy
+			@user = User.find(params[:id])
+    		@user.destroy
+    		render json: @user, message: "Successfully deleted"
+		end 
 end

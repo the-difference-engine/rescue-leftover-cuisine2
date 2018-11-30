@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
+import SignUp from './components/SignUp/SignUp.js';
 import axios from 'axios';
 import history from './history';
 import UsersAll from './components/AdminControls/UsersAll.js'
@@ -14,6 +15,7 @@ class App extends Component {
       message: 'Loading...'
     }
   }
+  
   componentDidMount() {
     axios.get('/api/message.json')
     .then(response => {
@@ -46,6 +48,7 @@ class App extends Component {
             <Route exact path="/" />
             <Route path="/footer" component={MainFooter} />
             <Route path="/login" component={LoginPage} />
+            <Route path="/signup" component={SignUp} />
             <Route exact path="/users" history={history} render={(props) => <UsersAll {...props} />} />
             <Route exact path="/users/:id" history={history} render={(props) => <User {...props} />} />
           </div>

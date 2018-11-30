@@ -35,7 +35,11 @@ const RecipeList = (props) => {
 }
 
 RecipeList.propTypes = {
-  
+  text: PropTypes.text,
+  title: PropTypes.text,
+  meal: PropTypes.text,
+  alternate: PropTypes.text,
+  name: PropTypes.text,
 }
 
 export default RecipeList;

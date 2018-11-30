@@ -89,3 +89,46 @@ Sometimes issues will come up with your Docker instance than cannot be solved wi
 3. Remove all images: `docker rmi $(docker images -q)`
     * If you receive the message `"docker rmi" requires at least 1 argument.` it means that there are no downloaded images; it is safe to proceed.
 4. Download images and rebuild containers: `docker-compose up`
+
+## Project directory structure
+
+In order to keep our code organized, we'll store our files using something like
+the following directory structure:
+
+```
+frontend/
+|-- node_modules/
+|
+|-- public/
+|   |-- index.html
+|
+|-- src/
+|   |-- assets/  # This is only temporary!
+|   |
+|   |-- components/
+|   |   |-- App/
+|   |   |   |-- App.js
+|   |   |   |-- App.css
+|   |   |
+|   |   |-- LogIn/
+|   |   |   |-- LogIn.js
+|   |   |   |-- LogIn.css
+|   |   |
+|   |   |-- RecipeCard/
+|   |   |   |-- RecipeCard.js
+|   |   |   |-- RecipeCard.css
+|   |   |
+|   |   |-- YetAnotherComponent/
+|   |       |-- YetAnotherComponent.js
+|   |       |-- YetAnotherComponent.css
+|   |
+|   |-- containers/
+|   |   |-- HomePage/
+|   |       |-- HomePage.js
+|   |       |-- HomePage.css
+|   |
+|   |-- index.js
+|
+|-- package.json
+|-- README.md
+```

@@ -9,5 +9,9 @@
     "install": "cd frontend && npm install",
     "postinstall": "npm run build && npm run deploy",
     "start": "cd frontend && npm start"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-router-dom": "^4.3.1"
   }
 }

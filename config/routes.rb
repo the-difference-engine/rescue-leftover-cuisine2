@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => "admin_registrations"}
   devise_for :users, :controllers => {:registrations => "user_registrations"}
-  scope "/adminviews" do
-  	resources :users
-  end
+
+  resources :users
+  
   scope "/superadminviews" do
     resources :admins
   end

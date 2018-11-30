@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
+import MainSearch from './components/MainSearch/MainSearch';
 import axios from 'axios';
 import history from './history';
 import UsersAll from './components/AdminControls/UsersAll.js'
@@ -24,8 +25,6 @@ class App extends Component {
   render() {
     return (
       <Router history={history}> 
-        <div>
-
           <div className="wrapper">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
               <Link to="/"><h1 className="navbar-brand">{this.state.message}</h1></Link>
@@ -40,7 +39,8 @@ class App extends Component {
                 </div>
               </div>
             </nav>
-          </div>
+      
+          <MainSearch/> 
 
           <div className="wrapper">
             <Route exact path="/" />
@@ -49,10 +49,9 @@ class App extends Component {
             <Route exact path="/users" history={history} render={(props) => <UsersAll {...props} />} />
             <Route exact path="/users/:id" history={history} render={(props) => <User {...props} />} />
           </div>
-
+          <MainFooter/>
         </div>
       </Router>
-    
     )
   }
 }

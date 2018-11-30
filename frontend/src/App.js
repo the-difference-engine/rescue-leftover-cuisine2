@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
-// import SignIn from './components/sign_in/sign_in';
-// import SignUp from './components/sign_up/sign_up';
 import RecipeList from './components/recipe_card/recipe_card';
 import PunkCat from './assets/punk_cat.jpg';
 import ChuckNorris from './assets/chuck_norris.jpeg';
@@ -48,8 +45,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header"></header>
-        {/* <SignUp />
-        <SignIn /> */}
         <RecipeList recipes={recipes} />
       </div>
     );

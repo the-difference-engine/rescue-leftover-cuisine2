@@ -25,8 +25,6 @@ class App extends Component {
   render() {
     return (
       <Router history={history}> 
-        <div>
-
           <div className="wrapper">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
               <Link to="/"><h1 className="navbar-brand">{this.state.message}</h1></Link>

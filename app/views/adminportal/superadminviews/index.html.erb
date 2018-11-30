@@ -1,0 +1,21 @@
+<h3>Admin Dashboard</h3>
+
+<h5>All Administrators</h5>
+
+<p class="user-line">
+<span class="user-title">Admin Name</span> | <span class="user-creation-date">Member Since</span>
+</p>
+
+<% @admins.each do |admin| %>
+    <p class="user-line">
+    	<span class="user-title"><%= admin.email %></span>
+    	| <span class="user-creation-date"><%= admin.created_at %></span>
+    	<% if current_admin.super_admin? %>
+	    	<% if !admin.super_admin? %>
+	    		| <a href="/adminportal/superadminviews/<%= admin.id %>"><button>Edit</button></a>
+	    	<% end %>
+    	<% end %>
+    </p>
+<% end %>
+
+<h3><%= link_to "Home", root_path %></h3>

@@ -1,4 +1,4 @@
-# rescue-leftover-cuisine
+# Rescue Leftover Cuisine
 
 Inside the README:
 How to install all necessary software/dependencies for a dev to be able to run the app locally.
@@ -52,7 +52,7 @@ Build the docker images by running the following command:
 ```
 docker-compose build
 ```
-This will build your `db`, and `rlc_web` images
+This will build your `db`, and `web` images
 
 ## Running rlc-web containers
 
@@ -68,26 +68,67 @@ touch Gemfile.lock
 docker-compose up -d
 ```
 
-### Initial container setup
-If this is your first time running these containers, you will need to perform the following commands to setup the project:
-
-1. find your rlc-web container
+## Staging
+You can preview what the applicaton will look a production-ish environment by merging changes into the `staging` branch:
 
 ```
-docker ps
-
+git checkout staging
+git merge my-feature-branch
+git push origin staging
 ```
 
-2. run the followin command to connect to the container's shell
+This will kick off a build in Heroku, and, after a minute or three, your changes should be visible at https://rescue-leftover-cuisine-stage.herokuapp.com/
+
+## Resetting images/containers
+Sometimes issues will come up with your Docker instance than cannot be solved with a simple `docker-compose up/down`. In these cases, it is recommended to use the "nuclear option" and wipe out all running containers and images and then rebuild them:
+
+1. Stop all containers: `docker stop $(docker ps -aq)`
+    * If you receive the message `"docker stop" requires at least 1 argument.` it means that there are no running containers; it is safe to proceed.
+2. Remove all containers: `docker rm $(docker ps -aq)`
+    * If you receive the message `"docker rm" requires at least 1 argument.` it means that there are no built containers; it is safe to proceed.
+3. Remove all images: `docker rmi $(docker images -q)`
+    * If you receive the message `"docker rmi" requires at least 1 argument.` it means that there are no downloaded images; it is safe to proceed.
+4. Download images and rebuild containers: `docker-compose up`
+
+## Project directory structure
+
+In order to keep our code organized, we'll store our files using something like
+the following directory structure:
 
 ```
-docker exec -it <container_id> bash
+frontend/
+|-- node_modules/
+|
+|-- public/
+|   |-- index.html
+|
+|-- src/
+|   |-- assets/  # This is only temporary!
+|   |
+|   |-- components/
+|   |   |-- App/
+|   |   |   |-- App.js
+|   |   |   |-- App.css
+|   |   |
+|   |   |-- LogIn/
+|   |   |   |-- LogIn.js
+|   |   |   |-- LogIn.css
+|   |   |
+|   |   |-- RecipeCard/
+|   |   |   |-- RecipeCard.js
+|   |   |   |-- RecipeCard.css
+|   |   |
+|   |   |-- YetAnotherComponent/
+|   |       |-- YetAnotherComponent.js
+|   |       |-- YetAnotherComponent.css
+|   |
+|   |-- containers/
+|   |   |-- HomePage/
+|   |       |-- HomePage.js
+|   |       |-- HomePage.css
+|   |
+|   |-- index.js
+|
+|-- package.json
+|-- README.md
 ```
-
-3. Create and migrate database
-
-```
-RAILS_ENV=development rails db:create
-RAILS_ENV=development rails db:migrate
-```
-This will create and migrate all databases in `config/database.yml`.

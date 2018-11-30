@@ -32,7 +32,7 @@ class SignIn extends Component {
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group">
-            <a href="">I forgot my password</a>
+            <a href="########">I forgot my password</a>
           </div>
           <button className="btn btn-lg btn-block" type="submit">Log In</button>
         </form>

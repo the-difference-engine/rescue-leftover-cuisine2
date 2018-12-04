@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/config/local_env.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -16,6 +17,7 @@
 # Ignore uploaded files in development
 /storage/*
 
+/frontend/node_modules
 /node_modules
 /yarn-error.log
 
@@ -26,6 +28,9 @@
 
 .env
 /public
-/node_modules
+/frontend/node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore application configuration
+/config/application.yml

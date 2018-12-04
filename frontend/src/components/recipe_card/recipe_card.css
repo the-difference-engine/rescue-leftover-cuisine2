@@ -1,0 +1,52 @@
+#wrapper {
+  padding: 1em;
+  height: auto;
+  width: auto;
+}
+
+.card-deck {
+  margin: 0px;
+}
+
+.card-title{
+  text-align: center;
+  color: #4EC8ED
+}
+
+.card {
+  /* height: 100%;
+  width: 100%;
+  color: #495057; */
+  width: 300px;
+  height: 500px;
+  padding: 10px;
+  border: 2px solid #c7ced4;
+  border-radius: 10px;
+  background: white;
+}
+
+.card-img-top {
+  height: 300px;
+  width: 275px;
+}
+
+.image-holder{
+  position: relative;
+}
+
+button{
+  border-radius: 20px;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px; 
+  width: auto;
+  font-size: 75%;
+  background-color: #31df7d;
+  position: absolute;
+  top: 3%;
+  right: 3%; 
+}
+
+button:hover{
+  background-color: #c7ced4;
+}

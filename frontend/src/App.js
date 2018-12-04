@@ -108,3 +108,5 @@ import User from './components/AdminControls/User.js'
     )
   }
 }
+
+export default App;

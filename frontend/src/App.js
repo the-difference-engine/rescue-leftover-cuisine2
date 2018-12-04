@@ -99,7 +99,6 @@ class App extends Component {
           <MainFooter/>
         </div>
       </Router>
-    )
   }
 }
 

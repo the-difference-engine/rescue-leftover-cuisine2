@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import SignIn from './components/sign_in/sign_in';
-import SignUp from './components/sign_up/sign_up';
+// import SignIn from './components/sign_in/sign_in';
+// import SignUp from './components/sign_up/sign_up';
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';

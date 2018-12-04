@@ -67,11 +67,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header"></header>
-          <SignIn />
-      </div>
-    );
+        
+        <SignIn />
  
-      <Router history={history}> 
+        <Router history={history}> 
           <div className="wrapper">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
               <Link to="/"><h1 className="navbar-brand">{this.state.message}</h1></Link>
@@ -98,7 +97,9 @@ class App extends Component {
           </div>
           <MainFooter/>
         </div>
-      </Router>
+        </Router>
+      </div>
+    );
   }
 }
 

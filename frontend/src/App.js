@@ -7,6 +7,7 @@ import axios from 'axios';
 import history from './history';
 import UsersAll from './components/AdminControls/UsersAll.js'
 import User from './components/AdminControls/User.js'
+import BottomSignUp from './components/BottomSignUp/BottomSignUp.js';
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class App extends Component {
             <Route exact path="/users" history={history} render={(props) => <UsersAll {...props} />} />
             <Route exact path="/users/:id" history={history} render={(props) => <User {...props} />} />
           </div>
+          <BottomSignUp/>
           <MainFooter/>
         </div>
       </Router>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from "./common/Header/Header.js"
+import Header from "./components/Header/Header.js"
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
@@ -81,6 +81,7 @@ class App extends Component {
               </div>
             </nav>
       
+          <Header/>
           <MainSearch/> 
 
           <div className="wrapper">

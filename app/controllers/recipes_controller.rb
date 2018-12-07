@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
 		def index
 			@recipes = Recipe.all
 			puts json: @recipes
-			render json: {recipes: @users, message: "successfully submited data from recipes table"}
+			render json: {recipes: @recipes, message: "successfully submited data from recipes table"}
 		end
 
 		def show

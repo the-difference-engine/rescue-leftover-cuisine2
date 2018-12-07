@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :users
 
-  resources :recipes
+  resources :recipes, param: :name
   
   namespace :api do
     resources :message

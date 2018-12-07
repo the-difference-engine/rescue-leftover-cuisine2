@@ -4,4 +4,5 @@ class Recipe < ActiveRecord::Base
 	validates :servings, numericality: {only_integer: true, greater_than_or_equal_to: 1}, :allow_nil => true
 
 	belongs_to :user
+	
 end

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "react": "^16.6.3",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "suggestion-react-input-search": "^1.2.1"
   }
 }

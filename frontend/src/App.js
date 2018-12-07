@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from "./components/Header/Header.js"
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
@@ -64,12 +65,6 @@ class App extends Component {
   }
   render() {
     return (
-    //   <div className="App">
-    //     <header className="App-header"></header>
-    //     <RecipeList recipes={recipes} />
-    //   </div>
-    // );
-
       <Router history={history}> 
           <div className="wrapper">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -86,6 +81,7 @@ class App extends Component {
               </div>
             </nav>
       
+          <Header/>
           <MainSearch/> 
 
           <div className="wrapper">

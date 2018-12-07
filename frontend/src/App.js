@@ -3,6 +3,7 @@ import Header from "./components/Header/Header.js"
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
+import MainSearch from './components/MainSearch/MainSearch';
 import SignUp from './components/SignUp/SignUp.js';
 import axios from 'axios';
 import history from './history';
@@ -56,7 +57,7 @@ class App extends Component {
       message: 'Loading...'
     }
   }
-  
+
   componentDidMount() {
     axios.get('/api/message.json')
     .then(response => {
@@ -66,7 +67,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Router history={history}> 
+      <Router history={history}>
           <div className="wrapper">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
               <Link to="/"><h1 className="navbar-brand">{this.state.message}</h1></Link>
@@ -81,9 +82,9 @@ class App extends Component {
                 </div>
               </div>
             </nav>
-      
+
           <Header/>
-          <MainSearch/> 
+          <MainSearch/>
 
           <div className="wrapper">
             <Route exact path="/" />

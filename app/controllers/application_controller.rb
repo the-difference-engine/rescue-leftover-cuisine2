@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     prepend_view_path Rails.root.join("frontend")
 
 
-    before_action :configure_permitted_parameters, if: :devise_controller?
+    #before_action :configure_permitted_parameters, if: :devise_controller?
 
  protected
 
@@ -13,8 +13,9 @@ class ApplicationController < ActionController::Base
 	  end
 	  devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :first_name, :last_name, :email, :profile_photo, :interests, :password])
 	end 	
-
+=begin
 	def fallback_index_html
 		render :file => 'public/index.html'
 	end
+=end
 end

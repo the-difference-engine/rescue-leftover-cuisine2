@@ -1,9 +1,9 @@
 .designBySection {
-    font-size: 1vw;
+    font-size: 1.5vw;
     opacity: 0.5;
     color: #757373;
     text-align: center;
-    padding-top: 12px;
+    padding-top: 2vw;
     font-weight: 500;
 }
 
@@ -21,7 +21,7 @@
     color: #666565;
 }
 
-.containerSection: {
+.containerSection {
     text-align: center;
     padding-bottom: 50vw;
 }
@@ -30,7 +30,7 @@
 	padding-right: 40px;
 }
 
-.iconStyle: {
+.iconStyle {
     color: #a49f9f;
     font-weight: 700;
     padding-left: 9px;

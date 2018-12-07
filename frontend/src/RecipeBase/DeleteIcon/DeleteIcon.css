@@ -1,0 +1,55 @@
+#delete-icon-container {
+	display: inline-block;
+	float: right;
+	margin: 20px 2vw;
+	border: 2px solid #ffa616;
+	border-radius: 13%;
+	color: #ffa616;
+	font-family: 'Nunito', sans-serif;
+	font-size: 13px;
+	height: 3em;
+	padding-left: .5em;
+	padding-right: .8em;
+	line-height: 3em;
+  	background-color: #ececec;
+  	font-weight: 600;
+  	width: 100px;
+}
+
+#delete-icon-x-container {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	border: 2px solid #ffa616;
+	position: relative;
+	left: 2px;
+	top: 3px;
+	border-radius: 100%;
+}
+
+#delete-icon-text {
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+#delete-icon-x-1 {
+	display: inline-block;
+	width: 2px;
+	height: 10px;
+	background-color: #ffa616;
+	position: relative;
+	left: -7px;
+	top: 0px;
+	transform: rotate(45deg);
+}
+
+#delete-icon-x-2 {
+	display: inline-block;
+	width: 10px;
+	height: 2px;
+	background-color: #ffa616;
+	position: relative;
+	left: -13px;
+	top: -4px;
+	transform: rotate(45deg);
+}

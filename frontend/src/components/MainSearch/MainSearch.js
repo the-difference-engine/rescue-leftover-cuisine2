@@ -1,9 +1,7 @@
 import React, {Component } from 'react';
 import search from './MainSearch.css'
 import axios from "axios";
-import { Link } from "react-router-dom";
 import SuggestionInputSearch from 'suggestion-react-input-search';
-import history from '../../history'; 
 //https://www.npmjs.com/package/suggestion-react-input-search
 // MARYANN <span className="search"><input type='text' className='input' placeholder='Search by keywords'/> </span>
 
@@ -44,7 +42,6 @@ class MainSearch extends Component {
                 placeholder={placeholder}
                 inputPosition={inputPosition}
                 inputClass={search}
-                goTo={this.goTo}
               />
             </div>
           </div>

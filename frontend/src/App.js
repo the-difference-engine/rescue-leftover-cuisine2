@@ -4,21 +4,8 @@ import axios from 'axios';
 
 
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message: 'Loading...'
-    }
-  }
 
-  componentDidMount() {
-    axios.get('/api/message.json')
-    .then(response => {
-      this.setState({ message: response.data.message })
-    })
-    .catch(console.error)
-  }
+class App extends Component {
   render() {
     return (
       <BrowserRouter>

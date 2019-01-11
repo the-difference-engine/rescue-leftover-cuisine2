@@ -1,6 +1,7 @@
+
 import React, { Component } from 'react';
-import SignIn from './components/sign_in/sign_in';
-import SignUp from './components/sign_up/sign_up';
+// import SignIn from './components/sign_in/sign_in';
+// import SignUp from './components/sign_up/sign_up';
 import { Router, Route, Link} from 'react-router-dom'
 import MainFooter from './components/Footer/Footer.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
@@ -49,27 +50,27 @@ import User from './components/AdminControls/User.js'
 //     text: "I am the Cat Religion's text!",
 //   }
 // ]
-
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message: 'Loading...'
-    }
-  }
-  componentDidMount() {
-    axios.get('/api/message.json')
-    .then(response => {
-      this.setState({ message: response.data.message })
-    })
-    .catch(console.error)
+ 
+ class App extends Component {
+   constructor(props) {
+     super(props)
+     this.state = {
+       message: 'Loading...'
+     }
+   }
+   componentDidMount() {
+     axios.get('/api/message.json')
+     .then(response => {
+       this.setState({ message: response.data.message })
+     })
+     .catch(console.error)
   }
   render() {
     return (
+
       <div className="App">
         <header className="App-header"></header>
-        <RecipeList recipes={recipes} />
-    
+        {/* <RecipeList recipes={recipes} /> */}
 
       <Router history={history}> 
           <div className="wrapper">
@@ -99,8 +100,8 @@ class App extends Component {
           <MainFooter/>
         </div>
       </Router>
-    
-    </div>
+      </div>
+    )
   }
 }
 

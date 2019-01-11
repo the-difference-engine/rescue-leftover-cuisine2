@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CommentSection.css';
-import {SingleComment} from './SingleComment/SingleComment.js';
+import { SingleComment } from './SingleComment/SingleComment.js';
 
 export class CommentSection extends Component {
 	constructor() {

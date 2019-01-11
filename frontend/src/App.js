@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-browser-dom';
 
-
-
-
-
 class App extends Component {
   render() {
     return (

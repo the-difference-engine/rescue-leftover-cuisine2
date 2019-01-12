@@ -293,17 +293,6 @@ Devise.setup do |config|
 
   config.jwt do |jwt|
     jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
-
-    # Endpoints on which to send a JWT; basically the login endpoints
-    jwt.dispatch_requests = [
-      ['POST', %r{^/api/v1/login$}]
-    ]
-
-    # Endpoints used to revoke active JWTs; generally the logout endpoints
-    jwt.revocation_requests = [
-      ['DELETE', %r{^/api/v1/logout$}]
-    ]
-
     jwt.expiration_time = ENV.fetch('DEVISE_JWT_EXPIRATION_TIME') { 1.day.to_i }
   end
 end

@@ -8,8 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '16dd3ec15aa9d7b2498722c01d198c058f0dbe3136c42e3d075f7feee68787e860bc7b520dadc2d1f5bfd497585f4d389acaa9ec9a5002b4dea19d285a051490'
-  
+  # config.secret_key = ENV['DEVISE_SECRET_KEY']
+ 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -252,6 +252,9 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  
+  # This is a RESTful API, so we should never use nav formats
+  config.navigational_formats = []
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -287,4 +290,20 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+
+    # Endpoints on which to send a JWT; basically the login endpoints
+    jwt.dispatch_requests = [
+      ['POST', %r{^/api/v1/login$}]
+    ]
+
+    # Endpoints used to revoke active JWTs; generally the logout endpoints
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/api/v1/logout$}]
+    ]
+
+    jwt.expiration_time = ENV.fetch('DEVISE_JWT_EXPIRATION_TIME') { 1.day.to_i }
+  end
 end

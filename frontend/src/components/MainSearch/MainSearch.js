@@ -2,9 +2,9 @@ import React, {Component } from 'react';
 import search from './MainSearch.css'
 import axios from "axios";
 import SuggestionInputSearch from 'suggestion-react-input-search';
-//https://www.npmjs.com/package/suggestion-react-input-search
-// MARYANN <span className="search"><input type='text' className='input' placeholder='Search by keywords'/> </span>
+import { createBrowserHistory } from 'history';
 
+const history = createBrowserHistory();
 const recentSearches = []
 
 class MainSearch extends Component {
@@ -16,21 +16,17 @@ class MainSearch extends Component {
   loadRecipes = () => {
     axios.get('/recipes')
       .then(res => {
-        console.log('res',res.data.recipes);
         const recipes = res.data.recipes;
         for (var i = 0; i < recipes.length; i++) {
         recentSearches.push(recipes[i].title);
-      }}).catch(err => console.log(err));
+        }}).catch(err => console.log(err));
   };
 
   handleOnSubmit(recipe) {
-    window.location.href = "/recipes/" + recipe;
+    history.push('/recipes/' + recipe );
   }
 
   render (){
-      
-      const placeholder = 'Search by keywords';
-      const inputPosition = 'center';
 
       return(
           <div className="mainSearchContainer">
@@ -39,8 +35,8 @@ class MainSearch extends Component {
               <SuggestionInputSearch
                 onSubmitFunction={this.handleOnSubmit}
                 recentSearches={recentSearches}
-                placeholder={placeholder}
-                inputPosition={inputPosition}
+                placeholder={'Search by Keywords'}
+                inputPosition={'center'}
                 inputClass={search}
               />
             </div>

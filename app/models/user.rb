@@ -5,5 +5,6 @@ class User < ApplicationRecord
   # Also include setup for devise-jwt-based authentication
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist
+         :confirmable, :jwt_authenticatable,
+         jwt_revocation_strategy: JWTBlacklist
 end

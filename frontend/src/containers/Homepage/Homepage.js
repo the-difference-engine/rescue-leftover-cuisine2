@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Header from '../'
-import MainFooter from './components/Footer/Footer.js';
+import Header from './components/Header/Header.js'
+import Footer from './components/Footer/Footer.js';
 import MainSearch from './components/MainSearch/MainSearch';
 
 

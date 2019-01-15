@@ -19,8 +19,8 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        <h3>Log In</h3>
         <form className="form-signin">
+          <h3>Log In</h3>
           <div className="form-label-group">
             <input type="email" id="inputEmail4" className="form-control-lg" placeholder="Email address" required="" autoFocus="" />
             <label htmlFor="inputEmail4">Email</label>

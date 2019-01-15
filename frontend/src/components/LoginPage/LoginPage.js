@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "./LoginPage.css"
 import LogoHeader from "./../LogoHeader/LogoHeader.js"
+import SignUp from "./../sign_up/sign_up.js"
+import SignIn from "./../sign_in/sign_in.js"
 
 class LoginPage extends Component {
 
@@ -14,6 +16,10 @@ class LoginPage extends Component {
         <div className="wrapper">
           <LogoHeader />
           <div className="pageHeaderDiv">
+          </div>
+          <div className="cardWrapper">
+            <SignUp />
+            <SignIn />
           </div>
         </div>
       );

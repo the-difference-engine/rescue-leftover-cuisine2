@@ -19,8 +19,8 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        <h3>Create an Account</h3>
         <form className="form-signUp">
+          <h3>Create an Account</h3>
           <div className="form-group">
             <div className="form-label-group">
               <input type="text" id="inputFirstName" className="form-control-lg" placeholder="First Name" required="" autoFocus="" />

@@ -8,10 +8,8 @@
 }
 
 .designByCo {
-    font-size: 1vw;
     color: #1f1e1e;
-    font-weight: 600;
-    padding-bottom: 5vw;
+    padding-bottom: 1vw;
 }
 
 .company {
@@ -22,17 +20,20 @@
 }
 
 .containerSection {
+    padding-top: 1vw;
     text-align: center;
-    padding-bottom: 50vw;
+    padding-bottom: 1vw;
+    font-family: 'Nunito', sans-serif;
 }
 
 .iconSection {
-	padding-right: 40px;
+	padding-right: 5vw;
 }
 
 .iconStyle {
     color: #a49f9f;
     font-weight: 700;
-    padding-left: 9px;
-    padding-right: 9px;
+    font-size: 2.25vw;
+    padding-left: .75vw;
+    padding-right: 1vw;
 }

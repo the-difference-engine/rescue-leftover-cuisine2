@@ -49,3 +49,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.5"
 
 gem "devise-jwt", "~> 0.5.8"
+
+gem "foreman", "~> 0.63.0"

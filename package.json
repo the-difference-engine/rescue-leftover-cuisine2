@@ -12,8 +12,6 @@
   },
   "dependencies": {
     "react": "^16.6.3",
-    "react-browser-router": "^2.1.2",
-    "react-router": "^4.0.0-alpha.4",
     "react-router-dom": "^4.3.1"
   }
 }

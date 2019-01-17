@@ -1,7 +1,9 @@
 import React, {Component } from 'react';   
 import "./Footer.css";   
 
-class Footer extends Component {
+class MainFooter extends Component {
+
+
   render (){
     return (
       <div className='container-fluid containerSection'>
@@ -38,4 +40,4 @@ class Footer extends Component {
  }
 }
 
-export default Footer;
+export default MainFooter;

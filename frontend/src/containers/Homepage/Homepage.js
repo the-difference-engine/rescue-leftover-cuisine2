@@ -33,4 +33,4 @@ class Homepage extends Component {
     }
   }
 
-// export default Homepage;
+export default Homepage;

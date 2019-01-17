@@ -3,6 +3,7 @@ import "./LoginPage.css"
 import LogoHeader from "./../LogoHeader/LogoHeader.js"
 import SignUp from "./../sign_up/sign_up.js"
 import SignIn from "./../sign_in/sign_in.js"
+import Footer from "./../Footer/Footer.js"
 
 class LoginPage extends Component {
 

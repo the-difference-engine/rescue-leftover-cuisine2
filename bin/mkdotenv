@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -euo pipefail
+
+secret_key=$(rake secret)
+jwt_key=$(rake secret)
+
+echo "SECRET_KEY_BASE=${secret_key}" > .env
+echo "DEVISE_JWT_SECRET_KEY=${jwt_key}" >> .env

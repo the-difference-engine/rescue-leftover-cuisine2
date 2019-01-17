@@ -21,6 +21,7 @@ class SignUp extends Component {
       <div>
         <form className="form-signUp">
           <h3>Create an Account</h3>
+          <br></br>
           <div className="form-group">
             <div className="form-label-group">
               <input type="text" id="inputFirstName" className="form-control-lg" placeholder="First Name" required="" autoFocus="" />

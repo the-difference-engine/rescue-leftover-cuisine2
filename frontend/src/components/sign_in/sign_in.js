@@ -21,6 +21,7 @@ class SignIn extends Component {
       <div>
         <form className="form-signin">
           <h3>Log In</h3>
+          <br></br>
           <div className="form-label-group">
             <input type="email" id="inputEmail4" className="form-control-lg" placeholder="Email address" required="" autoFocus="" />
             <label htmlFor="inputEmail4">Email</label>

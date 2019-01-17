@@ -5,6 +5,7 @@ import LoginPage from './containers/LoginPage';
 import SignUp from './components/SignUp';
 import UsersAll from './components/AdminControls/UsersAll';
 import User from './components/AdminControls/User';
+import history from './history.js';
 
 
 class App extends Component {

@@ -22,5 +22,5 @@ class App extends Component {
     )
   }
 }
-f
+
 export default App;

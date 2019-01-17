@@ -1,14 +1,15 @@
-.logo {
-    width: 50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
-.centerButtonSection {
-    text-align: center;
-}
+    .logo {
+        width: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 
-.donateButton {
-    padding-left: 60px;
-    padding-right: 60px;
-}
+    .centerButtonSection {
+        text-align: center;
+    }
+
+    .donateButton {
+        padding-left: 60px;
+        padding-right: 60px;
+    }

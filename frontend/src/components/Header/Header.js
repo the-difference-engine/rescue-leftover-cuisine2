@@ -16,9 +16,9 @@ class Header extends Component {
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-white bg-white navbar-fill fixed-top">
                         <div className="col-md-4">
-                            <div className="navbar-brand" href="/">
-                                <img src={require('.../assets/RLC_logo.png')} alt="RLC Logo" className="logo"/>
-                            </div>
+                            {/* <div className="navbar-brand" href="/">
+                                <img src={require('../assets/RLC_logo.png')} alt="RLC Logo" className="logo"/>
+                            </div> */}
                         </div>
                         <div className="col-md-2">
                             <div className="col-md-6">

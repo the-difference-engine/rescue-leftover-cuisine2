@@ -9,6 +9,20 @@ import axios from 'axios';
 import history from './history';
 import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
+import RecipeList from './components/recipe_card/recipe_card.js'
+
+const recipes = [
+  {
+    url: '#########',
+    meal: 'BREAKFAST',
+    title: 'Scrambled Eggs',
+    snippet: 'The best scrambled eggs recipe, hands down!',
+    difficulty: 'HARD',
+    readyInMinutes: 5,
+    spoons: 10,
+    id: 1,
+  },
+]
  
 class App extends Component {
   constructor(props) {
@@ -58,10 +72,15 @@ class App extends Component {
           </div>
 
           <MainFooter />
+
+          <RecipeList recipes={recipes} />   
+
             
         </div>
 
       </Router>
+
+      
     )
   }
 }

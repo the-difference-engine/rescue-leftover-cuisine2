@@ -2,23 +2,21 @@
   padding: 1em;
   height: auto;
   width: auto;
+  color: darkgrey;
 }
 
 .card-deck {
   margin: 0px;
 }
 
-.card-title{
+.card-title {
   text-align: center;
   color: #4EC8ED
 }
 
 .card {
-  /* height: 100%;
-  width: 100%;
-  color: #495057; */
   width: 300px;
-  height: 500px;
+  max-height: 600px;
   padding: 10px;
   border: 2px solid #c7ced4;
   border-radius: 10px;
@@ -30,11 +28,36 @@
   width: 275px;
 }
 
-.image-holder{
+.image-holder {
   position: relative;
 }
 
-button{
+span:not(:last-child) {
+  border-right: 2px solid darkgrey;
+  padding-right: 10px;  
+}
+
+span:not(:first-child) { 
+  padding-left: 10px;
+}
+
+i {
+  padding-right: 5px;
+}
+
+.fa-utensil-spoon {
+  transform: rotate(45deg);
+  padding-right: 10px;
+  vertical-align: -25%;
+}
+
+.icons {
+  padding-right: 5px;
+  color: darkgrey;
+  filter: invert(60%);
+}
+
+button {
   border-radius: 20px;
   height: 40px;
   padding-left: 20px;
@@ -47,6 +70,6 @@ button{
   right: 3%; 
 }
 
-button:hover{
+button:hover {
   background-color: #c7ced4;
 }

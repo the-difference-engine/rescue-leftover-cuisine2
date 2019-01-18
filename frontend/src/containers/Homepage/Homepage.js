@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from 'src/components/Header/Header.js'
-import Footer from 'src/components/Footer/Footer.js';
-import MainSearch from 'src/components/MainSearch/MainSearch';
+import Header from 'components/Header/Header.js'
+import Footer from 'components/Footer/Footer.js';
+import MainSearch from 'components/MainSearch/MainSearch';
 
 
 class Homepage extends Component {

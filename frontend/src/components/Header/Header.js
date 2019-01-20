@@ -11,16 +11,13 @@ class Header extends Component {
     }
 
     render() {
-
-
         return (
-
             <div className="container-fluid">
                 <div className="row">
                     <nav className="navbar navbar-expand-lg navbar-white bg-white navbar-fill fixed-top">
                         <div className="col-md-4">
                             <div className="navbar-brand" href="/">
-                                <img src={require('./RLC_LOGO.png')} alt="RLC Logo" className="logo"/>
+                                <img src={require('../../assets/RLC_logo.png')} alt="RLC Logo" className="logo"/>
                             </div>
                         </div>
                         <div className="col-md-2"></div>
@@ -44,6 +41,6 @@ class Header extends Component {
             </div>
         )
     }
-}
+ }
 
 export default Header;

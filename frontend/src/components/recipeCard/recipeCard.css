@@ -15,7 +15,7 @@
 }
 
 .card {
-  width: 300px;
+  width: 335px;
   max-height: 600px;
   padding: 10px;
   border: 2px solid #c7ced4;
@@ -24,8 +24,8 @@
 }
 
 .card-img-top {
-  height: 300px;
-  width: 275px;
+  height: 310px;
+  width: 310px;
 }
 
 .image-holder {
@@ -55,6 +55,11 @@ i {
   padding-right: 5px;
   color: darkgrey;
   filter: invert(60%);
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 button {

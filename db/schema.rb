@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_005107) do
+ActiveRecord::Schema.define(version: 2019_01_21_210000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2019_01_13_005107) do
   create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "title", default: "", null: false
+    t.string "description", default: "", null: false
+    t.text "ingredients", default: [], array: true
+    t.text "directions", default: [], array: true
+    t.string "difficulty", default: "Intermediate", null: false
+    t.integer "duration", default: 0, null: false
+    t.integer "servings", default: 2, null: false
+    t.string "photos", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|

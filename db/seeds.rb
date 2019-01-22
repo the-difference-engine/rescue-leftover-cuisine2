@@ -15,3 +15,8 @@
 # examples creating User row using rails console
 #User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmation: "Bob@RLC123", username: "Bob@RLC", first_name: "Bob", last_name: "Domain", created_at: "2018-04-27 09:34:41.306138", updated_at: "2018-04-27 09:34:41.306138")
 #User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Bob", last_name: "Domain", created_at: "2019-01-20 09:34:41.306138", updated_at: "2018-01-20 09:34:41.306138")
+
+# examples creating Tag row using rails console
+#Tag.create(title: "Easy")
+#Tag.create(title: "Intermediate")
+#Tag.create(title: "Difficult")

@@ -1,3 +1,3 @@
-class Tags < ApplicationRecord
+class Tag < ApplicationRecord
 
 end

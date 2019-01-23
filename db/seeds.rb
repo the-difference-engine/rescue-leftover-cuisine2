@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # examples creating Recipe row using rails console
-#Recipe.create(title: "Lasagna", description: "Lots of tomato sauce and cheese and pasta", ingredients: ["eggs","pasta","cheese"], directions: ["put ingredients in bowl","stir","put in pan","bake it"], difficulty: "Intermediate",duration:30,servings:4)
-#Recipe.create(title: "Cookies", description: "chocolate chip heaven", ingredients: ["flour","eggs","chocolate chips"], directions: ["stir ingredients","make 1 inch balls","place on cookie sheet 2 inches apart","bake at 350 degress"], difficulty: "Beginner",duration:45,servings:6)
+#Recipe.create(title: "Lasagna", snippet: "Lots of tomato sauce and cheese and pasta", ingredients: ["eggs","pasta","cheese"], directions: ["put ingredients in bowl","stir","put in pan","bake it"], difficulty: "Intermediate",duration:30,servings:4)
+#Recipe.create(title: "Cookies", snippet: "chocolate chip heaven", ingredients: ["flour","eggs","chocolate chips"], directions: ["stir ingredients","make 1 inch balls","place on cookie sheet 2 inches apart","bake at 350 degress"], difficulty: "Beginner",duration:45,servings:6)
 
 #Comment.create(name: "Hal", text: "This is pretty good i guess", recipe_id: 1)
 

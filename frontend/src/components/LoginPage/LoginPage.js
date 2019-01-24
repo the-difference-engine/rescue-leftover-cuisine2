@@ -6,11 +6,6 @@ import SignIn from "./../SignIn/SignIn.js"
 
 class LoginPage extends Component {
 
- handleInputChange(event) {
-      this.setState({ [event.target.name]: event.target.value });
-      console.log("handle change", event.target);
-  }
-
 render() {
 	return (
 		 <div className="wrapper">

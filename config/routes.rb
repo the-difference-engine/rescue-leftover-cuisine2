@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-
-  resources :users
-  
-  namespace :api do
-    resources :message
-  end
-
-  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
-    !request.xhr? && request.format.html?
-  end
-
+  devise_for :users,
+             path: 'api/v1',
+             path_names: {
+               sign_in: 'auth/login',
+               sign_out: 'auth/logout',
+               registration: 'user'
+             },
+             controllers: {
+               registrations: 'api/v1/registrations'
+             },
+             defaults: {
+               format: :json
+             }
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

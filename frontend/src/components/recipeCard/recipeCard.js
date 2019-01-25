@@ -2,6 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './recipeCard.css';
 
+const recipes = [
+  {
+    photo_url: 'http://placekitten.com/g/325/325',
+    meal: 'BREAKFAST',
+    title: 'Scrambled Eggs',
+    snippet: 'The best scrambled eggs recipe, hands down!',
+    difficulty: 'MEDIUM',
+    duration: 5,
+    servings: 10,
+    id: 1,
+  },
+]
+
 
 const Recipe = (props) => {
 

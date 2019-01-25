@@ -13,7 +13,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.integer :duration,   null: true
       t.integer :servings,   null: true
       t.string  :photos,     array: true
-      t.timestamps   
+      t.timestamps  
     end
   end
 end

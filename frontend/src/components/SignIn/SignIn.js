@@ -19,8 +19,9 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        <h3>Log In</h3>
         <form className="form-signin">
+          <h3>Log In</h3>
+          <br></br>
           <div className="form-label-group">
             <input type="email" id="inputEmail4" className="form-control-lg" placeholder="Email address" required="" autoFocus="" />
             <label htmlFor="inputEmail4">Email</label>
@@ -32,7 +33,7 @@ class SignIn extends Component {
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group">
-            <a href="##########">I forgot my password</a>
+            <a href="www.google.com">I forgot my password</a>
           </div>
           <button className="btn btn-lg btn-block" type="submit">Log In</button>
         </form>

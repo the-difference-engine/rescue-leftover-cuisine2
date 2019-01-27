@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import apiClient from "../../lib/apiClient";
 
 class User extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class User extends Component {
   }
 
   componentDidMount() {
-    axios.get('/users/' + this.props.match.params.id)
+    apiClient.get('/user/' + this.props.match.params.id)
     .then(response => {
       this.setState({ 
         user: response.data,
@@ -37,7 +37,7 @@ class User extends Component {
 
   destroyUser = (event) => {
     console.log("deleting user");
-    axios.delete('/users/' + this.state.user.id)
+    apiClient.delete('/user/' + this.state.user.id)
     .then(response => {
       this.setState({ user: "this user no longer exists"})
     })
@@ -46,7 +46,7 @@ class User extends Component {
 
   updateUser = (event) => {
     console.log("updating user");
-    axios.patch('/users/' + this.state.user.id, {
+    apiClient.patch('/user/' + this.state.user.id, {
         email: this.state.email,
         user_name: this.state.user_name,
         first_name: this.state.first_name,

@@ -6,7 +6,7 @@ import SignUp from './components/SignUp/SignUp.js';
 import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
 import history from './history.js';
-import RecipeList from './components/recipeCard/recipeCard.js';
+import RecipeList from './components/RecipeCard/RecipeCard.js';
 
 
 const recipes = [

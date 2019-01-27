@@ -8,4 +8,4 @@ let apiClient = axios.create({
 
 // TODO: add methods to wrap API endpoints
 
-module.exports = apiClient;
+export default apiClient;

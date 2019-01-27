@@ -72,4 +72,3 @@ RecipeList.propTypes = {
 
 export default RecipeList;
 
-,,

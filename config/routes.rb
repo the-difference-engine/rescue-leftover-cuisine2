@@ -1,29 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :admins, :controllers => {:registrations => "admin_registrations"}
-  devise_for :users, :controllers => {:registrations => "user_registrations"}
-
-  resources :users
-  
-  scope "/superadminviews" do
-    resources :admins
-  end
-  root to: "pages#home"
-  get 'hello' => 'users#hello'
-  resources :admins do
-  	get 'passwordchange'
-  end
-  namespace :adminportal do
-    resources :adminviews, :superadminviews
-  end
-  get 'adminportal/adminviews/:id/suspend', to: 'adminportal/adminviews#suspend'
-  get 'adminportal/adminviews/:id/delete', to: 'adminportal/adminviews#delete'
-  get 'adminportal/superadminviews/:id/suspend', to: 'adminportal/superadminviews#suspend'
-
-  namespace :api do
-    resources :message
-  end
-
-  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
-    !request.xhr? && request.format.html?
-  end
+  devise_for :users,
+             path: 'api/v1',
+             path_names: {
+               sign_in: 'auth/login',
+               sign_out: 'auth/logout',
+               registration: 'user'
+             },
+             controllers: {
+               registrations: 'api/v1/registrations'
+             },
+             defaults: {
+               format: :json
+             }
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

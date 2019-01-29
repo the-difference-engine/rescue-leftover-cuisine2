@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header.js'
-import Footer from '../../components/Footer/Footer.js';
+// import Header from '../../components/Header/Header.js'
+// import Footer from '../../components/Footer/Footer.js';
 import MainSearch from '../../components/MainSearch/MainSearch';
 import './Homepage.css'
 
@@ -16,9 +16,9 @@ class Homepage extends Component {
     render() {
       return (
         <div className="wrapper">
-          <Header/>
+          {/* <Header/> */}
           <MainSearch/>
-          <Footer/>
+          {/* <Footer/> */}
         </div>
       )
     }

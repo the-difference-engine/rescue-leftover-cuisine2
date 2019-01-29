@@ -27,7 +27,6 @@ class SignUp extends Component {
               <input type="text" id="inputFirstName" className="form-control-lg" placeholder="First Name" required="" autoFocus="" />
               <label htmlFor="inputFirstName">First Name</label>
             </div>
-
             <div className="form-label-group">
               <input type="text" id="inputLastName" className="form-control-lg" placeholder="Last Name" required="" autoFocus="" />
               <label htmlFor="inputLastName">Last Name</label>

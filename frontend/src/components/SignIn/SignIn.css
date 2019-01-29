@@ -8,9 +8,9 @@
 .form-signin {
   position: relative;
   float: right;
-  height: 325px;
-  width: 450px;
-  padding: 1vw;
+  height: 45vh;
+  width: 35vw;
+  padding: 5vh 5vw 5vh 5vw;
   background-color: #ffffff;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .25);
 }

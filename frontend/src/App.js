@@ -6,21 +6,7 @@ import SignUp from './components/SignUp/SignUp.js';
 import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
 import history from './history.js';
-import RecipeList from './components/RecipeCard/RecipeCard.js';
 
-
-const recipes = [
-  {
-    photo_url: 'http://placekitten.com/g/325/325',
-    meal: 'BREAKFAST',
-    title: 'Scrambled Eggs',
-    snippet: 'The best scrambled eggs recipe, hands down!',
-    difficulty: 'MEDIUM',
-    duration: 5,
-    servings: 10,
-    id: 1,
-  },
-]
  
 class App extends Component {
   render() {
@@ -33,7 +19,6 @@ class App extends Component {
           <Route exact path='/users' history={history} render={(props) => <UsersAll {...props} />}></Route>
           <Route exact path='/users/:id' history={history} render={(props) => <User {...props} />}></Route>
         </Switch>
-        <RecipeList recipes={recipes} />
       </div>
     )
   }

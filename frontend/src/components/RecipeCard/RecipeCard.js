@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './RecipeCard.css';
 
 
-const Recipe = (props) => {
+const RecipeCard = (props) => {
 
   const mealDifficulty = (difficulty) => {
     if (difficulty === "EASY") {
@@ -45,21 +45,7 @@ const Recipe = (props) => {
   )
 }
 
-const RecipeList = (props) => {
-
-  return (
-    <div id="wrapper">
-      {props.recipes.map(recipe =>
-        <Recipe
-          {...recipe}
-          key={recipe.id}
-        />
-      )}
-    </div>
-  )
-}
-
-RecipeList.propTypes = {
+RecipeCard.propTypes = {
   meal: PropTypes.string,
   photo_url: PropTypes.string,
   alternate: PropTypes.string,
@@ -70,5 +56,5 @@ RecipeList.propTypes = {
   servings: PropTypes.number,
 }
 
-export default RecipeList;
 
+export default RecipeCard;

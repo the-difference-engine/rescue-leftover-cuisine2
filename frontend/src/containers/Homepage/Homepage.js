@@ -16,7 +16,9 @@ class Homepage extends Component {
       return (
         <div className="wrapper">
           <Header/>
-          <MainSearch/>
+          <div className="page-content">
+            <MainSearch/>
+          </div>
           <Footer/>
         </div>
       )

@@ -10,8 +10,16 @@ class MainSearch extends Component {
           <p className="findText">Find Recipes from Resuing Leftover Cuisine</p>
             <span className="search"><input type='text' className='input' placeholder='Search by keywords'/></span>
         </div>
-        
       </div>
+      // <div className="container-fluid">
+      //   <div className="row"></div>
+      //   <div className="mainSearchContainer">
+      //     <div className="searchSection">
+      //       <p className="findText">Find Recipes from Resuing Leftover Cuisine</p>
+      //         <span className="search"><input type='text' className='input' placeholder='Search by keywords'/></span>
+      //       </div>
+      //   </div>
+      // </div>
     )
   }
 }

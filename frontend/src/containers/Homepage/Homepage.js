@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js'
 import Footer from '../../components/Footer/Footer.js';
 import MainSearch from '../../components/MainSearch/MainSearch';
+import './Homepage.css'
 
 
 class Homepage extends Component {
@@ -16,9 +17,7 @@ class Homepage extends Component {
       return (
         <div className="wrapper">
           <Header/>
-          <div className="page-content">
-            <MainSearch/>
-          </div>
+          <MainSearch/>
           <Footer/>
         </div>
       )

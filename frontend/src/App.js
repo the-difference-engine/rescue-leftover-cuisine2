@@ -7,7 +7,7 @@ import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
 import history from './history.js';
 import RecipeList from './components/RecipeCard/RecipeCard.js';
-
+import BottomSignUp from './components/BottomSignUp/BottomSignUp.js'
 
 const recipes = [
   {
@@ -34,6 +34,7 @@ class App extends Component {
           <Route exact path='/users/:id' history={history} render={(props) => <User {...props} />}></Route>
         </Switch>
         <RecipeList recipes={recipes} />
+        <BottomSignUp/>
       </div>
     )
   }

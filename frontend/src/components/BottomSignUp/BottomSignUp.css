@@ -1,0 +1,57 @@
+.bottomContainer.container-fluid {
+    color: white;
+    padding-top: 2vw;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0; 
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 500;
+}
+
+.signupSection {
+    background-color: #2966eb;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.signupButtonSection {
+    padding: 3vw 7w;
+    height: 10vw;
+    display: block;
+    clear: both;
+}
+
+.signupButtonSection button {
+    margin-top: 40%;
+    margin-right: 29%;
+    color: white;
+    background-color: #2966eb;
+    border: solid white 3px;
+    border-radius: .5vw;
+    padding: 2vw 4vw 5vw 4vw;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 500;
+    height: 7vw;
+}
+
+span:not(:last-child) {
+    border: none;
+}
+
+.signupImage {
+    width: 100%;
+    height: auto;
+    background-color: #2966eb;
+}
+
+.signupText {
+    display: block;
+    clear: both;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
+    border: none;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './recipeCard.css';
+import './RecipeCard.css';
 
 
 const Recipe = (props) => {
@@ -71,3 +71,4 @@ RecipeList.propTypes = {
 }
 
 export default RecipeList;
+

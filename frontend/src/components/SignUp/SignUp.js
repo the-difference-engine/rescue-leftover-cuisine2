@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import apiClient from '../../lib/apiClient';
 
 class SignUp extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class SignUp extends Component {
   }
 
   signUp = (event) => {
-    axios.post('/users', {
+    apiClient.post('/user', {
         email: this.state.email,
         password: this.state.password,
         password_confirmation: this.state.password_confirmation,

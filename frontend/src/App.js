@@ -6,7 +6,6 @@ import SignUp from './components/SignUp/SignUp.js';
 import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
 import history from './history.js';
-
  
 class App extends Component {
   render() {

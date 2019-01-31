@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js'
 import Footer from '../../components/Footer/Footer.js';
 import MainSearch from '../../components/MainSearch/MainSearch';
-import RecipeList from './components/RecipeCard/RecipeCard.js';
-import BottomSignUp from './components/BottomSignUp/BottomSignUp.js'
+import RecipeList from '../../components/RecipeCard/RecipeCard.js';
+import BottomSignUp from '../../components/BottomSignUp/BottomSignUp.js'
 
 const recipes = [
   {

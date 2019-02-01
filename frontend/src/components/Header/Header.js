@@ -14,7 +14,7 @@ class Header extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <nav className="navbar navbar-expand-lg navbar-white bg-white navbar-fill fixed-top">
+                    <nav className="navbar navbar-expand-lg navbar-white bg-white navbar-fill">
                         <div className="col-md-4">
                             <div className="navbar-brand" href="/">
                                 <img src={require('../../assets/RLC_logo.png')} alt="RLC Logo" className="logo"/>

@@ -7,8 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # examples creating Recipe row using rails console
-Recipe.create(title: "Lasagna", snippet: "Lots of tomato sauce and cheese and pasta", ingredients: ["eggs","pasta","cheese"], directions: ["put ingredients in bowl","stir","put in pan","bake it"], difficulty: "Intermediate",duration:30,servings:4)
-Recipe.create(title: "Cookies", snippet: "chocolate chip heaven", ingredients: ["flour","eggs","chocolate chips"], directions: ["stir ingredients","make 1 inch balls","place on cookie sheet 2 inches apart","bake at 350 degress"], difficulty: "Beginner",duration:45,servings:6)
+Recipe.create(title: "Lasagna", snippet: "Lots of tomato sauce and cheese and pasta", ingredients: ["eggs","pasta","cheese"], directions: ["put ingredients in bowl","stir","put in pan","bake it"], difficulty: "MEDIUM", duration: 30, servings: 4)
+Recipe.create(title: "Cookies", snippet: "chocolate chip heaven", ingredients: ["flour","eggs","chocolate chips"], directions: ["stir ingredients","make 1 inch balls","place on cookie sheet 2 inches apart","bake at 350 degress"], difficulty: "EASY", duration: 45, servings: 6)
+Recipe.create(photo_url: 'http://placekitten.com/g/325/325', meal: 'BREAKFAST', title: 'Scrambled Eggs', snippet: 'The best scrambled eggs recipe, hands down!', difficulty: 'MEDIUM', duration: 15, servings: 10)
+Recipe.create(photo_url: 'http://placekitten.com/g/325/325', meal: 'LUNCH', title: 'Huevos Rancheros', snippet: "You can't get better huevos rancheros, even from your favorite local Mexian resuatrant.", difficulty: 'EASY', duration: 30, servings: 4)
+Recipe.create(photo_url: 'http://placekitten.com/g/325/325', meal: 'DINNER', title: 'Lasagne', snippet: 'Not even your mother can make this better.  And no gender-reveals here!', difficulty: 'ADVANCED', duration: 30, servings: 6)
 
 # examples creating User row using rails console
 User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmation: "Bob@RLC123", username: "Bob@RLC", first_name: "Bob", last_name: "Domain", created_at: "2018-04-27 09:34:41.306138", updated_at: "2018-04-27 09:34:41.306138")

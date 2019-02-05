@@ -6,7 +6,7 @@
 .rlcLogo {
    /* float: left;*/
     height: 125px;
-    margin-right: 700px;
+    margin-right: 10rem; /* 700px; */
 }
 
 .topButton {
@@ -29,9 +29,10 @@
 }
 
 .searchArea {
-    width: 800px;
+    width:  50rem;  /*800px;*/
     height: 60px;
     border: solid grey 1px;
+    margin-right: 20rem;
   /*  margin-left: auto;
     margin-right: auto;*/
    /* display: none; */

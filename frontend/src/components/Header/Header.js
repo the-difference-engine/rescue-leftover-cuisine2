@@ -52,9 +52,9 @@ class Header extends Component {
                   <button class="btn btn-outline-success pxy-md-5 mx-md-5" type="button">three</button>
                 </form> */}
                 <a className="btn mt-1 searchArea" href="/">search</a>
-                <a className="btn navbar-btn ml-5 px-5 mr-auto topButton browseButton" href="/">Browse Recipes</a>
-                <a className="btn navbar-btn ml-0 px-5 mr-auto topButton loginButton" href="/">Log In or Sign Up</a>
-                <a className="btn navbar-btn ml-0 px-5 mr-auto topButton donateButton" href="/">Donate</a>
+                <a className="btn navbar-btn px-5 mr-auto topButton browseButton" href="/">Browse Recipes</a>
+                <a className="btn navbar-btn px-5 mr-auto topButton loginButton" href="/">Log In or Sign Up</a>
+                <a className="btn navbar-btn px-5 mr-auto topButton donateButton" href="/">Donate</a>
             </header>
 
         )

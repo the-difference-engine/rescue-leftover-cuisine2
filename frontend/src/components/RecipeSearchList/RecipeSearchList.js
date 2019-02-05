@@ -7,7 +7,7 @@ const RecipeSearchList = () => {
 
   const recipes = [
     {
-      photo_url: 'http://placekitten.com/g/325/325',
+      photos: ['http://placekitten.com/g/325/325'],
       meal: 'BREAKFAST',
       title: 'Scrambled Eggs',
       snippet: 'The best scrambled eggs recipe, hands down!',
@@ -17,7 +17,7 @@ const RecipeSearchList = () => {
       id: 1,
     },
     {
-      photo_url: 'http://placekitten.com/g/325/325',
+      photos: ['http://placekitten.com/g/325/325'],
       meal: 'LUNCH',
       title: 'Huevos Rancheros',
       snippet: "You can't get better huevos rancheros, even from your favorite local Mexian resuatrant.",
@@ -27,7 +27,7 @@ const RecipeSearchList = () => {
       id: 2,
     },
     {
-      photo_url: 'http://placekitten.com/g/325/325',
+      photos: ['http://placekitten.com/g/325/325'],
       meal: 'DINNER',
       title: 'Lasagne',
       snippet: 'Not even your mother can make this better.  And no gender-reveals here!',

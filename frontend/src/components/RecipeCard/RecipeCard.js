@@ -27,7 +27,7 @@ const RecipeCard = (props) => {
     <div className="card-deck d-inline-flex">
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={props.photo_url} alt={props.alternate} />
+          <img className="card-img-top" src={props.photos[0]} alt={props.alternate} />
           <button>{props.meal}</button>
         </div>
         <div className="card-body">
@@ -47,7 +47,7 @@ const RecipeCard = (props) => {
 
 RecipeCard.propTypes = {
   meal: PropTypes.string,
-  photo_url: PropTypes.string,
+  photos: PropTypes.array,
   alternate: PropTypes.string,
   title: PropTypes.string,
   snippet: PropTypes.string,

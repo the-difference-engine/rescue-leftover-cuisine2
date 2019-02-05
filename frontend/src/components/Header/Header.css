@@ -1,82 +1,50 @@
-
 .rlcLogo {
     height: 125px;
-    margin-right: 75rem; /* 700px; */
 }
 
 .topButton {
     height: 85px;
     font-size: 40px;
+    border-radius: .75rem;
 }
 
 .browseButton {
     color: black;
-    margin-left: 10rem; /*100px;*/
+    margin-left: 10rem;
     font-size: 40px;
+}
+
+.browseButton:hover {
+    color: white;
+    background-color:  #06A6D3;
 }
 
 .donateButton {
     color: white;
     background-color: #FFC837;
     border: none;
-    border-radius: .75rem;
     font-size: 40px;
+}
+
+.donateButton:hover {
+    background-color: #CEA22E;
+    color: white;
 }
 
 .loginButton {
     color: #4EC8ED;
     border: solid #4EC8ED 5px;
-    border-radius: .75rem;
+}
+
+.loginButton:hover {
+    color: white;
+    background-color: #06A6D3;
+    border: solid 1px #06A6D3;
 }
 
 .searchArea {
-    width:  50rem;  /*800px;*/
+    width:  50rem;
     height: 60px;
-    border: solid grey 1px;
+    border: solid #4EC8ED 1px;
     margin-right: 20rem;
-  /*  margin-left: auto;
-    margin-right: auto;*/
-   /* display: none; */
 }
-
-/*
-$spacer: 1rem;
-$spacers = (
-    6: ($spacer * 3.5),
-    7: ($spacer * 10)
-)
-*/
-/*
-.centerButtonSection {
-    text-align: center;
-}
-
-.btn-xlg {
-    padding: 20px 30px;
-    font-size: 22px;
-    border-radius: 8px;
-    vertical-align: center;
-}
-
-.donateButton {
-    color: white;
-   /* padding-left: 60px;
-    padding-right: 60px;*/
-/*}*/
-/*
-.loginButton {
-   border: blue solid 3px;
-}
-*/
-/*
-.buttonSize {
-    height: 100px;
-    width: 400px;
-}
-*/
-/*
-.btn {
-   /*   padding: 5px 20px 70x 20px;*/
-/*    border: 1px;
-}
-*/

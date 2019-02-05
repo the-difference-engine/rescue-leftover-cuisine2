@@ -1,15 +1,13 @@
 class Api::V1::RecipeController < ApplicationController
 
   def show
-    @recipe = Recipe.find(params[:id])
-      ApplicationController::ErrorCheck
+    @recipe = Recipe.find_by!(id: params[:id])
       render json: @recipe
-  rescue ActiveRecord::RecordNotFound => e
-    render json: ApplicationController::RecordNotFound.code, ApplicationController::RecordNotFound.message
   end
 
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
+    render json: @recipes
   end
 
 end

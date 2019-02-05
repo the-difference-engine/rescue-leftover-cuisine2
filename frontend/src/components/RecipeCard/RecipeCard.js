@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './RecipeCard.css';
 
 
-const Recipe = (props) => {
+const RecipeCard = (props) => {
 
   const mealDifficulty = (difficulty) => {
     if (difficulty === "EASY") {
@@ -27,7 +27,7 @@ const Recipe = (props) => {
     <div className="card-deck d-inline-flex">
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={props.photo_url} alt={props.alternate} />
+          <img className="card-img-top" src={props.photos[0]} alt={props.alternate} />
           <button>{props.meal}</button>
         </div>
         <div className="card-body">
@@ -45,23 +45,9 @@ const Recipe = (props) => {
   )
 }
 
-const RecipeList = (props) => {
-
-  return (
-    <div id="wrapper">
-      {props.recipes.map(recipe =>
-        <Recipe
-          {...recipe}
-          key={recipe.id}
-        />
-      )}
-    </div>
-  )
-}
-
-RecipeList.propTypes = {
+RecipeCard.propTypes = {
   meal: PropTypes.string,
-  photo_url: PropTypes.string,
+  photos: PropTypes.array,
   alternate: PropTypes.string,
   title: PropTypes.string,
   snippet: PropTypes.string,
@@ -70,5 +56,5 @@ RecipeList.propTypes = {
   servings: PropTypes.number,
 }
 
-export default RecipeList;
 
+export default RecipeCard;

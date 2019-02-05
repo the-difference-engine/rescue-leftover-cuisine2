@@ -1,12 +1,7 @@
-.logo {
-    width: 150px;
-    padding: 7px 0;
-}
 
 .rlcLogo {
-   /* float: left;*/
     height: 125px;
-    margin-right: 10rem; /* 700px; */
+    margin-right: 75rem; /* 700px; */
 }
 
 .topButton {
@@ -15,17 +10,23 @@
 }
 
 .browseButton {
-    margin-left: 100px;
+    color: black;
+    margin-left: 10rem; /*100px;*/
+    font-size: 40px;
 }
 
 .donateButton {
     color: white;
-    background-color: goldenrod;
+    background-color: #FFC837;
     border: none;
+    border-radius: .75rem;
+    font-size: 40px;
 }
 
 .loginButton {
-    border: solid #4EC8ED 1px;
+    color: #4EC8ED;
+    border: solid #4EC8ED 5px;
+    border-radius: .75rem;
 }
 
 .searchArea {

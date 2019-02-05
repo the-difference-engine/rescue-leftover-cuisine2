@@ -2,7 +2,7 @@ class Api::V1::RecipeController < ApplicationController
 
   def show
     @recipe = Recipe.find_by!(id: params[:id])
-      render json: @recipe
+    render json: @recipe
   end
 
   def index

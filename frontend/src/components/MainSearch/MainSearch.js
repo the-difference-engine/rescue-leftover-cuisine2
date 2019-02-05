@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MainSearch.css'
 
-
 class MainSearch extends Component {
 
   render (){

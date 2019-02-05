@@ -12,6 +12,7 @@ Rails.application.routes.draw do
              defaults: {
                format: :json
              }
+             
   namespace :api do
     namespace :v1 do
       resources :recipe

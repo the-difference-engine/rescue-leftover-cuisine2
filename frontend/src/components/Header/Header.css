@@ -1,14 +1,80 @@
 .logo {
-    width: 50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 150px;
+    padding: 7px 0;
 }
 
+.rlcLogo {
+   /* float: left;*/
+    height: 125px;
+    margin-right: 700px;
+}
+
+.topButton {
+    height: 85px;
+    font-size: 40px;
+}
+
+.browseButton {
+    margin-left: 100px;
+}
+
+.donateButton {
+    color: white;
+    background-color: goldenrod;
+    border: none;
+}
+
+.loginButton {
+    border: solid #4EC8ED 1px;
+}
+
+.searchArea {
+    width: 800px;
+    height: 60px;
+    border: solid grey 1px;
+  /*  margin-left: auto;
+    margin-right: auto;*/
+   /* display: none; */
+}
+
+/*
+$spacer: 1rem;
+$spacers = (
+    6: ($spacer * 3.5),
+    7: ($spacer * 10)
+)
+*/
+/*
 .centerButtonSection {
     text-align: center;
 }
 
-.donateButton {
-    padding-left: 60px;
-    padding-right: 60px;
+.btn-xlg {
+    padding: 20px 30px;
+    font-size: 22px;
+    border-radius: 8px;
+    vertical-align: center;
 }
+
+.donateButton {
+    color: white;
+   /* padding-left: 60px;
+    padding-right: 60px;*/
+/*}*/
+/*
+.loginButton {
+   border: blue solid 3px;
+}
+*/
+/*
+.buttonSize {
+    height: 100px;
+    width: 400px;
+}
+*/
+/*
+.btn {
+   /*   padding: 5px 20px 70x 20px;*/
+/*    border: 1px;
+}
+*/

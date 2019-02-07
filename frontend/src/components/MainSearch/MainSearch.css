@@ -35,7 +35,9 @@
     opacity: 0.5;
     color: #757373;
     text-align: center;
+    justify-content: center;
     padding-top: 2vw;
     font-weight: 500;
     font-family: 'Nunito', sans-serif;
+    margin: 0px;
 }

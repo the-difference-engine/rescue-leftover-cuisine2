@@ -1,3 +1,9 @@
-/* * {
-    margin: 80px;
-} */
+.homepage.container-fluid {
+    margin: 0px;
+    height: 100px;
+}
+
+.header {
+    height: 100px
+}
+

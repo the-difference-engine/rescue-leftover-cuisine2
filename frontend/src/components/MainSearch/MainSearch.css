@@ -1,6 +1,6 @@
 .mainSearch.container-fluid {
-    padding-bottom: 0;
-    padding-top: 2vw;
+    padding-bottom: 0px;
+    padding-top: 0px;
     font-family: 'Nunito', sans-serif;
     width: 100%;
 }
@@ -28,4 +28,14 @@
     color: white;
     font-size: 4.5vw;
     font-weight: bold;
+}
+
+.suggestionsSection {
+    font-size: 1.5vw;
+    opacity: 0.5;
+    color: #757373;
+    text-align: center;
+    padding-top: 2vw;
+    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
 }

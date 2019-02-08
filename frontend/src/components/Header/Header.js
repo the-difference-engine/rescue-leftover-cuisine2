@@ -13,7 +13,7 @@ class Header extends Component {
     render() {
         return (
             <div className="container-fluid">
-              <header className="navbar navbar-white bg-white">
+              <header className="navbar navbar-white bg-white fixed-top">
                 <div className="row col-sm-2 col-md-2">
                     <a className="navbar-brand" href="/">
                         <img src={require('../../assets/RLC_logo.png')} alt="RLC Logo" className="rlcLogo"/>

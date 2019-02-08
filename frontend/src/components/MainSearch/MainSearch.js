@@ -12,18 +12,6 @@ class MainSearch extends Component {
               <span className="search"><input type='text' className='input' placeholder='Search by keywords'/></span>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-4"></div>
-          <div className="suggestionsSection">
-            <div className="col-md-4">
-              <span>
-                <h3>Our Suggestions</h3>
-                <h5>Based on this week's popular ingredient donations</h5>
-              </span>
-            </div>
-          </div>
-          <div className="col-md-4"></div>
-        </div>
       </div>
     )
   }

@@ -1,9 +1,12 @@
 .homepage.container-fluid {
     margin: 0px;
-    height: 100px;
 }
 
 .header {
     height: 100px
 }
 
+.homepageContent {
+    margin: 0px;
+    margin-top: 0px;
+}

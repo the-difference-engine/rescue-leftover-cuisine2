@@ -24,10 +24,18 @@ class Homepage extends Component {
           </div>
           <div className="row">
             <div className="homepageContent">
-              <MainSearch />
-              <RecipeSearchList />
-              <BottomSignUp/>
-              <Footer/>
+              <div className="row">
+                <MainSearch />
+              </div>
+              <div className="row">
+                <RecipeSearchList />
+              </div>
+              <div className="row">
+                <BottomSignUp/>
+              </div>
+              <div className="row">
+                <Footer/>
+              </div>
             </div>
           </div>
         </div>

@@ -55,3 +55,7 @@ span:not(:last-child) {
     padding-bottom: 2vw;
     border: none;
 }
+
+.col {
+    padding-right: 0px;
+}

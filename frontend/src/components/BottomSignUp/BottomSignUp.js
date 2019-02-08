@@ -12,10 +12,9 @@ class BottomSignUp extends Component {
               <div className="col">
                 <img className="signupImage" src={signupImage} alt="sign up"/>
               </div>
-              <div className="col">
-                <div className="signupSection">
-                  <p className="signupText">
-                    <br/>
+              <div className="col signupSection">
+                <p className="signupText">
+                  <br/>
                     <span>Sign up to create your recipe<br/></span>
                     <span> and share them with our<br/></span>
                     <span> community!<br/></span>
@@ -24,8 +23,7 @@ class BottomSignUp extends Component {
                       <button type="button" className="btn btn-lg">Sign Up
                     </button>
                     </span>        
-                  </p>
-                </div>
+                </p>
               </div>
             </div>
           </div>

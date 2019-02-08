@@ -1,11 +1,11 @@
-.bottomContainer.container-fluid {
+.containerSection {
     color: white;
     padding-top: 2vw;
     padding-left: 0;
     padding-right: 0;
     margin: 0; 
     font-family: 'Nunito', sans-serif;
-    font-size: 2.5vw;
+    font-size: 28.5px;
     font-weight: 500;
 }
 

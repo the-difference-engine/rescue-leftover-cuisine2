@@ -1,6 +1,6 @@
 .mainSearch.container-fluid {
     padding-bottom: 0px;
-    padding-top: 100px;
+    padding-top: 50px;
     font-family: 'Nunito', sans-serif;
     width: 100%;
 }
@@ -19,7 +19,6 @@
 }
 
 .input {
-    justify-content: left;
     padding: 1vw 14vw;
     font-weight: 100;
 }

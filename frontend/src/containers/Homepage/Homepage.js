@@ -27,6 +27,13 @@ class Homepage extends Component {
               <div className="row">
                 <MainSearch />
               </div>
+              <div className="row suggestions">
+                <div className="col-12">
+                  <h2>Our Suggestions</h2>
+                  <br></br>
+                  <h6>Based on this week's popular ingredient donations</h6>
+                </div>
+              </div>
               <div className="row">
                 <RecipeSearchList />
               </div>

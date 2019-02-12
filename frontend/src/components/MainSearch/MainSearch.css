@@ -1,22 +1,24 @@
-.mainSearchContainer {
-    background-image: url("./grilled-chicken1725.jpg");
-    background-repeat: no-repeat;
-    padding-bottom: 0;
+.mainSearch.container-fluid {
+    padding-bottom: 0px;
+    padding-top: 50px;
     font-family: 'Nunito', sans-serif;
+    width: 100%;
 }
 
 .search {
     font-size: 2vw;
+    justify-content: left;
 }
 
 .searchSection {
-    width: 93vw;
+    background-image: url("../../assets/grilled-chicken1725.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
     text-align: center;
     padding: 5vw 15vw 10vw 20vw;
 }
 
 .input {
-    text-align: center;
     padding: 1vw 14vw;
     font-weight: 100;
 }
@@ -25,4 +27,16 @@
     color: white;
     font-size: 4.5vw;
     font-weight: bold;
+}
+
+.suggestionsSection {
+    font-size: 1.5vw;
+    opacity: 0.5;
+    color: #757373;
+    text-align: center;
+    justify-content: center;
+    padding-top: 2vw;
+    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    margin: 0px;
 }

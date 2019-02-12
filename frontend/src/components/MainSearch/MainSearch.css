@@ -26,7 +26,8 @@
 .findText {
     color: white;
     font-size: 4.5vw;
-    font-weight: bold;
+    line-height: 1.0em;
+    font-weight: 900;
     font-family: 'Nunito', sans-serif;
 }
 

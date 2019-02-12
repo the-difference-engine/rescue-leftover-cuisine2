@@ -1,0 +1,17 @@
+.homepage.container-fluid {
+    margin: 0px;
+}
+
+.header {
+    height: 100px
+}
+
+.homepageContent {
+    margin: 0px;
+    margin-top: 0px;
+}
+
+.suggestions {
+    margin-top: 20px;
+    text-align: center;
+}

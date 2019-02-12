@@ -6,8 +6,8 @@ class Api::V1::RecipeController < ApplicationController
   end
 
   def index
-    if
-      
+    if params[:search]
+      @recipes = PgSearch.multisearch(params[:search]).all
     else
       @recipes = Recipe.all
     end

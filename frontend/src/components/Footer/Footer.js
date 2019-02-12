@@ -4,7 +4,7 @@ import "./Footer.css";
 class Footer extends Component {
   render (){
     return (
-      <div className='container-fluid containerSection'>
+      <div className="container-fluid containerSection">
         <div className="footer">
           <div className='row'>
             {/* Empty placeholder section */}

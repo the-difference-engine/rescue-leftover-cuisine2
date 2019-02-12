@@ -8,4 +8,15 @@ let apiClient = axios.create({
 
 // TODO: add methods to wrap API endpoints
 
+let getRecipes = search => {
+  if (search) {
+    apiClient.get(`api/v1/recipe?search={search}`)
+  }
+  return apiClient.get("api/v1/recipe")
+    .then(results => { return results.data })
+    .catch(e => { return [] });
+}; 
+
+
 export default apiClient;
+export { getRecipes };

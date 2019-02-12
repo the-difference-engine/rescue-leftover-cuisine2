@@ -10,9 +10,16 @@ class Homepage extends Component {
     constructor(props) {
       super(props)
       this.state = {
-        message: 'Loading...'
-      }
+        message: 'Loading...',
+        search: null
+      };
     }
+  
+  setSearchTerm(searchTerm) {
+    this.setState({
+      search: searchTerm
+    })
+  } 
 
     render() {
       return (
@@ -25,7 +32,7 @@ class Homepage extends Component {
           <div className="row">
             <div className="homepageContent">
               <div className="row">
-                <MainSearch />
+                <MainSearch setSearchTerm={ this.setSearchTerm.bind(this) }/>
               </div>
               <div className="row suggestions">
                 <div className="col-12">
@@ -35,7 +42,7 @@ class Homepage extends Component {
                 </div>
               </div>
               <div className="row">
-                <RecipeSearchList />
+                <RecipeSearchList search={this.state.search}/>
               </div>
               <div className="row">
                 <BottomSignUp/>

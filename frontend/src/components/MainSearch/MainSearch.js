@@ -16,7 +16,9 @@ class MainSearch extends Component {
         <div className="row">
           <div className="searchSection">
             <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
-            <span className="search"><input type='text' className='input' placeholder='Search by keywords' onKeyPress={this.handleKeyPress}/></span>
+              <span className="search">
+                <form className="search-form"><input type="text" className="input" placeholder="Search by keywords" /></form>
+              </span>
           </div>
         </div>
       </div>

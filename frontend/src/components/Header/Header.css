@@ -4,14 +4,13 @@
 
 .topButton {
     height: 85px;
-    font-size: 40px;
+    font-size: 38px;
     border-radius: .75rem;
 }
 
 .browseButton {
     color: black;
     margin-left: 10rem;
-    font-size: 40px;
 }
 
 .browseButton:hover {
@@ -22,8 +21,6 @@
 .donateButton {
     color: white;
     background-color: #FFC837;
-    border: none;
-    font-size: 40px;
 }
 
 .donateButton:hover {
@@ -39,7 +36,7 @@
 .loginButton:hover {
     color: white;
     background-color: #06A6D3;
-    border: solid 1px #06A6D3;
+    border-color: #06A6D3;
 }
 
 .searchArea {

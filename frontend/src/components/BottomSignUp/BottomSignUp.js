@@ -15,7 +15,7 @@ class BottomSignUp extends Component {
               <div className="col signupSection">
                 <p className="signupText">
                   <br/>
-                    <span>Sign up to create your recipe<br/></span>
+                    <span>Sign up to create your recipes<br/></span>
                     <span> and share them with our<br/></span>
                     <span> community!<br/></span>
                     <br/>

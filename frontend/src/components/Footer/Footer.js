@@ -6,14 +6,14 @@ class Footer extends Component {
     return (
       <div className="container-fluid containerSection">
         <div className="footer">
-          <div className='row'>
+          <div className="row">
             {/* Empty placeholder section */}
-            <div className="col"></div>
-            <div className='col company'>
+            <div className="col-md-4"></div>
+            <div className="col-md-4 company">
               <span>&copy;2018 Rescuing Leftover Cuisine</span>
             </div>
-            <div className='col iconSection'>
-             <span className='float-right'>
+            <div className="col-md-4 iconSection">
+             <span className="float-right">
                <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCJKK9jkEIHt8j17cHPHCPQw"><i className="fab fa-youtube fa-2x iconStyle"></i></a>
                <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/RescuingLeftoverCuisine"><i className="fab fa-facebook-f fa-2x iconStyle"></i></a>
                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/rescuingcuisine"><i className="fab fa-twitter fa-2x iconStyle"></i></a>
@@ -25,12 +25,12 @@ class Footer extends Component {
           </div>
           <div className="row">
              {/* Empty placeholder section */}
-             <div className='col'></div>
-             <div className='col designBySection'>
+             <div className="col-md-4"></div>
+             <div className="col-md-4 designBySection">
                <span>Designed by </span>
-               <span className='designByCo'>Fluid Designs</span>
+               <span className="designByCo">Fluid Designs</span>
             </div>
-            <div className='col'></div>
+            <div className="col-md-4"></div>
           </div>
         </div>
       </div>

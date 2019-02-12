@@ -37,7 +37,7 @@ const RecipeSearchList = () => {
   ]
 
   return (
-    <div id="wrapper">
+    <div id="cards-wrapper">
       {recipes.map(recipe =>
         <RecipeCard
           {...recipe}

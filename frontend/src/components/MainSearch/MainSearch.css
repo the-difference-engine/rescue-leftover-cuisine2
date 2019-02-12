@@ -23,6 +23,8 @@
     border-radius: 10px;
     font-weight: 200;
     text-shadow: 2px 2px #F2F2F2;
+    border: 0;
+    box-shadow: 0 0 5px #000;
 }
 
 .findText {

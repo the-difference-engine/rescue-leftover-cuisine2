@@ -6,7 +6,11 @@ class Api::V1::RecipeController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
+    if
+      
+    else
+      @recipes = Recipe.all
+    end
     render json: @recipes
   end
 

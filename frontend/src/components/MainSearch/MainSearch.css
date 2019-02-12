@@ -7,7 +7,7 @@
 
 .search {
     font-size: 2vw;
-    justify-content: left;
+    font-weight: 200;
 }
 
 .searchSection {
@@ -19,8 +19,12 @@
 }
 
 .input {
-    padding: 1vw 14vw;
-    font-weight: 100;
+    padding: 1vw 26vw 1vw 2vw;
+    border-radius: 10px;
+    font-weight: 200;
+    text-shadow: 2px 2px #F2F2F2;
+    border: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .findText {

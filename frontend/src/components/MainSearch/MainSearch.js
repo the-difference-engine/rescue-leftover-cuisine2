@@ -3,11 +3,23 @@ import './MainSearch.css'
 
 class MainSearch extends Component {
 
-  handleKeyPress = (event) => {
-    console.log(event);
-    if(event.key === 'Enter'){
-      this.props.setSearchTerm(event.target.value)
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ""
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({searchTerm: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.setSearchTerm(this.state.searchTerm);
   }
 
   render (){
@@ -17,12 +29,14 @@ class MainSearch extends Component {
           <div className="searchSection">
             <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
               <span className="search">
-                <form className="search-form"><input type="text" className="input" placeholder="Search by keywords" /></form>
+                <form className="search-form" onSubmit={ this.handleSubmit }>
+                  <input type="text" className="input" placeholder="Search by keywords" onChange={ this.handleChange } />
+                </form>
               </span>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

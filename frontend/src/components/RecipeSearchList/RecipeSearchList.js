@@ -5,23 +5,33 @@ import { getRecipes } from '../../lib/apiClient';
 class RecipeSearchList extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       recipes: []
-    }
+    };
   }
   
   componentDidMount() {
-    getRecipes(this.props.search)
+    this.updateRecipes(this.props.searchTerm);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.searchTerm !== nextProps.searchTerm) {
+      this.updateRecipes(nextProps.searchTerm);
+    }
+  }
+
+  updateRecipes(searchTerm) {
+    getRecipes(searchTerm)
       .then(data => {
         this.setState({
           recipes: data
         });
       });
   }
-    
   
   render() {
+    console.log(this.state.recipes);
     return (
       <div id="wrapper">
         {this.state.recipes.map(recipe =>
@@ -31,7 +41,7 @@ class RecipeSearchList extends Component {
           />
         )}
       </div>
-    )
+    );
   }
 }
 

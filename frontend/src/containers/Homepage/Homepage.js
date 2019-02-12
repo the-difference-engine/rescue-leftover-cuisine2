@@ -7,18 +7,20 @@ import BottomSignUp from '../../components/BottomSignUp/BottomSignUp.js';
 import './Homepage.css'
 
 class Homepage extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        message: 'Loading...',
-        search: null
-      };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: 'Loading...',
+      searchTerm: null
+    };
+
+    this.setSearchTerm = this.setSearchTerm.bind(this);
+  }
   
   setSearchTerm(searchTerm) {
     this.setState({
-      search: searchTerm
-    })
+      searchTerm: searchTerm
+    });
   } 
 
     render() {
@@ -32,7 +34,7 @@ class Homepage extends Component {
           <div className="row">
             <div className="homepageContent">
               <div className="row">
-                <MainSearch setSearchTerm={ this.setSearchTerm.bind(this) }/>
+                <MainSearch setSearchTerm={ this.setSearchTerm }/>
               </div>
               <div className="row suggestions">
                 <div className="col-12">
@@ -42,7 +44,7 @@ class Homepage extends Component {
                 </div>
               </div>
               <div className="row">
-                <RecipeSearchList search={this.state.search}/>
+                <RecipeSearchList searchTerm={ this.state.searchTerm } />
               </div>
               <div className="row">
                 <BottomSignUp/>

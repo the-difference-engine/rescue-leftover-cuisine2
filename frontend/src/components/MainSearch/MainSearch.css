@@ -1,7 +1,6 @@
 .mainSearch.container-fluid {
     padding-bottom: 0px;
     padding-top: 50px;
-    font-family: 'Nunito', sans-serif;
     width: 100%;
 }
 
@@ -21,12 +20,14 @@
 .input {
     padding: 1vw 14vw;
     font-weight: 100;
+    font-family: 'Nunito', sans-serif;
 }
 
 .findText {
     color: white;
     font-size: 4.5vw;
     font-weight: bold;
+    font-family: 'Nunito', sans-serif;
 }
 
 .suggestionsSection {
@@ -37,6 +38,5 @@
     justify-content: center;
     padding-top: 2vw;
     font-weight: 500;
-    font-family: 'Nunito', sans-serif;
     margin: 0px;
 }

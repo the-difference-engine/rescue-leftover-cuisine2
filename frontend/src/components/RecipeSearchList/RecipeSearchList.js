@@ -1,51 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import { getRecipes } from '../../lib/apiClient';
 
-const RecipeSearchList = () => {
+class RecipeSearchList extends Component {
 
-  const recipes = [
-    {
-      photos: ['http://placekitten.com/g/325/325'],
-      meal: 'BREAKFAST',
-      title: 'Scrambled Eggs',
-      snippet: 'The best scrambled eggs recipe, hands down!',
-      difficulty: 'MEDIUM',
-      duration: 5,
-      servings: 10,
-      id: 1,
-    },
-    {
-      photos: ['http://placekitten.com/g/325/325'],
-      meal: 'LUNCH',
-      title: 'Huevos Rancheros',
-      snippet: "You can't get better huevos rancheros, even from your favorite local Mexian resuatrant.",
-      difficulty: 'EASY',
-      duration: 8,
-      servings: 4,
-      id: 2,
-    },
-    {
-      photos: ['http://placekitten.com/g/325/325'],
-      meal: 'DINNER',
-      title: 'Lasagne',
-      snippet: 'Not even your mother can make this better.  And no gender-reveals here!',
-      difficulty: 'ADVANCED',
-      duration: 7,
-      servings: 6,
-      id: 3,
-    },
-  ]
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipes: []
+    };
+  }
+  
+  componentDidMount() {
+    this.updateRecipes(this.props.searchTerm);
+  }
 
-  return (
-    <div id="wrapper">
-      {recipes.map(recipe =>
-        <RecipeCard
-          {...recipe}
-          key={recipe.id}
-        />
-      )}
-    </div>
-  )
+  componentWillReceiveProps(nextProps) {
+    if (this.props.searchTerm !== nextProps.searchTerm) {
+      this.updateRecipes(nextProps.searchTerm);
+    }
+  }
+
+  updateRecipes(searchTerm) {
+    getRecipes(searchTerm)
+      .then(data => {
+        this.setState({
+          recipes: data
+        });
+      });
+  }
+  
+  render() {
+    console.log(this.state.recipes);
+    return (
+      <div id="wrapper">
+        {this.state.recipes.map(recipe =>
+          <RecipeCard
+            {...recipe}
+            key={recipe.id}
+          />
+        )}
+      </div>
+    );
+  }
 }
 
 export default RecipeSearchList;

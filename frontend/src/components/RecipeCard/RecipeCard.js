@@ -23,11 +23,18 @@ const RecipeCard = (props) => {
     }
   }
 
+  const firstPhoto = () => {
+    if (props.photos && props.photos.length > 0) {
+      return props.photos[0];
+    }
+    return "";
+  }
+
   return (
     <div className="card-deck d-inline-flex">
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={props.photos[0]} alt={props.alternate} />
+          <img className="card-img-top" src={firstPhoto()} alt={props.alternate} />
           <button>{props.meal}</button>
         </div>
         <div className="card-body">

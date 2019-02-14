@@ -17,29 +17,27 @@
     margin: 0;
 }
 
+.signupText {
+    font-size: 2.5vw;
+    font-weight: 500;
+}
+
 .signupButtonSection {
-    padding: 3vw 7w;
+    padding: 0 7vw;
     height: 10vw;
     display: block;
     clear: both;
 }
 
 .signupButtonSection button {
-    margin-top: 40%;
-    margin-right: 29%;
     color: white;
     background-color: #495be1;
     border: solid white 3px;
     border-radius: .5vw;
     padding: 2vw 4vw 5vw 4vw;
-    font-family: 'Nunito', sans-serif;
     font-size: 2.5vw;
     font-weight: 500;
     height: 7vw;
-}
-
-span:not(:last-child) {
-    border: none;
 }
 
 .signupImage {

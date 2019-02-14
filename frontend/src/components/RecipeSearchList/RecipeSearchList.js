@@ -31,7 +31,6 @@ class RecipeSearchList extends Component {
   }
   
   render() {
-    console.log(this.state.recipes);
     return (
       <div id="wrapper">
         {this.state.recipes.map(recipe =>

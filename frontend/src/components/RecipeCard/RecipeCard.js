@@ -35,17 +35,17 @@ const RecipeCard = (props) => {
       <div className="card">
         <div className="image-holder">
           <img className="card-img-top" src={firstPhoto()} alt={props.alternate} />
-          <button>{props.meal}</button>
+          <button className="card-meal-btn">{props.meal}</button>
         </div>
         <div className="card-body">
           <div className="card-title">{props.title}</div>
           <p className="card-snippet">{props.snippet}</p>
         </div>
         <div className="card-bottom">
-          <span>{mealDifficulty(props.difficulty)}{props.difficulty}</span>
+          <span className="card-meta">{mealDifficulty(props.difficulty)}{props.difficulty}</span>
           {/* duration will be readyInMinutes in Spoonacular API */}
-          <span><i className="fas fa-clock"></i>{props.duration} MINUTES</span>
-          <span><i className="fas fa-utensil-spoon"></i>{props.servings}</span>
+          <span className="card-meta"><i className="fas fa-clock"></i>{props.duration} MINUTES</span>
+          <span className="card-meta"><i className="fas fa-utensil-spoon"></i>{props.servings}</span>
         </div>
       </div>
     </div>

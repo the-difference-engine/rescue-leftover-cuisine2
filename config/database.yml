@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: rlc_production
-  username: rlc
-  password: <%= ENV['RLC_DATABASE_PASSWORD'] %>
+  url: ENV['DATABASE_URL']

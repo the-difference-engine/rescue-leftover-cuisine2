@@ -1,5 +1,5 @@
 #cards-wrapper {
-  padding: 1em;
+  padding: 2vh 2vw;
   height: auto;
   width: auto;
   color: darkgrey;
@@ -83,6 +83,7 @@ i.fas {
   padding-right: 20px; 
   width: auto;
   font-size: 75%;
+  font-weight: bold;
   background-color: #31df7d;
   position: absolute;
   top: 6%;

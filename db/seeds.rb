@@ -47,8 +47,8 @@ Recipe.create(
 )
 
 Recipe.create(
-  title: "Eggs Poached in Marinara Sauce",
-  snippet: "This simple recipe will make you want to be awake on a Saturday morning",
+  title: "Eggs Poached in Marinara",
+  snippet: "This simple recipe will make you want to wake up early",
   meal: "BREAKFAST",
   ingredients: ["2 cans tomatoes", "1 onion, diced", "3 cloves garlic, minced", "1/4 cup fresh basil, chiffonade", "1 tsp dried thyme", "6 eggs"],
   directions: ["Sautee onions", "Add garlic", "Add tomatoes and thyme", "Add basil", "Reduce to low and poach eggs in sauce 5 minutes"],

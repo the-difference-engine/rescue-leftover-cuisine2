@@ -32,7 +32,7 @@ class RecipeSearchList extends Component {
   
   render() {
     return (
-      <div id="wrapper">
+      <div id="cards-wrapper">
         {this.state.recipes.map(recipe =>
           <RecipeCard
             {...recipe}

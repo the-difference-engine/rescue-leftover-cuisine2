@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmation: "Bob@RLC123", username: "Bob@RLC", first_name: "Bob", last_name: "Domain")
-User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Joe", last_name: "Domain")
+User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmation: "Bob@RLC123", username: "Bob@RLC", first_name: "Bob", last_name: "Domain", confirmed_at: Time.now)
+User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Joe", last_name: "Domain", confirmed_at: Time.now)
 
 Recipe.create(
   title: "Cauliflower Salad",

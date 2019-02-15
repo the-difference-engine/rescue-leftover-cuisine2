@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SignUp from '../../components/sign_up/sign_up.js';
+import SignIn from '../../components/SignIn/SignIn.js';
 //import axios from 'axios';
 
 class LoginPage extends Component {
@@ -37,45 +39,12 @@ class LoginPage extends Component {
   */
 
   render() {
-
-    if(!this.state.isAuthorized) {
-      return (
-        <div className="container card">
-            <br></br>
-            <div className="form-group">
-              <label>Email address</label>
-              <input 
-                type="email" 
-                className="form-control" 
-                name="email"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                placeholder="Email"
-              ></input>
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input 
-                type="password" 
-                name="encrypted_password"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="Password"
-              ></input>
-            </div>
-            <div className="form-group text-center">
-              <button className="btn btn-primary" onClick={this.login}>Login</button>
-            </div>
-        </div>
-      );
-    }
-    else {
-      return (
-        <div className="container card form-control">
-          <h1>Hello{this.state.email}</h1>
-        </div>
-      );
-    }
+    return(
+      <div class="container-fluid">
+          <SignUp />
+          <SignIn />
+      </div>
+    )
   }
 }
 

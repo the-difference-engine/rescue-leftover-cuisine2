@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --input-padding-x: .75rem;
   --input-padding-y: .75rem;
 }
@@ -48,7 +48,7 @@ body {
   width: 100%;
   margin-bottom: 0;
   /* Override default `<label>` margin */
-  line-height: 1.5;
+  /* line-height: 1.5;
   color: #495057;
   border: 1px solid transparent;
   border-radius: .25rem;
@@ -113,4 +113,4 @@ span {
 #inputPassword3 {
   width: 100%;
   position: relative;
-}
+}  */

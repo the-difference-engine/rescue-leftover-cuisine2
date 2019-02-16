@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUp from '../../components/sign_up/sign_up.js';
 import SignIn from '../../components/SignIn/SignIn.js';
+import './LoginPage.css';
 //import axios from 'axios';
 
 class LoginPage extends Component {
@@ -40,9 +41,14 @@ class LoginPage extends Component {
 
   render() {
     return(
-      <div class="container-fluid">
-          <SignUp />
-          <SignIn />
+      <div class="topLoginImage">
+          <div class="loginCardWrapper">
+            <div class="row">
+              <div class="col-sm-6"><SignUp/></div>
+              <div class="col-sm-6"><SignIn/></div>
+            </div>
+          </div>
+
       </div>
     )
   }

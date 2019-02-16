@@ -16,9 +16,9 @@ class SignIn extends Component {
   }
 
 
-  render() {
+  render() { //change this into form on a card
     return (
-      <div>
+      <div class="card">>
         <h3>Log In</h3>
         <form className="form-signin">
           <div className="form-label-group">

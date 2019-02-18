@@ -18,17 +18,17 @@ class SignIn extends Component {
 
   render() { //change this into form on a card
     return (
-      <div class="card">>
-        <h3>Log In</h3>
+      <div class="loginCard">
+        <h5 class="loginHeader">Log In</h5>
         <form className="form-signin">
           <div className="form-label-group">
             <input type="email" id="inputEmail4" className="form-control-lg" placeholder="Email address" required="" autoFocus="" />
-            <label htmlFor="inputEmail4">Email</label>
+            <label htmlFor="inputEmail4"></label>
           </div>
 
           <div className="form-label-group">
             <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword3" className="form-control-lg" placeholder="Password" required="" />
-            <label htmlFor="inputPassword3">Password</label>
+            <label htmlFor="inputPassword3"></label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group">

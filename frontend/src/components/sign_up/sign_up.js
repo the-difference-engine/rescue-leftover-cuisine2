@@ -18,34 +18,35 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div class="card">
-        <h3>Create an Account</h3>
+      <div class="loginCard">
+        <h5 class="loginHeader">Create an Account</h5>
         <form className="form-signUp">
           <div className="form-group">
             <div className="form-label-group">
               <input type="text" id="inputFirstName" className="form-control-lg" placeholder="First Name" required="" autoFocus="" />
-              <label htmlFor="inputFirstName">First Name</label>
+              <label htmlFor="inputFirstName"></label>
             </div>
 
             <div className="form-label-group">
               <input type="text" id="inputLastName" className="form-control-lg" placeholder="Last Name" required="" autoFocus="" />
-              <label htmlFor="inputLastName">Last Name</label>
+              <label htmlFor="inputLastName"></label>
             </div>
           </div>
 
           <div className="form-label-group">
             <input type="email" id="inputEmail14" className="form-control-lg" placeholder="Email address" required="" autoFocus="" />
-            <label htmlFor="inputEmail14">Email</label>
+            <label htmlFor="inputEmail14"></label>
           </div>
 
           <div className="form-label-group">
             <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword4" className="form-control-lg" placeholder="Password" required="" />
-            <label htmlFor="inputPassword4">Password</label>
+            <label htmlFor="inputPassword4"></label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <button className="btn btn-lg btn-block" type="submit">Sign Up</button>
         </form>
       </div>
+      
     );
   }
 

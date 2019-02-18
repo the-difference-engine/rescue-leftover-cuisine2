@@ -42,12 +42,12 @@ class LoginPage extends Component {
   render() {
     return(
       <div class="topLoginImage">
-          <div class="loginCardWrapper">
-            <div class="row">
-              <div class="col-sm-6"><SignUp/></div>
-              <div class="col-sm-6"><SignIn/></div>
+            <div class="loginCardWrapper">
+              <div class="row">
+                <div class="column loginColumn"><SignUp/></div>
+                < div class="column loginColumn"><SignIn/></div>
+              </div>
             </div>
-          </div>
 
       </div>
     )

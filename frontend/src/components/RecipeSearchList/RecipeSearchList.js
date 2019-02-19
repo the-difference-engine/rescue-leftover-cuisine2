@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RecipeCard from '../RecipeCard/RecipeCard';
+import RecipeCard from '../recipeCard/RecipeCard';
 import { getRecipes } from '../../lib/apiClient';
 
 class RecipeSearchList extends Component {

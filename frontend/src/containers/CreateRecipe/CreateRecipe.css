@@ -1,0 +1,13 @@
+.createRecipe.container-fluid {
+    margin: 0px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.header {
+    height: 100px
+}
+
+.createRecipeContent {
+    margin: 0px;
+    margin-top: 0px;
+}

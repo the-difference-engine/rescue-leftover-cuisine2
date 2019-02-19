@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUp from '../../components/sign_up/sign_up.js';
 import SignIn from '../../components/SignIn/SignIn.js';
+import Footer from '../../components/Footer/Footer.js'
 import './LoginPage.css';
 //import axios from 'axios';
 
@@ -41,15 +42,21 @@ class LoginPage extends Component {
 
   render() {
     return(
-      <div class="topLoginImage">
-            <div class="loginCardWrapper">
-              <div class="row">
-                <div class="column loginColumn"><SignUp/></div>
-                < div class="column loginColumn"><SignIn/></div>
-              </div>
-            </div>
-
+      <div className="loginPage container-fluid">
+      <div className="topLoginImage">
+        <div className="loginCardWrapper">
+          <div className="row">
+            <div className="column loginColumnOne"><SignUp/></div>
+            < div className="column loginColumnTwo"><SignIn/></div>
+          </div>
+          <div className="row">
+            <Footer/>
+          </div>
+        </div>
       </div>
+    </div>
+      
+
     )
   }
 }

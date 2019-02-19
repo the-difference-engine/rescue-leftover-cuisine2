@@ -1,11 +1,15 @@
 .topLoginImage {
 	background-image: url("http://www.farmerstableboca.com/wp-content/uploads/2014/02/Farmers-Table-Express-Meals-min800.jpg");
-	background-repeat: no-repeat;
-	/* background-size: 100%; */
+	width:  100vw;
+	height: 60vh; 
 	background-size: cover;
-	height: 40%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
-
+.loginPage.container-fluid {
+    margin: 0px;
+	padding: 0px;
 }
 
 .loginPageContainer {
@@ -14,24 +18,32 @@
 }
 
 .loginCardWrapper {
-	padding-top: 5%;
+	padding-top: 10%;
 	width: 100%;
 	height: auto;
-
 	display: inline-block;
 }
 
 .loginCard {
-	width: 335px;
-    max-height: 600px;
-    padding: 10px;
-    box-shadow: 3px 3px #f5f6f7;
+	width: 40vw;
+    height: auto;
+    padding: 10%;
     border-radius: none;
 	background: white;
 	box-shadow: none;
+	border-style: solid;
+	border-color: lightGrey;
+	border-width: thin;
 }
 
-.loginColumn {
+.loginColumnOne {
+	float: left;
+	width: 25%;
+	padding: 0 10px;
+	margin-left: 10%;
+}
+
+.loginColumnTwo {
 	float: left;
 	width: 25%;
 	padding: 0 10px;

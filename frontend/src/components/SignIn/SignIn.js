@@ -19,7 +19,7 @@ class SignIn extends Component {
   render() { //change this into form on a card
     return (
       <div class="loginCard">
-        <h5 class="loginHeader">Log In</h5>
+        <h3 class="loginHeader">Log In</h3>
         <form className="form-signin">
           <div className="form-label-group">
             <input type="email" id="inputEmail4" className="form-control-lg" placeholder="Email address" required="" autoFocus="" />

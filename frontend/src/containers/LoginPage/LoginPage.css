@@ -25,7 +25,7 @@
 }
 
 .loginCard {
-	width: 40vw;
+	width: flex;
     height: auto;
     padding: 10%;
     border-radius: none;
@@ -38,16 +38,16 @@
 
 .loginColumnOne {
 	float: left;
-	width: 25%;
-	padding: 0 10px;
-	margin-left: 10%;
+	width: 50%;
+	padding-left: 5%;
+	padding-right: 1%;
 }
 
 .loginColumnTwo {
 	float: left;
-	width: 25%;
-	padding: 0 10px;
-	margin-left: 15%;
+	width: 50%;
+	padding-right: 5%;
+	padding-left: 1%;
 }
 
 ::placeholder {

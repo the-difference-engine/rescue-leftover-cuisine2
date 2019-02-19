@@ -5,6 +5,7 @@ import LoginPage from './containers/LoginPage/LoginPage.js';
 import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
 import history from './history.js';
+import CreateRecipe from './components/CreateRecipe/CreateRecipe.js';
  
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route path='/login' component={LoginPage}></Route>
           <Route exact path='/users' history={history} render={(props) => <UsersAll {...props} />}></Route>
           <Route exact path='/users/:id' history={history} render={(props) => <User {...props} />}></Route>
+          <Route exact path='/createrecipe' component={CreateRecipe}></Route>
         </Switch>
       </div>
     )

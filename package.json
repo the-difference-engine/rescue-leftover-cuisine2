@@ -11,7 +11,9 @@
     "start": "cd frontend && npm start"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "react": "^16.6.3",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-router-dom": "^4.3.1"
   }
 }

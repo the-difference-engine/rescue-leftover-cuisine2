@@ -5,7 +5,7 @@ import LoginPage from './containers/LoginPage/LoginPage.js';
 import UsersAll from './components/AdminControls/UsersAll.js';
 import User from './components/AdminControls/User.js';
 import history from './history.js';
-import CreateRecipe from './components/CreateRecipe/CreateRecipe.js';
+import CreateRecipe from './containers/CreateRecipe/CreateRecipe.js';
  
 class App extends Component {
   render() {

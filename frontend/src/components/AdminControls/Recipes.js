@@ -19,17 +19,21 @@ export default class Recipes extends Component {
           {recipes.map(recipe => {
             return (
               <tr>
-                <th scope="row">
+                <td>
                   <input
                     type="checkbox"
                     class="form-check-input"
                     id="exampleCheck1"
                   />
-                </th>
+                </td>
                 <td>{recipe.name}</td>
                 <td>{recipe.createdBy}</td>
                 <td>{recipe.dateCreated}</td>
                 <td>{recipe.numberOfComments}</td>
+                <td>
+                  <img src="https://img.icons8.com/windows/32/000000/edit.png" />
+                  <img src="https://img.icons8.com/windows/32/000000/cancel.png" />
+                </td>
               </tr>
             );
           })}

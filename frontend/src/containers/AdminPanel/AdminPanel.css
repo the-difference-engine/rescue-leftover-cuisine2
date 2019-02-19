@@ -6,3 +6,12 @@
 .header {
   height: 150px
 }
+
+.addButton {
+  color: #ffff;
+  background-color:  #4EC8ED;
+}
+
+.centertext {
+  text-align: center;
+}

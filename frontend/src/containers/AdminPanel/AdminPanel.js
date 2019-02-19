@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import Recipes from '../../components/AdminControls/Recipes';
-import Users from '../../components/AdminControls/Users'
+import Users from '../../components/AdminControls/Users';
 import {
   TabContent,
   TabPane,
@@ -36,54 +36,48 @@ class AdminPanel extends Component {
   }
   render() {
     return (
-      <Container>
-        <Row>
-          <div className="header">
-            <Header />
-          </div>
-        </Row>
-        <Row>
-          <Nav tabs>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: this.state.activeTab === '1' })}
-                onClick={() => {
-                  this.toggle('1');
-                }}
-              >
-                All Recipes
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: this.state.activeTab === '2' })}
-                onClick={() => {
-                  this.toggle('2');
-                }}
-              >
-                All Members
-              </NavLink>
-            </NavItem>
-          </Nav>
-          <TabContent activeTab={this.state.activeTab}>
-            <TabPane tabId="1">
-              <div>
-                <h1>Admin Dashboard</h1>
-                <Recipes />
-              </div>
-            </TabPane>
-            <TabPane tabId="2">
-              <Row>
-              <h1>Admin Dashboard</h1>
-              <Users />
-              </Row>
-            </TabPane>
-          </TabContent>
-        </Row>
-        <Row>
-          <Footer />
-        </Row>
-      </Container>
+      <div>
+        <div className="header">
+          <Header />
+        </div>
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => {
+                this.toggle('1');
+              }}
+            >
+              All Recipes
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => {
+                this.toggle('2');
+              }}
+            >
+              All Members
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="1">
+            <Button className="addButton">Add Recipe</Button>
+
+            <h1>Admin Dashboard</h1>
+            <Recipes />
+          </TabPane>
+          <TabPane tabId="2">
+            <Button className="addButton">Add Member</Button>
+            <h1>Admin Dashboard</h1>
+            <Users />
+          </TabPane>
+        </TabContent>
+
+        <Footer />
+      </div>
     );
   }
 }

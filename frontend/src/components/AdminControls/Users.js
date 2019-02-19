@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table, InputGroupText, Input } from 'reactstrap';
-
+import './Users.css'
 export default class Users extends Component {
   render() {
     return (
@@ -18,16 +18,20 @@ export default class Users extends Component {
           {users.map(user => {
             return (
               <tr>
-                <th scope="row">
+                <td>
                   <input
                     type="checkbox"
                     class="form-check-input"
                     id="exampleCheck1"
                   />
-                </th>
+                </td>
                 <td>{user.name}</td>
                 <td>{user.memberSince}</td>
                 <td>{user.numberOfRecipes}</td>
+                <td>
+                  <img src="https://img.icons8.com/windows/32/000000/edit.png" />
+                  <img src="https://img.icons8.com/windows/32/000000/cancel.png"></img>
+                </td>
               </tr>
             );
           })}

@@ -11,6 +11,10 @@
   color: #ffff;
   background-color:  #4EC8ED;
 }
+.addButton:hover {
+  color: #ffff;
+  background-color:  #06A6D3;
+}
 
 .centertext {
   text-align: center;

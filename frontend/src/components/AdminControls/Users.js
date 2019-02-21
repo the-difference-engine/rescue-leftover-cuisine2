@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Table, InputGroupText, Input } from 'reactstrap';
-import './Users.css'
+import './Users.css';
 export default class Users extends Component {
   render() {
     return (
       <Table borderless>
-        <thead>
-          <tr>
+        <thead className ='text'>
+          <tr className ='text'>
             <th />
-            <th>User Name</th>
-            <th>Member Since</th>
+            <th className ='text'>User Name</th>
+            <th className ='text'>Member Since</th>
             <th>Number of Recipes</th>
             <th />
           </tr>
@@ -25,12 +25,12 @@ export default class Users extends Component {
                     id="exampleCheck1"
                   />
                 </td>
-                <td>{user.name}</td>
-                <td>{user.memberSince}</td>
+                <td className ='text'>{user.name}</td>
+                <td className ='text'>{user.memberSince}</td>
                 <td>{user.numberOfRecipes}</td>
                 <td>
                   <img src="https://img.icons8.com/windows/32/000000/edit.png" />
-                  <img src="https://img.icons8.com/windows/32/000000/cancel.png"></img>
+                  <img src="https://img.icons8.com/windows/32/000000/cancel.png" />
                 </td>
               </tr>
             );

@@ -15,12 +15,13 @@
 .loginPageContainer {
 	padding-left: 0px;
 	padding-right: 0px;
+	display: flex;
 }
 
 .loginCardWrapper {
 	padding-top: 10%;
 	width: 100%;
-	height: auto;
+	/* height: auto; */
 	display: inline-block;
 }
 
@@ -62,4 +63,8 @@
 	color: grey;
 	padding-top: 5%;
 	padding-bottom: 5%;
+}
+
+.loginCards.row {
+	align-items: stretch;
 }

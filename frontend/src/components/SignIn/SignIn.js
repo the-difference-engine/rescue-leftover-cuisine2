@@ -35,7 +35,7 @@ class SignIn extends Component {
           <div class="row">
             <button className="signUpButton btn btn-lg btn-block" type="submit">Log In</button>
           </div>
-          <div className="row">
+          <div className="signInCard row">
           </div>
         </form>
       </div>

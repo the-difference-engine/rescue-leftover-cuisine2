@@ -137,3 +137,7 @@ span {
   background-color:#06A6D3;
   color: white;
 }
+
+.fullWidth.form-control-lg {
+  width: 100%;
+}

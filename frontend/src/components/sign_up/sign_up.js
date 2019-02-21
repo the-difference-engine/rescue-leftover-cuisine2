@@ -15,6 +15,14 @@ class SignUp extends Component {
     }));
   }
 
+  // displayIcon = () => {
+  //   if (this.state.isPasswordVisible) {
+  //     let passwordDiv = document.getElementById('inputPassword4');
+  //     passwordDiv.className = "fas fa-eye-slash fa-lg"
+  //     passwordDiv.type = ""
+  //   }
+  // }
+
 
   render() {
     return (
@@ -27,12 +35,11 @@ class SignUp extends Component {
           </div>
 
           <div className="form-group row">
-            <input type="email" id="inputEmail14" className="fullWidth form-control-lg" placeholder="Email address" required="" autoFocus="" />
+            <input type="email" id="inputEmail14" className="fullWidth form-control-lg" placeholder="Email" required="" autoFocus="" />
             <label htmlFor="inputEmail14"></label>
           </div>
-          <div className="form-group row">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword4" className="fullWidth form-control-lg" placeholder="Password" required="" />
-            <label htmlFor="inputPassword4"></label>
+          <div className="password form-group row">
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword4" className="fullWidth form-control-lg" placeholder="Password" required=""/>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group row">

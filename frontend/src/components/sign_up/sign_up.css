@@ -141,3 +141,19 @@ span {
 .fullWidth.form-control-lg {
   width: 100%;
 }
+
+.partWidth.form-control-lg {
+  width: 100%;
+}
+
+.fas.fa-eye.fa-lg, .fas.fa-eye-slash.fa-lg {
+  color:lightGrey;
+  position: absolute;
+  margin-left: 90%;
+  margin-top: 4%;
+}
+
+
+.password.form-group.row {
+  position: relative;
+}

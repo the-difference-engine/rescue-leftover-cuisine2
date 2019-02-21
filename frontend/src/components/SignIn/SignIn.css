@@ -114,3 +114,14 @@ span {
   width: 100%;
   position: relative;
 }  */
+
+.signInPassword.form-group.row {
+  position: relative;
+  margin-bottom: 1%;
+}
+
+.forgotPassword.form-group.row > a {
+  color: grey;
+  font-size: x-small;
+  text-decoration:underline;
+}

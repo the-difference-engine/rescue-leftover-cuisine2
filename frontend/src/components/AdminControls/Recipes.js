@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Table, InputGroupText, Input } from 'reactstrap';
+import './Recipes.css'
 
 export default class Recipes extends Component {
   render() {
     return (
-      <Table borderless>
+      <Table borderless classname='table'>
         <thead>
           <tr>
             <th />

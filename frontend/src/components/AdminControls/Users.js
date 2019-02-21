@@ -5,11 +5,11 @@ export default class Users extends Component {
   render() {
     return (
       <Table borderless>
-        <thead className ='text'>
-          <tr className ='text'>
+        <thead className="text">
+          <tr className="text">
             <th />
-            <th className ='text'>User Name</th>
-            <th className ='text'>Member Since</th>
+            <th className="text">User Name</th>
+            <th className="text">Member Since</th>
             <th>Number of Recipes</th>
             <th />
           </tr>
@@ -25,8 +25,8 @@ export default class Users extends Component {
                     id="exampleCheck1"
                   />
                 </td>
-                <td className ='text'>{user.name}</td>
-                <td className ='text'>{user.memberSince}</td>
+                <td className="text">{user.name}</td>
+                <td className="text">{user.memberSince}</td>
                 <td>{user.numberOfRecipes}</td>
                 <td>
                   <img src="https://img.icons8.com/windows/32/000000/edit.png" />

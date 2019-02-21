@@ -1,19 +1,24 @@
 .content {
   margin: 0px;
   margin-top: 0px;
+  width:100%;
 }
 
 .header {
-  height: 150px
+  height: 165px;
 }
 
 .addButton {
   color: #ffff;
-  background-color:  #4EC8ED;
+  background-color: #4ec8ed;
+  margin-left: 1000px;
 }
 .addButton:hover {
   color: #ffff;
-  background-color:  #06A6D3;
+  background-color: #06a6d3;
+}
+.adminHeader {
+  padding-left: 560px;
 }
 
 .centertext {

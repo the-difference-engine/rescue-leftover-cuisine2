@@ -27,16 +27,16 @@ class AdminPanel extends Component {
     };
   }
 
-  toggle(tab) {
+  toggle = tab => {
     if (this.state.activeTab !== tab) {
       this.setState({
         activeTab: tab,
       });
     }
-  }
+  };
   render() {
     return (
-      <div>
+      <div className="content">
         <div className="header">
           <Header />
         </div>
@@ -61,17 +61,20 @@ class AdminPanel extends Component {
               All Members
             </NavLink>
           </NavItem>
+          {this.state.activeTab === '1' && (
+            <Button size="lg" className="addButton">Add Recipes</Button>
+          )}
+          {this.state.activeTab === '2' && (
+            <Button size="lg" className="addButton">Add Member</Button>
+          )}
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Button className="addButton">Add Recipe</Button>
-
-            <h1>Admin Dashboard</h1>
+            <h1 className="adminHeader">Admin Dashboard</h1>
             <Recipes />
           </TabPane>
           <TabPane tabId="2">
-            <Button className="addButton">Add Member</Button>
-            <h1>Admin Dashboard</h1>
+          <h1 className="adminHeader">Admin Dashboard</h1>
             <Users />
           </TabPane>
         </TabContent>

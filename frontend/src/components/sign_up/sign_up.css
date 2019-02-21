@@ -128,3 +128,12 @@ span {
   width: 100%;
   position: relative;
 } */
+
+.firstName.col-md.form-control-lg {
+  margin-right: 3%;
+}
+
+.signUpButton.btn.btn-lg.btn-block {
+  background-color:#06A6D3;
+  color: white;
+}

@@ -34,7 +34,7 @@ class SignIn extends Component {
           <div className="form-group">
             <a href="##########">I forgot my password</a>
           </div>
-          <button className="btn btn-lg btn-block" type="submit">Log In</button>
+          <button className="signUpButton btn btn-lg btn-block" type="submit">Log In</button>
         </form>
       </div>
     );

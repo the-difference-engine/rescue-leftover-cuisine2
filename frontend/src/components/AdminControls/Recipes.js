@@ -1,45 +1,91 @@
 import React, { Component } from 'react';
-import { Table, InputGroupText, Input } from 'reactstrap';
-import './Recipes.css'
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import './Recipes.css';
 
 export default class Recipes extends Component {
   render() {
+    const columns = [
+      {
+        dataField: 'inStock', // name?
+        text: '',
+        formatter: (cellContent, row) => (
+          <div className="checkbox">
+            <label>
+              <input type="checkbox" checked={row.inStock} />
+            </label>
+          </div>
+        ),
+      },
+      {
+        dataField: 'name',
+        text: 'Recipe Name',
+        headerStyle: { textAlign: 'center' },
+        style: { textAlign: 'center' },
+      },
+      {
+        dataField: 'createdBy',
+        text: 'Created By',
+        headerStyle: { textAlign: 'center' },
+        style: { textAlign: 'center' },
+      },
+      {
+        dataField: 'dateCreated',
+        text: 'Date Created',
+        headerStyle: { textAlign: 'center' },
+        style: { textAlign: 'center' },
+      },
+      {
+        dataField: 'numberOfComments',
+        text: 'Number Of Comments',
+        headerStyle: { textAlign: 'center' },
+        style: { textAlign: 'center' },
+      },
+      {
+        dataField: 'edit',
+        text: '',
+        headerStyle: { textAlign: 'center' },
+        style: { textAlign: 'center' },
+        formatter: (cellContent, row) => (
+          <div>
+            <button>
+              <img
+                src="https://img.icons8.com/windows/32/000000/edit.png"
+                alt="edit"
+              />
+            </button>
+            <button>
+              <img
+                src="https://img.icons8.com/windows/32/000000/cancel.png"
+                alt="delete"
+              />
+            </button>
+          </div>
+        ),
+      },
+    ];
+    const options = {
+      hideSizePerPage: true,
+      sizePerPageList: [
+        {
+          text: '5',
+          value: 20,
+        },
+        {
+          text: 'All',
+          value: recipes.length,
+        },
+      ],
+    };
+
     return (
-      <Table borderless classname='table'>
-        <thead>
-          <tr>
-            <th />
-            <th>Recipe Name</th>
-            <th>Created By</th>
-            <th>Date Created</th>
-            <th>Number of Comments</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          {recipes.map(recipe => {
-            return (
-              <tr>
-                <td>
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                </td>
-                <td>{recipe.name}</td>
-                <td>{recipe.createdBy}</td>
-                <td>{recipe.dateCreated}</td>
-                <td>{recipe.numberOfComments}</td>
-                <td>
-                  <img src="https://img.icons8.com/windows/32/000000/edit.png" />
-                  <img src="https://img.icons8.com/windows/32/000000/cancel.png" />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+      <BootstrapTable
+        keyField="id"
+        data={recipes}
+        columns={columns}
+        bordered={false}
+        pagination={paginationFactory(options)}
+      />
     );
   }
 }

@@ -1,8 +1,18 @@
 .table {
  margin-left: 100px;
  margin-right: 10px;
+
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th {
+  border-top: none;
 }
 
-.text {
-  text-align: 'center';
+.react-bootstrap-table-pagination-list {
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: none;
 }

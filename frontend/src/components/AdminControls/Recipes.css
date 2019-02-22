@@ -2,3 +2,7 @@
   width: 1000px;
   margin-top: 50px;
 }
+.table>tbody>tr>td,
+.table>tbody>tr>th {
+  border-top: none;
+}

@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import './BottomSignUp.css'
 import signupImage from "../../assets/soup-kitchen.jpg";
+import { withRouter } from 'react-router'
 
 class BottomSignUp extends Component {
 

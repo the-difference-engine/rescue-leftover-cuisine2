@@ -131,6 +131,21 @@ span {
 
 .firstName.col-md.form-control-lg {
   margin-right: 3%;
+  border-top: .1rem;
+  border-top-style: solid;
+  border-top-color: #eeeeee;
+  border-left: .1rem;
+  border-left-style: solid;
+  border-left-color: #eeeeee;
+}
+
+#inputLastName {
+  border-top: .1rem;
+  border-top-style: solid;
+  border-top-color: #eeeeee;
+  border-left: .1rem;
+  border-left-style: solid;
+  border-left-color: #eeeeee;
 }
 
 .signUpButton.btn.btn-lg.btn-block {
@@ -139,6 +154,12 @@ span {
 }
 
 .fullWidth.form-control-lg {
+  border-top: .1rem;
+  border-top-style: solid;
+  border-top-color: #eeeeee;
+  border-left: .1rem;
+  border-left-style: solid;
+  border-left-color: #eeeeee;
   width: 100%;
 }
 
@@ -153,7 +174,15 @@ span {
   margin-top: 4%;
 }
 
-
 .password.form-group.row {
   position: relative;
+}
+
+#inputFirstName:focus, #inputLastName:focus, #inputSignUpPassword:focus, #inputSignUpEmail:focus{
+  outline: none;
+}
+
+#inputFirstName:focus::placeholder, #inputLastName:focus::placeholder, #inputSignUpPassword:focus::placeholder, #inputSignUpEmail:focus::placeholder{
+  color: #06A6D3;
+
 }

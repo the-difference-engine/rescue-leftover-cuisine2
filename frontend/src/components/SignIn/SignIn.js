@@ -15,14 +15,13 @@ class SignIn extends Component {
     }));
   }
 
-
   render() { //change this into form on a card
     return (
       <div class="loginCard">
         <h3 class="loginHeader">Log In</h3>
         <form className="form-signin">
           <div className="form-group row">
-            <input type="email" id="inputEmail4" className="fullWidth form-control-lg" placeholder="Email" required="" autoFocus="" />
+            <input type="email" id="inputSignInEmail" className="fullWidth form-control-lg" placeholder="Email" required="" autoFocus="" />
           </div>
 
           <div className="signInPassword form-group row">

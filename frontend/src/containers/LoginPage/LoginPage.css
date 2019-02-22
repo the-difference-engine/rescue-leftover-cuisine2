@@ -33,7 +33,7 @@
 	background: white;
 	box-shadow: none;
 	border-style: solid;
-	border-color: lightGrey;
+	border-color: #cfcfcf;
 	border-width: thin;
 }
 
@@ -52,7 +52,7 @@
 }
 
 ::placeholder {
-	color: grey;
+	color: #cfcfcf;
 	font-size: small;
 }
 

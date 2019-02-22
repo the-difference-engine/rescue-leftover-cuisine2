@@ -131,21 +131,15 @@ span {
 
 .firstName.col-md.form-control-lg {
   margin-right: 3%;
-  border-top: .1rem;
-  border-top-style: solid;
-  border-top-color: #eeeeee;
-  border-left: .1rem;
-  border-left-style: solid;
-  border-left-color: #eeeeee;
+  border: .05rem;
+  border-style: solid;
+  border-color: #cfcfcf;
 }
 
 #inputLastName {
-  border-top: .1rem;
-  border-top-style: solid;
-  border-top-color: #eeeeee;
-  border-left: .1rem;
-  border-left-style: solid;
-  border-left-color: #eeeeee;
+  border: .05rem;
+  border-style: solid;
+  border-color: #cfcfcf;
 }
 
 .signUpButton.btn.btn-lg.btn-block {
@@ -154,12 +148,9 @@ span {
 }
 
 .fullWidth.form-control-lg {
-  border-top: .1rem;
-  border-top-style: solid;
-  border-top-color: #eeeeee;
-  border-left: .1rem;
-  border-left-style: solid;
-  border-left-color: #eeeeee;
+  border: .05rem;
+  border-style: solid;
+  border-color: #cfcfcf;
   width: 100%;
 }
 
@@ -168,7 +159,7 @@ span {
 }
 
 .fas.fa-eye.fa-lg, .fas.fa-eye-slash.fa-lg {
-  color:lightGrey;
+  color:#cfcfcf;
   position: absolute;
   margin-left: 90%;
   margin-top: 4%;
@@ -185,4 +176,43 @@ span {
 #inputFirstName:focus::placeholder, #inputLastName:focus::placeholder, #inputSignUpPassword:focus::placeholder, #inputSignUpEmail:focus::placeholder{
   color: #06A6D3;
 
+}
+
+form > .form-group.row {
+  position: relative;
+  caret-color: #cfcfcf;
+  
+}
+
+form > .form-group.row > label {
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  font-size: small;
+  color: #cfcfcf;
+}
+
+#inputSignUpEmail:focus + label, #inputSignUpPassword:focus + label {
+  bottom: 45%;
+  font-size: x-small;
+  color: #06A6D3;
+}
+
+.form-group.row > input {
+  padding-top: 5%;
+  font-size: medium;
+  color: grey;
+}
+
+.name.row {
+  position: relative;
+  caret-color: #cfcfcf;
+}
+
+.name.row > label {
+  /* position: absolute; */
+  /* padding-left: 1rem;
+  padding-top: 1rem; */
+  font-size: small;
+  color: #cfcfcf;
 }

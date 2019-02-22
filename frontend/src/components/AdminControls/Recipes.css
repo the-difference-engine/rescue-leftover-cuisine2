@@ -1,8 +1,21 @@
+.react-bootstrap-table-pagination-list {
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: none;
+}
+
 .table {
   width: 1000px;
   margin-top: 50px;
 }
-.table>tbody>tr>td,
-.table>tbody>tr>th {
-  border-top: none;
+.react-bootstrap-table-pagination-list {
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: none;
 }

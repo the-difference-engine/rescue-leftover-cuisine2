@@ -9,6 +9,10 @@ export default class Recipes extends Component {
       {
         dataField: 'inStock', // name?
         text: '',
+        headerStyle: {
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         formatter: (cellContent, row) => (
           <div className="checkbox">
             <label>
@@ -20,31 +24,51 @@ export default class Recipes extends Component {
       {
         dataField: 'name',
         text: 'Recipe Name',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'createdBy',
         text: 'Created By',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'dateCreated',
         text: 'Date Created',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'numberOfComments',
         text: 'Number Of Comments',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'edit',
         text: '',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
         formatter: (cellContent, row) => (
           <div>

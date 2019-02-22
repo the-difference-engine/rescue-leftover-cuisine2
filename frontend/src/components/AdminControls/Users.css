@@ -8,11 +8,3 @@
   border-top: none;
 }
 
-.react-bootstrap-table-pagination-list {
-  text-align: center;
-  transform: translateX(-50%);
-}
-
-.react-bootstrap-table-page-btns-ul {
-  float: none;
-}

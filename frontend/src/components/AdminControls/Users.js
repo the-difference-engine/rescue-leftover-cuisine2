@@ -7,27 +7,58 @@ export default class Users extends Component {
   render() {
     const columns = [
       {
+        dataField: 'inStock', // name?
+        text: '',
+        headerStyle: {
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
+        formatter: (cellContent, row) => (
+          <div className="checkbox">
+            <label>
+              <input type="checkbox" checked={row.inStock} />
+            </label>
+          </div>
+        ),
+      },
+      {
         dataField: 'name',
         text: 'Member Name',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'memberSince',
         text: 'Member Since',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'numberOfRecipes',
         text: 'Number Of Recipes',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
       },
       {
         dataField: 'edit',
         text: '',
-        headerStyle: { textAlign: 'center' },
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
         style: { textAlign: 'center' },
         formatter: (cellContent, row) => (
           <div>

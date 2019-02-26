@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './RecipeCard.css';
 
 
-const Recipe = (props) => {
+const RecipeCard = (props) => {
 
   const mealDifficulty = (difficulty) => {
     if (difficulty === "EASY") {
@@ -23,45 +23,38 @@ const Recipe = (props) => {
     }
   }
 
+  const firstPhoto = () => {
+    if (props.photos && props.photos.length > 0) {
+      return props.photos[0];
+    }
+    return "";
+  }
+
   return (
     <div className="card-deck d-inline-flex">
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={props.photo_url} alt={props.alternate} />
-          <button>{props.meal}</button>
+          <img className="card-img-top" src={firstPhoto()} alt={props.alternate} />
+          <button className="card-meal-btn">{props.meal}</button>
         </div>
         <div className="card-body">
           <div className="card-title">{props.title}</div>
           <p className="card-snippet">{props.snippet}</p>
         </div>
         <div className="card-bottom">
-          <span>{mealDifficulty(props.difficulty)}{props.difficulty}</span>
+          <span className="card-meta">{mealDifficulty(props.difficulty)}{props.difficulty}</span>
           {/* duration will be readyInMinutes in Spoonacular API */}
-          <span><i className="fas fa-clock"></i>{props.duration} MINUTES</span>
-          <span><i className="fas fa-utensil-spoon"></i>{props.servings}</span>
+          <span className="card-meta"><i className="fas fa-clock"></i>{props.duration} MINUTES</span>
+          <span className="card-meta"><i className="fas fa-utensil-spoon"></i>{props.servings}</span>
         </div>
       </div>
     </div>
   )
 }
 
-const RecipeList = (props) => {
-
-  return (
-    <div id="wrapper">
-      {props.recipes.map(recipe =>
-        <Recipe
-          {...recipe}
-          key={recipe.id}
-        />
-      )}
-    </div>
-  )
-}
-
-RecipeList.propTypes = {
+RecipeCard.propTypes = {
   meal: PropTypes.string,
-  photo_url: PropTypes.string,
+  photos: PropTypes.array,
   alternate: PropTypes.string,
   title: PropTypes.string,
   snippet: PropTypes.string,
@@ -70,5 +63,5 @@ RecipeList.propTypes = {
   servings: PropTypes.number,
 }
 
-export default RecipeList;
 
+export default RecipeCard;

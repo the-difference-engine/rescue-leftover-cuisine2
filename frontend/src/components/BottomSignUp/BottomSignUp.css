@@ -1,0 +1,59 @@
+.containerSection {
+    color: white;
+    padding-top: 2vw;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0; 
+    font-family: 'Nunito', sans-serif;
+    font-size: 28.5px;
+    font-weight: 500;
+}
+
+.signupSection {
+    background-color: #495be1;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.signupText {
+    font-size: 2.5vw;
+    font-weight: 500;
+}
+
+.signupButtonSection {
+    padding: 0 7vw;
+    height: 10vw;
+    display: block;
+    clear: both;
+}
+
+.signupButtonSection button {
+    color: white;
+    background-color: #495be1;
+    border: solid white 3px;
+    border-radius: .5vw;
+    padding: 2vw 4vw 5vw 4vw;
+    font-size: 2.5vw;
+    font-weight: 500;
+    height: 7vw;
+}
+
+.signupImage {
+    width: 100%;
+    height: auto;
+    background-color: #2966eb;
+}
+
+.signupText {
+    display: block;
+    clear: both;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
+    border: none;
+}
+
+.col {
+    padding-right: 0px;
+}

@@ -1,5 +1,5 @@
-#wrapper {
-  padding: 1em;
+#cards-wrapper {
+  padding: 2vh 2vw;
   height: auto;
   width: auto;
   color: darkgrey;
@@ -11,6 +11,7 @@
 
 .card-title {
   text-align: center;
+  font-size: 120%;
   color: #4EC8ED
 }
 
@@ -18,30 +19,41 @@
   width: 335px;
   max-height: 600px;
   padding: 10px;
-  border: 2px solid #c7ced4;
+  box-shadow: 3px 3px #f5f6f7;
   border-radius: 10px;
   background: white;
 }
 
 .card-img-top {
-  height: 310px;
-  width: 310px;
+  height: 300px;
+  width: 290px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .image-holder {
   position: relative;
 }
 
-span:not(:last-child) {
+.card-body {
+  padding-top: 5px;
+}
+
+.card-snippet {
+  font-size: 120%;
+}
+
+.card-meta:not(:last-child) {
   border-right: 2px solid darkgrey;
   padding-right: 10px;  
 }
 
-span:not(:first-child) { 
+.card-meta:not(:first-child) { 
   padding-left: 10px;
 }
 
-i {
+i.fas {
   padding-right: 5px;
 }
 
@@ -62,20 +74,23 @@ i {
   justify-content: space-evenly;
 }
 
-button {
+.card-meal-btn {
   border-radius: 20px;
+  color: white;
+  border: 0px;
   height: 40px;
   padding-left: 20px;
   padding-right: 20px; 
   width: auto;
   font-size: 75%;
+  font-weight: bold;
   background-color: #31df7d;
   position: absolute;
-  top: 3%;
-  right: 3%; 
+  top: 6%;
+  right: 6%; 
 }
 
-button:hover {
+.card-meal-btn:hover {
   background-color: #c7ced4;
 }
 

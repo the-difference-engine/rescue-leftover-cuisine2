@@ -1,15 +1,8 @@
-.designBySection {
-    font-size: 1.5vw;
-    opacity: 0.5;
-    color: #757373;
+.containerSection {
+    padding-top: 1vh;
     text-align: center;
-    padding-top: 2vw;
-    font-weight: 500;
-}
-
-.designByCo {
-    color: #1f1e1e;
-    padding-bottom: 1vw;
+    padding-bottom: 1vh;
+    font-family: 'Nunito', sans-serif;
 }
 
 .company {
@@ -19,15 +12,22 @@
     color: #666565;
 }
 
-.containerSection {
-    padding-top: 1vw;
+.designBySection {
+    font-size: 1.5vw;
+    opacity: 0.5;
+    color: #757373;
     text-align: center;
-    padding-bottom: 1vw;
+    padding-top: 2vh;
+    font-weight: 500;
     font-family: 'Nunito', sans-serif;
 }
 
+.designByCo {
+    color: #1f1e1e;
+}
+
 .iconSection {
-	padding-right: 5vw;
+	padding-right: 3vw;
 }
 
 .iconStyle {

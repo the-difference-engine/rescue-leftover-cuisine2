@@ -34,5 +34,13 @@ module Rlc
 
     # Load files from the lib directory into the namespace
     config.autoload_paths << Rails.root.join('lib')
+
+    # Handle CORS before doing anything else, especially authentication.
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+      end
+    end
   end
 end

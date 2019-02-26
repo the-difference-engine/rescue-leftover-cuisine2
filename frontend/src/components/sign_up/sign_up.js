@@ -29,9 +29,9 @@ class SignUp extends Component {
         <h3 class="loginHeader">Create an Account</h3>
         <form className="form-signUp">
           <div className="form-group row">
-              <div className="col">
+              <div className="name col">
                 <div className="name row">
-                  <input type="text" id="inputFirstName" className="firstName col-md form-control-lg" required="" autoFocus="" onFocus={this.changePlaceholder} onBlur={this.reversePlaceholder}/>
+                  <input type="text" id="inputFirstName" className="firstName col-md form-control-lg" required="" autoFocus=""/>
                   <label for="inputFirstName">First</label>
                 </div>
               </div>

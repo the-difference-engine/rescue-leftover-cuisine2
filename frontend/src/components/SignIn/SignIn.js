@@ -21,11 +21,13 @@ class SignIn extends Component {
         <h3 class="loginHeader">Log In</h3>
         <form className="form-signin">
           <div className="form-group row">
-            <input type="email" id="inputSignInEmail" className="fullWidth form-control-lg" placeholder="Email" required="" autoFocus="" />
+            <input type="email" id="inputSignInEmail" className="fullWidth form-control-lg" required="" autoFocus="" />
+            <label for="inputSignInEmail">Email</label>
           </div>
 
           <div className="signInPassword form-group row">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputPassword3" className="fullWidth form-control-lg" placeholder="Password" required="" />
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignInPassword" className="fullWidth form-control-lg" required="" />
+            <label for="inputsignUpPassword">Password</label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="forgotPassword form-group row">

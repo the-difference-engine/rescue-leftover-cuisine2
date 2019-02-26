@@ -62,13 +62,13 @@ export default class Users extends Component {
         style: { textAlign: 'center' },
         formatter: (cellContent, row) => (
           <div>
-            <button>
+            <button className="button">
               <img
                 src="https://img.icons8.com/windows/32/000000/edit.png"
                 alt="edit"
               />
             </button>
-            <button>
+            <button className="button">
               <img
                 src="https://img.icons8.com/windows/32/000000/cancel.png"
                 alt="delete"

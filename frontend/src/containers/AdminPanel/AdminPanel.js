@@ -40,10 +40,12 @@ class AdminPanel extends Component {
         <div className="header">
           <Header />
         </div>
-        <Nav tabs>
+        <Nav tabs classname='tabs'>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '1 tabText' })}
+              className={classnames({
+                active: this.state.activeTab === '1 tabText',
+              })}
               onClick={() => {
                 this.toggle('1');
               }}
@@ -53,7 +55,9 @@ class AdminPanel extends Component {
           </NavItem>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '2 tabText' })}
+              className={classnames({
+                active: this.state.activeTab === '2 tabText',
+              })}
               onClick={() => {
                 this.toggle('2');
               }}
@@ -62,19 +66,23 @@ class AdminPanel extends Component {
             </NavLink>
           </NavItem>
           {this.state.activeTab === '1' && (
-            <Button size="lg" className="addButton">Add Recipes</Button>
+            <Button size="lg" className="addButton">
+              Add Recipes
+            </Button>
           )}
           {this.state.activeTab === '2' && (
-            <Button size="lg" className="addButton">Add Member</Button>
+            <Button size="lg" className="addButton">
+              Add Member
+            </Button>
           )}
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
+          <TabPane tabId="1" className="table">
             <h1 className="adminHeader">Admin Dashboard</h1>
             <Recipes />
           </TabPane>
           <TabPane tabId="2">
-          <h1 className="adminHeader">Admin Dashboard</h1>
+            <h1 className="adminHeader">Admin Dashboard</h1>
             <Users />
           </TabPane>
         </TabContent>

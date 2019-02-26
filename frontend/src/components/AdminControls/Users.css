@@ -1,10 +1,14 @@
 .table {
- margin-left: 100px;
- margin-right: 10px;
-
+  margin-left: 100px;
+  margin-right: 10px;
+  width: 1000px;
+  margin-top: 50px;
 }
-.table>tbody>tr>td,
-.table>tbody>tr>th {
+.table > tbody > tr > td,
+.table > tbody > tr > th {
   border-top: none;
 }
 
+.button {
+  border: none;
+}

@@ -1,7 +1,7 @@
 .content {
   margin: 0px;
   margin-top: 0px;
-  width:100%;
+  width: 100%;
 }
 
 .header {
@@ -23,4 +23,8 @@
 
 .centertext {
   text-align: center;
+}
+
+.nav-tabs {
+  border: none;
 }

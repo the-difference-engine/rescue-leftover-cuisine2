@@ -27,7 +27,7 @@
 
 .loginCard {
 	width: flex;
-    height: auto;
+    height: 100%;
     padding: 5% 10%;
     border-radius: none;
 	background: white;

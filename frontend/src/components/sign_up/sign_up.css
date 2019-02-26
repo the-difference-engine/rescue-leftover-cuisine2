@@ -78,7 +78,6 @@ form > .form-group.row > label {
   padding-bottom: 0;
   font-size: medium;
   color: grey;
-  margin-right: 0;
 }
 
 .col > .name.row > label {
@@ -87,10 +86,14 @@ form > .form-group.row > label {
   padding-top: 1rem;
   font-size: small;
   color: #cfcfcf;
-  margin-right: 0;
+
 }
 
 .name.col {
   margin-right: 5%;
+}
+
+.name.row {
+  margin-right: 0;
 }
 

@@ -1,13 +1,16 @@
-.createRecipe.container-fluid {
+.createRecipePage.container-fluid {
     margin: 0px;
-    font-family: 'Nunito', sans-serif;
+    padding-top: 50px;
+    width: 100%;
 }
 
-.header {
+.createRecipePage-header {
+    width: 100%;
     height: 100px
 }
 
-.createRecipeContent {
+.createRecipePage-form {
     margin: 0px;
     margin-top: 0px;
+    width: 100%;
 }

@@ -34,7 +34,6 @@
   border-bottom: 3px solid #4ec8ed;
 }
 
-
 /* this eliminates the default style of the table */
 .table {
   margin-left: 100px;
@@ -46,5 +45,3 @@
 .table > tbody > tr > th {
   border-top: none;
 }
-
-

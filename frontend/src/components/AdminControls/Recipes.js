@@ -15,9 +15,9 @@ export default class Recipes extends Component {
         },
         formatter: (cellContent, row) => (
           <div className="checkbox">
-            <label className='container'> 
+            <label className="container">
               <input type="checkbox" checked={row.inStock} />
-              <span class="checkmark"></span>
+              <span class="checkmark" />
             </label>
           </div>
         ),

@@ -1,15 +1,11 @@
 import React, {Component } from 'react';
+import { withRouter } from 'react-router'
 import './BottomSignUp.css'
 import signupImage from "../../assets/soup-kitchen.jpg";
-import { withRouter } from 'react-router'
 
 class BottomSignUp extends Component {
 
-  
-
   render (){
-
-    const { match, location, history } = this.props
     
       return(
         <div className="container-fluid containerSection">

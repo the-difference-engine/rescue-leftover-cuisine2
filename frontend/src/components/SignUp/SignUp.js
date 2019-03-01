@@ -1,117 +1,79 @@
 import React, { Component } from 'react';
-import apiClient from '../../lib/apiClient';
+import './SignUp.css';
+
 
 class SignUp extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-        email: "",
-        password: "",
-        password_confirmation: "",
-        first_name: "",
-        last_name: "",
-        user_name: ""   
-    }
-    this.handleInputChange = this.handleInputChange.bind(this);
+
+  state = {
+    isPasswordVisible: false,
+    textPresent: false
   }
 
-  handleInputChange(event) {
-      this.setState({ [event.target.name]: event.target.value });
-      console.log("handle change", event.target);
+  toggleIcon = () => {
+    this.setState( prevState => ({
+      isPasswordVisible: !prevState.isPasswordVisible
+    }));
   }
 
-  signUp = (event) => {
-    apiClient.post('/user', {
-        email: this.state.email,
-        password: this.state.password,
-        password_confirmation: this.state.password_confirmation,
-        user_name: this.state.user_name,
-        first_name: this.state.first_name,
-        last_name: this.state.last_name
-      }).then(response => {
-      this.setState({ 
-        email: "",
-        password: "",
-        password_confirmation: "",
-        user_name: "",
-        first_name: "",
-        last_name: ""
-      })
-    })
-    .catch(console.error)
+  // displayIcon = () => {
+  //   if (this.state.isPasswordVisible) {
+  //     let passwordDiv = document.getElementById('inputPassword4');
+  //     passwordDiv.className = "fas fa-eye-slash fa-lg"
+  //     passwordDiv.type = ""
+  //   }
+  // }
+ 
+  handleChange = (event) => {
+      let info = event.target.value;
+      if (info.length > 0) {
+        this.setState({
+          textPresent: true
+        })
+      }else {
+        this.setState({
+          textPresent: false
+        })
+      }
   }
 
   render() {
-      return (
-        <div className="container card">
-            <br></br>
-            <div className="form-group">
-              <label>Email address</label>
-              <input 
-                type="email" 
-                className="form-control" 
-                name="email"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                placeholder="Email"
-              ></input>
+    return (
+      <div className="loginCard">
+        <h3 className="loginHeader">Create an Account</h3>
+        <form className="form-signInUp">
+          <div className="form-group row">
+              <div className="name col">
+                <div className="name row">
+                  <input type="text" id="inputFirstName" className="firstName col-md form-control-lg" required="" autoFocus="" onChange={(event) => this.handleChange(event)}/>
+                  <label htmlFor="inputFirstName">First</label>
+                </div>
+              </div>
+              <div className="col">
+                <div className="name row">
+                  <input type="text" id="inputLastName" className="col-md form-control-lg" required="" autoFocus="" />
+                  <label htmlFor="inputLastName">Last</label>
+                </div>
+              </div>
+          </div>
+
+          <div className="form-group row">
+            <input type="email" id="inputSignUpEmail" className="fullWidth form-control-lg" required="" autoFocus="" />
+            <label htmlFor="inputSignUpEmail">Email</label>
             </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input 
-                type="password" 
-                name="password"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="Password"
-              ></input>
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input 
-                type="password" 
-                name="password_confirmation"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="Password Confirmation"
-              ></input>
-            </div>
-            <div className="form-group">
-              <label>User Name</label>
-              <input 
-                type="text" 
-                name="user_name"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="User Name"
-              ></input>
-            </div>
-            <div className="form-group">
-              <label>First Name</label>
-              <input 
-                type="text" 
-                name="first_name"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="First Name"
-              ></input>
-            </div>
-            <div className="form-group">
-              <label>Last Name</label>
-              <input 
-                type="text" 
-                name="last_name"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="Last Name"
-              ></input>
-            </div>
-            <div className="form-group text-center">
-              <button className="btn btn-primary" onClick={this.signUp}>Sign Up</button>
-            </div>
-        </div>
-      );
-    }
+          <div className="password form-group row">
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignUpPassword" className="fullWidth form-control-lg" required=""/>
+            <label htmlFor="inputsignUpPassword">Password</label>
+            <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
+          </div>
+          <div className="form-group row">
+            <button className="signUpButton btn btn-lg btn-block" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+      
+    );
+  }
+
 }
 
-export default SignUp; 
+export default SignUp;

@@ -1,21 +1,31 @@
 
-.signInPassword.form-group.row {
+.signInPassword {
   position: relative;
   margin-bottom: 1%;
 }
 
-.forgotPassword.form-group.row > a {
-  color: grey;
+.forgotPassword > a {
+  color: #696969;
   font-size: x-small;
   text-decoration:underline;
-}
-
-#inputSignInEmail:focus, #inputSignInPassword:focus {
-  outline: none;
 }
 
 #inputSignInEmail:focus + label, #inputSignInPassword:focus + label {
   bottom: 45%;
   font-size: x-small;
-  color: #06A6D3;
+  color: #4EC8ED;
 }
+
+.fullWidth:focus {
+  outline: none;
+}
+
+.form-signInUp > .form-group > label {
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  font-size: small;
+  color: #9b9b9b;
+  margin-right: 0;
+}
+

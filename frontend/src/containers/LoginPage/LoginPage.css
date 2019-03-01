@@ -7,8 +7,8 @@
 	background-repeat: no-repeat;
 }
 
-.loginPage.container-fluid {
-    margin: 0px;
+.loginPage {
+	margin: 0px;
 	padding: 0px;
 }
 
@@ -28,12 +28,12 @@
 .loginCard {
 	width: flex;
     height: 100%;
-    padding: 5% 10%;
-    border-radius: none;
+	padding: 5% 10%;
+	border-radius: none;
 	background: white;
 	box-shadow: none;
 	border-style: solid;
-	border-color: #cfcfcf;
+	border-color: #9b9b9b;
 	border-width: thin;
 }
 
@@ -53,11 +53,11 @@
 
 .loginHeader {
 	text-align: center;
-	color: grey;
+	color: #696969;
 	padding-top: 5%;
 	padding-bottom: 5%;
 }
 
-.loginCards.row {
+.loginCards {
 	align-items: stretch;
 }

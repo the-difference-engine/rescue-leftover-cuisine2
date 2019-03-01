@@ -15,8 +15,9 @@ export default class Users extends Component {
         },
         formatter: (cellContent, row) => (
           <div className="checkbox">
-            <label>
+            <label className='container'> 
               <input type="checkbox" checked={row.inStock} />
+              <span class="checkmark"></span>
             </label>
           </div>
         ),

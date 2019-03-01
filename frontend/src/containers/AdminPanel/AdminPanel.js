@@ -1,19 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Button,
-  Row,
-  Col,
-  Container,
-} from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Button } from 'reactstrap';
 import classnames from 'classnames';
 import './AdminPanel.css';
 
@@ -21,7 +11,6 @@ class AdminPanel extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.state = {
       activeTab: '1',
     };
@@ -40,11 +29,11 @@ class AdminPanel extends Component {
         <div className="header">
           <Header />
         </div>
-        <Nav tabs classname='tabs'>
-          <NavItem>
+        <Nav tabs>
+          <NavItem className={this.state.activeTab === '1' ? 'line' : ''}>
             <NavLink
               className={classnames({
-                active: this.state.activeTab === '1 tabText',
+                active: this.state.activeTab === '1',
               })}
               onClick={() => {
                 this.toggle('1');
@@ -53,10 +42,10 @@ class AdminPanel extends Component {
               All Recipes
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={this.state.activeTab === '2' ? 'line' : ''}>
             <NavLink
               className={classnames({
-                active: this.state.activeTab === '2 tabText',
+                active: this.state.activeTab === '2',
               })}
               onClick={() => {
                 this.toggle('2');

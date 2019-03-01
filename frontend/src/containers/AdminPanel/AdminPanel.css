@@ -7,7 +7,6 @@
 .header {
   height: 165px;
 }
-
 .addButton {
   color: #ffff;
   background-color: #4ec8ed;
@@ -18,13 +17,34 @@
   background-color: #06a6d3;
 }
 .adminHeader {
-  padding-left: 560px;
+  text-align: center;
 }
 
 .centertext {
   text-align: center;
 }
-
 .nav-tabs {
+  box-shadow: 10px 5px 100px #f2f2f2;
   border: none;
 }
+
+.line {
+  content: ' ';
+  display: block;
+  border-bottom: 3px solid #4ec8ed;
+}
+
+
+/* this eliminates the default style of the table */
+.table {
+  margin-left: 100px;
+  margin-right: 10px;
+  width: 1000px;
+  margin-top: 50px;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+  border-top: none;
+}
+
+

@@ -65,6 +65,10 @@ input:focus{
   color: black;
 }
 
+.name > input:focus {
+  padding-bottom: 0;
+}
+
 .name > label {
   position: absolute;
   padding-left: 1rem;

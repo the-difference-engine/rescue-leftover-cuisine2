@@ -17,11 +17,7 @@
   color: #4EC8ED;
 }
 
-.fullWidth:focus {
-  outline: none;
-}
-
-.form-signInUp > .form-group > label {
+.form-signInUp > .form-group > label, .name > label {
   position: absolute;
   padding-left: 1rem;
   padding-top: 1rem;

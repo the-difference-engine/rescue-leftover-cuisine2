@@ -1,24 +1,9 @@
-.firstName {
-  border: .05rem;
-  border-style: solid;
-  border-color: #9b9b9b;
-}
-
-#inputLastName {
-  border: .05rem;
-  border-style: solid;
-  border-color: #9b9b9b;
-}
-
 .signUpButton {
   background-color:#4EC8ED;
   color: white;
 }
 
 .fullWidth {
-  border: .05rem;
-  border-style: solid;
-  border-color: #9b9b9b;
   width: 100%;
 }
 
@@ -32,10 +17,6 @@
 .password {
   position: relative;
   margin-right: 0;
-}
-
-#inputFirstName:focus, #inputLastName:focus {
-  outline: none;
 }
 
 .form-group {
@@ -52,29 +33,21 @@
 
 input:focus{
   padding-top: 5%;
+  outline: none;
 }
 
-.form-signInUp > .form-group > input {
+.form-signInUp > .form-group > input, .name > input{
   font-size: medium;
   color: black;
   margin-right: 0;
-}
+  border: .05rem;
+  border-style: solid;
+  border-color: #9b9b9b;
 
-.name > input {
-  font-size: medium;
-  color: black;
 }
 
 .name > input:focus {
   padding-bottom: 0;
-}
-
-.name > label {
-  position: absolute;
-  padding-left: 1rem;
-  padding-top: 1rem;
-  font-size: small;
-  color: #ffffff00;
 }
 
 .name {

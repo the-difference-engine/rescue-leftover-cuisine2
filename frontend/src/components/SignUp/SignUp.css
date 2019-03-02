@@ -50,16 +50,17 @@
   color: #4EC8ED;
 }
 
-.form-signInUp > .form-group > input {
+input:focus{
   padding-top: 5%;
+}
+
+.form-signInUp > .form-group > input {
   font-size: medium;
   color: black;
   margin-right: 0;
 }
 
 .name > input {
-  padding-top: 5%;
-  padding-bottom: 0;
   font-size: medium;
   color: black;
 }
@@ -69,7 +70,7 @@
   padding-left: 1rem;
   padding-top: 1rem;
   font-size: small;
-  color: #9b9b9b;
+  color: #ffffff00;
 }
 
 .name {
@@ -79,4 +80,10 @@
 .name.row {
   margin-right: 0;
 }
+
+::placeholder {
+  color:#9b9b9b;
+  font-size: small;
+}
+
 

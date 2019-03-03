@@ -5,44 +5,13 @@ import './SignUp.css';
 class SignUp extends Component {
 
   state = {
-    isPasswordVisible: false,
-    textPresent: false
+    isPasswordVisible: false
   }
 
   toggleIcon = () => {
     this.setState( prevState => ({
       isPasswordVisible: !prevState.isPasswordVisible
     }));
-  }
-
-  // displayIcon = () => {
-  //   if (this.state.isPasswordVisible) {
-  //     let passwordDiv = document.getElementById('inputPassword4');
-  //     passwordDiv.className = "fas fa-eye-slash fa-lg"
-  //     passwordDiv.type = ""
-  //   }
-  // }
- 
-  // handleChange = (event) => {
-  //     let info = event.target.value;
-  //     if (info.length > 0) {
-  //       this.setState({
-  //         textPresent: true
-  //       })
-  //     }else {
-  //       this.setState({
-  //         textPresent: false
-  //       })
-  //     }
-  // }
-
-  togglePlaceholder = (placeholder) => {
-    console.log(placeholder)
-  
-  }
-
-  addPlaceholder = () => {
-    "Email";
   }
 
   render() {

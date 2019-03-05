@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import "./LogInPageHeader.css"
 import Logo from '../../assets/RLC_logo.png';
+import "./LogInPageHeader.css"
 
 class LogInPageHeader extends Component {
 

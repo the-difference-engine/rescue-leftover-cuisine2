@@ -70,6 +70,8 @@ class CreateRecipeForm extends Component {
               <input class="form-control" type="text" placeholder=""></input>
             </div>
           </div>
+        </div>
+        <div className="row">
           <div className="form-directions">
             <div class="form-group">
               <label for="exampleFormControlTextarea1"><h3>Directions</h3></label>
@@ -78,6 +80,19 @@ class CreateRecipeForm extends Component {
               <input class="form-control" type="text" placeholder=""></input>
               <input class="form-control" type="text" placeholder=""></input>
               <input class="form-control" type="text" placeholder=""></input>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="form-photo-upload">
+            <div className="input-group">
+              <div className="custom-file">
+                <input type="file" className="custom-file-input" id="inputGroupFile04"></input>
+                <label className="custom-file-label" for="inputGroupFile04">Choose file</label>
+              </div>
+              <div className="input-group-append">
+                <button className="btn btn-outline-secondary" type="button">Button</button>
+              </div>
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@
   color: #4EC8ED;
 }
 
-input:focus{
+.sign-in-input:focus{
   padding-top: 5%;
   outline: none;
 }
@@ -43,7 +43,6 @@ input:focus{
   border: .05rem;
   border-style: solid;
   border-color: #9b9b9b;
-
 }
 
 .name > input:focus {

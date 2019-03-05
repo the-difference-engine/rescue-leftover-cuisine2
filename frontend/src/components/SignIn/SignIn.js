@@ -3,10 +3,12 @@ import './SignIn.css';
 
 
 class SignIn extends Component {
-
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
     isPasswordVisible: false
   }
+}
 
   toggleIcon = () => {
     this.setState( prevState => ({

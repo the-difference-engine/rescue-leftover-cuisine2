@@ -54,7 +54,6 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))}/>
           </div>
         </form>
       </div>
-      
     );
   }
 

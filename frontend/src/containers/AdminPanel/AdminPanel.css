@@ -1,34 +1,33 @@
-.content {
+.admin-panel-container {
   margin: 0px;
   margin-top: 0px;
   width: 100%;
 }
 
-.header {
+.admin-header {
   height: 165px;
 }
-.addButton {
+.admin-add-button {
   color: #ffff;
   background-color: #4ec8ed;
   margin-left: 1000px;
 }
-.addButton:hover {
+
+.add-add-button:hover {
   color: #ffff;
   background-color: #06a6d3;
 }
-.adminHeader {
+
+.admin-title {
   text-align: center;
 }
 
-.centertext {
-  text-align: center;
-}
 .nav-tabs {
   box-shadow: 10px 5px 100px #f2f2f2;
   border: none;
 }
 
-.line {
+.nav-tab-line {
   content: ' ';
   display: block;
   border-bottom: 3px solid #4ec8ed;
@@ -41,6 +40,7 @@
   width: 1000px;
   margin-top: 50px;
 }
+
 .table > tbody > tr > td,
 .table > tbody > tr > th {
   border-top: none;

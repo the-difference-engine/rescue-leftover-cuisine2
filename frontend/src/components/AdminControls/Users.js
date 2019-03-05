@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Users.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import './AdminTables.css';
 
 export default class Users extends Component {
   render() {
@@ -15,9 +15,9 @@ export default class Users extends Component {
         },
         formatter: (cellContent, row) => (
           <div className="checkbox">
-            <label className="container">
+            <label className="admin-checkbox-container user-checkbox-spacing">
               <input type="checkbox" checked={row.inStock} />
-              <span class="checkmark" />
+              <span className="admin-table-checkmark" />
             </label>
           </div>
         ),
@@ -63,13 +63,13 @@ export default class Users extends Component {
         style: { textAlign: 'center' },
         formatter: (cellContent, row) => (
           <div>
-            <button className="button">
+            <button className="admin-edit-button">
               <img
                 src="https://img.icons8.com/windows/32/000000/edit.png"
                 alt="edit"
               />
             </button>
-            <button className="button">
+            <button className="admin-edit-button">
               <img
                 src="https://img.icons8.com/windows/32/000000/cancel.png"
                 alt="delete"

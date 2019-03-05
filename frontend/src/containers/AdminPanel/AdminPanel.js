@@ -12,7 +12,7 @@ class AdminPanel extends Component {
     super(props);
 
     this.state = {
-      activeTab: '1',
+      activeTab: 'recipes',
     };
   }
 
@@ -25,53 +25,57 @@ class AdminPanel extends Component {
   };
   render() {
     return (
-      <div className="content">
-        <div className="header">
+      <div className="admin-panel-container">
+        <div className="admin-header">
           <Header />
         </div>
         <Nav tabs>
-          <NavItem className={this.state.activeTab === '1' ? 'line' : ''}>
+          <NavItem
+            className={this.state.activeTab === 'recipes' ? 'nav-tab-line' : ''}
+          >
             <NavLink
               className={classnames({
-                active: this.state.activeTab === '1',
+                active: this.state.activeTab === 'recipes',
               })}
               onClick={() => {
-                this.toggle('1');
+                this.toggle('recipes');
               }}
             >
               All Recipes
             </NavLink>
           </NavItem>
-          <NavItem className={this.state.activeTab === '2' ? 'line' : ''}>
+          <NavItem
+            className={this.state.activeTab === 'users' ? 'nav-tab-line' : ''}
+          >
             <NavLink
               className={classnames({
-                active: this.state.activeTab === '2',
+                active: this.state.activeTab === 'users',
               })}
               onClick={() => {
-                this.toggle('2');
+                this.toggle('users');
               }}
             >
               All Members
             </NavLink>
           </NavItem>
-          {this.state.activeTab === '1' && (
-            <Button size="lg" className="addButton">
+          {this.state.activeTab === 'recipes' && (
+            <Button size="lg" className="admin-add-button">
               Add Recipes
             </Button>
           )}
-          {this.state.activeTab === '2' && (
-            <Button size="lg" className="addButton">
+          {this.state.activeTab === 'users' && (
+            <Button size="lg" className="admin-add-button">
               Add Member
             </Button>
           )}
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1" className="table">
-            <h1 className="adminHeader">Admin Dashboard</h1>
+          <TabPane tabId="recipes" className="table">
+            <h1 className="admin-title">Admin Dashboard</h1>
             <Recipes />
           </TabPane>
-          <TabPane tabId="2">
-            <h1 className="adminHeader">Admin Dashboard</h1>
+          <TabPane tabId="users">
+            <h1 className="admin-title">Admin Dashboard</h1>
             <Users />
           </TabPane>
         </TabContent>

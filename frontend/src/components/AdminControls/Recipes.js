@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import './Recipes.css';
+import './AdminTables.css';
 
 export default class Recipes extends Component {
   render() {
@@ -13,11 +13,15 @@ export default class Recipes extends Component {
           borderTop: 'none',
           borderBottom: 'none',
         },
+        style:{
+ 
+        },
+        align: 'left',
         formatter: (cellContent, row) => (
           <div className="checkbox">
-            <label className="container">
+            <label className="admin-checkbox-container recipe-checkbox-spacing">
               <input type="checkbox" checked={row.inStock} />
-              <span class="checkmark" />
+              <span className="admin-table-checkmark" />
             </label>
           </div>
         ),
@@ -25,42 +29,42 @@ export default class Recipes extends Component {
       {
         dataField: 'name',
         text: 'Recipe Name',
+        align: 'center',
         headerStyle: {
           textAlign: 'center',
           borderTop: 'none',
           borderBottom: 'none',
         },
-        style: { textAlign: 'center' },
       },
       {
         dataField: 'createdBy',
         text: 'Created By',
+        align: 'center',
         headerStyle: {
           textAlign: 'center',
           borderTop: 'none',
           borderBottom: 'none',
         },
-        style: { textAlign: 'center' },
       },
       {
         dataField: 'dateCreated',
         text: 'Date Created',
+        align: 'center',
         headerStyle: {
           textAlign: 'center',
           borderTop: 'none',
           borderBottom: 'none',
         },
-        style: { textAlign: 'center' },
       },
       {
         dataField: 'numberOfComments',
         text: 'Number Of Comments',
+        align: 'center',
         headerStyle: {
           textAlign: 'center',
           borderTop: 'none',
           borderBottom: 'none',
         },
-        style: { textAlign: 'center' },
       },
       {
         dataField: 'edit',
@@ -70,16 +74,16 @@ export default class Recipes extends Component {
           borderTop: 'none',
           borderBottom: 'none',
         },
-        style: { textAlign: 'center' },
+        align: 'left',
         formatter: (cellContent, row) => (
           <div>
-            <button className="button">
+            <button className="admin-edit-button">
               <img
                 src="https://img.icons8.com/windows/32/000000/edit.png"
                 alt="edit"
               />
             </button>
-            <button className="button">
+            <button className="admin-edit-button">
               <img
                 src="https://img.icons8.com/windows/32/000000/cancel.png"
                 alt="delete"

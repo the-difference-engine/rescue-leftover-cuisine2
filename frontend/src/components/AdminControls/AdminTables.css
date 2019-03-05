@@ -16,11 +16,10 @@
   float: none;
 }
 
-.button {
+.admin-edit-button {
   border: none;
 }
-
-.container {
+.admin-checkbox-container {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -34,7 +33,7 @@
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.admin-checkbox-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -42,40 +41,51 @@
   width: 0;
 }
 
+
 /* Create a custom checkbox */
-.checkmark {
+.admin-table-checkmark {
   position: absolute;
   top: 0;
   left: 0;
   height: 25px;
   width: 25px;
   border: 1px solid #acabab;
+
+}
+.recipe-checkbox-spacing{
+  margin-left: 50px;
+  margin-top:-15px;
+}
+
+.user-checkbox-spacing{
+  margin-left: 50px;
+  margin-top:-15px;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.admin-checkbox-container:hover input ~ .admin-table-checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.admin-checkbox-container input:checked ~ .admin-table-checkmark {
   background-color: #06a6d3;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.admin-table-checkmark:after {
   content: '';
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.admin-checkbox-container input:checked ~ .admin-table-checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.admin-checkbox-container .admin-table-checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -86,3 +96,5 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+

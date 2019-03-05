@@ -7,7 +7,7 @@ class LogInPageHeader extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <img src={Logo} className="logoCenter"></img>
+                <img src={Logo} className="logoCenter" alt="RLC Logo"></img>
             </div>
  
         )

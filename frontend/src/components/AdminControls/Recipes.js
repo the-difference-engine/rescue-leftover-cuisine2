@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import './AdminTables.css';
@@ -13,9 +13,7 @@ export default class Recipes extends Component {
           borderTop: 'none',
           borderBottom: 'none',
         },
-        style:{
- 
-        },
+        style: {},
         align: 'left',
         formatter: (cellContent, row) => (
           <div className="checkbox">
@@ -108,13 +106,16 @@ export default class Recipes extends Component {
     };
 
     return (
-      <BootstrapTable
-        keyField="id"
-        data={recipes}
-        columns={columns}
-        bordered={false}
-        pagination={paginationFactory(options)}
-      />
+      <Fragment>
+        <h1 className="admin-recipes-title">Admin Dashboard</h1>
+        <BootstrapTable
+          keyField="id"
+          data={recipes}
+          columns={columns}
+          bordered={false}
+          pagination={paginationFactory(options)}
+        />
+      </Fragment>
     );
   }
 }

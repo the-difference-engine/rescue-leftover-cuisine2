@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             render json:@user
+            #should then go to the registrations controller
         else
             @errors = @user.errors.full_messages
             render json:@errors

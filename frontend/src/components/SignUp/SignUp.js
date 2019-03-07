@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './SignUp.css';
-
 
 class SignUp extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class SignUp extends Component {
   }
 
   handleSubmit = () => {
-    console.log("Submitted!")
+    
   }
 
 

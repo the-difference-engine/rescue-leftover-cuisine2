@@ -27,6 +27,7 @@ class SignUp extends Component {
   }
 
   handleSubmit = () => {
+    //api call goes here
     
   }
 

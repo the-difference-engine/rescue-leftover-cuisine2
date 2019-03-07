@@ -6,13 +6,13 @@ class SignUp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    isPasswordVisible: false,
-    email: "",
-    password: "",
-    auth_token: "",
-    firstName: "",
-    lastName: "",
-    isAuthorized: false
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      isPasswordVisible: false,
+      auth_token: "",
+      isAuthorized: false
     }
   }
 
@@ -23,12 +23,14 @@ class SignUp extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    console.log(this.state)
+    this.setState({ [event.target.name] : event.target.value});
   }
 
   handleSubmit = () => {
     //api call goes here
-    
+    console.log(this.state)
+    //createUser(this.state.user)
   }
 
 

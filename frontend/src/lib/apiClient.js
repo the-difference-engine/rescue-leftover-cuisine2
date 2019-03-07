@@ -21,10 +21,11 @@ let createUser = data => {
     headers: new Headers({
       'Content-Type': 'application/json'
     }),
-    body: JSON.stringify({data})
+    body: JSON.stringify({user: data})
   })
 
   return fetch(request).then(response => {
+    console.log(response.json())
     return response.json();
   }).catch(error => {
     return error;

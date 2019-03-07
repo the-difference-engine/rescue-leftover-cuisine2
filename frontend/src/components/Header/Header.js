@@ -12,15 +12,20 @@ class Header extends Component {
             className="rlcLogo"
           />
         </a>
-        <button className="btn navbar-btn btn-lg browseButton" href="/">
-          Browse Recipes
-        </button>
-        <button className="btn navbar-btn  btn-lg loginButton" href="/">
-          Log In or Sign Up
-        </button>
-        <button className="btn navbar-btn px-4 btn-lg donateButton" href="/">
-          Donate
-        </button>
+        <div class="d-flex justify-content-lg-end">
+          <button className="btn navbar-btn btn-lg browseButton" href="/">
+            Browse Recipes
+          </button>
+          <button className="btn navbar-btn  btn-lg loginButton ml-3" href="/">
+            Log In or Sign Up
+          </button>
+          <button
+            className="btn navbar-btn ml-4 px-4 btn-lg donateButton"
+            href="/"
+          >
+            Donate
+          </button>
+        </div>
       </nav>
     );
   }

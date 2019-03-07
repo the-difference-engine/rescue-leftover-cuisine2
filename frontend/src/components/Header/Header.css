@@ -4,7 +4,8 @@
 
 .browseButton {
   color: black;
-  /* margin-left: 550px; */
+  /* margin-left: 500px;
+  margin-right: -25px */
 }
 
 .browseButton:hover {
@@ -25,19 +26,11 @@
 .loginButton {
   color: #4ec8ed;
   border: solid #4ec8ed 1.75px;
-  /* margin-left: 300px; */
-  /* margin-right: -200px; */
+  /* margin-right: -1px; */
 }
 
 .loginButton:hover {
   color: white;
   background-color: #06a6d3;
   border-color: #06a6d3;
-}
-
-.searchArea {
-  width: 50rem;
-  height: 60px;
-  border: solid #4ec8ed 1px;
-  margin-right: 20rem;
 }

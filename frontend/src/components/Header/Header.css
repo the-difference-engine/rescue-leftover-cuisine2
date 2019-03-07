@@ -1,47 +1,43 @@
 .rlcLogo {
-    height: 125px;
-}
-
-.topButton {
-    height: 85px;
-    font-size: 38px;
-    border-radius: .75rem;
+  height: 125px;
 }
 
 .browseButton {
-    color: black;
-    margin-left: 10rem;
+  color: black;
+  /* margin-left: 550px; */
 }
 
 .browseButton:hover {
-    color: white;
-    background-color:  #06A6D3;
+  color: white;
+  background-color: #06a6d3;
 }
 
 .donateButton {
-    color: white;
-    background-color: #FFC837;
+  color: white;
+  background-color: #ffc837;
 }
 
 .donateButton:hover {
-    background-color: #CEA22E;
-    color: white;
+  background-color: #cea22e;
+  color: white;
 }
 
 .loginButton {
-    color: #4EC8ED;
-    border: solid #4EC8ED 5px;
+  color: #4ec8ed;
+  border: solid #4ec8ed 1.75px;
+  /* margin-left: 300px; */
+  /* margin-right: -200px; */
 }
 
 .loginButton:hover {
-    color: white;
-    background-color: #06A6D3;
-    border-color: #06A6D3;
+  color: white;
+  background-color: #06a6d3;
+  border-color: #06a6d3;
 }
 
 .searchArea {
-    width:  50rem;
-    height: 60px;
-    border: solid #4EC8ED 1px;
-    margin-right: 20rem;
+  width: 50rem;
+  height: 60px;
+  border: solid #4ec8ed 1px;
+  margin-right: 20rem;
 }

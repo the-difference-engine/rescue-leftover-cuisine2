@@ -24,16 +24,11 @@ let createUser = data => {
     body: JSON.stringify({data})
   })
 
-  return apiClient.post(request) //should this be .post or .get
-    .then(results => { return results.data })
-    .catch(e => { return [] });
-
-
-  // return fetch(request).then(response => {
-  //   return response.json();
-  // }).catch(error => {
-  //   return error;
-  // });
+  return fetch(request).then(response => {
+    return response.json();
+  }).catch(error => {
+    return error;
+  });
   //sends data to users controller ...
 };
 

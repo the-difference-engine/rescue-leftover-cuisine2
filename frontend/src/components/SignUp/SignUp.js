@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { createUser } from '../../lib/apiClient';
 import './SignUp.css';
 
 class SignUp extends Component {

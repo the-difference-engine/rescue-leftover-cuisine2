@@ -15,6 +15,10 @@ let getRecipes = search => {
     .catch(e => { return [] });
 }; 
 
+let createUser = data => {
+  let request = 
+};
+
 
 export default apiClient;
-export { getRecipes };
+export { getRecipes, createUser };

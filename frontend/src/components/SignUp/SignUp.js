@@ -6,15 +6,24 @@ class SignUp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    isPasswordVisible: false
+    isPasswordVisible: false,
+    email: "",
+    encrypted_password: "",
+    auth_token: "",
+    isAuthorized: false
+    }
   }
-}
 
   toggleIcon = () => {
     this.setState( prevState => ({
       isPasswordVisible: !prevState.isPasswordVisible
     }));
   }
+
+  handleInputChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
 
   render() {
     return (

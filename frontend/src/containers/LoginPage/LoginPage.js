@@ -7,22 +7,6 @@ import './LoginPage.css';
 //import axios from 'axios';
 
 class LoginPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-        email: "",
-        encrypted_password: "",
-        auth_token: "",
-        isAuthorized: false
-    }
-    this.handleInputChange = this.handleInputChange.bind(this);
-    //this.login = this.login.bind(this);
-  }
-
-  handleInputChange(event) {
-      this.setState({ [event.target.name]: event.target.value });
-  }
-
   
  /* login(event) {
     axios.post('api/v1/login', {

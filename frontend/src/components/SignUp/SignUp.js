@@ -9,7 +9,7 @@ class SignUp extends Component {
     isPasswordVisible: false,
     email: "",
     password: "",
-    // auth_token: "",
+    auth_token: "",
     firstName: "",
     lastName: "",
     isAuthorized: false
@@ -22,8 +22,12 @@ class SignUp extends Component {
     }));
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleSubmit = () => {
+    console.log("Submitted!")
   }
 
 
@@ -31,7 +35,7 @@ class SignUp extends Component {
     return (
       <div className="loginCard">
         <h3 className="loginHeader">Create an Account</h3>
-        <form className="form-signInUp">
+        <form className="form-signInUp" onSubmit={() => this.handleSubmit()}>
           <div className="form-group row">
               <div className="name col">
                 <div className="name row">

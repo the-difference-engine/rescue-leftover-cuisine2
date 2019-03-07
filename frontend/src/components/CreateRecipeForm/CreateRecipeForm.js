@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import './CreateRecipeForm.css';
 
 class CreateRecipeForm extends Component {
+  constructor(props) {
+    this.state = {
+      title: '',
+      snippet: '',
+      ingredients: [],
+      directions: [],
+      difficulty: '',
+      duration: 0,
+      servings: 0,
+    }
+  }
 	render() {
     return(
       <div className="createRecipeForm container-fluid">
@@ -11,20 +22,22 @@ class CreateRecipeForm extends Component {
           </div>
         </div>
         <div className="row form-recipe-label">
-        <div className="col-4 offset-4">
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1"><h3>Recipe Title</h3></label>
-            <input class="form-control" type="text" placeholder=""></input>
-          </div> 
-          <div class="form-group">
+          <div class="form-group col-4 offset-4 ">
+            <label for="recipe-title"><h2>Recipe Title</h2></label>
+            <textarea class="form-control" id="recipe-title" rows="2"></textarea>
+          </div>
+          <div class="form-group col-6 offset-3">
+            <label for="recipe-description"><h2>Recipe Description</h2></label>
+            <textarea class="form-control" id="recipe-title" rows="4"></textarea>
+          </div>
+          {/* <div class="form-group col-6 offset-3">
             <label for="exampleFormControlTextarea1"><h3>Recipe Description</h3></label>
             <input class="form-control" type="text" placeholder=""></input>
-          </div>
+          </div> */}
         </div>
-      </div>
         <div className="row form-dropdown">
           <div className="dropdown col-2 offset-3">
-            <h2>Difficulty</h2>
+          <h2><i class="fas fa-signal"></i>Difficulty</h2>
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a className="dropdown-item" href="">Action</a>
@@ -33,7 +46,7 @@ class CreateRecipeForm extends Component {
             </div>
           </div>
           <div className="dropdown col-2">
-            <h2>Duration</h2>
+            <h2><i class="fas fa-clock"></i>Duration</h2>
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a className="dropdown-item" href="">Action</a>
@@ -42,7 +55,7 @@ class CreateRecipeForm extends Component {
             </div>
           </div>
           <div className="dropdown col-2">
-            <h2>Servings</h2>
+            <h2><i class="fas fa-utensil-spoon"></i>Servings</h2>
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a className="dropdown-item" href="">Action</a>
@@ -52,39 +65,39 @@ class CreateRecipeForm extends Component {
           </div>
         </div>
         <div className="row form-tag-input">
-          <div className="col-12">
+          <div className="col-4 offset-4">
             <div class="form-group">
-              <label for="exampleFormControlTextarea1"><h3>Tags</h3></label>
+              <label for="exampleFormControlTextarea1"><h2>Tags</h2></label>
               <input class="form-control" type="text" placeholder=""></input>
             </div> 
           </div>
         </div>
         <div className="row form-ingredients">
-          <div className="col-12">
+          <div className="col-6 offset-3">
             <div class="form-group">
-              <label for="exampleFormControlTextarea1"><h3>Ingredients</h3></label>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
+              <label for="Ingredients"><h2>Ingredients</h2></label>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
             </div>
           </div>
         </div>
         <div className="row form-directions">
-          <div className="col-12">
+          <div className="col-6 offset-3">
             <div class="form-group">
-              <label for="exampleFormControlTextarea1"><h3>Directions</h3></label>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
+              <label for="Directions"><h2>Directions</h2></label>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
+              <input class="form-control" type="submit" placeholder=""></input>
             </div>
           </div>
         </div>
         <div className="row form-photo-upload">
-          <div className="col-12">
+          <div className="col-2 offset-6">
             <div className="input-group">
               <div className="custom-file">
                 <input type="file" className="custom-file-input" id="inputGroupFile04"></input>

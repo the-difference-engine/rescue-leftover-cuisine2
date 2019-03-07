@@ -5,3 +5,31 @@
     text-align: center;
 }
 
+.form-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-recipe-label {
+    margin-bottom: 100px;
+}
+
+.form-dropdown {
+    margin-bottom: 50px;
+}
+
+.form-tag-input {
+    margin-bottom: 100px;
+}
+
+.form-ingredients {
+    margin-bottom: 100px;
+}
+
+.form-directions {
+    margin-bottom: 100px;
+}
+
+
+
+

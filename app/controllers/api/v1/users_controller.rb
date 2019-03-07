@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             render json:@user
-            #should then go to the registrations controller
+            #should then go to the registrations controller for signing in
         else
             @errors = @user.errors.full_messages
             render json:@errors
@@ -14,9 +14,11 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def show
+        # Shows info for 1 user
     end
 
     def update
+        #can add other info (username, profile pic, etc.) here
     end
    
     private

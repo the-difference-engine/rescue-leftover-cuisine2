@@ -8,8 +8,10 @@ class SignUp extends Component {
     this.state = {
     isPasswordVisible: false,
     email: "",
-    encrypted_password: "",
-    auth_token: "",
+    password: "",
+    // auth_token: "",
+    firstName: "",
+    lastName: "",
     isAuthorized: false
     }
   }
@@ -20,7 +22,7 @@ class SignUp extends Component {
     }));
   }
 
-  handleInputChange(event) {
+  handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -33,28 +35,28 @@ class SignUp extends Component {
           <div className="form-group row">
               <div className="name col">
                 <div className="name row">
-                  <input type="text" id="inputFirstName" className="sign-in-input firstName col-md form-control-lg" required="" autoFocus="" placeholder="First" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "First"))}/>
+                  <input type="text" id="inputFirstName" name="firstName" className="sign-in-input firstName col-md form-control-lg" placeholder="First" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
+onBlur={(event) => (event.target.setAttribute("placeholder", "First"))} onChange={(event) => this.handleChange(event)}/>
                   <label htmlFor="inputFirstName">First</label>
                 </div>
               </div>
               <div className="col">
                 <div className="name row">
-                  <input type="text" id="inputLastName" className="sign-in-input col-md form-control-lg" required="" autoFocus="" placeholder="Last" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Last"))}/>
+                  <input type="text" id="inputLastName" name="lastName" className="sign-in-input col-md form-control-lg" placeholder="Last" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
+onBlur={(event) => (event.target.setAttribute("placeholder", "Last"))} onChange={(event) => this.handleChange(event)}/>
                   <label htmlFor="inputLastName">Last</label>
                 </div>
               </div>
           </div>
 
           <div className="form-group row">
-            <input type="email" id="inputSignUpEmail" className="sign-in-input fullWidth form-control-lg" required="" autoFocus="" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Email")) }/>
+            <input type="email" id="inputSignUpEmail" name="email" className="sign-in-input fullWidth form-control-lg" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
+onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange={(event) => this.handleChange(event)}/>
             <label htmlFor="inputSignUpEmail">Email</label>
             </div>
           <div className="password form-group row">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignUpPassword" className="sign-in-input fullWidth form-control-lg" required="" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))}/>
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignUpPassword" name="password" className="sign-in-input fullWidth form-control-lg" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
+onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onChange={(event) => this.handleChange(event)}/>
             <label htmlFor="inputsignUpPassword">Password</label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>

@@ -30,6 +30,11 @@
     margin-bottom: 100px;
 }
 
-
-
+.form-submit button {
+    color: white;
+    background-color: #4EC8ED;
+    border: solid white 3px;
+    font-size: 45px;
+    font-weight: 500;
+}
 

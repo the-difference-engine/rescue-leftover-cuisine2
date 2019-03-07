@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 import './CreateRecipeForm.css';
+import Footer from '../Footer/Footer.js'
 
 class CreateRecipeForm extends Component {
-  constructor(props) {
-    this.state = {
-      title: '',
-      snippet: '',
-      ingredients: [],
-      directions: [],
-      difficulty: '',
-      duration: 0,
-      servings: 0,
-    };
+  // constructor(props) {
+  //   this.state = {
+  //     title: '',
+  //     snippet: '',
+  //     ingredients: [],
+  //     directions: [],
+  //     difficulty: '',
+  //     duration: 0,
+  //     servings: 0,
+  //   };
     
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    // const value = target.type ===
-  }
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
+  //   this.handleInputChange = this.handleInputChange.bind(this);
   // }
 
-  // handleChange(event) {
-  //   this.setState({value})
+  // handleInputChange = (event) => {
+  //   const name = event.target.id;
+  //   const value = event.target.value;
+  //   this.setState({
+  //     [name]: value
+  //   })
   // }
+
 	render() {
     return(
       <div className="createRecipeForm container-fluid">
@@ -50,27 +48,27 @@ class CreateRecipeForm extends Component {
           <h2><i class="fas fa-signal"></i>Difficulty</h2>
             <button className="btn btn-secondary dropdown-toggle" type="button" id="difficulty" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
             <div className="difficulty dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="">Action</a>
-              <a className="dropdown-item" href="">Another action</a>
-              <a className="dropdown-item" href="">Something else here</a>
+              <a className="dropdown-item" href="">EASY</a>
+              <a className="dropdown-item" href="">MEDIUM</a>
+              <a className="dropdown-item" href="">HARD</a>
             </div>
           </div>
           <div className="dropdown col-2">
             <h2><i class="fas fa-clock"></i>Duration</h2>
             <button className="btn btn-secondary dropdown-toggle" type="button" id="duration" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
             <div className="duration dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="">Action</a>
-              <a className="dropdown-item" href="">Another action</a>
-              <a className="dropdown-item" href="">Something else here</a>
+              <a className="dropdown-item" href="">30</a>
+              <a className="dropdown-item" href="">60</a>
+              <a className="dropdown-item" href="">90</a>
             </div>
           </div>
           <div className="dropdown col-2">
             <h2><i class="fas fa-utensil-spoon"></i>Servings</h2>
             <button className="btn btn-secondary dropdown-toggle" type="button" id="servings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown button</button>
             <div className="servings dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="">Action</a>
-              <a className="dropdown-item" href="">Another action</a>
-              <a className="dropdown-item" href="">Something else here</a>
+              <a className="dropdown-item" href="">2</a>
+              <a className="dropdown-item" href="">4</a>
+              <a className="dropdown-item" href="">6</a>
             </div>
           </div>
         </div>
@@ -118,6 +116,14 @@ class CreateRecipeForm extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="row form-submit">
+          <div className="col-4 offset-4">
+            <button type="button" className="btn btn-lg">Publish</button>
+          </div>
+        </div>
+        <div className="row form-footer">
+        <Footer />
         </div>
       </div>
     )

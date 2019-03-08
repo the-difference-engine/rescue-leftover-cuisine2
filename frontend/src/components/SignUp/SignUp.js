@@ -6,9 +6,9 @@ class SignUp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    isPasswordVisible: false
+      isPasswordVisible: false
+    }
   }
-}
 
   toggleIcon = () => {
     this.setState( prevState => ({

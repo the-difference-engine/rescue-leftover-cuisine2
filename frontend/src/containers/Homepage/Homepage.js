@@ -6,6 +6,7 @@ import RecipeSearchList from '../../components/RecipeSearchList/RecipeSearchList
 import BottomSignUp from '../../components/BottomSignUp/BottomSignUp.js';
 import './Homepage.css'
 
+
 class Homepage extends Component {
   constructor(props) {
     super(props);

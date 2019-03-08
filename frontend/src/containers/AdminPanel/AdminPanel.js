@@ -71,9 +71,11 @@ class AdminPanel extends Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="recipes" className="table">
+            <h1 className="admin-title">Admin Dashboard</h1>
             <Recipes />
           </TabPane>
           <TabPane tabId="users">
+            <h1 className="admin-title">Admin Dashboard</h1>
             <Users />
           </TabPane>
         </TabContent>

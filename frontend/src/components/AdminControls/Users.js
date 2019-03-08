@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import './AdminTables.css';
@@ -94,13 +94,16 @@ export default class Users extends Component {
     };
 
     return (
-      <BootstrapTable
-        keyField="id"
-        data={users}
-        columns={columns}
-        bordered={false}
-        pagination={paginationFactory(options)}
-      />
+      <Fragment>
+        <h1 className="admin-users-title">Admin Dashboard</h1>
+        <BootstrapTable
+          keyField="id"
+          data={users}
+          columns={columns}
+          bordered={false}
+          pagination={paginationFactory(options)}
+        />
+      </Fragment>
     );
   }
 }

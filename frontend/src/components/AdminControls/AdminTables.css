@@ -16,9 +16,19 @@
   float: none;
 }
 
+.admin-users-title {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.admin-recipes-title {
+  padding-left: 400px;
+}
+
 .admin-edit-button {
   border: none;
 }
+
 .admin-checkbox-container {
   display: block;
   position: relative;
@@ -41,7 +51,6 @@
   width: 0;
 }
 
-
 /* Create a custom checkbox */
 .admin-table-checkmark {
   position: absolute;
@@ -50,16 +59,15 @@
   height: 25px;
   width: 25px;
   border: 1px solid #acabab;
-
 }
-.recipe-checkbox-spacing{
-  margin-left: 50px;
-  margin-top:-15px;
+.recipe-checkbox-spacing {
+  margin-left: 80px;
+  margin-top: -15px;
 }
 
-.user-checkbox-spacing{
-  margin-left: 50px;
-  margin-top:-15px;
+.user-checkbox-spacing {
+  margin-left: 300px;
+  margin-top: -10px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -96,5 +104,3 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
-

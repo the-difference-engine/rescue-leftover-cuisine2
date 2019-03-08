@@ -3,7 +3,8 @@ import './CreateRecipeForm.css';
 import Footer from '../Footer/Footer.js'
 
 class CreateRecipeForm extends Component {
-  // constructor(props) {
+  // constructor() {
+  //   super();
   //   this.state = {
   //     title: '',
   //     snippet: '',
@@ -36,11 +37,11 @@ class CreateRecipeForm extends Component {
         <div className="row form-recipe-label">
           <div class="form-group col-4 offset-4 ">
             <label for="recipe-title"><h2>Recipe Title</h2></label>
-            <textarea class="form-control" id="title" rows="2"></textarea>
+            <textarea class="form-control" id="title" rows="2" ></textarea>
           </div>
           <div class="form-group col-6 offset-3">
             <label for="recipe-description"><h2>Recipe Description</h2></label>
-            <textarea class="form-control" id="snippet" rows="4"></textarea>
+            <textarea class="form-control" id="snippet" rows="4" ></textarea>
           </div>
         </div>
         <div className="row form-dropdown">
@@ -77,7 +78,8 @@ class CreateRecipeForm extends Component {
             <div class="form-group">
               <label for="exampleFormControlTextarea1"><h2>Tags</h2></label>
               <input class="form-control" type="text" placeholder=""></input>
-            </div> 
+              <button className="card-meal-btn">DINNER</button>
+            </div>
           </div>
         </div>
         <div className="row form-ingredients">
@@ -96,11 +98,11 @@ class CreateRecipeForm extends Component {
           <div className="col-6 offset-3">
             <div class="form-group">
               <label for="Directions"><h2>Directions</h2></label>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
-              <input class="form-control" type="text" placeholder=""></input>
+              <input class="form-control" type="text" placeholder="" ></input>
+              <input class="form-control" type="text" placeholder="" ></input>
+              <input class="form-control" type="text" placeholder="" ></input>
+              <input class="form-control" type="text" placeholder="" ></input>
+              <input class="form-control" type="text" placeholder="" ></input>
             </div>
           </div>
         </div>

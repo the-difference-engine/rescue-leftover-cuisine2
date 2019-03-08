@@ -29,8 +29,8 @@ class SignUp extends Component {
 
   handleSubmit = () => {
     //api call goes here
-    console.log(this.state)
-    //createUser(this.state.user)
+    debugger
+    createUser(this.state)
   }
 
 

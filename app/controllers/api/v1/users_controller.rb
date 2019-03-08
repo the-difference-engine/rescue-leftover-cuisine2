@@ -1,9 +1,12 @@
+require 'pry'
+
 class Api::V1::UsersController < ApplicationController
     before_action :authentication_required
     skip_before_action :authentication_required, only: [:new, :create]
   
     def create
         @user = User.new(user_params)
+        binding.pry
         if @user.save
             render json:@user
             #should then go to the registrations controller for signing in

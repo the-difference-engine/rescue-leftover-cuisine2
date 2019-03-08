@@ -37,10 +37,9 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} />
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signUpButton btn btn-lg btn-block" type="submit">Log In</button>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit">Log In</button>
           </div>
-          <div className="signInCard row">
-          </div>
+
         </form>
       </div>
     );

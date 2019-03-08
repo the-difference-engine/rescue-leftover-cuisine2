@@ -58,8 +58,8 @@
 	padding-bottom: 5%;
 }
 
-.loginCards {
-	align-items: stretch;
+.loginCard {
+	padding-left: 12.5%;
 }
 
 .loginFooter {

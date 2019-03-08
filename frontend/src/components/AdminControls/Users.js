@@ -95,14 +95,14 @@ export default class Users extends Component {
 
     return (
       <Fragment>
-      <h1 className="admin-users-title">Admin Dashboard</h1>
-      <BootstrapTable
-        keyField="id"
-        data={users}
-        columns={columns}
-        bordered={false}
-        pagination={paginationFactory(options)}
-      />
+        <h1 className="admin-users-title">Admin Dashboard</h1>
+        <BootstrapTable
+          keyField="id"
+          data={users}
+          columns={columns}
+          bordered={false}
+          pagination={paginationFactory(options)}
+        />
       </Fragment>
     );
   }

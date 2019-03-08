@@ -4,8 +4,6 @@
 
 .browseButton {
   color: black;
-  /* margin-left: 500px;
-  margin-right: -25px */
 }
 
 .browseButton:hover {
@@ -26,7 +24,6 @@
 .loginButton {
   color: #4ec8ed;
   border: solid #4ec8ed 1.75px;
-  /* margin-right: -1px; */
 }
 
 .loginButton:hover {

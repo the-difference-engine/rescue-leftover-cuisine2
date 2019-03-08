@@ -48,8 +48,8 @@ class LoginPage extends Component {
       <div className="topLoginImage">
         <div className="loginCardWrapper">
           <div className="row">
-            <div className="column loginColumnOne"><SignUp/></div>
-            < div className="column loginColumnTwo"><SignIn/></div>
+            <div className="col loginColumnOne"><SignUp/></div>
+            < div className="col loginColumnTwo"><SignIn/></div>
           </div>
           <div className="loginFooter row">
             <Footer/>

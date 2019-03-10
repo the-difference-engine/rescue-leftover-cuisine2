@@ -18,7 +18,7 @@ class SignIn extends Component {
 
   render() { 
     return (
-      <div className="loginCard">
+      <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
         <form className="form-signInUp">
           <div className="form-group row">

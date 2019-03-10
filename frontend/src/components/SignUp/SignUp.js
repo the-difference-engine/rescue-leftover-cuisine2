@@ -18,7 +18,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="loginCard">
+      <div className="leftLoginCard loginCard">
         <h3 className="loginHeader">Create an Account</h3>
         <form className="form-signInUp">
           <div className="form-group row">

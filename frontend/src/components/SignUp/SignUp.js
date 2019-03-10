@@ -23,13 +23,12 @@ class SignUp extends Component {
   }
 
   handleChange = (event) => {
-    console.log(this.state)
     this.setState({ [event.target.name] : event.target.value});
   }
 
   handleSubmit = () => {
     //api call goes here
-    debugger
+ 
     createUser(this.state)
   }
 

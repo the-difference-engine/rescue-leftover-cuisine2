@@ -15,21 +15,45 @@ let getRecipes = search => {
     .catch(e => { return [] });
 }; 
 
-let createUser = data => {
-  let request = new Request("api/v1/users", {
-    method: "POST",
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    }),
-    body: JSON.stringify({user: data})
+let createUser = (data) => {
+  axios.post('api/v1/users', {
+    user: {
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: data.email,
+      password: data.password
+    }
   })
-
-  return fetch(request).then(response => {
-    console.log(response.json())
-    return response.json();
-  }).catch(error => {
-    return error;
+  
+  .then(function (response) {
+    debugger
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
   });
+
+  // let request = new Request("api/v1/users", {
+  //   method: "POST",
+  //   headers: new Headers({
+  //     'Content-Type': 'application/json'
+  //   }),
+  //   body: JSON.stringify(data
+  //     {
+  //     first_name: data.firstName,
+  //     last_name: data.lastName,
+  //     password: data.password,
+  //     email: data.email
+  //   }
+  //   )
+  // })
+
+  // return fetch(request).then(response => {
+  //   console.log(response.json())
+  //   return response.json();
+  // }).catch(error => {
+  //   return error;
+  // });
   //sends data to users controller ...
 };
 

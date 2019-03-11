@@ -3,37 +3,30 @@ import SignUp from '../../components/SignUp/SignUp.js';
 import SignIn from '../../components/SignIn/SignIn.js';
 import Footer from '../../components/Footer/Footer.js'
 import LogInPageHeader from '../../components/LogInPageHeader/LogInPageHeader.js';
-import ThankYouCard from '../ThankYouCard/ThankYouCard.js';
+import ThankYouCard from '../../components/ThankYouCard/ThankYouCard.js';
 import './LoginPage.css';
 //import axios from 'axios';
 
 class LoginPage extends Component {
   
- /* login(event) {
-    axios.post('api/v1/login', {
-        email: this.state.email,
-        encrypted_password: this.state.encrypted_password
-      }).then(response => {
-      this.setState({ 
-        isAuthorized: true,
-        email: response.data.email
-
-      })
-    })
-    .catch(console.error)
-  }
-  */
- renderLoginOrSuccessCard = () => {
+ renderLoginOrThankYouCard = () => {
    if (sessionStorage.jwt) {
-     return
+     return (
+      <div className="row">
+        <ThankYouCard/>
+      </div>
+     )
    } else {
-     return
+     return (
       <div className="row">
         <div className="column loginColumnOne"><SignUp/></div>
-        < div className="column loginColumnTwo"><SignIn/></div>
+        <div className="column loginColumnTwo"><SignIn/></div>
       </div>
+     )
    }
  }
+
+//  {this.renderLoginOrThankYouCard()}
 
   render() {
     return(
@@ -43,10 +36,8 @@ class LoginPage extends Component {
       </div>
       <div className="topLoginImage">
         <div className="loginCardWrapper">
-          <div className="row">
-            {this.renderLoginOrCongratsCards}
-            <div className="column loginColumnOne"><SignUp/></div>
-            < div className="column loginColumnTwo"><SignIn/></div>
+          <div className="column thankYouColumn"> 
+            <ThankYouCard/>
           </div>
           <div className="loginFooter row">
             <Footer/>

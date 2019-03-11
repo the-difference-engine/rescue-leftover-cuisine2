@@ -36,7 +36,7 @@ class LoginPage extends Component {
       </div>
       <div className="topLoginImage">
         <div className="loginCardWrapper">
-          <div className="column thankYouColumn"> 
+          <div className="column mx-auto thankYouColumn"> 
             <ThankYouCard/>
           </div>
           <div className="loginFooter row">

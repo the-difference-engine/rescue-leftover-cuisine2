@@ -12,9 +12,9 @@ class LoginPage extends Component {
  renderLoginOrThankYouCard = () => {
    if (sessionStorage.jwt) {
      return (
-      <div className="row">
-        <ThankYouCard/>
-      </div>
+      <div className="column mx-auto thankYouColumn"> 
+      <ThankYouCard/>
+    </div>
      )
    } else {
      return (
@@ -36,9 +36,7 @@ class LoginPage extends Component {
       </div>
       <div className="topLoginImage">
         <div className="loginCardWrapper">
-          <div className="column mx-auto thankYouColumn"> 
-            <ThankYouCard/>
-          </div>
+            {this.renderLoginOrThankYouCard()}
           <div className="loginFooter row">
             <Footer/>
           </div>

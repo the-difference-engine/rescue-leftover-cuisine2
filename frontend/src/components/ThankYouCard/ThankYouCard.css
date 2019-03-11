@@ -1,5 +1,17 @@
 .thankYouColumn {
 	width: 50%;
 	padding-left: 5%;
-	padding-right: 1%;
+    padding-right: 1%;
+    text-align: center;
+}
+
+.checkStyle {
+    width: 33%;
+    height: auto;
+}
+
+.welcomeText {
+    color: #9b9b9b;
+    margin-bottom: 8%;
+    line-height: 1.6;
 }

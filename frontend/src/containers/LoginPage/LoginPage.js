@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import SignUp from '../../components/SignUp/SignUp.js';
+import SignIn from '../../components/SignIn/SignIn.js';
+import Footer from '../../components/Footer/Footer.js'
+import LogInPageHeader from '../../components/LogInPageHeader/LogInPageHeader.js';
+import './LoginPage.css';
 //import axios from 'axios';
 
 class LoginPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
         email: "",
         encrypted_password: "",
         auth_token: "",
@@ -17,7 +21,6 @@ class LoginPage extends Component {
 
   handleInputChange(event) {
       this.setState({ [event.target.name]: event.target.value });
-      console.log("handle change", event.target);
   }
 
   
@@ -37,45 +40,26 @@ class LoginPage extends Component {
   */
 
   render() {
+    return(
+      <div className="loginPage container-fluid">
+      <div className="row">
+        <LogInPageHeader/>
+      </div>
+      <div className="topLoginImage">
+        <div className="loginCardWrapper">
+          <div className="row">
+            <div className="col loginColumnOne"><SignUp/></div>
+            < div className="col loginColumnTwo"><SignIn/></div>
+          </div>
+          <div className="loginFooter row">
+            <Footer/>
+          </div>
+        </div>
+      </div>
+    </div>
+      
 
-    if(!this.state.isAuthorized) {
-      return (
-        <div className="container card">
-            <br></br>
-            <div className="form-group">
-              <label>Email address</label>
-              <input 
-                type="email" 
-                className="form-control" 
-                name="email"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                placeholder="Email"
-              ></input>
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input 
-                type="password" 
-                name="encrypted_password"
-                className="form-control" 
-                onChange={this.handleInputChange}
-                placeholder="Password"
-              ></input>
-            </div>
-            <div className="form-group text-center">
-              <button className="btn btn-primary" onClick={this.login}>Login</button>
-            </div>
-        </div>
-      );
-    }
-    else {
-      return (
-        <div className="container card form-control">
-          <h1>Hello{this.state.email}</h1>
-        </div>
-      );
-    }
+    )
   }
 }
 

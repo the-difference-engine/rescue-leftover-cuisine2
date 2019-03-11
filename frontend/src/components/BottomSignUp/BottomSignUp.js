@@ -1,10 +1,12 @@
 import React, {Component } from 'react';
+import { withRouter } from 'react-router'
 import './BottomSignUp.css'
 import signupImage from "../../assets/soup-kitchen.jpg";
 
 class BottomSignUp extends Component {
 
   render (){
+    
       return(
         <div className="container-fluid containerSection">
           <div className="bottomSignUp">
@@ -20,7 +22,7 @@ class BottomSignUp extends Component {
                     <span> community!<br/></span>
                     <br/>
                     <span className="signupButtonSection">
-                      <button type="button" className="btn btn-lg">Sign Up
+                      <button type="button" className="btn btn-lg" onClick={() => {this.props.history.push('/login')}}>Sign Up
                     </button>
                     </span>        
                 </p>
@@ -32,4 +34,4 @@ class BottomSignUp extends Component {
   }
 }
 
-export default BottomSignUp;
+export default withRouter(BottomSignUp);

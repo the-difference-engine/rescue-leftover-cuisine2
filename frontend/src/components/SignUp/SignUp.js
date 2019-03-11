@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './SignUp.css';
 
-
 class SignUp extends Component {
   constructor(props) {
     super(props)
@@ -56,7 +55,6 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))}/>
       </div>
     );
   }
-
 }
 
 export default SignUp;

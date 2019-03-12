@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
-import CreateRecipeForm from '../../components/CreateRecipeForm/CreateRecipeForm.js';
+import EditRecipe from '../../components/EditRecipe/EditRecipe.js';
 import './CreateRecipe.css';
 
 
@@ -15,7 +15,7 @@ class CreateRecipe extends Component {
         </div>
         <div className="row">
           <div className="createRecipePage-form">
-						<CreateRecipeForm />
+						<EditRecipe />
           </div>
         </div>
       </div>

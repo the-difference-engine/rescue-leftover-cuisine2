@@ -16,7 +16,7 @@ class App extends Component {
           <Route path='/login' component={LoginPage}></Route>
           <Route exact path='/users' history={history} render={(props) => <UsersAll {...props} />}></Route>
           <Route exact path='/users/:id' history={history} render={(props) => <User {...props} />}></Route>
-          <Route exact path='/createrecipe' component={CreateRecipe}></Route>
+          <Route exact path='/recipe/new' component={CreateRecipe}></Route>
         </Switch>
       </div>
     )

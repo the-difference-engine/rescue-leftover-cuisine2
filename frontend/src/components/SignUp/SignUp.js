@@ -28,8 +28,10 @@ class SignUp extends Component {
 
   handleSubmit = () => {
     //api call goes here
- 
-    createUser(this.state)
+
+    console.log("HI")
+    createUser(this.state).then(response => {
+      console.log("2")}).catch(console.log)
   }
 
 
@@ -67,7 +69,7 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onCha
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group row">
-            <button className="signUpButton btn btn-lg btn-block" type="submit">Sign Up</button>
+            <button className="signUpButton btn btn-lg btn-block" type="submit" >Sign Up</button>
           </div>
         </form>
       </div>

@@ -6,6 +6,8 @@ services:
       - "5432"
   web:
     build: .
+    tty: true
+    stdin_open: true
     command: bash -c "rm -f tmp/pids/server.pid && bundle install && cd frontend && npm install && cd .. && rails db:create && rails db:migrate && rails db:seed && foreman start -f Procfile.dev"
     volumes:
       - .:/app
@@ -14,5 +16,3 @@ services:
       - "5000:5000"
     depends_on:
       - 'db'
-    tty: true
-    stdin_open: true

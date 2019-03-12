@@ -16,7 +16,7 @@ let getRecipes = search => {
 }; 
 
 let createUser = (data) => {
-  axios.post('api/v1/users', {
+  return apiClient.post("api/v1/user", {
     user: {
       first_name: data.firstName,
       last_name: data.lastName,
@@ -24,39 +24,7 @@ let createUser = (data) => {
       password: data.password
     }
   })
-  
-  .then(function (response) {
-    debugger
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-  // let request = new Request("api/v1/users", {
-  //   method: "POST",
-  //   headers: new Headers({
-  //     'Content-Type': 'application/json'
-  //   }),
-  //   body: JSON.stringify(data
-  //     {
-  //     first_name: data.firstName,
-  //     last_name: data.lastName,
-  //     password: data.password,
-  //     email: data.email
-  //   }
-  //   )
-  // })
-
-  // return fetch(request).then(response => {
-  //   console.log(response.json())
-  //   return response.json();
-  // }).catch(error => {
-  //   return error;
-  // });
-  //sends data to users controller ...
 };
-
 
 export default apiClient;
 export { getRecipes, createUser };

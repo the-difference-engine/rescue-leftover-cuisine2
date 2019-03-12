@@ -56,12 +56,12 @@ class AdminPanel extends Component {
             </NavLink>
           </NavItem>
           {this.state.activeTab === 'recipes' && (
-            <Button size="lg" className="admin-add-button">
-              Add Recipes
+            <Button className="admin-add-button" size="lg">
+              Add Recipe
             </Button>
           )}
           {this.state.activeTab === 'users' && (
-            <Button size="lg" className="admin-add-button">
+            <Button className="admin-add-button" size="lg">
               Add Member
             </Button>
           )}

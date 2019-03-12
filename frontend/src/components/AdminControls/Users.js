@@ -14,7 +14,7 @@ export default class Users extends Component {
           borderBottom: 'none',
         },
         style: {
-          paddingRight: '-300px',
+          paddingLeft: '10px',
         },
         formatter: (cellContent, row) => (
           <div className="checkbox">

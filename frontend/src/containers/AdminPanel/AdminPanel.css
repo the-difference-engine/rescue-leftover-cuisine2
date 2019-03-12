@@ -31,9 +31,6 @@
 
 /* this eliminates the default style of the table */
 .table {
-  margin-left: 100px;
-  margin-right: 10px;
-  width: 1000px;
   margin-top: 50px;
 }
 

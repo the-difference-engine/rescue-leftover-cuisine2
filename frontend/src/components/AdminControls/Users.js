@@ -13,6 +13,9 @@ export default class Users extends Component {
           borderTop: 'none',
           borderBottom: 'none',
         },
+        style: {
+          paddingRight: '-300px',
+        },
         formatter: (cellContent, row) => (
           <div className="checkbox">
             <label className="admin-checkbox-container user-checkbox-spacing">

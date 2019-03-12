@@ -31,6 +31,18 @@
     margin-bottom: 100px;
 }
 
+.ingredient-input {
+    border-radius: 10px;
+    border: 0;
+    margin: 5px;
+}
+
+.directions-input {
+    border-radius: 10px;
+    border: 0;
+    margin: 5px;
+}
+
 .form-directions {
     font-size: 28.5px;
     margin-bottom: 100px;

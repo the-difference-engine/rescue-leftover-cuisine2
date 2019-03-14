@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import './EditRecipe.css';
 import Footer from '../Footer/Footer.js'
+import ImageUploader from 'react-images-upload';
 
 
 class EditRecipe extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { pictures: [] };
+    this.onDrop = this.onDrop.bind(this);
+  }
+
+  onDrop(picture) {
+    this.setState({
+      pictures: this.state.pictures.concat(picture),
+    })
+  }
 	render() {
     return(
       <div className='createRecipeForm container-fluid'>
@@ -132,17 +144,58 @@ class EditRecipe extends Component {
             <button type='button' class='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
           </div>
         </div>
+        <div className='row photo-title'>
+          <div className='col-8 offset-2'>
+            <div>Photos</div>
+          </div>
+        </div>
         <div className='row form-photo-upload'>
-          <div className='col-2 offset-6'>
-            <div className='input-group'>
-              <div className='custom-file'>
-                <input type='file' className='custom-file-input' id="inputGroupFile04"></input>
-                <label className='custom-file-label' for='inputGroupFile04'>Choose file</label>
-              </div>
-              <div className='input-group-append'>
-                <button className='btn btn-outline-secondary' type='button'>Button</button>
-              </div>
-            </div>
+          <div className='col-6 offset-3'>
+            <ImageUploader 
+              withIcon={true}
+              buttonText='choose images'
+              onChange={this.onDrop}
+              imgExtension={[ '.jpg', '.gif', '.png' ]}
+              maxFileSize={5242880}
+            />
+          </div>
+        </div>
+        <div className='row form-photo-upload-2'>
+          <div className='col-2 offset-2'>
+            <ImageUploader 
+              withIcon={true}
+              buttonText='choose images'
+              onChange={this.onDrop}
+              imgExtension={[ '.jpg', '.gif', '.png' ]}
+              maxFileSize={5242880}
+            />
+          </div>
+          <div className='col-2'>
+            <ImageUploader 
+              withIcon={true}
+              buttonText='choose images'
+              onChange={this.onDrop}
+              imgExtension={[ '.jpg', '.gif', '.png' ]}
+              maxFileSize={5242880}
+            />
+          </div>
+          <div className='col-2'>
+            <ImageUploader 
+              withIcon={true}
+              buttonText='choose images'
+              onChange={this.onDrop}
+              imgExtension={[ '.jpg', '.gif', '.png' ]}
+              maxFileSize={5242880}
+            />
+          </div>
+          <div className='col-2'>
+            <ImageUploader 
+              withIcon={true}
+              buttonText='choose images'
+              onChange={this.onDrop}
+              imgExtension={[ '.jpg', '.gif', '.png' ]}
+              maxFileSize={5242880}
+            />
           </div>
         </div>
         <div className='row form-submit'>
@@ -151,7 +204,7 @@ class EditRecipe extends Component {
           </div>
         </div>
         <div className='row form-footer'>
-        <Footer />
+          <Footer />
         </div>
       </div>
     )

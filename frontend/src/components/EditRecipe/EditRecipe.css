@@ -83,6 +83,10 @@
     font-weight: bold;
 }
 
+.photo-title {
+    font-size: 28.5px;
+}
+
 .form-photo-upload {
     margin-top: 50px;
 }
@@ -91,8 +95,20 @@
     color: white;
     background-color: #4EC8ED;
     border: solid white 3px;
-    font-size: 45px;
+    font-size: 28.5px;
     font-weight: 500;
+    width: 200px;
+    height: 100px;
+}
+
+.form-submit button:hover {
+    color: white;
+    background-color: #06A6D3;
+    border: solid white 3px;
+    font-size: 28.5px;
+    font-weight: 500;
+    width: 200px;
+    height: 100px;
 }
 
 .card-meal-btn {
@@ -109,4 +125,14 @@
     position: absolute;
     top: 6%;
     right: 6%; 
+}
+
+.fileContainer {
+    color: white;
+    border-style: dotted;
+    border-color: grey;
+}
+
+.form-photo-upload-2 {
+    margin-bottom: 50px;
 }

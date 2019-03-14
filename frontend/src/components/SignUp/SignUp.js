@@ -26,12 +26,11 @@ class SignUp extends Component {
     this.setState({ [event.target.name] : event.target.value});
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     //api call goes here
-
-    console.log("HI")
+    event.preventDefault()
     createUser(this.state).then(response => {
-      console.log("2")}).catch(console.log)
+      console.log(response)}).catch(error => {console.log(error.response.data)})
   }
 
 
@@ -39,7 +38,7 @@ class SignUp extends Component {
     return (
       <div className="loginCard">
         <h3 className="loginHeader">Create an Account</h3>
-        <form className="form-signInUp" onSubmit={() => this.handleSubmit()}>
+        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event)}>
           <div className="form-group row">
               <div className="name col">
                 <div className="name row">

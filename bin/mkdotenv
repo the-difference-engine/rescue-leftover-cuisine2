@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo pipefail
+#set -euo pipefail
 
 secret_key=$(rake secret)
 jwt_key=$(rake secret)

@@ -9,4 +9,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :jwt_authenticatable,
          jwt_revocation_strategy: JWTBlacklist
+
+  before_create :skip_conformation_method
+  def skip_conformation_method
+    self.skip_confirmation!
+  end
 end

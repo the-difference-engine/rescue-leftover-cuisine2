@@ -2,8 +2,8 @@
   text-align: center;
   transform: translateX(-50%);
 }
-.react-bootstrap-table-pagination{
-  margin-left: 20%
+.react-bootstrap-table-pagination {
+  margin-left: 20%;
 }
 
 .react-bootstrap-table-page-btns-ul {
@@ -41,7 +41,6 @@
 .user-checkbox-spacing {
   margin-top: -10px;
   margin-left: 100px;
-  
 }
 
 .admin-checkbox-container {

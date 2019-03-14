@@ -1,8 +1,8 @@
 .createRecipeForm.container-fluid {
-  margin: 0px;
-  width: 100%;
-  margin-left: 0px;
-  text-align: center;
+    margin: 0px;
+    width: 100%;
+    margin-left: 0px;
+    text-align: center;
 }
 
 .form-title {
@@ -20,23 +20,28 @@
     margin-bottom: 50px;
 }
 
-
 .form-tag-input {
+    margin-top: 100px;
     font-size: 28.5px;
     margin-bottom: 100px;
 }
 
-.form-ingredients {
 
+.search-icon {
+    margin-top: 50px;
+}
+
+.form-ingredients {
+    align-content: center;
 }
 
 .form-directions {
-
+    align-content: center;
 }
 
 .delete-input {
-    margin-top: 15px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 35px;
 
 }
 
@@ -54,13 +59,32 @@
 .ingredient-input {
     border-radius: 10px;
     border: 0;
-    margin: 5px;
+    margin: 10px;
 }
 
 .direction-input {
     border-radius: 10px;
     border: 0;
-    margin: 5px;
+    margin: 10px;
+}
+
+.add-button button {
+    color: #CEA22E;
+    background-color: white;
+    border-color: #CEA22E;
+    border-width: 3px;
+}
+
+.add-button button:hover {
+    color: #CEA22E;
+    background-color: white;
+    border-color: #CEA22E;
+    border-width: 3px;
+    font-weight: bold;
+}
+
+.form-photo-upload {
+    margin-top: 50px;
 }
 
 .form-submit button {

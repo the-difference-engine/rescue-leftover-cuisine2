@@ -52,10 +52,19 @@ class EditRecipe extends Component {
         </div>
         <div className='row form-tag-input'>
           <div className='col-4 offset-4'>
-            <div className='form-group'>
-              <label for='tag'><h2>Tags</h2></label>
-              <input className='form-control' type='text' placeholder=''></input>
-              <button className='card-meal-btn'>DINNER</button>
+            <div className='row tag-input'>
+              <div className='col-11'>
+                <div className='form-group'>
+                  <label for='tag'><h2>Tags</h2></label>
+                  <input className='form-control' type='text' placeholder='Search and tag'></input>          
+                  <button className='card-meal-btn'>DINNER</button>
+                </div>
+              </div>
+              <div className='col-1'>
+                <div className='search-icon'>
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -67,7 +76,7 @@ class EditRecipe extends Component {
         <div className='row'>
           <div className='col-8 offset-2'>
             <div className='row form-ingredients'>
-              <div className='col-7'>
+              <div className='col-7 offset-2'>
                 <div className='ingredients form-group'>
                   <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
                   <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
@@ -86,8 +95,10 @@ class EditRecipe extends Component {
             </div>
           </div>
         </div>
-        <div className="row add-button">
-          <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <div className='row add-button'>
+          <div className='col-2 offset-7'>
+            <button type='button' className='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
+          </div>
         </div>
         <div className='row directions-title'>
           <div className='col-8 offset-2'>
@@ -97,7 +108,7 @@ class EditRecipe extends Component {
         <div className='row'>
           <div className='col-8 offset-2'>
             <div className='row form-directions'>
-              <div className='col-7'>
+              <div className='col-7 offset-2'>
                 <div className='directions form-group'>
                   <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div>
                   <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div>
@@ -116,8 +127,10 @@ class EditRecipe extends Component {
             </div>
           </div>
         </div>
-        <div className="row add-button">
-          <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <div className='row add-button'>
+          <div className='col-2 offset-7'>
+            <button type='button' class='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
+          </div>
         </div>
         <div className='row form-photo-upload'>
           <div className='col-2 offset-6'>

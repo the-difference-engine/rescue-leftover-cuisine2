@@ -1,0 +1,43 @@
+.admin-panel-container {
+  margin: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+
+.admin-header {
+  height: 165px;
+}
+.admin-add-button {
+  color: #ffff;
+  background-color: #4ec8ed;
+  border: none;
+  margin-left: auto;
+  margin-right: 35px;
+}
+
+.admin-add-button:hover {
+  color: #ffff;
+  background-color: #06a6d3;
+}
+
+.nav-tabs {
+  display: flex;
+  box-shadow: 10px 5px 100px #f2f2f2;
+  border: none;
+}
+
+.nav-tab-line {
+  content: ' ';
+  display: block;
+  border-bottom: 3px solid #4ec8ed;
+}
+
+/* this eliminates the default style of the table */
+.table {
+  margin-top: 50px;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th {
+  border-top: none;
+}

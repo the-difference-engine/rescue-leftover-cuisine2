@@ -1,64 +1,65 @@
 .signUpButton {
-  background-color:#4EC8ED;
-  color: white;
-  margin-bottom: 7%;
-}
-
-.fullWidth {
-  width: 100%;
-}
-
-.fas.fa-eye.fa-lg, .fas.fa-eye-slash.fa-lg {
-  color:#9b9b9b;
-  position: absolute;
-  margin-left: 90%;
-  margin-top: 4%;
-}
-
-.password {
-  position: relative;
-  margin-right: 0;
-}
-
-.form-group {
-  position: relative;
-  caret-color: #9b9b9b;
-  margin-right: 0;
-}
-
-#inputSignUpEmail:focus + label, #inputSignUpPassword:focus + label, #inputFirstName:focus + label, #inputLastName:focus + label {
-  bottom: 45%;
-  font-size: x-small;
-  color: #4EC8ED;
-}
-
-.sign-in-input:focus{
-  padding-top: 5%;
-  outline: none;
-}
-
-.form-signInUp > .form-group > input, .name > input{
-  font-size: medium;
-  color: black;
-  margin-right: 0;
-  border: .05rem;
-  border-style: solid;
-  border-color: #9b9b9b;
-}
-
-.name > input:focus {
-  padding-bottom: 0;
-}
-
-.name {
-  margin-right: 5%;
-}
-
-.name.row {
-  margin-right: 0;
-}
-
-::placeholder {
-  color:#9b9b9b;
-  font-size: small;
-}
+    background-color:#4EC8ED;
+    color: white;
+    margin-bottom: 7%;
+  }
+  
+  .fullWidth {
+    width: 100%;
+  }
+  
+  .fas.fa-eye.fa-lg, .fas.fa-eye-slash.fa-lg {
+    color:#9b9b9b;
+    position: absolute;
+    margin-left: 90%;
+    margin-top: 4%;
+  }
+  
+  .password {
+    position: relative;
+    margin-right: 0;
+  }
+  
+  .form-group {
+    position: relative;
+    caret-color: #9b9b9b;
+    margin-right: 0;
+  }
+  
+  #inputSignUpEmail:focus + label, #inputSignUpPassword:focus + label, #inputFirstName:focus + label, #inputLastName:focus + label {
+    bottom: 45%;
+    font-size: x-small;
+    color: #4EC8ED;
+  }
+  
+  .sign-in-input:focus{
+    padding-top: 5%;
+    outline: none;
+  }
+  
+  .form-signInUp > .form-group > input, .name > input{
+    font-size: medium;
+    color: black;
+    margin-right: 0;
+    border: .05rem;
+    border-style: solid;
+    border-color: #9b9b9b;
+  }
+  
+  .name > input:focus {
+    padding-bottom: 0;
+  }
+  
+  .name {
+    margin-right: 5%;
+  }
+  
+  .name.row {
+    margin-right: 0;
+  }
+  
+  ::placeholder {
+    color:#9b9b9b;
+    font-size: small;
+  }
+  

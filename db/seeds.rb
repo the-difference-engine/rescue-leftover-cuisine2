@@ -115,7 +115,7 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 15,
   servings: 4,
-  photos: ["/recipe-seeds/scrambledeggszucchini.jpg"]
+  photos: ["/recipe-seeds/scambledeggszucchini.jpg"]
 )
 
 Recipe.create(

@@ -59,29 +59,65 @@ class EditRecipe extends Component {
             </div>
           </div>
         </div>
-        <div className='row form-ingredients'>
-          <div className='col-6 offset-3'>
-            <div className='form-group'>
-              <label for='ingredients'>Ingredients</label>
-              <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
+        <div className='row ingredients-title'>
+          <div className='col-8 offset-2'>
+            <div>Ingredients</div>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-8 offset-2'>
+            <div className='row form-ingredients'>
+              <div className='col-7'>
+                <div className='ingredients form-group'>
+                  <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='ingredient-input'><input className='form-control' type='text' placeholder=''></input></div> 
+                </div>
+              </div>
+              <div className='col-1'>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+              </div>
             </div>
           </div>
         </div>
-        <div className='row form-directions'>
-          <div className='col-6 offset-3'>
-            <div className='directions form-group'>
-              <label for='directions'>Directions</label>
-              <div className='directions-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='directions-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='directions-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='directions-input'><input className='form-control' type='text' placeholder=''></input></div>
-              <div className='directions-input'><input className='form-control' type='text' placeholder=''></input></div>
+        <div className="row add-button">
+          <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        </div>
+        <div className='row directions-title'>
+          <div className='col-8 offset-2'>
+            <div>Directions</div>
+          </div>
+        </div>   
+        <div className='row'>
+          <div className='col-8 offset-2'>
+            <div className='row form-directions'>
+              <div className='col-7'>
+                <div className='directions form-group'>
+                  <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div>
+                  <div className='direction-input'><input className='form-control' type='text' placeholder=''></input></div> 
+                </div>
+              </div>
+              <div className='col-1'>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+                <div className='row delete-input'><i class="fas fa-times"></i></div>
+              </div>
             </div>
           </div>
+        </div>
+        <div className="row add-button">
+          <button type="button" class="btn btn-primary btn-lg">Large button</button>
         </div>
         <div className='row form-photo-upload'>
           <div className='col-2 offset-6'>

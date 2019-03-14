@@ -27,8 +27,28 @@
 }
 
 .form-ingredients {
+
+}
+
+.form-directions {
+
+}
+
+.delete-input {
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+}
+
+.ingredients-title {
     font-size: 28.5px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
+
+}
+
+.directions-title {
+    font-size: 28.5px;
+    margin-bottom: 10px;
 }
 
 .ingredient-input {
@@ -37,15 +57,10 @@
     margin: 5px;
 }
 
-.directions-input {
+.direction-input {
     border-radius: 10px;
     border: 0;
     margin: 5px;
-}
-
-.form-directions {
-    font-size: 28.5px;
-    margin-bottom: 100px;
 }
 
 .form-submit button {

@@ -1,0 +1,110 @@
+.react-bootstrap-table-pagination-list {
+  text-align: center;
+  transform: translateX(-50%);
+}
+.react-bootstrap-table-pagination {
+  margin-left: 20%;
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: none;
+}
+
+.react-bootstrap-table-pagination-list {
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: none;
+}
+
+.admin-users-title {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.admin-recipes-title {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.admin-edit-button {
+  border: none;
+}
+
+.recipe-checkbox-spacing {
+  margin-left: 80px;
+  margin-top: -10px;
+}
+
+.user-checkbox-spacing {
+  margin-top: -10px;
+  margin-left: 100px;
+}
+
+.admin-checkbox-container {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.admin-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.admin-table-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #acabab;
+}
+
+/* On mouse-over, add a grey background color */
+.admin-checkbox-container:hover input ~ .admin-table-checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.admin-checkbox-container input:checked ~ .admin-table-checkmark {
+  background-color: #06a6d3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.admin-table-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.admin-checkbox-container input:checked ~ .admin-table-checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.admin-checkbox-container .admin-table-checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

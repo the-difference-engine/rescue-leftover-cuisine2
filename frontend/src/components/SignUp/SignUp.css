@@ -58,7 +58,7 @@
   margin-right: 0;
 }
 
-::placeholder {
+.sign-in-input::placeholder {
   color:#9b9b9b;
   font-size: small;
 }

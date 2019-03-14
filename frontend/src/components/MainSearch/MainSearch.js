@@ -29,9 +29,8 @@ class MainSearch extends Component {
           <div className="searchSection">
             <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
               <span className="search">
-                <form className="search-form">
-                  <input type="text" className="main-search-input" placeholder="Search by keywords" ref={input => this.search = input} onChange={this.handleInputChange} />
-                  <p></p>
+                <form className="search-form" onSubmit={ this.handleSubmit }>
+                  <input type="text" className="search-input" placeholder="Search by keywords" onChange={ this.handleChange } />
                 </form>
               </span>
           </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import './Header.css';
 
 class Header extends Component {
@@ -13,11 +14,11 @@ class Header extends Component {
             className="rlcLogo"
           />
         </a>
-        <div class="d-flex justify-content-lg-end">
+        <div className="d-flex justify-content-lg-end">
           <button className="btn navbar-btn btn-lg browseButton" href="/">
             Browse Recipes
           </button>
-          <button className="btn navbar-btn  btn-lg loginButton ml-3" href="/">
+          <button className="btn navbar-btn  btn-lg loginButton ml-3" onClick={() => {this.props.history.push('./login')}}>
             Log In or Sign Up
           </button>
           <button
@@ -32,4 +33,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

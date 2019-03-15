@@ -34,6 +34,7 @@ let loginUser = (data) => {
       password: data.password
     }
   }).then(response => { console.log(response) })
+  .catch(error => {console.log(error.response.data)})
 }
 
 export default apiClient;

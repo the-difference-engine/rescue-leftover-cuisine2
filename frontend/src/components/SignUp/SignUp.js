@@ -74,7 +74,6 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onCha
       </div>
     );
   }
-
 }
 
 export default SignUp;

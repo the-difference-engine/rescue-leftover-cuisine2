@@ -5,7 +5,6 @@ import Footer from '../../components/Footer/Footer.js'
 import LogInPageHeader from '../../components/LogInPageHeader/LogInPageHeader.js';
 import ThankYouCard from '../../components/ThankYouCard/ThankYouCard.js';
 import './LoginPage.css';
-//import axios from 'axios';
 
 class LoginPage extends Component {
   
@@ -25,8 +24,6 @@ class LoginPage extends Component {
      )
    }
  }
-
-//  {this.renderLoginOrThankYouCard()}
 
   render() {
     return(

@@ -18,7 +18,7 @@ class SignIn extends Component {
 
   render() { 
     return (
-      <div className="loginCard">
+      <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
         <form className="form-signInUp">
           <div className="form-group row">
@@ -37,10 +37,9 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} />
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signUpButton btn btn-lg btn-block" type="submit">Log In</button>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit">Log In</button>
           </div>
-          <div className="signInCard row">
-          </div>
+
         </form>
       </div>
     );

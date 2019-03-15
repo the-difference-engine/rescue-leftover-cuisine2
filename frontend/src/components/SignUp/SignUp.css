@@ -1,8 +1,7 @@
 .signUpButton {
   background-color:#4EC8ED;
   color: white;
-  margin-bottom: 5%;
-  margin-top: 1%;
+  margin-bottom: 7%;
 }
 
 .fullWidth {
@@ -59,7 +58,7 @@
   margin-right: 0;
 }
 
-::placeholder {
+.sign-in-input::placeholder {
   color:#9b9b9b;
   font-size: small;
 }

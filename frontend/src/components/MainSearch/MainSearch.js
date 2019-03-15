@@ -30,7 +30,7 @@ class MainSearch extends Component {
             <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
               <span className="search">
                 <form className="search-form" onSubmit={ this.handleSubmit }>
-                  <input type="text" className="input" placeholder="Search by keywords" onChange={ this.handleChange } />
+                  <input type="text" className="search-input" placeholder="Search by keywords" onChange={ this.handleChange } />
                 </form>
               </span>
           </div>

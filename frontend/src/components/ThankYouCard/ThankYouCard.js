@@ -7,7 +7,7 @@ class ThankYouCard extends Component {
 
   render() { 
     return (
-      <div className="loginCard">
+      <div className="thankYou loginCard">
         <img src={Checkmark} alt="checkmark icon" className="checkStyle"/>
         <h3 className="loginHeader">Thank you for<br/>Joining our Community!!</h3>
         <h6 className="welcomeText">Welcome to <br/> Rescuing Leftover Cuisine Recipes</h6>

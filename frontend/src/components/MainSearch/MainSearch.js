@@ -37,7 +37,7 @@ class MainSearch extends Component {
                   placeholder="Search by keywords"
                   onChange={this.handleChange}
                 />
-                <button className="search-button">
+                <button type="submit" className="search-button">
                   <img
                     src="https://img.icons8.com/ios/30/000000/search.png"
                     alt="search"

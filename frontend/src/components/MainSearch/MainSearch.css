@@ -32,12 +32,12 @@
   display: inline;
 }
 
-.search-button{
+.search-button {
   padding: 2vh 0vw 2vh 0vw;
-    background: #fff;
-    border: none;
-    border-radius: 0px 10px 10px 0px;
-    padding-right:10px;
+  background: #fff;
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+  padding-right: 10px;
 }
 
 .search-input {

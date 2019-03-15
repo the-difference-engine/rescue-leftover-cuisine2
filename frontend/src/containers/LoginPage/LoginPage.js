@@ -7,9 +7,23 @@ import ThankYouCard from '../../components/ThankYouCard/ThankYouCard.js';
 import './LoginPage.css';
 
 class LoginPage extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      isAuthorized: false
+    }
+  }
+
+  mimicLogin = (event) => {
+    event.preventDefault();
+    this.setState(prevState => ({
+      isAuthorized: !prevState.isAuthorized
+    }));
+  }
   
  renderLoginOrThankYouCard = () => {
-   if (sessionStorage.jwt) {
+   if (this.state.isAuthorized) {
      return (
       <div className="column mx-auto thankYouColumn"> 
       <ThankYouCard/>
@@ -18,7 +32,7 @@ class LoginPage extends Component {
    } else {
      return (
       <div className="row">
-        <div className="column loginColumnOne"><SignUp/></div>
+        <div className="column loginColumnOne"><SignUp mimicLogin={(event) => this.mimicLogin(event)} /></div>
         <div className="column loginColumnTwo"><SignIn/></div>
       </div>
      )

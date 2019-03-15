@@ -38,7 +38,7 @@ class SignUp extends Component {
     return (
       <div className="loginCard">
         <h3 className="loginHeader">Create an Account</h3>
-        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event)}>
+        <form className="form-signInUp" onSubmit={this.props.mimicLogin}>
           <div className="form-group row">
               <div className="name col">
                 <div className="name row">

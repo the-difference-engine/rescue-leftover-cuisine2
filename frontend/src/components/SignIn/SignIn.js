@@ -20,7 +20,7 @@ class SignIn extends Component {
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp">
+        <form className="form-signInUp" onSubmit={this.props.mimicLogin}>
           <div className="form-group row">
             <input type="email" id="inputSignInEmail" className=" sign-in-input fullWidth form-control-lg" required="" autoFocus="" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
 onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} />

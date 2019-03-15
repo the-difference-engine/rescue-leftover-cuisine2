@@ -1,7 +1,7 @@
 .topLoginImage {
 	background-image: url("../../assets/Login_Page.jpg");
 	width:  100vw;
-	height: 60vh; 
+	height: 65vh; 
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -19,16 +19,17 @@
 }
 
 .loginCardWrapper {
-	padding-top: 10%;
+	padding-top: 15%;
 	width: 100%;
 	height: auto;
 	display: inline-block;
 }
 
 .loginCard {
-	width: flex;
+	width: 85%;
     height: 100%;
 	padding: 5% 10%;
+	padding-left: 12.5%;
 	border-radius: none;
 	background: white;
 	box-shadow: none;
@@ -37,18 +38,23 @@
 	border-width: thin;
 }
 
+.leftLoginCard {
+	margin-left: 9%;
+	margin-right: 0;
+}
+
+.rightLoginCard {
+	margin-left: 3%;
+	margin-right: 14%;
+}
+
 .loginColumnOne {
-	float: left;
-	width: 50%;
 	padding-left: 5%;
-	padding-right: 1%;
 }
 
 .loginColumnTwo {
-	float: left;
-	width: 50%;
-	padding-right: 5%;
-	padding-left: 1%;
+	padding-right: 3%;
+	padding-left: 0;
 }
 
 .loginHeader {
@@ -58,10 +64,6 @@
 	padding-bottom: 5%;
 }
 
-.loginCards {
-	align-items: stretch;
-}
-
 .loginFooter {
-	margin-top: 10%;
+	margin-top: 6%;
 }

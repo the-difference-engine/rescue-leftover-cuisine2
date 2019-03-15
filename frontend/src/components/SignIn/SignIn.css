@@ -1,13 +1,13 @@
 
 .signInPassword {
-  position: relative;
   margin-bottom: 1%;
 }
 
 .forgotPassword > a {
+  position: relative;
   color: #696969;
   font-size: x-small;
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 #inputSignInEmail:focus + label, #inputSignInPassword:focus + label {

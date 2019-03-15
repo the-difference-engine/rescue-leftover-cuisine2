@@ -15,7 +15,7 @@ let getRecipes = search => {
     .catch(e => { return [] });
 }; 
 
-let createUser = (data) => {
+let createUser = (data) => { //this works
   return apiClient.post("api/v1/user", {
     user: {
       first_name: data.firstName,
@@ -27,13 +27,12 @@ let createUser = (data) => {
 };
 
 let loginUser = (data) => {
-  debugger
+  let credentials = {email: data.email, password: data.password};
   return apiClient.post("api/v1/auth/login", {
-    user: {
-      email: data.email,
-      password: data.password
-    }
-  }).then(response => { console.log(response) })
+    user: credentials
+  }).then(response => { 
+    debugger
+    console.log(response) })
   .catch(error => {console.log(error.response.data)})
 }
 

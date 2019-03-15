@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createUser } from '../../lib/apiClient';
+import { createUser, loginUser } from '../../lib/apiClient';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -27,10 +27,10 @@ class SignUp extends Component {
   }
 
   handleSubmit = (event) => {
-    //api call goes here
     event.preventDefault()
-    createUser(this.state).then(response => {
-      console.log(response)}).catch(error => {console.log(error.response.data)})
+    createUser(this.state)
+    .then(() => {loginUser(this.state)})
+    .catch(error => {console.log(error.response.data)})
   }
 
 

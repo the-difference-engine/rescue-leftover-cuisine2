@@ -7,7 +7,7 @@ Rails.application.routes.draw do
                registration: 'user'
              },
              controllers: {
-               registrations: 'api/v1/registrations'
+               registrations: 'api/v1/registrations',
              },
              defaults: {
                format: :json

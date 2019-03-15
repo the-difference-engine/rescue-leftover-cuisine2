@@ -26,5 +26,15 @@ let createUser = (data) => {
   })
 };
 
+let loginUser = (data) => {
+  debugger
+  return apiClient.post("api/v1/auth/login", {
+    user: {
+      email: data.email,
+      password: data.password
+    }
+  }).then(response => { console.log(response) })
+}
+
 export default apiClient;
-export { getRecipes, createUser };
+export { getRecipes, createUser, loginUser };

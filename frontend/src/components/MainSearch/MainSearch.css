@@ -33,11 +33,15 @@
 }
 
 .search-button {
-  padding: 2vh 0vw 2vh 0vw;
+  margin-top: 3vh;
+  padding: 2vh 32vw 2vh 2vw;
   background: #fff;
   border: none;
   border-radius: 0px 10px 10px 0px;
   padding-right: 10px;
+}
+.search-button:hover {
+  cursor: pointer;
 }
 
 .search-input {

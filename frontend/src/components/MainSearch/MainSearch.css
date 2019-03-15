@@ -1,56 +1,63 @@
 .mainSearch.container-fluid {
-    padding-bottom: 0px;
-    padding-top: 50px;
-    width: 100%;
+  padding-bottom: 0px;
+  padding-top: 50px;
+  width: 100%;
 }
 
 .searchSection {
-    background-image: url("../../assets/grilled-chicken-dark.jpg");
-    background-repeat: no-repeat;
-    width: 100%;
-    text-align: center;
-    padding: 17vh 15vw 17vh 20vw;
+  background-image: url('../../assets/grilled-chicken-dark.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  text-align: center;
+  padding: 17vh 15vw 17vh 20vw;
 }
 
 .findText {
-    color: white;
-    font-size: 4.5vw;
-    line-height: 1.0em;
-    font-weight: 900;
-    font-family: 'Nunito', sans-serif;
-    text-shadow: 0 0 15px #2e2a25;
+  color: white;
+  font-size: 4.5vw;
+  line-height: 1em;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  text-shadow: 0 0 15px #2e2a25;
 }
 
 .search {
-    font-size: 2vw;
-    font-weight: 200;
+  font-size: 2vw;
+  font-weight: 200;
 }
 
 .search-form {
-    margin: 0;
-    padding: 0;
-    display: inline;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.search-button{
+  padding: 2vh 0vw 2vh 0vw;
+    background: #fff;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    padding-right:10px;
 }
 
 .search-input {
-    margin-top: 3vh;
-    padding: 2vh 32vw 2vh 2vw;
-    font-weight: 100;
-    font-family: 'Nunito', sans-serif;
-    color: #9b9b9b;
-    border-radius: 10px;
-    border: 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin-top: 3vh;
+  padding: 2vh 32vw 2vh 2vw;
+  font-weight: 100;
+  font-family: 'Nunito', sans-serif;
+  color: #9b9b9b;
+  border-radius: 10px 0px 0px 10px;
+  border: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-
 .suggestionsSection {
-    font-size: 1.5vw;
-    opacity: 0.5;
-    color: #757373;
-    text-align: center;
-    justify-content: center;
-    padding-top: 2vw;
-    font-weight: 500;
-    margin: 0px;
+  font-size: 1.5vw;
+  opacity: 0.5;
+  color: #757373;
+  text-align: center;
+  justify-content: center;
+  padding-top: 2vw;
+  font-weight: 500;
+  margin: 0px;
 }

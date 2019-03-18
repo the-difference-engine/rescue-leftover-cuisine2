@@ -7,7 +7,11 @@ import ImageUploader from 'react-images-upload';
 class EditRecipeForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { pictures: [] };
+    this.state = { 
+      pictures: [],
+      searchTerm: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
     this.onDrop = this.onDrop.bind(this);
   }
 
@@ -17,10 +21,15 @@ class EditRecipeForm extends Component {
     })
   }
 
+  handleChange(event) {
+    this.setState({ searchTerm: event.target.value });
+  }
+
+
 	render() {
     return(
       <div className='createRecipeForm container-fluid'>
-        <div className='row form-title'>
+        <div className='row justify-content-md-center'>
           <h1 className='text-center'>Create Recipe</h1>
         </div>
         <div className='row form-recipe-label'>
@@ -61,31 +70,43 @@ class EditRecipeForm extends Component {
             </div>
           </div>
         </div>
+        <div className='row justify-content-md-center'>
+          <h2 className='text-center'>Tags</h2>
+        </div>
         <div className='row form-tag-input'>
           <div className='col-4 offset-4'>
-            <div className='row tag-input'>
-              <div className='col-11'>
-                <div className='form-group'>
-                  <label for='tag'><h2>Tags</h2></label>
-                  <input className='form-control' type='text' placeholder='Search and tag'></input>          
-                  <button className='card-meal-btn'>DINNER</button>
-                </div>
+            <span className="tag-search">
+              <form className="tag-form">
+                <input
+                type="text"
+                className="search-tag-input"
+                placeholder="Search and tag"
+                onChange={this.handleChange}
+                />
+              </form>
+            </span>
+          </div>
+        </div>
+        <div className='row tag-buttons'>
+          <div className='col-6 offset-3'>
+            <div className='row'>
+              <div className='col-1 offset-4'>
+                <button className='card-meal-btn-light'>DINNER</button>
               </div>
               <div className='col-1'>
-                <div className='search-icon'>
-                  <i class="fas fa-search"></i>
-                </div>
+                <button className='card-meal-btn-light'>HEALTHY</button>
+              </div>
+              <div className='col-1'>
+                <button className='card-meal-btn-light'>VEGAN</button>
+              </div>
+              <div className='col-1'>
+                <button className='card-meal-btn-light-add'><i class="fas fa-plus"></i>Add Tag</button>
               </div>
             </div>
           </div>
         </div>
-        {/* <div className='row ingredients-title'>
-          <div className='col-8 offset-2'>
-            <div>Ingredients</div>
-          </div>
-        </div> */}
-        <div className='row'>
-          <h1 className='text-center'>Ingredients</h1>
+        <div className='row justify-content-md-center'>
+          <h2 className='text-center'>Ingredients</h2>
         </div>
         <div className='row'>
           <div className='col-8 offset-2'>
@@ -114,13 +135,8 @@ class EditRecipeForm extends Component {
             <button type='button' className='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
           </div>
         </div>
-        {/* <div className='row directions-title'>
-          <div className='col-8 offset-2'>
-            <div>Directions</div>
-          </div>
-        </div>    */}
-        <div className='row'>
-          <h1 className='text-center'>Directions</h1>
+        <div className='row justify-content-md-center'>
+          <h2 className='text-center'>Directions</h2>
         </div>
         <div className='row'>
           <div className='col-8 offset-2'>
@@ -149,12 +165,7 @@ class EditRecipeForm extends Component {
             <button type='button' class='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
           </div>
         </div>
-        {/* <div className='row photo-title'>
-          <div className='col-8 offset-2'>
-            <div>Photos</div>
-          </div>
-        </div> */}
-        <div className='row'>
+        <div className='row justify-content-md-center'>
           <h2 className='text-center'>Photo Upload</h2>
         </div>
         <div className='row form-photo-upload'>
@@ -172,7 +183,6 @@ class EditRecipeForm extends Component {
           <div className='col-2 offset-2'>
             <ImageUploader 
               withIcon={true}
-              buttonText='choose images'
               onChange={this.onDrop}
               imgExtension={[ '.jpg', '.gif', '.png' ]}
               maxFileSize={5242880}
@@ -181,7 +191,6 @@ class EditRecipeForm extends Component {
           <div className='col-2'>
             <ImageUploader 
               withIcon={true}
-              buttonText='choose images'
               onChange={this.onDrop}
               imgExtension={[ '.jpg', '.gif', '.png' ]}
               maxFileSize={5242880}
@@ -190,7 +199,6 @@ class EditRecipeForm extends Component {
           <div className='col-2'>
             <ImageUploader 
               withIcon={true}
-              buttonText='choose images'
               onChange={this.onDrop}
               imgExtension={[ '.jpg', '.gif', '.png' ]}
               maxFileSize={5242880}
@@ -199,7 +207,6 @@ class EditRecipeForm extends Component {
           <div className='col-2'>
             <ImageUploader 
               withIcon={true}
-              buttonText='choose images'
               onChange={this.onDrop}
               imgExtension={[ '.jpg', '.gif', '.png' ]}
               maxFileSize={5242880}

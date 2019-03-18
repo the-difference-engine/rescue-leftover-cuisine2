@@ -19,8 +19,8 @@ class CreateRecipe extends Component {
           </div>
         </div>
       </div>
-        )
-    } 
+    )
+  } 
 }
 
 export default CreateRecipe;

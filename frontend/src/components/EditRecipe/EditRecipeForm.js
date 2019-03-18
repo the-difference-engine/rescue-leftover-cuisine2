@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './EditRecipe.css';
+import './EditRecipeForm.css';
 import Footer from '../Footer/Footer.js'
 import ImageUploader from 'react-images-upload';
 
 
-class EditRecipe extends Component {
+class EditRecipeForm extends Component {
   constructor(props) {
     super(props);
     this.state = { pictures: [] };
@@ -16,13 +16,12 @@ class EditRecipe extends Component {
       pictures: this.state.pictures.concat(picture),
     })
   }
+
 	render() {
     return(
       <div className='createRecipeForm container-fluid'>
         <div className='row form-title'>
-          <div className='col-4 offset-4'>
-            <h1>Create Recipe</h1>
-          </div>
+          <h1 className='text-center'>Create Recipe</h1>
         </div>
         <div className='row form-recipe-label'>
           <div className='form-group col-4 offset-4 '>
@@ -80,10 +79,13 @@ class EditRecipe extends Component {
             </div>
           </div>
         </div>
-        <div className='row ingredients-title'>
+        {/* <div className='row ingredients-title'>
           <div className='col-8 offset-2'>
             <div>Ingredients</div>
           </div>
+        </div> */}
+        <div className='row'>
+          <h1 className='text-center'>Ingredients</h1>
         </div>
         <div className='row'>
           <div className='col-8 offset-2'>
@@ -112,11 +114,14 @@ class EditRecipe extends Component {
             <button type='button' className='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
           </div>
         </div>
-        <div className='row directions-title'>
+        {/* <div className='row directions-title'>
           <div className='col-8 offset-2'>
             <div>Directions</div>
           </div>
-        </div>   
+        </div>    */}
+        <div className='row'>
+          <h1 className='text-center'>Directions</h1>
+        </div>
         <div className='row'>
           <div className='col-8 offset-2'>
             <div className='row form-directions'>
@@ -144,10 +149,13 @@ class EditRecipe extends Component {
             <button type='button' class='btn btn-primary btn-lg'><i class="fas fa-plus"></i>ADD</button>
           </div>
         </div>
-        <div className='row photo-title'>
+        {/* <div className='row photo-title'>
           <div className='col-8 offset-2'>
             <div>Photos</div>
           </div>
+        </div> */}
+        <div className='row'>
+          <h2 className='text-center'>Photo Upload</h2>
         </div>
         <div className='row form-photo-upload'>
           <div className='col-6 offset-3'>
@@ -211,4 +219,4 @@ class EditRecipe extends Component {
   }
 }
 
-export default EditRecipe;
+export default EditRecipeForm;

@@ -5,15 +5,15 @@
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.5.2",
-    "react-bootstrap-table-next": "^3.0.0",
-    "react-bootstrap-table2-paginator": "^2.0.3",
+    "react-bootstrap-table-next": "^3.0.2",
+    "react-bootstrap-table2-paginator": "^2.0.4",
     "react-dom": "^16.5.2",
     "react-fontawesome": "1.5.0",
     "react-images-upload": "^1.2.6",
     "react-router-dom": "4.3.1",
     "react-scripts": "^2.1.8",
     "reactstrap": "^7.1.0",
-    "terser": "^3.14.1"
+    "terser": "^3.17.0"
   },
   "devDependencies": {},
   "scripts": {

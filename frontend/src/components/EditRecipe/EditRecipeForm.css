@@ -58,9 +58,11 @@
 .delete-input {
     margin-top: 20px;
     margin-bottom: 35px;
-
 }
 
+.add-input {
+    margin-right: 0px;
+}
 .ingredients-title {
     font-size: 28.5px;
     margin-bottom: 10px;
@@ -82,6 +84,10 @@
     border-radius: 10px;
     border: 0;
     margin: 10px;
+}
+
+.add-button {
+    margin-bottom: 50px;
 }
 
 .add-button button {
@@ -151,10 +157,17 @@
 
 .fileContainer {
     color: white;
-    border-style: dotted;
-    border-color: grey;
+    border-style: dashed;
+    border-color: #9B9B9B
 }
 
-.form-photo-upload-2 {
+
+.img-upload {
+    height: 200px;
+    margin-right: 10px;
+    border-style: dashed;
+    border-color: #9B9B9B;
     margin-bottom: 50px;
+    background: url('https://img.icons8.com/ios/50/000000/xlarge-icons.png') no-repeat scroll 90px 75px;;
 }
+

@@ -179,38 +179,18 @@ class EditRecipeForm extends Component {
             />
           </div>
         </div>
-        <div className='row form-photo-upload-2'>
-          <div className='col-2 offset-2'>
-            <ImageUploader 
-              withIcon={true}
-              onChange={this.onDrop}
-              imgExtension={[ '.jpg', '.gif', '.png' ]}
-              maxFileSize={5242880}
-            />
-          </div>
-          <div className='col-2'>
-            <ImageUploader 
-              withIcon={true}
-              onChange={this.onDrop}
-              imgExtension={[ '.jpg', '.gif', '.png' ]}
-              maxFileSize={5242880}
-            />
-          </div>
-          <div className='col-2'>
-            <ImageUploader 
-              withIcon={true}
-              onChange={this.onDrop}
-              imgExtension={[ '.jpg', '.gif', '.png' ]}
-              maxFileSize={5242880}
-            />
-          </div>
-          <div className='col-2'>
-            <ImageUploader 
-              withIcon={true}
-              onChange={this.onDrop}
-              imgExtension={[ '.jpg', '.gif', '.png' ]}
-              maxFileSize={5242880}
-            />
+        <div className='row'>
+          <div className='col-11 offset-2'>
+            <div className='row form-photo-upload-2'>
+              <div className='col-2 img-upload'>
+              </div>
+              <div className='col-2 img-upload'>
+              </div>
+              <div className='col-2 img-upload'>
+              </div>
+              <div className='col-2 img-upload'>
+              </div>
+            </div>
           </div>
         </div>
         <div className='row form-submit'>

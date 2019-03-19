@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './MainSearch.css'
+import './MainSearch.css';
 
 class MainSearch extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ""
+      searchTerm: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,25 +13,28 @@ class MainSearch extends Component {
   }
 
   handleChange(event) {
-    this.setState({searchTerm: event.target.value});
+    this.setState({ searchTerm: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.setSearchTerm(this.state.searchTerm);
+    const { setSearchTerm } = this.props;
+    const { searchTerm } = this.state;
+
+    setSearchTerm(searchTerm);
   }
 
-  render (){
+  render() {
     return (
       <div className="mainSearch container-fluid">
         <div className="row">
           <div className="searchSection">
             <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
-              <span className="search">
-                <form className="search-form" onSubmit={ this.handleSubmit }>
-                  <input type="text" className="search-input" placeholder="Search by keywords" onChange={ this.handleChange } />
-                </form>
-              </span>
+            <span className="search">
+              <form className="search-form" onSubmit={this.handleSubmit}>
+                <input type="text" className="search-input" placeholder="Search by keywords" onChange={this.handleChange} />
+              </form>
+            </span>
           </div>
         </div>
       </div>

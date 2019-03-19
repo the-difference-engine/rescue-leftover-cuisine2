@@ -1,18 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './DurationSpec.css';
 
-export class DurationSpec extends Component {
-	render() {
-		return (
-			<div className="spec-unique">
-				<div id="dura-clockface">
-				</div>
-				<div id="dura-minute">
-				</div>
-				<div id="dura-hour">
-				</div>
-				<div id="dura-text">30 MIN</div>
-			</div>
-		);
-	}
-}
+const DurationSpec = () => (
+  <div className="spec-unique">
+    <div id="dura-clockface" />
+    <div id="dura-minute" />
+    <div id="dura-hour" />
+    <div id="dura-text">30 MIN</div>
+  </div>
+);
+
+export default DurationSpec;

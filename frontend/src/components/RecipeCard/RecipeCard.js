@@ -4,64 +4,85 @@ import './RecipeCard.css';
 
 
 const RecipeCard = (props) => {
+  const {
+    alternate,
+    difficulty,
+    duration,
+    meal,
+    servings,
+    snippet,
+    title,
+  } = props;
 
-  const mealDifficulty = (difficulty) => {
-    if (difficulty === "EASY") {
+  const mealDifficulty = () => {
+    if (difficulty === 'EASY') {
       return (
-        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/low-connection.png" alt="Easy Difficulty Rating"></img>
-      )
+        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/low-connection.png" alt="Easy Difficulty Rating" />
+      );
     }
-    if (difficulty === "MEDIUM") {
+    if (difficulty === 'MEDIUM') {
       return (
-        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/medium-connection.png" alt="Medium Difficulty Rating"></img>
-      )
+        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/medium-connection.png" alt="Medium Difficulty Rating" />
+      );
     }
-    if (difficulty === "ADVANCED") {
+    if (difficulty === 'ADVANCED') {
       return (
-        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/bar-chart.png" alt="Advanced Difficulty Rating"></img>
-      )
+        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/bar-chart.png" alt="Advanced Difficulty Rating" />
+      );
     }
-  }
+    return undefined; // TODO: This is probably bad. What should this return for invalid difficulty?
+  };
 
   const firstPhoto = () => {
     if (props.photos && props.photos.length > 0) {
       return props.photos[0];
     }
-    return "";
-  }
+    return '';
+  };
 
   return (
     <div className="card-deck d-inline-flex">
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={firstPhoto()} alt={props.alternate} />
-          <button className="card-meal-btn">{props.meal}</button>
+          <img className="card-img-top" src={firstPhoto()} alt={alternate} />
+          <button className="card-meal-btn" type="button">{meal}</button>
         </div>
         <div className="card-body">
-          <div className="card-title">{props.title}</div>
-          <p className="card-snippet">{props.snippet}</p>
+          <div className="card-title">{title}</div>
+          <p className="card-snippet">{snippet}</p>
         </div>
         <div className="card-bottom">
-          <span className="card-meta">{mealDifficulty(props.difficulty)}{props.difficulty}</span>
+          <span className="card-meta">
+            {mealDifficulty()}
+            {difficulty}
+          </span>
           {/* duration will be readyInMinutes in Spoonacular API */}
-          <span className="card-meta"><i className="fas fa-clock"></i>{props.duration} MINUTES</span>
-          <span className="card-meta"><i className="fas fa-utensil-spoon"></i>{props.servings}</span>
+          <span className="card-meta">
+            <i className="fas fa-clock" />
+            {duration}
+            {' '}
+MINUTES
+          </span>
+          <span className="card-meta">
+            <i className="fas fa-utensil-spoon" />
+            {servings}
+          </span>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 RecipeCard.propTypes = {
-  meal: PropTypes.string,
-  photos: PropTypes.array,
-  alternate: PropTypes.string,
-  title: PropTypes.string,
-  snippet: PropTypes.string,
-  difficulty: PropTypes.string,
-  duration: PropTypes.number,
-  servings: PropTypes.number,
-}
+  meal: PropTypes.string.isRequired,
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  alternate: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  snippet: PropTypes.string.isRequired,
+  difficulty: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  servings: PropTypes.number.isRequired,
+};
 
 
 export default RecipeCard;

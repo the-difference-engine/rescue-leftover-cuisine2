@@ -1,4 +1,3 @@
-require 'pry'
 class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_params
 

@@ -8,42 +8,42 @@ import './LoginPage.css';
 
 class LoginPage extends Component {
   
- renderLoginOrThankYouCard = () => {
-   if (sessionStorage.jwt) {
-     return (
-      <div className="column mx-auto thankYouColumn"> 
-      <ThankYouCard/>
-    </div>
-     )
-   } else {
-     return (
-      <div className="row">
-        <div className="column loginColumnOne"><SignUp/></div>
-        <div className="column loginColumnTwo"><SignIn/></div>
-      </div>
+  renderLoginOrThankYouCard = () => {
+    if (sessionStorage.jwt) {
+      return (
+       <div className="column mx-auto thankYouColumn"> 
+       <ThankYouCard/>
+     </div>
+      )
+    } else {
+      return (
+       <div className="row">
+         <div className="col loginColumnOne"><SignUp mimicLogin={(event) => this.mimicLogin(event)} /></div>
+         <div className="col loginColumnTwo"><SignIn mimicLogin={(event) => this.mimicLogin(event)} /></div>
+       </div>
+      )
+    }
+  }
+ 
+   render() {
+     return(
+       <div className="loginPage container-fluid">
+       <div className="row">
+         <LogInPageHeader/>
+       </div>
+       <div className="topLoginImage">
+         <div className="loginCardWrapper">
+             {this.renderLoginOrThankYouCard()}
+           <div className="loginFooter row">
+             <Footer/>
+           </div>
+         </div>
+       </div>
+     </div>
+       
+ 
      )
    }
  }
-
-  render() {
-    return(
-      <div className="loginPage container-fluid">
-      <div className="row">
-        <LogInPageHeader/>
-      </div>
-      <div className="topLoginImage">
-        <div className="loginCardWrapper">
-            {this.renderLoginOrThankYouCard()}
-          <div className="loginFooter row">
-            <Footer/>
-          </div>
-        </div>
-      </div>
-    </div>
-      
-
-    )
-  }
-}
-
-export default LoginPage; 
+ 
+ export default LoginPage; 

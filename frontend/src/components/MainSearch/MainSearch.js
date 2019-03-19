@@ -58,8 +58,12 @@ class MainSearch extends Component {
                   />
                 </button>
               </form>
+              <div>
+                {this.state.error && (
+                  <span className="error-message">{this.state.error}</span>
+                )}
+              </div>
             </span>
-            {this.state.error && <span className='error-message'>{this.state.error}</span>}
           </div>
         </div>
       </div>

@@ -27,7 +27,6 @@ class SignUp extends Component {
   }
 
   handleSubmit = (event) => {
-    //api call goes here
     event.preventDefault()
     createUser(this.state).then(response => {
       console.log(response)}).catch(error => {console.log(error.response.data)})

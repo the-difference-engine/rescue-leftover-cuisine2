@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Checkmark from '../../assets/checkmark-icon.png';
 import './ThankYouCard.css';
 
-
 class ThankYouCard extends Component {
 
   render() { 
@@ -18,7 +17,6 @@ class ThankYouCard extends Component {
       </div>
     );
   }
-
 }
 
 export default ThankYouCard;

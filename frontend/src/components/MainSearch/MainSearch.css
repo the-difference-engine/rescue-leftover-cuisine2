@@ -32,6 +32,11 @@
   display: inline;
 }
 
+.error-message {
+  color: #cea22e;
+  font-weight: bold
+}
+
 .search-button {
   margin-top: 3vh;
   padding: 2vh 32vw 2vh 2vw;

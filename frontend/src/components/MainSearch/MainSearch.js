@@ -6,6 +6,7 @@ class MainSearch extends Component {
     super(props);
     this.state = {
       searchTerm: '',
+      error: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,9 +17,22 @@ class MainSearch extends Component {
     this.setState({ searchTerm: event.target.value });
   }
 
+  handleValidation(event) {
+    let error = '';
+    let isValid = true;
+    if (!this.state.searchTerm) {
+      error = 'Please enter at least one keyword to search';
+      isValid = false;
+    }
+    this.setState({ error });
+    return isValid;
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    this.props.setSearchTerm(this.state.searchTerm);
+    if (this.handleValidation()) {
+      this.props.setSearchTerm(this.state.searchTerm);
+    }
   }
 
   render() {
@@ -45,6 +59,7 @@ class MainSearch extends Component {
                 </button>
               </form>
             </span>
+            {this.state.error && <span className='error-message'>{this.state.error}</span>}
           </div>
         </div>
       </div>

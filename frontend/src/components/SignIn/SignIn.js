@@ -25,7 +25,8 @@ class SignIn extends Component {
     this.setState({ [event.target.name] : event.target.value });
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault()
     loginUser(this.state)
   }
 
@@ -33,7 +34,7 @@ class SignIn extends Component {
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp" onSubmit={ this.handleSubmit }>
+        <form className="form-signInUp" onSubmit={ (event) => this.handleSubmit(event) }>
           <div className="form-group row">
             <input type="email" id="inputSignInEmail" className=" sign-in-input fullWidth form-control-lg" name="email" required="" autoFocus="" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
 onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange={ this.handleChange }/>

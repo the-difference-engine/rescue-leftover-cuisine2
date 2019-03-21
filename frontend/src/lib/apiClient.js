@@ -31,9 +31,18 @@ let loginUser = (data) => {
   return apiClient.post("api/v1/auth/login", {
     user: credentials
   }).then(response => { 
+    debugger
+    console.log(response) })
+  .catch(error => {console.log(error)})
+}
+
+let getUser = (email) => {
+  return apiClient.get("api/v1/user", {
+    user: {email: email}
+  }).then(response => { 
     console.log(response) })
   .catch(error => {console.log(error.response.data)})
 }
 
 export default apiClient;
-export { getRecipes, createUser, loginUser };
+export { getRecipes, createUser, loginUser, getUser };

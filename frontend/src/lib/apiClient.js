@@ -31,7 +31,6 @@ let loginUser = (data) => {
   return apiClient.post("api/v1/auth/login", {
     user: credentials
   }).then(response => { 
-    debugger
     console.log(response) })
   .catch(error => {console.log(error.response.data)})
 }

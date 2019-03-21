@@ -25,8 +25,7 @@ class SignIn extends Component {
     this.setState({ [event.target.name] : event.target.value });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
+  handleSubmit = () => {
     loginUser(this.state)
   }
 
@@ -34,16 +33,16 @@ class SignIn extends Component {
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event)}>
+        <form className="form-signInUp" onSubmit={ this.handleSubmit }>
           <div className="form-group row">
             <input type="email" id="inputSignInEmail" className=" sign-in-input fullWidth form-control-lg" name="email" required="" autoFocus="" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange={(event) => this.handleChange(event)}/>
+onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange={ this.handleChange }/>
             <label htmlFor="inputSignInEmail">Email</label>
           </div>
 
           <div className="signInPassword form-group row">
             <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignInPassword" className="sign-in-input fullWidth form-control-lg" name="password" required="" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onChange={(event) => this.handleChange(event)} />
+onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onChange={ this.handleChange } />
             <label htmlFor="inputsignUpPassword">Password</label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>

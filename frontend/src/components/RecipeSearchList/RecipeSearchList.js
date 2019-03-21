@@ -3,42 +3,44 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import { getRecipes } from '../../lib/apiClient';
 
 class RecipeSearchList extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      recipes: []
+      recipes: [],
     };
   }
-  
+
   componentDidMount() {
-    this.updateRecipes(this.props.searchTerm);
+    const { searchTerm } = this.props;
+    this.updateRecipes(searchTerm);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.searchTerm !== nextProps.searchTerm) {
+    const { searchTerm } = this.props;
+    if (searchTerm !== nextProps.searchTerm) {
       this.updateRecipes(nextProps.searchTerm);
     }
   }
 
   updateRecipes(searchTerm) {
     getRecipes(searchTerm)
-      .then(data => {
+      .then((data) => {
         this.setState({
-          recipes: data
+          recipes: data,
         });
       });
   }
-  
+
   render() {
+    const { recipes } = this.state;
     return (
       <div id="cards-wrapper">
-        {this.state.recipes.map(recipe =>
+        {recipes.map(recipe => (
           <RecipeCard
             {...recipe}
             key={recipe.id}
           />
-        )}
+        ))}
       </div>
     );
   }

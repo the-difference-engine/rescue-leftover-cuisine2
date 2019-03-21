@@ -4,34 +4,54 @@ import './SignIn.css';
 
 class SignIn extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-    isPasswordVisible: false
+      isPasswordVisible: false,
+    };
   }
-}
 
   toggleIcon = () => {
-    this.setState( prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible
+    this.setState(prevState => ({
+      isPasswordVisible: !prevState.isPasswordVisible,
     }));
   }
 
-  render() { 
+  render() {
+    const { isPasswordVisible } = this.state;
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
         <form className="form-signInUp">
           <div className="form-group row">
-            <input type="email" id="inputSignInEmail" className=" sign-in-input fullWidth form-control-lg" required="" autoFocus="" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} />
-            <label htmlFor="inputSignInEmail">Email</label>
+            <label htmlFor="inputSignInEmail">
+              <input
+                type="email"
+                id="inputSignInEmail"
+                className=" sign-in-input fullWidth form-control-lg"
+                required=""
+                autoFocus=""
+                placeholder="Email"
+                onFocus={event => (event.target.setAttribute('placeholder', ''))}
+                onBlur={event => (event.target.setAttribute('placeholder', 'Email'))}
+              />
+              Email
+            </label>
           </div>
 
           <div className="signInPassword form-group row">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignInPassword" className="sign-in-input fullWidth form-control-lg" required="" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
-onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} />
-            <label htmlFor="inputsignUpPassword">Password</label>
-            <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
+            <label htmlFor="inputsignUpPassword">
+              <input
+                type={isPasswordVisible ? 'text' : 'password'}
+                id="inputSignInPassword"
+                className="sign-in-input fullWidth form-control-lg"
+                required=""
+                placeholder="Password"
+                onFocus={event => (event.target.setAttribute('placeholder', ''))}
+                onBlur={event => (event.target.setAttribute('placeholder', 'Password'))}
+              />
+              Password
+            </label>
+            <span className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'} onClick={this.toggleIcon} />
           </div>
           <div className="forgotPassword form-group row">
             <a href="##########">I forgot my password</a>
@@ -44,7 +64,6 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} />
       </div>
     );
   }
-
 }
 
 export default SignIn;

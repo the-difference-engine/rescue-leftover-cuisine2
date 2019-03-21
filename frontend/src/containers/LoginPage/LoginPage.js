@@ -18,8 +18,8 @@ class LoginPage extends Component {
     } else {
       return (
        <div className="row">
-         <div className="col loginColumnOne"><SignUp mimicLogin={(event) => this.mimicLogin(event)} /></div>
-         <div className="col loginColumnTwo"><SignIn mimicLogin={(event) => this.mimicLogin(event)} /></div>
+         <div className="col loginColumnOne"><SignUp /></div>
+         <div className="col loginColumnTwo"><SignIn /></div>
        </div>
       )
     }

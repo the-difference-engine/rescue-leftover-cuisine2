@@ -13,9 +13,14 @@ class LoginPage extends Component {
       isCreated: false
   }
 }
-  
-  renderLoginOrThankYouCard = (status) => {
+  changeCreatedState = (status) => {
     if (status === 201) {
+      this.setState({ isCreated: true })
+    }
+  }
+
+  renderLoginOrThankYouCard = () => {
+    if (this.state.isCreated) {
       return (
        <div className="column mx-auto thankYouColumn"> 
        <ThankYouCard/>
@@ -24,7 +29,7 @@ class LoginPage extends Component {
     } else {
       return (
        <div className="row">
-         <div className="col loginColumnOne"><SignUp isCreated={this.renderLoginOrThankYouCard} /></div>
+         <div className="col loginColumnOne"><SignUp changeCreatedState={this.changeCreatedState} /></div>
          <div className="col loginColumnTwo"><SignIn /></div>
        </div>
       )

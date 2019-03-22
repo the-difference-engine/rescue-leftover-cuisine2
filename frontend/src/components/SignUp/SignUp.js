@@ -12,8 +12,7 @@ class SignUp extends Component {
       lastName: "",
       isPasswordVisible: false,
       auth_token: "",
-      isAuthorized: false,
-      isCreated: false
+      isAuthorized: false
     }
   }
 
@@ -31,14 +30,11 @@ class SignUp extends Component {
     event.preventDefault()
     createUser(this.state)
     .then(response => {
-      // response.status === 201 ? this.setState({ isCreated: true }) : this.setState({ isCreated: false })
-      this.props.renderLoginOrThankYouCard(response.status)
+      this.props.changeCreatedState(response.status)
     })
-    .catch(error => {console.log(error.response.data)})
+    .catch(error => {console.log(error)})
   }
 
-  //if response is 201, then trigger state change, which should trigger
-  //the thank you page to render
 
   render() {
     return (

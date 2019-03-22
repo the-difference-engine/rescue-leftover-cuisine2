@@ -1,4 +1,4 @@
-.createRecipeForm.container-fluid {
+.editRecipeForm.container-fluid {
     margin: 0px;
     width: 100%;
     margin-left: 0px;
@@ -6,11 +6,12 @@
 }
 
 .form-title {
-    margin-top: 50px;
     margin-bottom: 50px;
-    font-size: 45px;
 }
 
+textarea {
+    resize: none;
+}
 
 .form-recipe-label {
     margin-top: 50px;

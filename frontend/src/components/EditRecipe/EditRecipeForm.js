@@ -7,39 +7,58 @@ import ImageUploader from 'react-images-upload';
 class EditRecipeForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      pictures: [],
-      searchTerm: '',
+    this.state = {
+      title: '',
+      snippet: '',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.onDrop = this.onDrop.bind(this);
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  onDrop(picture) {
+  handleInputChange(event) {
+    const target = event.target;
+    const id = target.id;
+
     this.setState({
-      pictures: this.state.pictures.concat(picture),
+      [id]: value
     })
   }
 
-  handleChange(event) {
-    this.setState({ searchTerm: event.target.value });
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { 
+  //     pictures: [],
+  //     searchTerm: '',
+  //   };
+  //   this.handleChange = this.handleChange.bind(this);
+  //   this.onDrop = this.onDrop.bind(this);
+  // }
+
+  // onDrop(picture) {
+  //   this.setState({
+  //     pictures: this.state.pictures.concat(picture),
+  //   })
+  // }
+
+  // handleChange(event) {
+  //   this.setState({ searchTerm: event.target.value });
+  // }
 
 
 	render() {
     return(
-      <div className='createRecipeForm container-fluid'>
+      <div className='editRecipeForm container-fluid'>
         <div className='row justify-content-md-center'>
           <h1 className='text-center'>Create Recipe</h1>
         </div>
         <div className='row form-recipe-label'>
-          <div className='form-group col-4 offset-4 '>
-            <label for='title'>Recipe Title</label>
-            <textarea className='form-control' id="title" rows='2' ></textarea>
+          <div className='form-title col-4 offset-4'>
+            <label for="title">Recipe Title</label>
+            <input className="form-control input-sm" id="title" type="text" value={this.state.title} onChange={this.handleInputChange}></input>
           </div>
-          <div className='form-group col-6 offset-3'>
-            <label for='snippet'>Recipe Description</label>
-            <textarea className='form-control' id="snippet" rows='4' ></textarea>
+          <div className='form-snippet col-6 offset-3'>
+            <label for="snippet">Recipe Description</label>
+            <textarea className="form-control" id="snippet" rows="4" value={this.state.snippet} onChange={this.handleInputChange}></textarea>
           </div>
         </div>
         <div className='row form-dropdown'>

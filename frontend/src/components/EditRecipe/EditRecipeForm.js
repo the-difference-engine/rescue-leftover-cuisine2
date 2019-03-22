@@ -64,29 +64,29 @@ class EditRecipeForm extends Component {
         <div className='row form-dropdown'>
           <div className='dropdown col-2 offset-3'>
           <h2><i className='fas fa-signal'></i>Difficulty</h2>
-            <button className='btn btn-secondary dropdown-toggle' type='button' id="difficulty" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Advanced</button>
+            {/* <button className='btn btn-secondary dropdown-toggle' type='button' id="difficulty" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Advanced</button>
             <div className='difficulty dropdown-menu' aria-labelledby='dropdownMenuButton2'>
               <button className='dropdown-item' type='button'>Easy</button>
               <button className='dropdown-item' type='button'>Medium</button>
-            </div>
+            </div> */}
           </div>
           <div className='dropdown col-2'>
             <h2><i className='fas fa-clock'></i>Duration</h2>
-            <button className='btn btn-secondary dropdown-toggle' type='button' id="duration" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>30 mins</button>
+            {/* <button className='btn btn-secondary dropdown-toggle' type='button' id="duration" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>30 mins</button>
             <div className='duration dropdown-menu' aria-labelledby='dropdownMenuButton2'>
               <button className='dropdown-item' type='button'>60 mins</button>
               <button className='dropdown-item' type='button'>90 mins</button>
               <button className='dropdown-item' type='button'>90 mins</button>
-            </div>
+            </div> */}
           </div>
           <div className='dropdown col-2'>
             <h2><i className='fas fa-utensil-spoon'></i>Servings</h2>
-            <button className='btn btn-secondary dropdown-toggle' type='button' id="servings" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>2 servings</button>
+            {/* <button className='btn btn-secondary dropdown-toggle' type='button' id="servings" data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>2 servings</button>
             <div className='servings dropdown-menu' aria-labelledby='dropdownMenuButton2'>
               <button className='dropdown-item' type='button'>4 servings</button>
               <button className='dropdown-item' type='button'>6 servings</button>
               <button className='dropdown-item' type='button'>8 servings</button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className='row justify-content-md-center'>

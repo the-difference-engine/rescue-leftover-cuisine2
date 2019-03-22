@@ -12,7 +12,8 @@ class SignUp extends Component {
       lastName: "",
       isPasswordVisible: false,
       auth_token: "",
-      isAuthorized: false
+      isAuthorized: false,
+      isCreated: false
     }
   }
 
@@ -26,11 +27,18 @@ class SignUp extends Component {
     this.setState({ [event.target.name] : event.target.value });
   }
 
-  handleSubmit = () => {
-    createUser(this.state).then(response => {
-      console.log(response)}).catch(error => {console.log(error.response.data)})
+  handleSubmit = (event) => {
+    event.preventDefault()
+    createUser(this.state)
+    .then(response => {
+      // response.status === 201 ? this.setState({ isCreated: true }) : this.setState({ isCreated: false })
+      this.props.renderLoginOrThankYouCard(response.status)
+    })
+    .catch(error => {console.log(error.response.data)})
   }
 
+  //if response is 201, then trigger state change, which should trigger
+  //the thank you page to render
 
   render() {
     return (

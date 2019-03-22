@@ -7,9 +7,15 @@ import ThankYouCard from '../../components/ThankYouCard/ThankYouCard.js';
 import './LoginPage.css';
 
 class LoginPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isCreated: false
+  }
+}
   
-  renderLoginOrThankYouCard = () => {
-    if (sessionStorage.jwt) {
+  renderLoginOrThankYouCard = (status) => {
+    if (status === 201) {
       return (
        <div className="column mx-auto thankYouColumn"> 
        <ThankYouCard/>
@@ -18,7 +24,7 @@ class LoginPage extends Component {
     } else {
       return (
        <div className="row">
-         <div className="col loginColumnOne"><SignUp /></div>
+         <div className="col loginColumnOne"><SignUp isCreated={this.renderLoginOrThankYouCard} /></div>
          <div className="col loginColumnTwo"><SignIn /></div>
        </div>
       )

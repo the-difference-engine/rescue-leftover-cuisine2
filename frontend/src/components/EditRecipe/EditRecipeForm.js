@@ -39,6 +39,42 @@ Recipe Description
             </label>
           </div>
         </div>
+        <div className="row form-dropdown">
+          <div className="dropdown col-2 offset-3">
+            <h2>
+              <img src="https://img.icons8.com/material/26/000000/bar-chart.png" alt="difficulty" />
+Difficulty
+            </h2>
+            <select className="difficulty">
+              <option>Advanced</option>
+              <option>Medium</option>
+              <option>Easy</option>
+            </select>
+          </div>
+          <div className="dropdown col-2">
+            <h2>
+              <i className="fas fa-clock" />
+Duration
+            </h2>
+            <select className="duration">
+              <option>30 mins</option>
+              <option>60 mins</option>
+              <option>90 mins</option>
+              <option>120 mins</option>
+            </select>
+          </div>
+          <div className="dropdown col-2">
+            <h2>
+              <i className="fas fa-utensil-spoon" />
+Servings
+            </h2>
+            <select className="servings">
+              <option>4</option>
+              <option>8</option>
+              <option>12</option>
+            </select>
+          </div>
+        </div>
         <div className="row form-footer">
           <Footer />
         </div>

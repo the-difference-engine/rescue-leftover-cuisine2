@@ -1,5 +1,5 @@
 textarea {
-  resize: none;
+	resize: none;
 }
 
 .editRecipeForm.container-fluid {
@@ -9,12 +9,12 @@ textarea {
   text-align: center;
 }
 
-.form-title {
-  margin-bottom: 50px;
-}
-
 .form-recipe-label {
   margin-top: 50px;
   margin-bottom: 100px;
   font-size: 28.5px;
+}
+
+.form-title {
+	margin-bottom: 50px;
 }

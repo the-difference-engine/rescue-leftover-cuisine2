@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import Header from '../../components/Header/Header';
@@ -19,6 +18,5 @@ const CreateRecipe = () => (
     </div>
   </div>
 );
-
 
 export default CreateRecipe;

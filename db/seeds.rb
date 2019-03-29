@@ -19,7 +19,8 @@ Recipe.create(
   difficulty: "EASY",
   duration: 60,
   servings: 6,
-  photos: ["/recipe-seeds/cauliflowersalad.jpg"]
+  photos: ["/recipe-seeds/cauliflowersalad.jpg"],
+  user_id: 1
 )
 
 Recipe.create(
@@ -31,7 +32,8 @@ Recipe.create(
   difficulty: "EASY",
   duration: 45,
   servings: 6,
-  photos: ["/recipe-seeds/chickencurry.jpg"]
+  photos: ["/recipe-seeds/chickencurry.jpg"],
+  user_id: 2,
 )
 
 Recipe.create(
@@ -43,7 +45,8 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 30,
   servings: 4,
-  photos: ["/recipe-seeds/deviledeggs.jpg"]
+  photos: ["/recipe-seeds/deviledeggs.jpg"],
+  user_id: 1
 )
 
 Recipe.create(
@@ -55,7 +58,8 @@ Recipe.create(
   difficulty: "EASY",
   duration: 30,
   servings: 6,
-  photos: ["/recipe-seeds/eggspoachedinmarinara.jpg"]
+  photos: ["/recipe-seeds/eggspoachedinmarinara.jpg"],
+  user_id: 2
 )
 
 Recipe.create(
@@ -67,7 +71,8 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 30,
   servings: 6,
-  photos: ["/recipe-seeds/fettucinezucchini.jpg"]
+  photos: ["/recipe-seeds/fettucinezucchini.jpg"],
+  user_id: 2 
 )
 
 Recipe.create(
@@ -79,7 +84,8 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 300,
   servings: 12,
-  photos: ["/recipe-seeds/lasagna.jpg"]
+  photos: ["/recipe-seeds/lasagna.jpg"],
+  user_id: 1
 )
 
 Recipe.create(
@@ -91,7 +97,8 @@ Recipe.create(
   difficulty: "ADVANCED",
   duration: 90,
   servings: 12,
-  photos: ["/recipe-seeds/roseappletart.jpg"]
+  photos: ["/recipe-seeds/roseappletart.jpg"],
+  user_id: 2
 )
 
 Recipe.create(
@@ -103,7 +110,8 @@ Recipe.create(
   difficulty: "EASY",
   duration: 60,
   servings: 6,
-  photos: ["/recipe-seeds/simpleroastchicken.jpg"]
+  photos: ["/recipe-seeds/simpleroastchicken.jpg"],
+  user_id: 1
 )
 
 Recipe.create(
@@ -115,7 +123,8 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 15,
   servings: 4,
-  photos: ["/recipe-seeds/scambledeggszucchini.jpg"]
+  photos: ["/recipe-seeds/scambledeggszucchini.jpg"],
+  user_id: 2
 )
 
 Recipe.create(
@@ -127,5 +136,6 @@ Recipe.create(
   difficulty: "ADVANCED",
   duration: 90,
   servings: 8,
-  photos: ["recipe-seeds/tartetatin.jpg"]
+  photos: ["recipe-seeds/tartetatin.jpg"],
+  user_id: 1
 )

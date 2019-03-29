@@ -34,7 +34,7 @@ const Recipes = ({ recipes }) => {
       },
     },
     {
-      dataField: 'createdBy',
+      dataField: '',
       text: 'Created By',
       align: 'center',
       headerStyle: {
@@ -44,7 +44,7 @@ const Recipes = ({ recipes }) => {
       },
     },
     {
-      dataField: 'dateCreated',
+      dataField: 'created_at',
       text: 'Date Created',
       align: 'center',
       headerStyle: {

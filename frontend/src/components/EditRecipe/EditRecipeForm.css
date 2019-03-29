@@ -1,0 +1,20 @@
+textarea {
+  resize: none;
+}
+
+.editRecipeForm.container-fluid {
+  margin: 0px;
+  width: 100%;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.form-recipe-label {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  font-size: 28.5px;
+}
+
+.form-title {
+	margin-bottom: 50px;
+}

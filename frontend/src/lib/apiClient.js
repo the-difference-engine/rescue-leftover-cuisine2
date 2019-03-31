@@ -30,10 +30,11 @@ let loginUser = (data) => {
   let credentials = {email: data.email, password: data.password};
   return apiClient.post("api/v1/auth/login", {
     user: credentials
-  }).then(response => { 
-    debugger
-    console.log(response) })
-  .catch(error => {console.log(error)})
+  })
+  // .then(response => { 
+  //   sessionStorage.jwt = response.headers.authorization
+  // })
+  // .catch(error => {console.log(error)})
 }
 
 let getUser = (email) => {

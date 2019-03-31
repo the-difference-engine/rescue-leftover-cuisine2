@@ -28,6 +28,13 @@ class SignIn extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     loginUser(this.state)
+    .then(response => { 
+        sessionStorage.jwt = response.headers.authorization
+      })
+    .then(
+      this.setState({ isAuthorized: true })
+    )
+    .catch(error => {console.log(error)})
   }
 
   render() { 
@@ -42,7 +49,7 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange
           </div>
 
           <div className="signInPassword form-group row">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignInPassword" className="sign-in-input fullWidth form-control-lg" name="password" required="" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignInPassword" className="sign-in-input fullWidth form-control-lg" name="password" required="" autoFocus="" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
 onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onChange={ this.handleChange } />
             <label htmlFor="inputsignUpPassword">Password</label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
@@ -51,7 +58,7 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onCha
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit">Log In</button>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" data-container="body" data-toggle="tooltip" data-placement="bottom" data-content="You've logged in!">Log In</button>
           </div>
 
         </form>

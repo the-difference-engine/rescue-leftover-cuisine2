@@ -12,7 +12,9 @@ class SignUp extends Component {
       lastName: "",
       isPasswordVisible: false,
       auth_token: "",
-      isAuthorized: false
+      isAuthorized: false,
+      passwordError: [],
+      emailError: []
     }
   }
 
@@ -29,18 +31,22 @@ class SignUp extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     createUser(this.state)
-    .then(response => {
-      this.props.changeCreatedState(response.status)
-    })
-    .catch(error => {console.log(error)})
-  }
-
+      .then(response => {
+        this.props.changeCreatedState(response.status)
+      })
+      .catch(error => {
+        this.setState({
+          emailError: error.response.data.errors.email,
+          passwordError: error.response.data.errors.password
+        })
+        console.log(error.response.data)})
+    } 
 
   render() {
     return (
       <div className="leftLoginCard loginCard">
         <h3 className="loginHeader">Create an Account</h3>
-        <form className="form-signInUp" onSubmit={ this.handleSubmit }>
+        <form className="form-signInUp" onSubmit={ this.handleSubmit } >
           <div className="form-group row">
               <div className="name col">
                 <div className="name row">
@@ -64,9 +70,9 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange
             <label htmlFor="inputSignUpEmail">Email</label>
             </div>
           <div className="password form-group row">
-            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignUpPassword" name="password" className="sign-in-input fullWidth form-control-lg" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
+            <input type={this.state.isPasswordVisible ? "text" : "password"} id="inputSignUpPassword" name="password" className="sign-in-input fullWidth form-control-lg" minLength="6" placeholder="Password" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
 onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onChange={ this.handleChange }/>
-            <label htmlFor="inputsignUpPassword">Password</label>
+            <label htmlFor="inputSignUpPassword">Password</label>
             <span className={this.state.isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"} onClick={ this.toggleIcon }></span>
           </div>
           <div className="form-group row">
@@ -79,3 +85,5 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onCha
 }
 
 export default SignUp;
+
+// {this.state.isPasswordVisible ? "text" : "password"}

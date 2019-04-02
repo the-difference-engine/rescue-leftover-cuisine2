@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SingleTag.css';
 
-export class SingleTag extends Component {
-	render() {
-		return (
-			<div className="single-tag">
-				{this.props.tag}
-			</div>
-		);
-	}
-}
+const SingleTag = ({ tag }) => (
+  <div className="single-tag">
+    {tag}
+  </div>
+);
+
+export default SingleTag;

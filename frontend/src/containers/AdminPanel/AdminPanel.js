@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Button } from 'reactstrap';
-import Header from '../../components/Header/Header.js';
-import Footer from '../../components/Footer/Footer.js';
+import {
+  TabContent, TabPane, Nav, NavItem, NavLink, Button,
+} from 'reactstrap';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.css';
@@ -18,13 +20,18 @@ class AdminPanel extends Component {
   }
 
   toggle(tab) {
-    if (this.state.activeTab !== tab) {
+    const { activeTab } = this.state;
+
+    if (activeTab !== tab) {
       this.setState({
         activeTab: tab,
       });
     }
   }
+
   render() {
+    const { activeTab } = this.state;
+
     return (
       <div className="admin-panel-container">
         <div className="admin-header">
@@ -32,10 +39,10 @@ class AdminPanel extends Component {
         </div>
         <Nav tabs>
           <NavItem
-            className={this.state.activeTab === 'recipes' ? 'nav-tab-line' : ''}
+            className={activeTab === 'recipes' ? 'nav-tab-line' : ''}
           >
             <NavLink
-              className={this.state.activeTab === 'recipes' ? 'recipes' : ''}
+              className={activeTab === 'recipes' ? 'recipes' : ''}
               onClick={() => {
                 this.toggle('recipes');
               }}
@@ -44,10 +51,10 @@ class AdminPanel extends Component {
             </NavLink>
           </NavItem>
           <NavItem
-            className={this.state.activeTab === 'users' ? 'nav-tab-line' : ''}
+            className={activeTab === 'users' ? 'nav-tab-line' : ''}
           >
             <NavLink
-              className={this.state.activeTab === 'users' ? 'users' : ''}
+              className={activeTab === 'users' ? 'users' : ''}
               onClick={() => {
                 this.toggle('users');
               }}
@@ -55,18 +62,18 @@ class AdminPanel extends Component {
               All Members
             </NavLink>
           </NavItem>
-          {this.state.activeTab === 'recipes' && (
+          {activeTab === 'recipes' && (
             <Button className="admin-add-button" size="lg">
               Add Recipe
             </Button>
           )}
-          {this.state.activeTab === 'users' && (
+          {activeTab === 'users' && (
             <Button className="admin-add-button" size="lg">
               Add Member
             </Button>
           )}
         </Nav>
-        <TabContent activeTab={this.state.activeTab}>
+        <TabContent activeTab={activeTab}>
           <TabPane tabId="recipes" className="table">
             <Recipes />
           </TabPane>

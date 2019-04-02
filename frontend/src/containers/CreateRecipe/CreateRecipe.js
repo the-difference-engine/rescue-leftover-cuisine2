@@ -11,6 +11,9 @@ const CreateRecipe = () => (
         <Header />
       </div>
     </div>
+    <div className="row justify-content-md-center">
+      <h1 className="text-center">Create Recipe</h1>
+    </div>
     <div className="row">
       <div className="edit-recipe-form">
         <EditRecipeForm />

@@ -16,5 +16,9 @@ textarea {
 }
 
 .form-title {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+.form-snippet {
+  margin-bottom: 50px;
 }

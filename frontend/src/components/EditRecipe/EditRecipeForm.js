@@ -22,20 +22,17 @@ class EditRecipeForm extends Component {
   render() {
     return (
       <div className="editRecipeForm container-fluid">
-        <div className="row justify-content-md-center">
-          <h1 className="text-center">Create Recipe</h1>
-        </div>
         <div className="row form-recipe-label">
           <div className="form-title col-4 offset-4">
             <label htmlFor="title">
 Recipe Title
-              <input className="form-control input-sm" id="title" type="text" onChange={this.handleInputChange} />
+              <input className="form-control input-sm" id="title" type="text" name="title" onChange={this.handleInputChange} />
             </label>
           </div>
           <div className="form-snippet col-6 offset-3">
             <label htmlFor="snippet">
 Recipe Description
-              <textarea className="form-control" id="snippet" rows="4" onChange={this.handleInputChange} />
+              <textarea className="form-control" id="snippet" name="snippet" rows="4" onChange={this.handleInputChange} />
             </label>
           </div>
         </div>
@@ -69,8 +66,11 @@ Duration
 Servings
             </h2>
             <select className="servings">
+              <option>2</option>
               <option>4</option>
+              <option>6</option>
               <option>8</option>
+              <option>10</option>
               <option>12</option>
             </select>
           </div>

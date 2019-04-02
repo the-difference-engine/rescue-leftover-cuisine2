@@ -11,7 +11,6 @@ import './LoginPage.css';
 
 class LoginPage extends Component {
   renderLoginOrThankYouCard = () => {
-    debugger
     if (sessionStorage.jwt) {
       return (
         <div className="column mx-auto thankYouColumn">

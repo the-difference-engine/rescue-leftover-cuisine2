@@ -6,13 +6,9 @@
   "scripts": {
     "build": "cd frontend && npm run build && cd ..",
     "deploy": "cp -a frontend/build/. public/",
-    "install": "cd frontend && npm install",
+    "install": "cd frontend && npm install && npm install --only=dev",
+    "lint": "cd frontend && npm run lint",
     "postinstall": "npm run build && npm run deploy",
     "start": "cd frontend && npm start"
-  },
-  "dependencies": {
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-router-dom": "^4.3.1"
   }
 }

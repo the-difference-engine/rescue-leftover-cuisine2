@@ -8,7 +8,7 @@ import './LoginPage.css';
 
 class LoginPage extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isCreated: false
   }
@@ -29,7 +29,7 @@ class LoginPage extends Component {
     } else {
       return (
        <div className="row">
-         <div className="col loginColumnOne"><SignUp changeCreatedState={this.changeCreatedState} /></div>
+         <div className="col loginColumnOne"><SignUp changeCreatedState={ this.changeCreatedState } /></div>
          <div className="col loginColumnTwo"><SignIn /></div>
        </div>
       )

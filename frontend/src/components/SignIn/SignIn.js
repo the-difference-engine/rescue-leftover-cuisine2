@@ -5,19 +5,19 @@ import './SignIn.css';
 
 class SignIn extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-    isPasswordVisible: false,
-    email: "",
-    password: "",
-    auth_token: "",
-    isAuthorized: false
+      isPasswordVisible: false,
+      email: "",
+      password: "",
+      auth_token: "",
+      isAuthorized: false
   }
 }
 
   toggleIcon = () => {
-    this.setState( prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible
+    this.setState(prevState => ({
+      isPasswordVisible: !prevState.isPasswordVisible,
     }));
   }
 
@@ -65,7 +65,6 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onCha
       </div>
     );
   }
-
 }
 
 export default SignIn;

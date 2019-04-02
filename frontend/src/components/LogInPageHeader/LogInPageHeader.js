@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Logo from '../../assets/RLC_logo.png';
-import "./LogInPageHeader.css"
+import './LogInPageHeader.css';
 
-class LogInPageHeader extends Component {
-
-    render() {
-        return (
-            <div className="container-fluid">
-                <a href="/"><img src={Logo} className="logoCenter" alt="RLC Logo" /></a>
-            </div>
- 
-        )
-    }
-}
+const LogInPageHeader = () => (
+  <div className="container-fluid">
+    <img src={Logo} className="logoCenter" alt="RLC Logo" />
+  </div>
+);
 
 export default LogInPageHeader;

@@ -1,19 +1,18 @@
-import axios from "axios";
+import axios from 'axios';
 
-let baseURL = process.env.REACT_APP_API_URL || "http://localhost:3000"
+const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
-let apiClient = axios.create({
-    baseURL: baseURL
+const apiClient = axios.create({
+  baseURL,
 });
 
 // TODO: add methods to wrap API endpoints
 
-let getRecipes = search => {
-  let query = search ? "?search=" + search : "";
-  return apiClient.get("api/v1/recipe" + query)
-    .then(results => { return results.data })
-    .catch(e => { return [] });
-}; 
+const getRecipes = (search) => {
+  const query = search ? `?search=${search}` : '';
+  return apiClient.get(`api/v1/recipe${query}`)
+    .then(results => results.data);
+};
 
 let createUser = (data) => { //this works
   return apiClient.post("api/v1/user", {
@@ -31,10 +30,6 @@ let loginUser = (data) => {
   return apiClient.post("api/v1/auth/login", {
     user: credentials
   })
-  // .then(response => { 
-  //   sessionStorage.jwt = response.headers.authorization
-  // })
-  // .catch(error => {console.log(error)})
 }
 
 let getUser = (email) => {

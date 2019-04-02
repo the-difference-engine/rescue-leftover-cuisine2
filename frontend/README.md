@@ -183,6 +183,10 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](#running-tests) for more information.
 
+### `npm run lint`
+
+Runs eslint on all javascript files, and even fixes some linting errors if you run with the `--fix` flag (`npm run lint -- --fix`)
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br>

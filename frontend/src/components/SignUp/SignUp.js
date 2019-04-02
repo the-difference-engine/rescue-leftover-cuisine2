@@ -4,23 +4,20 @@ import './SignUp.css';
 
 class SignUp extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: "",
       password: "",
       firstName: "",
       lastName: "",
       isPasswordVisible: false,
-      auth_token: "",
       isAuthorized: false,
-      passwordError: [],
-      emailError: []
     }
   }
 
   toggleIcon = () => {
-    this.setState( prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible
+    this.setState(prevState => ({
+      isPasswordVisible: !prevState.isPasswordVisible,
     }));
   }
 
@@ -35,14 +32,12 @@ class SignUp extends Component {
         this.props.changeCreatedState(response.status)
       })
       .catch(error => {
-        this.setState({
-          emailError: error.response.data.errors.email,
-          passwordError: error.response.data.errors.password
-        })
-        console.log(error.response.data)})
+        console.log(error.response.data)}
+      )
     } 
 
   render() {
+
     return (
       <div className="leftLoginCard loginCard">
         <h3 className="loginHeader">Create an Account</h3>
@@ -62,8 +57,8 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Last"))} onChange=
                   <label htmlFor="inputLastName">Last</label>
                 </div>
               </div>
-          </div>
-
+            </div>
+         
           <div className="form-group row">
             <input type="email" id="inputSignUpEmail" name="email" className="sign-in-input fullWidth form-control-lg" placeholder="Email" onFocus={(event) => (event.target.setAttribute("placeholder", ""))}
 onBlur={(event) => (event.target.setAttribute("placeholder", "Email"))} onChange={ this.handleChange }/>
@@ -85,5 +80,3 @@ onBlur={(event) => (event.target.setAttribute("placeholder", "Password"))} onCha
 }
 
 export default SignUp;
-
-// {this.state.isPasswordVisible ? "text" : "password"}

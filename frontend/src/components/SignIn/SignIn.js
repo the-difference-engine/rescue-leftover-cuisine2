@@ -12,7 +12,7 @@ class SignIn extends Component {
     this.state = {
       isPasswordVisible: false,
       email: '',
-      password: '',
+      password: ''
     };
   }
 
@@ -31,7 +31,7 @@ class SignIn extends Component {
     loginUser(this.state)
       .then((response) => {
         sessionStorage.jwt = response.headers.authorization;
-        changeAuthorizedState();
+        changeAuthorizedState(response.data.id);
       })
       .catch((error) => { console.log(error); });
   }

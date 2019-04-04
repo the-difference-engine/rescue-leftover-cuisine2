@@ -15,18 +15,25 @@ class LoginPage extends Component {
     this.state = {
       isCreated: false,
       isAuthorized: false,
+      userID: ''
     };
   }
 
   changeCreatedState = (status) => {
+    debugger
     if (status === 201) {
-      this.setState({ isCreated: true });
+      this.setState({ 
+        isCreated: true
+      });
     }
   }
 
-  changeAuthorizedState = () => {
+  changeAuthorizedState = (userId) => {
     if (sessionStorage.jwt) {
-      this.setState({ isAuthorized: true });
+      this.setState({ 
+        isAuthorized: true,
+        userId: userId
+      });
     }
   }
 

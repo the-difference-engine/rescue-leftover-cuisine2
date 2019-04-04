@@ -12,7 +12,7 @@ class SignIn extends Component {
     this.state = {
       isPasswordVisible: false,
       email: '',
-      password: ''
+      password: '',
     };
   }
 

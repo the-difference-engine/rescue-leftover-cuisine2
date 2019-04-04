@@ -1,3 +1,6 @@
+/* global sessionStorage */
+/* eslint no-undef: "error" */
+
 import axios from 'axios';
 
 const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
@@ -30,8 +33,10 @@ const loginUser = (data) => {
   });
 };
 
-const getUser = email => apiClient.get('api/v1/user', {
-  user: { email },
+const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
+  headers: {
+    Authorization: `Bearer ${sessionStorage.jwt}`,
+  },
 }).then((response) => {
   console.log(response);
 })

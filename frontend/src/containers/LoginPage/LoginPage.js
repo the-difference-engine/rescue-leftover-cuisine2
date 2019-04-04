@@ -15,24 +15,23 @@ class LoginPage extends Component {
     this.state = {
       isCreated: false,
       isAuthorized: false,
-      userID: ''
+      userId: '', // eslint-disable-line react/no-unused-state
     };
   }
 
   changeCreatedState = (status) => {
-    debugger
     if (status === 201) {
-      this.setState({ 
-        isCreated: true
+      this.setState({
+        isCreated: true,
       });
     }
   }
 
-  changeAuthorizedState = (userId) => {
+  changeAuthorizedState = (returnUserId) => {
     if (sessionStorage.jwt) {
-      this.setState({ 
+      this.setState({
         isAuthorized: true,
-        userId: userId
+        userId: returnUserId, // eslint-disable-line react/no-unused-state
       });
     }
   }

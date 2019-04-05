@@ -17,8 +17,6 @@
   line-height: 1;
 }
 
-
-
 #inputSignInEmail:focus + label, #inputSignInPassword:focus + label {
   padding-top: 5%;
   bottom: 45%;

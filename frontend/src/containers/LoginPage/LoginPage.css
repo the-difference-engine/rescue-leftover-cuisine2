@@ -1,8 +1,8 @@
 .topLoginImage {
 	background-image: url("../../assets/Login_Page.jpg");
+	background-size: cover;
 	width:  100vw;
 	height: 65vh; 
-	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }

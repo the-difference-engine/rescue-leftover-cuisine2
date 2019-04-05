@@ -2,6 +2,12 @@ textarea {
   resize: none;
 }
 
+select {
+  width: 150px;
+  height: 50px;
+  text-align-last: center;
+}
+
 .editRecipeForm.container-fluid {
   margin: 0px;
   width: 100%;
@@ -18,3 +24,4 @@ textarea {
 .form-title {
   margin-bottom: 50px;
 }
+

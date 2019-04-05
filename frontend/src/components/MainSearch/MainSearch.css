@@ -5,8 +5,8 @@
 }
 
 .searchSection {
-  background-image: url('../../assets/grilled-chicken-dark.jpg');
-  background-repeat: no-repeat;
+  background-image: url('../../assets/pho.jpg');
+  background-size: cover;
   width: 100%;
   text-align: center;
   padding: 17vh 15vw 17vh 20vw;

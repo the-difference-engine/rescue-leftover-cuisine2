@@ -35,16 +35,14 @@ class SignIn extends Component {
       })
       .catch((error) => {
         if (error.message.includes('401')) {
-          const formButton = document.getElementsByClassName('signInButton signUpButton btn btn-lg btn-block')[0];
-          formButton.setCustomValidity('Unable to log in. Please check your email and password and try again.');
-          this.handleErrors();
+          const parentForm = document.getElementsByTagName('form')[1];
+          const errorDiv = document.createElement('p');
+          errorDiv.setAttribute('id', 'errorMessage');
+          errorDiv.innerHTML = 'Unable to log in. Check your email and password and try again.';
+          parentForm.insertAdjacentElement('beforeend', errorDiv);
         }
         console.log(error);
       });
-  }
-
-  handleErrors = () => {
-    console.log('Im invalid!');
   }
 
   render() {
@@ -90,7 +88,7 @@ class SignIn extends Component {
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" onInvalid={this.handleErrors}>Log In</button>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>Log In</button>
           </div>
 
         </form>

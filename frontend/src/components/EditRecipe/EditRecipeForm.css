@@ -25,3 +25,7 @@ select {
   margin-bottom: 50px;
 }
 
+.editRecipeForm i.fas.fa-utensil-spoon {
+  padding-right: 15px;
+  padding-bottom: 5px;
+}

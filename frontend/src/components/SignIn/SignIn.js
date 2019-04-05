@@ -37,7 +37,7 @@ class SignIn extends Component {
         if (error.message.includes('401')) {
           const parentForm = document.getElementsByTagName('form')[1];
           const errorDiv = document.createElement('p');
-          errorDiv.setAttribute('id', 'errorMessage');
+          errorDiv.setAttribute('class', 'errorMessage');
           errorDiv.innerHTML = 'Unable to log in. Check your email and password and try again.';
           parentForm.insertAdjacentElement('beforeend', errorDiv);
         }

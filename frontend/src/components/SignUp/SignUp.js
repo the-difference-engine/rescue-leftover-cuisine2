@@ -32,6 +32,13 @@ class SignUp extends Component {
         changeCreatedState(response.status);
       })
       .catch((error) => {
+        if (error.message.includes('422')) {
+          const parentForm = document.getElementsByTagName('form')[0];
+          const errorDiv = document.createElement('p');
+          errorDiv.setAttribute('class', 'errorMessage sign-up');
+          errorDiv.innerHTML = 'A user with that email already exists! Try signing in.';
+          parentForm.insertAdjacentElement('beforeend', errorDiv);
+        }
         console.log(error.response.data);
       });
   }

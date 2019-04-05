@@ -9,13 +9,15 @@
   text-decoration: underline;
 }
 
-#errorMessage {
+.errorMessage {
   width: 120%;
   margin-left: -3%;
   font-size: small;
   color: red;
   line-height: 1;
 }
+
+
 
 #inputSignInEmail:focus + label, #inputSignInPassword:focus + label {
   padding-top: 5%;

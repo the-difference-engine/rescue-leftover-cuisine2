@@ -1,11 +1,21 @@
 textarea {
   resize: none;
+  border-color: #9b9b9b;
 }
 
 select {
   width: 150px;
   height: 50px;
   text-align-last: center;
+  border-color: #9b9b9b;
+}
+
+input {
+  border-color: #9b9b9b;
+}
+
+label {
+  width: 75%;
 }
 
 .editRecipeForm.container-fluid {
@@ -27,5 +37,5 @@ select {
 
 .editRecipeForm i.fas.fa-utensil-spoon {
   padding-right: 15px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 }

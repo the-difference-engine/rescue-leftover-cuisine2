@@ -1,0 +1,41 @@
+textarea {
+  resize: none;
+  border-color: #9b9b9b;
+}
+
+select {
+  width: 150px;
+  height: 50px;
+  text-align-last: center;
+  border-color: #9b9b9b;
+}
+
+input {
+  border-color: #9b9b9b;
+}
+
+label {
+  width: 75%;
+}
+
+.editRecipeForm.container-fluid {
+  margin: 0px;
+  width: 100%;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.form-recipe-label {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  font-size: 28.5px;
+}
+
+.form-title {
+  margin-bottom: 50px;
+}
+
+.editRecipeForm i.fas.fa-utensil-spoon {
+  padding-right: 15px;
+  padding-bottom: 0px;
+}

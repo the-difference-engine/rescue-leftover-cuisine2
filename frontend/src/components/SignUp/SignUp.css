@@ -65,3 +65,9 @@
   color:#9b9b9b;
   font-size: small;
 }
+
+.errorMessage.sign-up {
+  margin-top: -10%;
+  margin-bottom: 6.25%;
+}
+

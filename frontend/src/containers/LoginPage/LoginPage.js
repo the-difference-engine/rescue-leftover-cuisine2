@@ -10,8 +10,34 @@ import ThankYouCard from '../../components/ThankYouCard/ThankYouCard';
 import './LoginPage.css';
 
 class LoginPage extends Component {
-  renderLoginOrThankYouCard = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isCreated: false,
+      isAuthorized: false,
+      userId: '', // eslint-disable-line react/no-unused-state
+    };
+  }
+
+  changeCreatedState = (status) => {
+    if (status === 201) {
+      this.setState({
+        isCreated: true,
+      });
+    }
+  }
+
+  changeAuthorizedState = (returnUserId) => {
     if (sessionStorage.jwt) {
+      this.setState({
+        isAuthorized: true,
+        userId: returnUserId, // eslint-disable-line react/no-unused-state
+      });
+    }
+  }
+
+  renderLoginOrThankYouCard = (isCreated, isAuthorized) => {
+    if (isCreated || isAuthorized) {
       return (
         <div className="column mx-auto thankYouColumn">
           <ThankYouCard />
@@ -20,13 +46,15 @@ class LoginPage extends Component {
     }
     return (
       <div className="row">
-        <div className="col loginColumnOne"><SignUp /></div>
-        <div className="col loginColumnTwo"><SignIn /></div>
+        <div className="col loginColumnOne"><SignUp changeCreatedState={this.changeCreatedState} /></div>
+        <div className="col loginColumnTwo"><SignIn changeAuthorizedState={this.changeAuthorizedState} /></div>
       </div>
     );
   }
 
   render() {
+    const { isAuthorized, isCreated } = this.state;
+
     return (
       <div className="loginPage container-fluid">
         <div className="row">
@@ -34,7 +62,7 @@ class LoginPage extends Component {
         </div>
         <div className="topLoginImage">
           <div className="loginCardWrapper">
-            {this.renderLoginOrThankYouCard()}
+            {this.renderLoginOrThankYouCard(isAuthorized, isCreated)}
             <div className="loginFooter row">
               <Footer />
             </div>

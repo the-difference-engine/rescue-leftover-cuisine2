@@ -35,7 +35,7 @@ const loginUser = (data) => {
 
 const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
   headers: {
-    Authorization: `Bearer ${sessionStorage.jwt}`,
+    Authorization: `${sessionStorage.jwt}`,
   },
 }).then((response) => {
   console.log(response);

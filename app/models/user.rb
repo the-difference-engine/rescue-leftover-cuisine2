@@ -11,15 +11,8 @@ class User < ApplicationRecord
          jwt_revocation_strategy: JWTBlacklist
 
   before_create :skip_confirmation_method
-  # after_database_authentication :get_user
 
   def skip_confirmation_method
     self.skip_confirmation!
   end
-
-  def get_user
-    current_user.confirmation_token
-  end
-
-
 end

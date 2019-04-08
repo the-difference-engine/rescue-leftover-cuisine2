@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { loginUser } from '../../lib/apiClient';
 import './SignIn.css';
 
-
 class SignIn extends Component {
   constructor(props) {
     super(props);

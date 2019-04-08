@@ -19,7 +19,6 @@ Rescuing Leftover Cuisine Recipes
     <div className="row">
       <button className="dashboardButton signUpButton btn btn-lg btn-block" type="submit">Continue to my Dashboard</button>
     </div>
-
   </div>
 );
 

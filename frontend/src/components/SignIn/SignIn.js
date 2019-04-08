@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { loginUser } from '../../lib/apiClient';
 import './SignIn.css';
-
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isPasswordVisible: false,
+      email: '',
+      password: '',
+      auth_token: '',
+      isAuthorized: false,
     };
   }
 
@@ -16,41 +20,50 @@ class SignIn extends Component {
     }));
   }
 
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleSubmit = () => {
+    loginUser(this.state);
+  }
+
   render() {
     const { isPasswordVisible } = this.state;
+
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp">
+        <form className="form-signInUp" onSubmit={this.handleSubmit}>
           <div className="form-group row">
-            <label htmlFor="inputSignInEmail">
-              <input
-                type="email"
-                id="inputSignInEmail"
-                className=" sign-in-input fullWidth form-control-lg"
-                required=""
-                autoFocus=""
-                placeholder="Email"
-                onFocus={event => (event.target.setAttribute('placeholder', ''))}
-                onBlur={event => (event.target.setAttribute('placeholder', 'Email'))}
-              />
-              Email
-            </label>
+            <input
+              type="email"
+              id="inputSignInEmail"
+              className=" sign-in-input fullWidth form-control-lg"
+              name="email"
+              required=""
+              autoFocus=""
+              placeholder="Email"
+              onFocus={event => (event.target.setAttribute('placeholder', ''))}
+              onBlur={event => (event.target.setAttribute('placeholder', 'Email'))}
+              onChange={this.handleChange}
+            />
+            <label htmlFor="inputSignInEmail">Email</label>
           </div>
 
           <div className="signInPassword form-group row">
-            <label htmlFor="inputsignUpPassword">
-              <input
-                type={isPasswordVisible ? 'text' : 'password'}
-                id="inputSignInPassword"
-                className="sign-in-input fullWidth form-control-lg"
-                required=""
-                placeholder="Password"
-                onFocus={event => (event.target.setAttribute('placeholder', ''))}
-                onBlur={event => (event.target.setAttribute('placeholder', 'Password'))}
-              />
-              Password
-            </label>
+            <input
+              type={isPasswordVisible ? 'text' : 'password'}
+              id="inputSignInPassword"
+              className="sign-in-input fullWidth form-control-lg"
+              name="password"
+              required=""
+              placeholder="Password"
+              onFocus={event => (event.target.setAttribute('placeholder', ''))}
+              onBlur={event => (event.target.setAttribute('placeholder', 'Password'))}
+              onChange={this.handleChange}
+            />
+            <label htmlFor="inputsignUpPassword">Password</label>
             <span className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'} onClick={this.toggleIcon} />
           </div>
           <div className="forgotPassword form-group row">

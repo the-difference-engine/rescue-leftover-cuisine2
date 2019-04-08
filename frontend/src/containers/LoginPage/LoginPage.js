@@ -1,45 +1,30 @@
-import React, { Component } from 'react';
+/* global sessionStorage */
+/* eslint no-undef: "error" */
 
+import React, { Component } from 'react';
 import SignUp from '../../components/SignUp/SignUp';
 import SignIn from '../../components/SignIn/SignIn';
 import Footer from '../../components/Footer/Footer';
 import LogInPageHeader from '../../components/LogInPageHeader/LogInPageHeader';
-
+import ThankYouCard from '../../components/ThankYouCard/ThankYouCard';
 import './LoginPage.css';
-// import axios from 'axios';
 
 class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // email: '',
-      // encrypted_password: '',
-      // auth_token: '',
-      // isAuthorized: false,
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    // this.login = this.login.bind(this);
+  renderLoginOrThankYouCard = () => {
+    if (sessionStorage.jwt) {
+      return (
+        <div className="column mx-auto thankYouColumn">
+          <ThankYouCard />
+        </div>
+      );
+    }
+    return (
+      <div className="row">
+        <div className="col loginColumnOne"><SignUp /></div>
+        <div className="col loginColumnTwo"><SignIn /></div>
+      </div>
+    );
   }
-
-  handleInputChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-
-  /* login(event) {
-    axios.post('api/v1/login', {
-        email: this.state.email,
-        encrypted_password: this.state.encrypted_password
-      }).then(response => {
-      this.setState({
-        isAuthorized: true,
-        email: response.data.email
-
-      })
-    })
-    .catch(console.error)
-  }
-  */
 
   render() {
     return (
@@ -49,18 +34,13 @@ class LoginPage extends Component {
         </div>
         <div className="topLoginImage">
           <div className="loginCardWrapper">
-            <div className="row">
-              <div className="col loginColumnOne"><SignUp /></div>
-              <div className="col loginColumnTwo"><SignIn /></div>
-            </div>
+            {this.renderLoginOrThankYouCard()}
             <div className="loginFooter row">
               <Footer />
             </div>
           </div>
         </div>
       </div>
-
-
     );
   }
 }

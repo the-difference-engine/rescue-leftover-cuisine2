@@ -108,6 +108,7 @@ li::before {
   .path-information {
     display: none;
   }
+
   .path-information-mobile {
     display: inline-block;
     font-size: 16px;
@@ -118,6 +119,7 @@ li::before {
   .path-information {
     display: none;
   }
+
   .path-information-mobile {
     display: inline-block;
     font-size: 12px;

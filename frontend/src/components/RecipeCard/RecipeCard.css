@@ -46,10 +46,10 @@
 
 .card-meta:not(:last-child) {
   border-right: 2px solid darkgrey;
-  padding-right: 10px;  
+  padding-right: 10px;
 }
 
-.card-meta:not(:first-child) { 
+.card-meta:not(:first-child) {
   padding-left: 10px;
 }
 
@@ -80,17 +80,16 @@ i.fas {
   border: 0px;
   height: 40px;
   padding-left: 20px;
-  padding-right: 20px; 
+  padding-right: 20px;
   width: auto;
   font-size: 75%;
   font-weight: bold;
   background-color: #31df7d;
   position: absolute;
   top: 6%;
-  right: 6%; 
+  right: 6%;
 }
 
 .card-meal-btn:hover {
   background-color: #c7ced4;
 }
-

@@ -1,13 +1,14 @@
 .createRecipePage.container-fluid {
-    margin: 0px;
-    padding-top: 50px;
-    width: 100%;
+  margin: 0px;
+  padding-top: 50px;
+  width: 100%;
 }
 
 .createRecipePage-header {
-    margin-bottom: 200px;
+  margin-bottom: 200px;
 }
+
 .edit-recipe-form {
-    margin: 0px;
-    width: 100%;
+  margin: 0px;
+  width: 100%;
 }

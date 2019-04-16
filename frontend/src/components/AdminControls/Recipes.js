@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
 
 const Recipes = ({ recipes }) => {
@@ -34,7 +35,7 @@ const Recipes = ({ recipes }) => {
       },
     },
     {
-      dataField: '',
+      dataField: 'user_name',
       text: 'Created By',
       align: 'center',
       headerStyle: {
@@ -51,6 +52,20 @@ const Recipes = ({ recipes }) => {
         textAlign: 'center',
         borderTop: 'none',
         borderBottom: 'none',
+      },
+      formatter: (cell) => {
+        let dateObj = cell;
+        if (typeof cell !== 'object') {
+          dateObj = new Date(cell);
+        }
+
+        const day = `0${dateObj.getUTCDate()}`.slice(-2);
+        const month = `0${dateObj.getUTCMonth() + 1}`;
+        const year = dateObj.getUTCFullYear();
+        return `${month}/${day}/${year}`;
+      },
+      editor: {
+        type: Type.DATE,
       },
     },
     {

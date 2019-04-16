@@ -1,39 +1,39 @@
 #create-tag-container {
-	display: inline-block;
+  display: inline-block;
 }
 
 #create-tag-text {
-	color: #7ae47a;
-	font-family: 'Nunito', sans-serif;
-	font-size: 12px;
-	display: inline-block;
+  color: #7ae47a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  display: inline-block;
 }
 
 #create-tag-icon {
-	width: 11px;
-	height: 11px;
-	border-radius: 100%;
-	border: 1px solid #7ae47a;
-	display: inline-block;
-	margin-left: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 100%;
+  border: 1px solid #7ae47a;
+  display: inline-block;
+  margin-left: 6px;
 }
 
 #create-tag-plus1 {
-	height: 5px;
-	width: 1px;
-	background-color: #7ae47a;
-	display: inline-block;
-	position: relative;
-	left: -6px;
-	top: -3px;
+  height: 5px;
+  width: 1px;
+  background-color: #7ae47a;
+  display: inline-block;
+  position: relative;
+  left: -6px;
+  top: -3px;
 }
 
 #create-tag-plus2 {
-	height: 1px;
-	width: 5px;
-	background-color: #7ae47a;
-	display: inline-block;
-	position: relative;
-	left: -9px;
-	top: -5px;
+  height: 1px;
+  width: 5px;
+  background-color: #7ae47a;
+  display: inline-block;
+  position: relative;
+  left: -9px;
+  top: -5px;
 }

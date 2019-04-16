@@ -1,69 +1,69 @@
 .topLoginImage {
-	background-image: url("../../assets/Login_Page.jpg");
-	background-size: cover;
-	width:  100vw;
-	height: 65vh; 
-	background-position: center;
-	background-repeat: no-repeat;
+  background-image: url("../../assets/Login_Page.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 65vh;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .loginPage {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .loginPageContainer {
-	padding-left: 0px;
-	padding-right: 0px;
-	display: flex;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
 }
 
 .loginCardWrapper {
-	padding-top: 12%;
-	width: 100%;
-	height: auto;
-	display: inline-block;
+  padding-top: 12%;
+  width: 100%;
+  height: auto;
+  display: inline-block;
 }
 
 .loginCard {
-	width: 85%;
-    height: 100%;
-	padding: 5% 10%;
-	padding-left: 12.5%;
-	border-radius: none;
-	background: white;
-	box-shadow: none;
-	border-style: solid;
-	border-color: #9b9b9b;
-	border-width: thin;
+  width: 85%;
+  height: 100%;
+  padding: 5% 10%;
+  padding-left: 12.5%;
+  border-radius: none;
+  background: white;
+  box-shadow: none;
+  border-style: solid;
+  border-color: #9b9b9b;
+  border-width: thin;
 }
 
 .leftLoginCard {
-	margin-left: 9%;
-	margin-right: 0;
+  margin-left: 9%;
+  margin-right: 0;
 }
 
 .rightLoginCard {
-	margin-left: 3%;
-	margin-right: 14%;
+  margin-left: 3%;
+  margin-right: 14%;
 }
 
 .loginColumnOne {
-	padding-left: 5%;
+  padding-left: 5%;
 }
 
 .loginColumnTwo {
-	padding-right: 3%;
-	padding-left: 0;
+  padding-right: 3%;
+  padding-left: 0;
 }
 
 .loginHeader {
-	text-align: center;
-	color: #696969;
-	padding-top: 5%;
-	padding-bottom: 5%;
+  text-align: center;
+  color: #696969;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .loginFooter {
-	margin-top: 6%;
+  margin-top: 6%;
 }

@@ -35,7 +35,7 @@ const Recipes = ({ recipes }) => {
       },
     },
     {
-      dataField: 'user_name',
+      dataField: 'user',
       text: 'Created By',
       align: 'center',
       headerStyle: {
@@ -43,6 +43,8 @@ const Recipes = ({ recipes }) => {
         borderTop: 'none',
         borderBottom: 'none',
       },
+      formatter: cell => `${cell.first_name} ${cell.last_name}`
+      ,
     },
     {
       dataField: 'created_at',

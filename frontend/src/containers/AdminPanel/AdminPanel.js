@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.css';
-import { getRecipesAdmin } from '../../lib/apiClient';
+import { getRecipes } from '../../lib/apiClient';
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class AdminPanel extends Component {
   }
 
   componentDidMount() {
-    getRecipesAdmin().then((data) => {
+    getRecipes().then((data) => {
       this.setState({
         recipes: data,
       });

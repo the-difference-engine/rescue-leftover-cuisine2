@@ -46,10 +46,3 @@ export default apiClient;
 export {
   getRecipes, createUser, loginUser, getUser,
 };
-
-const getRecipesAdmin = () => apiClient.get('api/v1/recipe')
-  .then(results => results.data);
-
-
-export default apiClient;
-export { getRecipes, getRecipesAdmin };

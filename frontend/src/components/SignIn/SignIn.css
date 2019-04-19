@@ -26,8 +26,8 @@
 
 .form-signInUp > .form-group > label, .name > label {
   position: absolute;
-  padding-left: 1rem;
-  padding-top: 1rem;
+  padding-left: 16px;
+  padding-top: 16px;
   font-size: xx-small;
   color: #ffffff00;
   margin-right: 0;

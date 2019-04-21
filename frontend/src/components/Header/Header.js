@@ -4,7 +4,7 @@ import rlcLogo from '../../assets/RLC_logo.png';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
 
-const Header = ({ history }) => (
+const Header = ({ history, showSearchBar }) => (
   <nav className="navbar navbar-white bg-white fixed-top">
     <a className="navbar-brand" href="/">
       <img
@@ -14,7 +14,7 @@ const Header = ({ history }) => (
       />
     </a>
     <div>
-      <SearchBar />
+      {showSearchBar ? <SearchBar /> : null}
     </div>
     <div className="d-flex justify-content-lg-end">
       <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import rlcLogo from '../../assets/RLC_logo.png';
+import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
 
 const Header = ({ history }) => (
@@ -12,6 +13,9 @@ const Header = ({ history }) => (
         className="rlcLogo"
       />
     </a>
+    <div>
+      <SearchBar />
+    </div>
     <div className="d-flex justify-content-lg-end">
       <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
         Browse Recipes

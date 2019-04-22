@@ -35,7 +35,6 @@ class AdminPanel extends Component {
     if (activeTab !== tab) {
       this.setState({
         activeTab: tab,
-        recipes: [],
       });
     }
   }

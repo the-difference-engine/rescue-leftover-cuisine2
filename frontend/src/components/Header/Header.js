@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import rlcLogo from '../../assets/RLC_logo.png';
 import './Header.css';
 
@@ -14,18 +14,16 @@ const Header = ({ history }) => (
     </a>
     <div className="d-flex justify-content-lg-end">
       <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
-        Browse Recipes
+      Browse Recipes
       </button>
       <button className="btn navbar-btn  btn-lg loginButton ml-3" onClick={() => { history.push('./login'); }} type="button">
         Log In or Sign Up
       </button>
-      <button
-        className="btn navbar-btn ml-4 px-4 btn-lg donateButton"
-        href="/"
-        type="button"
-      >
-        Donate
+      <a href="https://www.rescuingleftovercuisine.org/sponsor-a-meal">
+      <button className="btn navbar-btn ml-4 px-4 btn-lg donateButton" type="button">
+      Donate
       </button>
+      </a>
     </div>
   </nav>
 );

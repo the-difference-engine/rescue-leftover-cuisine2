@@ -1,55 +1,53 @@
 .findText {
   color: white;
-  font-size: 4.5vw;
+  font-size: 2vw;
   line-height: 1em;
   font-weight: 900;
   font-family: 'Nunito', sans-serif;
   text-shadow: 0 0 15px #2e2a25;
 }
 
-.search {
+.sb-search-form {
+  margin: 0;
+  padding: 0;
+  display: inline;
   font-size: 2vw;
   font-weight: 200;
 }
 
-.search-form {
-  margin: 0;
-  padding: 0;
-  display: inline;
-}
-
-.search-input {
-  margin-top: 3vh;
-  padding: 2vh 25vw 2vh 2vw;
+.sb-search-input {
+  margin-top: 5vh;
+  padding: 1vh 2vw 1vh 2vw;
   font-weight: 100;
   font-family: 'Nunito', sans-serif;
   color: #9b9b9b;
+  background-color: #f2f2f2;
   border-radius: 10px 0px 0px 10px;
   border: 0;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   outline: none;
+  box-shadow: none;
 }
 
-.error-message {
+.sb-error-message {
   color: #cea22e;
   font-weight: bold;
   height: 38px;
 }
 
-.search-button {
+.sb-search-button {
   margin-top: 3vh;
-  padding: 2vh 32vw 2vh 2vw;
-  background: #fff;
+  padding: 1vh 32vw 1vh 2vw;
+  background: #f2f2f2;
   border: none;
   border-radius: 0px 10px 10px 0px;
   padding-right: 10px;
 }
 
-.search-button:hover {
+.sb-search-button:hover {
   cursor: pointer;
 }
 
-.search-button:focus {
+.sb-search-button:focus {
   outline: none;
 }
 

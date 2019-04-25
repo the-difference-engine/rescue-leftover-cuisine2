@@ -6,6 +6,7 @@ import './Header.css';
 
 const Header = ({ history, showSearchBar }) => (
   <nav className="navbar navbar-white bg-white fixed-top">
+
     <a className="navbar-brand" href="/">
       <img
         src={rlcLogo}
@@ -13,10 +14,8 @@ const Header = ({ history, showSearchBar }) => (
         className="rlcLogo"
       />
     </a>
-    <div>
       {showSearchBar ? <SearchBar /> : null}
-    </div>
-    <div className="d-flex justify-content-lg-end">
+    <div className="d-inline-flex justify-content-lg-end">
       <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
         Browse Recipes
       </button>

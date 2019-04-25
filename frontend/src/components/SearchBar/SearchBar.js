@@ -42,23 +42,23 @@ class SearchBar extends Component {
   render() {
     const { error } = this.state;
     return (
-      <span className="search">
-        <form className="search-form" onSubmit={this.handleSubmit}>
+      <div className="sb-search">
+        <form className="form-inline sb-search-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
-            className="search-input"
+            className="sb-search-input"
             placeholder="Search by keywords"
             onChange={this.handleChange}
           />
-          <button type="submit" className="search-button">
+          <button type="submit" className="sb-search-button">
             <img
               src="https://img.icons8.com/ios/30/000000/search.png"
               alt="search"
             />
           </button>
         </form>
-        <div className="error-message">{error}</div>
-      </span>
+        <div className="sb-error-message">{error}</div>
+      </div>
     );
   }
 }

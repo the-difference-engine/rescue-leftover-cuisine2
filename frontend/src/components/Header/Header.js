@@ -14,7 +14,7 @@ const Header = ({ history, showSearchBar }) => (
         className="rlcLogo"
       />
     </a>
-      {showSearchBar ? <SearchBar /> : null}
+    {showSearchBar ? <SearchBar /> : null}
     <div className="d-inline-flex justify-content-lg-end">
       <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
         Browse Recipes

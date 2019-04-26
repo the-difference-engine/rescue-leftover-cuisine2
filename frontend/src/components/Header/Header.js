@@ -34,11 +34,11 @@ const Header = ({ history, showSearchBar }) => (
 );
 
 Header.propTypes = {
-  showSearchBar: PropTypes.bool
+  showSearchBar: PropTypes.bool,
 };
 
 Header.defaultProps = {
-  showSearchBar: false
+  showSearchBar: false,
 };
 
 export default withRouter(Header);

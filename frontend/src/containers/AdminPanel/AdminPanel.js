@@ -45,7 +45,7 @@ class AdminPanel extends Component {
     return (
       <div className="admin-panel-container">
         <div className="admin-header">
-          <Header />
+          <Header showSearchBar />
         </div>
         <Nav tabs>
           <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>

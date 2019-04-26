@@ -1,9 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import rlcLogo from '../../assets/RLC_logo.png';
+import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
 
-const Header = ({ history }) => (
+const Header = ({ history, showSearchBar }) => (
   <nav className="navbar navbar-white bg-white fixed-top">
     <a className="navbar-brand" href="/">
       <img
@@ -12,7 +14,8 @@ const Header = ({ history }) => (
         className="rlcLogo"
       />
     </a>
-    <div className="d-flex justify-content-lg-end">
+    {showSearchBar ? <SearchBar /> : null}
+    <div className="d-inline-flex justify-content-lg-end">
       <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
         Browse Recipes
       </button>
@@ -29,5 +32,13 @@ const Header = ({ history }) => (
     </div>
   </nav>
 );
+
+Header.propTypes = {
+  showSearchBar: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  showSearchBar: false,
+};
 
 export default withRouter(Header);

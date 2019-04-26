@@ -8,7 +8,7 @@ const CreateRecipe = () => (
   <div className="createRecipePage container-fluid">
     <div className="row">
       <div className="createRecipePage-header">
-        <Header />
+        <Header showSearchBar />
       </div>
     </div>
     <div className="row justify-content-md-center">

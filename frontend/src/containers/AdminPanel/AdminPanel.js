@@ -7,6 +7,7 @@ import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.css';
+import { getRecipes } from '../../lib/apiClient';
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -14,9 +15,18 @@ class AdminPanel extends Component {
 
     this.state = {
       activeTab: 'recipes',
+      recipes: [],
     };
 
     this.toggle = this.toggle.bind(this);
+  }
+
+  componentDidMount() {
+    getRecipes().then((data) => {
+      this.setState({
+        recipes: data,
+      });
+    });
   }
 
   toggle(tab) {
@@ -30,7 +40,7 @@ class AdminPanel extends Component {
   }
 
   render() {
-    const { activeTab } = this.state;
+    const { activeTab, recipes } = this.state;
 
     return (
       <div className="admin-panel-container">
@@ -38,9 +48,7 @@ class AdminPanel extends Component {
           <Header />
         </div>
         <Nav tabs>
-          <NavItem
-            className={activeTab === 'recipes' ? 'nav-tab-line' : ''}
-          >
+          <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
             <NavLink
               className={activeTab === 'recipes' ? 'recipes' : ''}
               onClick={() => {
@@ -50,9 +58,7 @@ class AdminPanel extends Component {
               All Recipes
             </NavLink>
           </NavItem>
-          <NavItem
-            className={activeTab === 'users' ? 'nav-tab-line' : ''}
-          >
+          <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
             <NavLink
               className={activeTab === 'users' ? 'users' : ''}
               onClick={() => {
@@ -75,7 +81,7 @@ class AdminPanel extends Component {
         </Nav>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="recipes" className="table">
-            <Recipes />
+            <Recipes recipes={recipes} />
           </TabPane>
           <TabPane tabId="users">
             <Users />

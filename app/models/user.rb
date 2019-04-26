@@ -15,4 +15,6 @@ class User < ApplicationRecord
   def skip_confirmation_method
     self.skip_confirmation!
   end
+         
+  has_many :recipes
 end

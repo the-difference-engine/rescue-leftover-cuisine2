@@ -9,9 +9,8 @@ class Api::V1::RecipeController < ApplicationController
     if params[:search]
       @recipes = Recipe.search(params[:search])
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.includes(:user).all
     end
-    render json: @recipes
+      render json: @recipes, :include => [:user]
   end
-
 end

@@ -1,5 +1,15 @@
 class Recipe < ApplicationRecord
   include PgSearch
-  pg_search_scope :search_by_keyword, :against => [:title, :ingredients]
-  belongs_to :user
+  pg_search_scope(
+    :search,
+    against: %i(
+      title
+      ingredients
+    ),
+    using: {
+      tsearch: {
+        dictionary: "english",
+      }
+    }
+  )
 end

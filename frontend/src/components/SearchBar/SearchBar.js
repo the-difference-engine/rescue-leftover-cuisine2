@@ -19,13 +19,15 @@ class SearchBar extends Component {
   }
 
   handleValidation() {
+    const { searchTerm } = this.state;
     let error = '';
     let isValid = true;
-    const { searchTerm } = this.state;
+
     if (!searchTerm) {
       error = 'Please enter at least one keyword to search';
       isValid = false;
     }
+
     this.setState({ error });
     return isValid;
   }

@@ -1,23 +1,14 @@
-.findText {
-  color: white;
-  font-size: 2vw;
-  line-height: 1em;
-  font-weight: 900;
-  font-family: 'Nunito', sans-serif;
-  text-shadow: 0 0 15px #2e2a25;
-}
-
 .sb-search-form {
   margin: 0;
   padding: 0;
   display: inline;
-  font-size: 2vw;
+  font-size: 25px;
   font-weight: 200;
 }
 
 .sb-search-input {
-  margin-top: 5vh;
-  padding: 1vh 2vw 1vh 2vw;
+  margin-top: 40px;
+  padding: 8px 20px 8px 20px;
   font-weight: 100;
   font-family: 'Nunito', sans-serif;
   color: #9b9b9b;
@@ -35,8 +26,7 @@
 }
 
 .sb-search-button {
-  margin-top: 3vh;
-  padding: 1vh 32vw 1vh 2vw;
+  padding: 8px 0px 8px 0px;
   background: #f2f2f2;
   border: none;
   border-radius: 0px 10px 10px 0px;
@@ -49,15 +39,4 @@
 
 .sb-search-button:focus {
   outline: none;
-}
-
-.suggestionsSection {
-  font-size: 1.5vw;
-  opacity: 0.5;
-  color: #757373;
-  text-align: center;
-  justify-content: center;
-  padding-top: 2vw;
-  font-weight: 500;
-  margin: 0px;
 }

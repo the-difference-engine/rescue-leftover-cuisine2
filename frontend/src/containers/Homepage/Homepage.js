@@ -29,7 +29,7 @@ class Homepage extends Component {
       <div className="homepage container-fluid ">
         <div className="row">
           <div className="header">
-            <Header showSearchBar={false} />
+            <Header />
           </div>
         </div>
         <div className="row">

@@ -1,12 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import rlcLogo from '../../assets/RLC_logo.png';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
 
 const Header = ({ history, showSearchBar }) => (
   <nav className="navbar navbar-white bg-white fixed-top">
-
     <a className="navbar-brand" href="/">
       <img
         src={rlcLogo}
@@ -32,5 +32,13 @@ const Header = ({ history, showSearchBar }) => (
     </div>
   </nav>
 );
+
+Header.propTypes = {
+  showSearchBar: PropTypes.bool
+};
+
+Header.defaultProps = {
+  showSearchBar: false
+};
 
 export default withRouter(Header);

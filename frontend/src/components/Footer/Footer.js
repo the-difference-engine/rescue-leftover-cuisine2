@@ -29,7 +29,7 @@ const Footer = () => (
           <span className="designByCo">Fluid Designs</span>
           <p>
 App icons by
-            <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">icons8.</a>
+            <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer"> icons8.</a>
           </p>
         </div>
 

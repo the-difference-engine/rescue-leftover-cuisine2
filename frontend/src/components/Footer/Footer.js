@@ -28,7 +28,7 @@ const Footer = () => (
           <span>Designed by </span>
           <span className="designByCo">Fluid Designs. </span>
            App icons by
-           <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer"> icons8.</a>
+          <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer"> icons8.</a>
         </div>
 
         <div className="col-md-4" />

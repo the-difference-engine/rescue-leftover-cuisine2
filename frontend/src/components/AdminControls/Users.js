@@ -68,7 +68,7 @@ const Users = ({ users }) => {
         borderTop: 'none',
         borderBottom: 'none',
       },
-      formatter: cell => `${cell.length}`
+      formatter: cell => `${cell.length}`,
     },
     {
       dataField: 'edit',
@@ -97,7 +97,7 @@ const Users = ({ users }) => {
       ),
     },
   ];
-  
+
   const options = {
     hideSizePerPage: true,
     sizePerPageList: [

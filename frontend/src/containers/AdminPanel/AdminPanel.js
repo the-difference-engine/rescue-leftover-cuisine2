@@ -7,8 +7,7 @@ import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.css';
-import { getRecipes } from '../../lib/apiClient';
-import { getUsers } from '../../lib/apiClient';
+import { getRecipes, getUsers } from '../../lib/apiClient';
 
 class AdminPanel extends Component {
   constructor(props) {

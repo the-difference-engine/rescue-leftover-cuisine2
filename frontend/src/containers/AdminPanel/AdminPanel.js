@@ -37,9 +37,10 @@ class AdminPanel extends Component {
   }
 
   createFullName = (data) => {
-    var newData = data.map(obj => {
-      obj.full_name = `${obj.first_name} ${obj.last_name}`;
-      return obj;
+    const newData = data.map((obj) => {
+      const newObj = obj;
+      newObj.full_name = `${obj.first_name} ${obj.last_name}`;
+      return newObj;
     });
     return newData;
   }

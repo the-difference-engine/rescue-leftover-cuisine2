@@ -26,7 +26,7 @@ const Users = ({ users }) => {
       ),
     },
     {
-      dataField: 'first_name',
+      dataField: 'full_name',
       text: 'User Name',
       style: { textAlign: 'center' },
       headerStyle: {

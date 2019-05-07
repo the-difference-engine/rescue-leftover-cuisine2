@@ -31,9 +31,17 @@ class AdminPanel extends Component {
 
     getUsers().then((data) => {
       this.setState({
-        users: data,
+        users: this.createFullName(data),
       });
     });
+  }
+
+  createFullName = (data) => {
+    var newData = data.map(obj => {
+      obj.full_name = `${obj.first_name} ${obj.last_name}`;
+      return obj;
+    });
+    return newData;
   }
 
   toggle(tab) {

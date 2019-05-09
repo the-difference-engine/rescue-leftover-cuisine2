@@ -1,0 +1,13 @@
+.profile-header {
+  height: 165px;
+  margin-bottom: 50px;
+}
+
+.profile-header .navbar {
+  box-shadow: 0 8px 40px -40px black;
+}
+
+.profilePic {
+  width: 150px;
+  border-radius: 50%;
+}

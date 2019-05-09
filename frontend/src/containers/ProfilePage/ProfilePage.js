@@ -37,7 +37,11 @@ class ProfilePage extends Component {
               <div className="col-md-7 bio">
                 <h1>Jason Oliver</h1>
                 <h5>Member since December 2018</h5>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed varius diam, non egestas sapien. Phasellus a molestie augue, sit amet accumsan lectus. Duis vel nulla viverra, semper diam non, eleifend sem. Cras mattis sem nec nisl consectetur, at posuere nulla aliquet.</div>
+                <div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed varius diam, non egestas sapien. 
+                  Phasellus a molestie augue, sit amet accumsan lectus. Duis vel nulla viverra, semper diam non, eleifend sem. 
+                  Cras mattis sem nec nisl consectetur, at posuere nulla aliquet.
+                </div>
               </div>
             </div>
           </div>

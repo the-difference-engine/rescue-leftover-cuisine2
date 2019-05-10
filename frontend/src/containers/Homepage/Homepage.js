@@ -16,7 +16,7 @@ const Homepage = (props) => {
     <div className="homepage container-fluid ">
       <div className="row">
         <div className="header">
-          <Header />
+          <Header showHeaderDropdown />
         </div>
       </div>
       <div className="row">

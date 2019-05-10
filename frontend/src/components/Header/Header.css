@@ -31,3 +31,7 @@
   background-color: #06a6d3;
   border-color: #06a6d3;
 }
+
+.navbar{
+  display: inline-flex;
+}

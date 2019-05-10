@@ -1,0 +1,11 @@
+.headerDropdown-profilePic {
+  width: 100px;
+  border-radius: 100%;
+}
+
+.headerDropdown-button {
+  width: 80px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+}

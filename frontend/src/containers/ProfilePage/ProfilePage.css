@@ -11,3 +11,18 @@
   width: 150px;
   border-radius: 50%;
 }
+
+.user-edit-button {
+  border: none;
+  margin: 10px;
+}
+
+.user-name h1 {
+  display: inline-block;
+  vertical-align: middle;
+
+}
+
+.user-bio button {
+  float: right;
+}

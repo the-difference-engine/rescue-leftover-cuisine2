@@ -26,22 +26,52 @@ class ProfilePage extends Component {
         </div>
         <div className="row">
           <div className="col-md-12 profile-content">
-            <div className="row user-info">
+            <div className="row user">
               <div className="col-md-3 profile-pic" align="center">
                 <img
                   src={profilePic}
                   alt="User"
                   className="profilePic"
                 />
-              </div>
-              <div className="col-md-7 bio">
-                <h1>Jason Oliver</h1>
-                <h5>Member since December 2018</h5>
                 <div>
-                  {'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '}
-                  {'Nam sed varius diam, non egestas sapien. Phasellus a molestie augue, sit amet accumsan lectus. '}
-                  {'Duis vel nulla viverra, semper diam non, eleifend sem. '}
-                  {'Cras mattis sem nec nisl consectetur at posuere nulla aliquet.'}
+                  <button type="button" className="user-edit-button">
+                    <img
+                      src="https://img.icons8.com/windows/32/000000/edit.png"
+                      alt="edit"
+                    />
+                  </button>
+                  <button type="button" className="user-edit-button">
+                    <img
+                      src="https://img.icons8.com/windows/32/000000/cancel.png"
+                      alt="delete"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div className="col-md-7 user-info">
+                <div className="user-name">
+                  <h1>Jason Oliver</h1>
+                  <button type="button" className="user-edit-button">
+                    <img
+                      src="https://img.icons8.com/windows/32/000000/edit.png"
+                      alt="edit"
+                    />
+                  </button>
+                </div>
+                <h5>Member since December 2018</h5>
+                <div className="user-bio">
+                  <button type="button" className="user-edit-button">
+                    <img
+                      src="https://img.icons8.com/windows/32/000000/edit.png"
+                      alt="edit"
+                    />
+                  </button>
+                  <p>
+                    {'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '}
+                    {'Nam sed varius diam, non egestas sapien. Phasellus a molestie augue, sit amet accumsan lectus. '}
+                    {'Duis vel nulla viverra, semper diam non, eleifend sem. '}
+                    {'Cras mattis sem nec nisl consectetur at posuere nulla aliquet.'}
+                  </p>
                 </div>
               </div>
             </div>

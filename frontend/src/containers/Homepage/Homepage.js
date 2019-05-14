@@ -41,7 +41,7 @@ class Homepage extends Component {
               <div className="col-12">
                 <h2>Our Suggestions</h2>
                 <br />
-                <h6>{ 'Based on this week\'s popular ingredient donations' }</h6>
+                <h5>{ 'Based on this week\'s popular ingredient donations' }</h5>
               </div>
             </div>
             <div className="row">

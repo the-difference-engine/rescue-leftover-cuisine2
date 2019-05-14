@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+  TabContent, TabPane, Nav, NavItem, NavLink, 
+} from 'reactstrap';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import profilePic from '../../assets/profilePic.PNG';
@@ -9,13 +12,25 @@ class ProfilePage extends Component {
     super(props);
 
     this.state = {
-      // activeTab: 'recipes',
+      activeTab: 'recipes',
       // recipes: [],
     };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle(tab) {
+    const { activeTab } = this.state;
+
+    if (activeTab !== tab) {
+      this.setState({
+        activeTab: tab,
+      });
+    }
   }
 
   render() {
-    // const { activeTab, recipes } = this.state;
+    const { activeTab } = this.state;
 
     return (
       <div className="profile-page container-fluid">
@@ -27,7 +42,7 @@ class ProfilePage extends Component {
         <div className="row">
           <div className="col-md-12 profile-content">
             <div className="row user">
-              <div className="col-md-3 profile-pic" align="center">
+              <div className="col-md-2 profile-pic" align="center">
                 <img
                   src={profilePic}
                   alt="User"
@@ -48,7 +63,7 @@ class ProfilePage extends Component {
                   </button>
                 </div>
               </div>
-              <div className="col-md-7 user-info">
+              <div className="col-md-9 user-info">
                 <div className="user-name">
                   <h1>Jason Oliver</h1>
                   <button type="button" className="user-edit-button">
@@ -76,6 +91,43 @@ class ProfilePage extends Component {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-2 nav-bar">
+            <Nav tabs>
+              <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
+                <NavLink
+                  className={activeTab === 'recipes' ? 'recipes' : ''}
+                  onClick={() => {
+                    this.toggle('recipes');
+                  }}
+                >
+                  My Recipes
+            </NavLink>
+              </NavItem>
+              <NavItem className={activeTab === 'settings' ? 'nav-tab-line' : ''}>
+                <NavLink
+                  className={activeTab === 'settings' ? 'settings' : ''}
+                  onClick={() => {
+                    this.toggle('settings');
+                  }}
+                >
+                  Settings
+            </NavLink>
+              </NavItem>
+            </Nav>
+          </div>
+          <div className="col-md-9 user-pane">
+            <TabContent activeTab={activeTab}>
+              <TabPane tabId="recipes" >
+                  Recipes will go here
+                {/* <Recipes /> */}
+              </TabPane>
+              <TabPane tabId="settings">
+                  Settings will go here
+              </TabPane>
+            </TabContent>
           </div>
         </div>
         <div className="row">

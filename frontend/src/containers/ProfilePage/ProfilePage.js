@@ -58,7 +58,8 @@ class ProfilePage extends Component {
                     />
                   </button>
                 </div>
-                <h5>Member since December 2018</h5>
+                <br></br>
+                <p>Member since December 2018</p>
                 <div className="user-bio">
                   <button type="button" className="user-edit-button">
                     <img

@@ -1,12 +1,13 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import SignUp from './components/SignUp/SignUp';
+import SignUp from "./components/SignUp/SignUp";
 
-import AdminPanel from './containers/AdminPanel/AdminPanel';
-import Homepage from './containers/Homepage/Homepage';
-import LoginPage from './containers/LoginPage/LoginPage';
-import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
+import AdminPanel from "./containers/AdminPanel/AdminPanel";
+import Homepage from "./containers/Homepage/Homepage";
+import LoginPage from "./containers/LoginPage/LoginPage";
+import CreateRecipe from "./containers/CreateRecipe/CreateRecipe";
+import ResetPassword from "./containers/ResetPassword/ResetPasswordPage";
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
       <Route path="/admin" component={AdminPanel} />
       <Route path="/recipe/new" component={CreateRecipe} />
       <Route path="/profile" component={ProfilePage} />
+      <Route path="/resetpassword" component={ResetPassword} />
     </Switch>
   </div>
 );

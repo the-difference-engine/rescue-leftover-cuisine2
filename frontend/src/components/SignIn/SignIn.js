@@ -12,6 +12,9 @@ class SignIn extends Component {
       isPasswordVisible: false,
       email: '',
       password: '',
+      errorText: 'Please Vish is a programmer!',
+      flags: false,
+      err: ''
     };
   }
 
@@ -31,23 +34,39 @@ class SignIn extends Component {
       .then((response) => {
         sessionStorage.jwt = response.headers.authorization;
         changeAuthorizedState(response.data.id);
+
+         this.setState({
+              flags: false
+          })
+
+
       })
       .catch((error) => {
         if (error.message.includes('401')) {
-          const parentForm = document.getElementsByTagName('form')[1];
-          const errorDiv = document.createElement('p');
-          errorDiv.setAttribute('class', 'errorMessage');
-          errorDiv.innerHTML = 'Unable to log in. Check your email and password and try again.';
-          parentForm.insertAdjacentElement('beforeend', errorDiv);
+
+          this.setState({
+              flags: true
+          }, this.setState({
+             err: 'Please make sure you have the correct email and password!'
+
+          }))
+          // const parentForm = document.getElementsByTagName('form')[1];
+          // const errorDiv = document.createElement('p');
+          // errorDiv.setAttribute('class', ' ');
+          // errorDiv.innerHTML = 'Alright I figured out the Text, now what ?.';
+          // //parentForm.innerHTML(errorDiv);
+          // parentForm.insertAdjacentElement('afterend', errorDiv);
         }
         console.log(error);
       });
   }
 
+ 
+
   render() {
     const { changeAuthorizedState } = this.props;
     const { isPasswordVisible } = this.state;
-
+  
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
@@ -91,7 +110,10 @@ class SignIn extends Component {
           </div>
 
         </form>
+        <p>{this.state.err}</p>
+          
       </div>
+
     );
   }
 }

@@ -65,7 +65,7 @@ class SignUp extends Component {
                   onBlur={event => (event.target.setAttribute('placeholder', 'First'))}
                   onChange={this.handleChange}
                 />
-                <label htmlFor="inputFirstName">First</label>
+                <label htmlFor="inputFirstName">First Name</label>
               </div>
             </div>
             <div className="col">
@@ -81,7 +81,7 @@ class SignUp extends Component {
                   onBlur={event => (event.target.setAttribute('placeholder', 'Last'))}
                   onChange={this.handleChange}
                 />
-                <label htmlFor="inputLastName">Last</label>
+                <label htmlFor="inputLastName">Last Name</label>
               </div>
             </div>
           </div>

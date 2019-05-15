@@ -49,33 +49,33 @@ class SignIn extends Component {
     const { isPasswordVisible } = this.state;
 
     return (
-      <div className="rightLoginCard loginCard">
-        <h3 className="loginHeader">Reset Password</h3>
-        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
+      <div className="newPasswordCard">
+        <h3 className="newPasswordHeader">Reset Password</h3>
+        <form className="form-newPassword" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
           <div className="form-group row">
             <input
-              type="email"
-              id="inputSignInEmail"
-              className=" sign-in-input fullWidth form-control-lg"
-              name="email"
+              type={isPasswordVisible ? "text" : "password"}
+              id="inputSignInPassword"
+              className=" newPassword-input fullWidth form-control-lg"
+              name="password"
               required=""
               placeholder="Password"
               onFocus={event => event.target.setAttribute("placeholder", "")}
-              onBlur={event => event.target.setAttribute("placeholder", "Email")}
+              onBlur={event => event.target.setAttribute("placeholder", "Password")}
               onChange={this.handleChange}
             />
-            <label htmlFor="inputSignInEmail">Password</label>
+            <label htmlFor="inputNewPassword">Password</label>
             <span
               className={isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"}
               onClick={this.toggleIcon}
             />
           </div>
 
-          <div className="signInPassword form-group row">
+          <div className="passwordConfirm form-group row">
             <input
               type={isPasswordVisible ? "text" : "password"}
-              id="inputSignInPassword"
-              className="sign-in-input fullWidth form-control-lg"
+              id="inputSignInPasswordConfirm"
+              className="password-confirm-input fullWidth form-control-lg"
               name="password"
               required=""
               placeholder="Confirm Password"
@@ -92,7 +92,7 @@ class SignIn extends Component {
           </div>
 
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>
+            <button className="resetPasswordButton signUpButton btn btn-lg btn-block" type="submit" valid>
               Reset Password
             </button>
           </div>

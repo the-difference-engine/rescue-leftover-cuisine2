@@ -49,49 +49,50 @@ class SignIn extends Component {
     const { isPasswordVisible } = this.state;
 
     return (
-      <div className="newPasswordCard newPasswordCard">
-        <h3 className="newPasswordHeader">Reset Password</h3>
-        <form className="form-newPassword" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
-          <div className="newPassword form-group row">
+      <div className="rightLoginCard loginCard">
+        <h3 className="loginHeader">Reset Password</h3>
+        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
+          <div className="form-group row">
             <input
-              type={isPasswordVisible ? "text" : "password"}
-              id="newPassword"
-              className="new-password-input fullWidth form-control-lg"
-              name="password"
+              type="email"
+              id="inputSignInEmail"
+              className=" sign-in-input fullWidth form-control-lg"
+              name="email"
               required=""
               placeholder="Password"
               onFocus={event => event.target.setAttribute("placeholder", "")}
-              onBlur={event => event.target.setAttribute("placeholder", "Password")}
+              onBlur={event => event.target.setAttribute("placeholder", "Email")}
               onChange={this.handleChange}
-              minLength="6"
             />
+            <label htmlFor="inputSignInEmail">Password</label>
             <span
               className={isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"}
               onClick={this.toggleIcon}
             />
           </div>
 
-          <div className="confrimPassword form-group row">
+          <div className="signInPassword form-group row">
             <input
               type={isPasswordVisible ? "text" : "password"}
-              id="confirmPassword"
-              className="confirm-password-input fullWidth form-control-lg"
+              id="inputSignInPassword"
+              className="sign-in-input fullWidth form-control-lg"
               name="password"
               required=""
-              placeholder="Confrim Password"
+              placeholder="Confirm Password"
               onFocus={event => event.target.setAttribute("placeholder", "")}
               onBlur={event => event.target.setAttribute("placeholder", "Password")}
               onChange={this.handleChange}
               minLength="6"
             />
-
+            <label htmlFor="inputsignUpPassword">Password Confirmation</label>
             <span
               className={isPasswordVisible ? "fas fa-eye-slash fa-lg" : "fas fa-eye fa-lg"}
               onClick={this.toggleIcon}
             />
           </div>
+
           <div className="row">
-            <button className="resetPasswordButton btn btn-lg btn-block" type="submit" valid>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>
               Reset Password
             </button>
           </div>

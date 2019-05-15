@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  TabContent, TabPane, Nav, NavItem, NavLink, 
+  TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -93,10 +93,10 @@ class ProfilePage extends Component {
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-2 nav-bar">
+        <div className="row user-panel">
+          <div className="col-md-2 user-nav-bar">
             <Nav tabs>
-              <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
+              <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
                 <NavLink
                   className={activeTab === 'recipes' ? 'recipes' : ''}
                   onClick={() => {
@@ -104,9 +104,9 @@ class ProfilePage extends Component {
                   }}
                 >
                   My Recipes
-            </NavLink>
+                </NavLink>
               </NavItem>
-              <NavItem className={activeTab === 'settings' ? 'nav-tab-line' : ''}>
+              <NavItem className={activeTab === 'settings' ? 'user-nav-tab-active' : ''}>
                 <NavLink
                   className={activeTab === 'settings' ? 'settings' : ''}
                   onClick={() => {
@@ -114,13 +114,13 @@ class ProfilePage extends Component {
                   }}
                 >
                   Settings
-            </NavLink>
+                </NavLink>
               </NavItem>
             </Nav>
           </div>
           <div className="col-md-9 user-pane">
             <TabContent activeTab={activeTab}>
-              <TabPane tabId="recipes" >
+              <TabPane tabId="recipes">
                   Recipes will go here
                 {/* <Recipes /> */}
               </TabPane>

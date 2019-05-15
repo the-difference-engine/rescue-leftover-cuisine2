@@ -38,3 +38,29 @@
 .user-bio {
   color: #9b9b9b;
 }
+
+.user-panel {
+  margin-top: 20px;
+}
+
+.user-nav-bar {
+  margin-top: 50px;
+  font-size: 22px;
+}
+
+.user-nav-bar .nav-tabs {
+  box-shadow: none;
+}
+
+.user-nav-bar .nav-link {
+  cursor: pointer
+}
+
+.user-nav-tab-active {
+  border-left: 3px solid #4ec8ed;
+  color: #4ec8ed;
+}
+
+.user-nav-bar .nav-item :hover {
+  border: none;
+}

@@ -190,7 +190,9 @@ class ProfilePage extends Component {
                 </div>
               </TabPane>
               <TabPane tabId="settings">
-                Settings will go here
+                <div className="settings-panel">
+                  <h2>Password Settings</h2>
+                </div>
               </TabPane>
             </TabContent>
           </div>

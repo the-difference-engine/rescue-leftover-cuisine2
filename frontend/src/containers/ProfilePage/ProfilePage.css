@@ -19,6 +19,7 @@
 
 .user {
   font-size: 19px;
+  margin-left: 30px;
 }
 
 .user-name h1 {
@@ -32,28 +33,31 @@
 }
 
 .user-info p {
-  color: #9b9b9b;
+  color: #666565;
 }
 
 .user-bio {
-  color: #9b9b9b;
+  color: #666565;
 }
 
 .user-panel {
   margin-top: 20px;
+  margin-left: 30px;
 }
 
 .user-nav-bar {
   margin-top: 50px;
   font-size: 22px;
+  padding-left: 40px;
 }
 
 .user-nav-bar .nav-tabs {
   box-shadow: none;
+  color: #666565;
 }
 
 .user-nav-bar .nav-link {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .user-nav-tab-active {
@@ -67,4 +71,9 @@
 
 .right-pane {
   border-left: 1px solid #dddddd;
+}
+
+.settings-panel {
+  margin-left: 30px;
+  margin-top: 50px;
 }

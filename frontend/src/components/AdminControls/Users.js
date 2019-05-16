@@ -12,9 +12,6 @@ const Users = () => {
         borderTop: 'none',
         borderBottom: 'none',
       },
-      style: {
-        paddingLeft: '10px',
-      },
       formatter: (cellContent, row) => (
         <div className="checkbox">
           <label htmlFor="adminCheckbox" className="admin-checkbox-container user-checkbox-spacing">
@@ -27,32 +24,32 @@ const Users = () => {
     {
       dataField: 'name',
       text: 'Member Name',
+      align: 'center',
       headerStyle: {
         textAlign: 'center',
         borderTop: 'none',
         borderBottom: 'none',
       },
-      style: { textAlign: 'center' },
     },
     {
       dataField: 'memberSince',
       text: 'Member Since',
+      align: 'center',
       headerStyle: {
         textAlign: 'center',
         borderTop: 'none',
         borderBottom: 'none',
       },
-      style: { textAlign: 'center' },
     },
     {
       dataField: 'numberOfRecipes',
       text: 'Number Of Recipes',
+      align: 'center',
       headerStyle: {
         textAlign: 'center',
         borderTop: 'none',
         borderBottom: 'none',
       },
-      style: { textAlign: 'center' },
     },
     {
       dataField: 'edit',
@@ -62,7 +59,7 @@ const Users = () => {
         borderTop: 'none',
         borderBottom: 'none',
       },
-      style: { textAlign: 'center' },
+      align: 'left',
       formatter: () => (
         <div>
           <button type="button" className="admin-edit-button">

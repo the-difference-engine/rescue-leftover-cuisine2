@@ -49,7 +49,7 @@ class SearchBar extends Component {
           <input
             type="text"
             className="sb-search-input"
-            placeholder="Search by keywords"
+            placeholder="Search by keywords hello"
             onChange={this.handleChange}
           />
           <button type="submit" className="sb-search-button">

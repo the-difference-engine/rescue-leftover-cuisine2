@@ -52,7 +52,7 @@ class MainSearch extends Component {
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search by keywords"
+                  placeholder="Search by keywords hello"
                   onChange={this.handleChange}
                 />
                 <button type="submit" className="search-button">

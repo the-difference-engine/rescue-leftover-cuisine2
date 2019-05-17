@@ -45,7 +45,11 @@ const Users = () => {
       dataField: 'numberOfRecipes',
       text: 'Number Of Recipes',
       align: 'center',
+      style: {
+        paddingRight: '80px',
+      },
       headerStyle: {
+        paddingRight: '80px',
         textAlign: 'center',
         borderTop: 'none',
         borderBottom: 'none',

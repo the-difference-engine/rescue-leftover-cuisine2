@@ -7,16 +7,24 @@ import AdminPanel from './containers/AdminPanel/AdminPanel';
 import Homepage from './containers/Homepage/Homepage';
 import LoginPage from './containers/LoginPage/LoginPage';
 import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
+import Recipe from './containers/RecipePage/Recipe';
+
 
 const App = () => (
   <div>
     <Switch>
+
+
       <Route exact path="/" component={Homepage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={SignUp} />
       <Route path="/admin" component={AdminPanel} />
       <Route path="/recipe/new" component={CreateRecipe} />
+      <Route path="/recipe" component={Recipe} />
+
+
     </Switch>
+
   </div>
 );
 

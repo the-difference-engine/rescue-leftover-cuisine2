@@ -42,7 +42,7 @@ const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
 })
   .catch((error) => { console.log(error.response.data); });
 
-const getUsers = () => apiClient.get('api/v1/user')
+const getUsers = () => apiClient.get('api/v1/users')
   .then(results => results.data);
 
 export default apiClient;

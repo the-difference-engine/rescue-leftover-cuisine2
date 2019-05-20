@@ -61,6 +61,14 @@ class MainSearch extends Component {
                     alt="search"
                   />
                 </button>
+                <div className="searchInstruction">
+                  <button className="chevron-down">
+                    <img 
+                      src="https://img.icons8.com/ios/50/000000/chevron-down.png"
+                      alt="search instructions"
+                    />  
+                  </button>
+                </div>
               </form>
               <div className="error-message">{error}</div>
             </span>

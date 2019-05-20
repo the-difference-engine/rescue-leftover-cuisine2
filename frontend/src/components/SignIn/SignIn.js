@@ -12,7 +12,6 @@ class SignIn extends Component {
       isPasswordVisible: false,
       email: '',
       password: '',
-      errorText: 'Please Vish is a programmer!',
       flags: false,
       err: '',
     };
@@ -46,14 +45,7 @@ class SignIn extends Component {
           }, this.setState({
             err: 'Please make sure you have the correct email and password!',
           }));
-          // const parentForm = document.getElementsByTagName('form')[1];
-          // const errorDiv = document.createElement('p');
-          // errorDiv.setAttribute('class', ' ');
-          // errorDiv.innerHTML = 'Alright I figured out the Text, now what ?.';
-          // //parentForm.innerHTML(errorDiv);
-          // parentForm.insertAdjacentElement('afterend', errorDiv);
-        }
-        // console.log(error);
+         }
       });
   }
 

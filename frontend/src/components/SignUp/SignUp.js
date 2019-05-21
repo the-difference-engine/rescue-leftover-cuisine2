@@ -60,7 +60,7 @@ class SignUp extends Component {
                   name="firstName"
                   className="sign-in-input firstName col-md form-control-lg"
                   placeholder="First"
-                  required
+                  // required
                   onFocus={event => (event.target.setAttribute('placeholder', ''))}
                   onBlur={event => (event.target.setAttribute('placeholder', 'First'))}
                   onChange={this.handleChange}

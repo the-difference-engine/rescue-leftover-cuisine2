@@ -7,11 +7,10 @@ class Api::V1::RecipeController < ApplicationController
 
   def index
     if params[:search]
-      @recipes = Recipe.search_by_keyword(params[:search])
+      @recipes = Recipe.search(params[:search])
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.includes(:user).all
     end
-    render json: @recipes
+      render json: @recipes, :include => [:user]
   end
-
 end

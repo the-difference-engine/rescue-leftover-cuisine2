@@ -9,7 +9,7 @@
   line-height: 80px;
   background-color: #333333;
   text-align: left;
-  font-size: 1.8vh;
+  font-size: 23.4px;
   color: white;
   padding: 0px;
 }
@@ -23,10 +23,6 @@
   display: none;
   text-align: left;
   font-size: 12px;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .separator {

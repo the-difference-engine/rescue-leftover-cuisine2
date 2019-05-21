@@ -9,12 +9,12 @@
   background-size: cover;
   width: 100%;
   text-align: center;
-  padding: 17vh 15vw 17vh 20vw;
+  padding: 191px 165px 191px 260px;
 }
 
 .findText {
   color: white;
-  font-size: 4.5vw;
+  font-size: 58.5px;
   line-height: 1em;
   font-weight: 900;
   font-family: 'Nunito', sans-serif;
@@ -22,7 +22,7 @@
 }
 
 .search {
-  font-size: 2vw;
+  font-size: 26px;
   font-weight: 200;
 }
 
@@ -33,8 +33,8 @@
 }
 
 .search-input {
-  margin-top: 3vh;
-  padding: 2vh 25vw 2vh 2vw;
+  margin-top: 39px;
+  padding: 26px 265px 26px 26px;
   font-weight: 100;
   font-family: 'Nunito', sans-serif;
   color: #9b9b9b;
@@ -51,8 +51,8 @@
 }
 
 .search-button {
-  margin-top: 3vh;
-  padding: 2vh 32vw 2vh 2vw;
+  margin-top: 39px;
+  padding: 26px 326px 26px 26px;
   background: #fff;
   border: none;
   border-radius: 0px 10px 10px 0px;
@@ -68,12 +68,12 @@
 }
 
 .suggestionsSection {
-  font-size: 1.5vw;
+  font-size: 19.5px;
   opacity: 0.5;
   color: #757373;
   text-align: center;
   justify-content: center;
-  padding-top: 2vw;
+  padding-top: 26px;
   font-weight: 500;
   margin: 0px;
 }

@@ -7,6 +7,7 @@ import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.css';
+import { getRecipes, getUsers } from '../../lib/apiClient';
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -14,9 +15,34 @@ class AdminPanel extends Component {
 
     this.state = {
       activeTab: 'recipes',
+      recipes: [],
+      users: [],
     };
 
     this.toggle = this.toggle.bind(this);
+  }
+
+  componentDidMount() {
+    getRecipes().then((data) => {
+      this.setState({
+        recipes: data,
+      });
+    });
+
+    getUsers().then((data) => {
+      this.setState({
+        users: this.createFullName(data),
+      });
+    });
+  }
+
+  createFullName = (data) => {
+    const newData = data.map((obj) => {
+      const newObj = obj;
+      newObj.full_name = `${obj.first_name} ${obj.last_name}`;
+      return newObj;
+    });
+    return newData;
   }
 
   toggle(tab) {
@@ -30,17 +56,15 @@ class AdminPanel extends Component {
   }
 
   render() {
-    const { activeTab } = this.state;
+    const { activeTab, recipes, users } = this.state;
 
     return (
       <div className="admin-panel-container">
         <div className="admin-header">
-          <Header />
+          <Header showSearchBar />
         </div>
         <Nav tabs>
-          <NavItem
-            className={activeTab === 'recipes' ? 'nav-tab-line' : ''}
-          >
+          <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
             <NavLink
               className={activeTab === 'recipes' ? 'recipes' : ''}
               onClick={() => {
@@ -50,9 +74,7 @@ class AdminPanel extends Component {
               All Recipes
             </NavLink>
           </NavItem>
-          <NavItem
-            className={activeTab === 'users' ? 'nav-tab-line' : ''}
-          >
+          <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
             <NavLink
               className={activeTab === 'users' ? 'users' : ''}
               onClick={() => {
@@ -75,10 +97,10 @@ class AdminPanel extends Component {
         </Nav>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="recipes" className="table">
-            <Recipes />
+            <Recipes recipes={recipes} />
           </TabPane>
-          <TabPane tabId="users">
-            <Users />
+          <TabPane tabId="users" className="table">
+            <Users users={users} />
           </TabPane>
         </TabContent>
         <Footer />

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink,
-  Button, Form, FormGroup, Label, Input, FormText,
 } from 'reactstrap';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import profilePic from '../../assets/profilePic.PNG';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
+import UserInfo from '../../components/UserProfilePanels/UserInfo';
+import SettingsTab from '../../components/UserProfilePanels/SettingsTab';
 import './ProfilePage.css';
 
 class ProfilePage extends Component {
@@ -99,62 +99,12 @@ class ProfilePage extends Component {
             <Header showSearchBar />
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-12 profile-content">
-            <div className="row user">
-              <div className="col-md-2 profile-pic" align="center">
-                <img
-                  src={profilePic}
-                  alt="User"
-                  className="profilePic"
-                />
-                <div>
-                  <button type="button" className="user-edit-button">
-                    <img
-                      src="https://img.icons8.com/windows/32/000000/edit.png"
-                      alt="edit"
-                    />
-                  </button>
-                  <button type="button" className="user-edit-button">
-                    <img
-                      src="https://img.icons8.com/windows/32/000000/cancel.png"
-                      alt="delete"
-                    />
-                  </button>
-                </div>
-              </div>
-              <div className="col-md-9 user-info">
-                <div className="user-name">
-                  <h1>Jason Oliver</h1>
-                  <button type="button" className="user-edit-button">
-                    <img
-                      src="https://img.icons8.com/windows/32/000000/edit.png"
-                      alt="edit"
-                    />
-                  </button>
-                </div>
-                <br />
-                <p>Member since December 2018</p>
-                <div className="user-bio">
-                  <button type="button" className="user-edit-button">
-                    <img
-                      src="https://img.icons8.com/windows/32/000000/edit.png"
-                      alt="edit"
-                    />
-                  </button>
-                  <p>
-                    {'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '}
-                    {'Nam sed varius diam, non egestas sapien. Phasellus a molestie augue, sit amet accumsan lectus. '}
-                    {'Duis vel nulla viverra, semper diam non, eleifend sem. '}
-                    {'Cras mattis sem nec nisl consectetur at posuere nulla aliquet.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Component for top user info and bio section */}
+        <UserInfo />
+        {/* Bottom section with recipes and settings */}
         <div className="row user-panel">
           <div className="col-md-2 user-nav-bar">
+            {/* Left navigation tabs */}
             <Nav tabs>
               <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
                 <NavLink
@@ -180,6 +130,7 @@ class ProfilePage extends Component {
           </div>
           <div className="col-md-9 right-pane">
             <TabContent activeTab={activeTab}>
+              {/* Recipes tab */}
               <TabPane tabId="recipes">
                 <div id="cards-wrapper">
                   {recipes.map(recipe => (
@@ -191,23 +142,8 @@ class ProfilePage extends Component {
                 </div>
               </TabPane>
               <TabPane tabId="settings">
-                <div className="settings-panel">
-                  <h2>Password Settings</h2>
-                  <Form>
-                    <FormGroup>
-                      <Label for="oldPassword" hidden>Old Password</Label>
-                      <Input type="password" name="password" id="oldPassword" placeholder="Old Password" />
-                      <FormText>I forgot my password.</FormText>
-                    </FormGroup>
-                    {' '}
-                    <FormGroup>
-                      <Label for="newPassword" hidden>New Password</Label>
-                      <Input type="password" name="password" id="newPassword" placeholder="New Password" />
-                    </FormGroup>
-                    {' '}
-                    <Button>Change Password</Button>
-                  </Form>
-                </div>
+                {/* Component for settings tab */}
+                <SettingsTab />
               </TabPane>
             </TabContent>
           </div>

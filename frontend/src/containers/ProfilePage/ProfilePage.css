@@ -7,39 +7,6 @@
   box-shadow: 0 8px 40px -40px black;
 }
 
-.profilePic {
-  width: 150px;
-  border-radius: 50%;
-}
-
-.user-edit-button {
-  border: none;
-  margin: 10px;
-}
-
-.user {
-  font-size: 19px;
-  margin-left: 30px;
-}
-
-.user-name h1 {
-  display: inline-block;
-  vertical-align: middle;
-
-}
-
-.user-bio button {
-  float: right;
-}
-
-.user-info p {
-  color: #666565;
-}
-
-.user-bio {
-  color: #666565;
-}
-
 .user-panel {
   margin-top: 20px;
   margin-left: 30px;
@@ -78,23 +45,4 @@
   margin-left: 30px;
   margin-top: 50px;
   width: 400px;
-}
-
-.settings-panel h2 {
-  margin-bottom: 30px;
-}
-
-.settings-panel input {
-  height: 70px;
-  font-size: 22px;
-  color: #757373;
-  border: 1.5px solid #ced4da;
-}
-
-.settings-panel button {
-  font-size: 22px;
-  background-color: #4ec8ed;
-  height: 70px;
-  width: 400px;
-  border: none;
 }

@@ -1,0 +1,31 @@
+.profilePic {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.user-edit-button {
+  border: none;
+  margin: 10px;
+}
+
+.user {
+  font-size: 19px;
+  margin-left: 30px;
+}
+
+.user-name h1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.user-bio button {
+  float: right;
+}
+
+.user-info p {
+  color: #666565;
+}
+
+.user-bio {
+  color: #666565;
+}

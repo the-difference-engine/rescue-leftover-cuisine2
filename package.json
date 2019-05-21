@@ -12,6 +12,8 @@
     "start": "cd frontend && npm start"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-accessible-accordion": "^3.0.0",
     "react-collapsible": "^2.6.0"
   }
 }

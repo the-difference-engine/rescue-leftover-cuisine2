@@ -38,6 +38,11 @@ class MainSearch extends Component {
     }
   }
 
+  handleClick(event) {
+    event.preventDefault();
+    console.log("Made it to collapsible box");
+  }
+
   render() {
     const { error } = this.state;
     return (
@@ -62,8 +67,8 @@ class MainSearch extends Component {
                   />
                 </button>
                 <div className="searchInstruction">
-                  <button className="chevron-down">
-                    <img 
+                  <button className="button-box">
+                    <img
                       src="https://img.icons8.com/ios/50/000000/chevron-down.png"
                       alt="search instructions"
                     />  

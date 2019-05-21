@@ -78,7 +78,11 @@
   margin: 0px;
 }
 
-.chevron-down {
+.button-box {
+  background-color: gray;
   margin-left: 54%;
-  height: 1.5em;
+  height: 2em;
 }
+
+
+

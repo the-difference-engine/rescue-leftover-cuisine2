@@ -1,14 +1,13 @@
-  import React, { Component } from 'react';
-  import Header from '../../components/Header/Header';
+import React, { Component } from 'react';
+import Header from '../../components/Header/Header';
 import SpecsBar from '../../components/SpecsBar/SpecsBar';
 import TagsBar from '../../components/TagsBar/TagsBar';
-
 import DeleteIcon from '../RecipeBase/DeleteIcon/DeleteIcon';
 import EditIcon from '../RecipeBase/EditIcon/EditIcon';
 import MainImage from '../RecipeBase/MainImage/MainImage';
-
 import Footer from '../../components/Footer/Footer';
-
+import recipephoto from '../../assets/bread.jpg';
+import './Recipe.css';
 
 
 class Recipe extends Component {
@@ -30,30 +29,33 @@ class Recipe extends Component {
             <Header />
           </div>
         </div>
-        <header className="recipe-path">
-          <p className="path-information">
-            { 'Jason Oliver > Easy Creamy Vegan Macaroni and Cheese' }
-          </p>
-          <p className="path-information-mobile">
-            { '> Jason Oliver > Recipe' }
-          </p>
+        <header className="recipe-icon">
           <EditIcon />
           <DeleteIcon />
         </header>
-        <MainImage />
+        <img
+        src={recipephoto}
+        alt="recipephoto"
+        className="recipe-photo"
+      />
         <SpecsBar />
+        <div className="tags-bar">
         <TagsBar />
+        </div>
         <div className="row" id="blurb-title">
-          <h3 id="recipe-title" className="col-sm-6 offset-sm-3">
+          <h1 id="recipe-title" className="col-sm-6 offset-sm-3">
             Easy Creamy Vegan Macaroni and Cheese
-          </h3>
+          </h1>
           <p id="recipe-descrip" className="col-sm-8 offset-sm-2">
             { 'Although this does not taste like the traditional mac \'n cheese recipes most of us grew up with, it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy. Stir in your favorite veggies and/or meatless filler and you\'ve got yourself a satisfying meal. This recipe is very versatile; tweak ingredients to your liking!' }
           </p>
         </div>
+        <div id="hr-line"></div>
         <div className="separator col-sm-10 offset-sm-1" />
+        
+        <div id="ingredient-box">
         <div id="ingredient-list">
-          <h4 id="ingredient-title">Ingredients</h4>
+          <h1 id="ingredient-title">Ingredients</h1>
           <ul>
             {ingredients.map(ingred => (
               <li>
@@ -64,9 +66,12 @@ class Recipe extends Component {
             ))}
           </ul>
         </div>
+        </div>
+
+        <div id="hr-line"></div>
         <div className="separator col-sm-10 offset-sm-1" />
         <div id="direction-container" className="col-sm-10 offset-sm-1">
-          <h4 id="direction-title">Directions</h4>
+          <h1 id="direction-title">Directions</h1>
           <ul>
             {directions.map((direction, index) => (
               <div className="single-direction">

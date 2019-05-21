@@ -25,9 +25,9 @@ const Footer = () => (
         {/* Empty placeholder section */}
         <div className="col-md-4" />
         <div className="col-md-4 designBySection">
-          <span>Designed by </span>
-          <span className="designByCo">Fluid Designs. </span>
           <p>
+            <span>Designed by </span>
+            <span className="designByCo">Fluid Designs. </span>
 App icons by
             <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer"> icons8.</a>
           </p>

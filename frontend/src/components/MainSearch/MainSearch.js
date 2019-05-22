@@ -68,7 +68,7 @@ class MainSearch extends Component {
                 </button>
                 <div className="searchInstruction">
                   <button className="button-box">
-                    <img
+                    <img class="chevron-down"
                       src="https://img.icons8.com/ios/50/000000/chevron-down.png"
                       alt="search instructions"
                     />  

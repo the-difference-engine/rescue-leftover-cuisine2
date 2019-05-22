@@ -12,8 +12,7 @@ class SignIn extends Component {
       isPasswordVisible: false,
       email: '',
       password: '',
-      flags: false,
-      err: '',
+      error: '',
     };
   }
 
@@ -33,25 +32,19 @@ class SignIn extends Component {
       .then((response) => {
         sessionStorage.jwt = response.headers.authorization;
         changeAuthorizedState(response.data.id);
-
-        this.setState({
-          flags: false,
-        });
       })
       .catch((error) => {
         if (error.message.includes('401')) {
           this.setState({
-            flags: true,
-          }, this.setState({
-            err: 'Please make sure you have the correct email and password!',
-          }));
-         }
+            error: 'Please make sure you have the correct email and password!',
+          });
+        }
       });
   }
 
   render() {
     const { changeAuthorizedState } = this.props;
-    const { err, isPasswordVisible } = this.state;
+    const { error, isPasswordVisible } = this.state;
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
@@ -95,7 +88,7 @@ class SignIn extends Component {
           </div>
 
         </form>
-        <p>{err}</p>
+        <p>{error}</p>
       </div>
     );
   }

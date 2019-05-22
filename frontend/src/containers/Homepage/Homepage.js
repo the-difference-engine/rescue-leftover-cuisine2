@@ -40,7 +40,7 @@ class Homepage extends Component {
             <div className="row suggestions">
               <div className="col-12">
                 <h2>Our Suggestions</h2>
-                <br/>
+                <br />
                 <h5>Based on this week&apos;s popular ingredient donations</h5>
               </div>
             </div>

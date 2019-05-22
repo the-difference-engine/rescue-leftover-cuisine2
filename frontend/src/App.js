@@ -16,7 +16,6 @@ const App = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/admin" component={AdminPanel} />
       <Route path="/recipe/new" component={CreateRecipe} />
-  
     </Switch>
   </div>
 );

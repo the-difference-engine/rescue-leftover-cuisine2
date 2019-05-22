@@ -88,7 +88,7 @@ class SignIn extends Component {
           </div>
 
         </form>
-        <p>{error}</p>
+        <p className="errorValidation">{error}</p>
       </div>
     );
   }

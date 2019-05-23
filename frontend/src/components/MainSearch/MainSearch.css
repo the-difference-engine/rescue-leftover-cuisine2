@@ -86,14 +86,17 @@
 
 .header{
   cursor: pointer;
-  border: solid 1px #f2f2f2;
   padding: 15px;
-  background-color: #0089CC;
+  background-color: grey;
   color: #FFF;
   font-family: verdana;
+  background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
+  background-repeat: no-repeat;
 }
+
 .content{
   cursor: pointer;
+  background-color: grey;
   border-left: solid 1px #f2f2f2;
   border-right: solid 1px #f2f2f2;
   border-bottom: solid 1px #f2f2f2;
@@ -101,5 +104,5 @@
   padding: 15px;
   font-family: verdana;
   font-size: 14px;
+  color: white;
 }
-

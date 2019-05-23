@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
-import SpecsBar from '../../components/SpecsBar/SpecsBar';
-import TagsBar from '../../components/TagsBar/TagsBar';
-import DeleteIcon from '../RecipeBase/DeleteIcon/DeleteIcon';
-import EditIcon from '../RecipeBase/EditIcon/EditIcon';
-import MainImage from '../RecipeBase/MainImage/MainImage';
-import Footer from '../../components/Footer/Footer';
+import SpecsBar from './SpecsBar/SpecsBar';
+import TagsBar from './TagsBar/TagsBar';
+import DeleteIcon from './DeleteIcon/DeleteIcon';
+import EditIcon from './EditIcon/EditIcon';
 import recipephoto from '../../assets/bread.jpg';
 import './Recipe.css';
-
 
 class Recipe extends Component {
   constructor() {
     super();
     this.state = {
-      ingredients: ['1 (8 ounce) package elbow macaroni', '2/3 cup rice bran oil, divided', '2 cups unsweetened soy milk', '1 cup nutritional yeast', '4 cloves garlic, minced', '2 teaspoons yellow mustard', '1 teaspoon ground paprika'],
+      ingredients: [
+        '1 (8 ounce) package elbow macaroni',
+        '2/3 cup rice bran oil, divided',
+        '2 cups unsweetened soy milk',
+        '1 cup nutritional yeast',
+        '4 cloves garlic, minced',
+        '2 teaspoons yellow mustard',
+        '1 teaspoon ground paprika',
+      ],
       directions: ['Preheat', 'Bring', 'Combine', 'Pour', 'Bake'],
     };
   }
@@ -24,7 +29,7 @@ class Recipe extends Component {
 
     return (
       <div className="overall-container">
-      <div className="row">
+        <div className="row">
           <div className="header">
             <Header />
           </div>
@@ -33,46 +38,42 @@ class Recipe extends Component {
           <EditIcon />
           <DeleteIcon />
         </header>
-        <img
-        src={recipephoto}
-        alt="recipephoto"
-        className="recipe-photo"
-      />
-        <SpecsBar />
+        <img src={recipephoto} alt="recipephoto" className="recipe-photo" />
+        <SpecsBar id="specBar" />
         <div className="tags-bar">
-        <TagsBar />
+          <TagsBar />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">
             Easy Creamy Vegan Macaroni and Cheese
           </h1>
           <p id="recipe-descrip" className="col-sm-8 offset-sm-2">
-            { 'Although this does not taste like the traditional mac \'n cheese recipes most of us grew up with, it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy. Stir in your favorite veggies and/or meatless filler and you\'ve got yourself a satisfying meal. This recipe is very versatile; tweak ingredients to your liking!' }
+            {
+              "Although this does not taste like the traditional mac 'n cheese recipes most of us grew up with, it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy. Stir in your favorite veggies and/or meatless filler and you've got yourself a satisfying meal. This recipe is very versatile; tweak ingredients to your liking!"
+            }
           </p>
         </div>
-        <div id="hr-line"></div>
+        <div id="hr-line" />
         <div className="separator col-sm-10 offset-sm-1" />
-        
+
         <div id="ingredient-box">
-        <div id="ingredient-list">
-          <h1 id="ingredient-title">Ingredients</h1>
-          <ul>
-            {ingredients.map(ingred => (
-              <li>
-                <div id="single-ingredient">
-                  {ingred}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+          <div id="ingredient-list">
+            <h1 id="ingredient-title">Ingredients</h1>
+            <ul id="ingredient-ul">
+              {ingredients.map(ingred => (
+                <li>
+                  <div id="single-ingredient">{ingred}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div id="hr-line"></div>
+        <div id="hr-line" />
         <div className="separator col-sm-10 offset-sm-1" />
         <div id="direction-container" className="col-sm-10 offset-sm-1">
           <h1 id="direction-title">Directions</h1>
-          <ul>
+          <ul className="ListItems">
             {directions.map((direction, index) => (
               <div className="single-direction">
                 <h1 className="direction-index">{index + 1}</h1>

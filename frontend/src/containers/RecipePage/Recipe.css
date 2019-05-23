@@ -50,14 +50,12 @@
   display: flex;
   justify-content: center;
   margin-top: 4%;
-  border: 1px solid red;
   padding: 5%;
 }
 
 #ingredient-ul {
   column-count: 2;
   column-gap: 50px;
-  border: 1px solid green;
   padding: 6%;
   width: 100%;
 
@@ -98,6 +96,5 @@
 }
 
 #single-ingredient{
-  border: 1px solid red;
   padding: 2%;
 }

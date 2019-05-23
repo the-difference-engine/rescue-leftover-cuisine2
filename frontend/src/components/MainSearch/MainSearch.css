@@ -92,6 +92,8 @@
   font-family: verdana;
   background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
   background-repeat: no-repeat;
+  background-size: 5%;
+  background-position: right;
 }
 
 .content{

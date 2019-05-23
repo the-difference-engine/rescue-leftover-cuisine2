@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+
+
 import './MainSearch.css';
 
 class MainSearch extends Component {
@@ -7,10 +10,12 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
+      open: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.togglePanel = this.togglePanel.bind(this);
   }
 
   handleChange(event) {
@@ -38,9 +43,8 @@ class MainSearch extends Component {
     }
   }
 
-  handleClick(event) {
-    event.preventDefault();
-    console.log("Made it to collapsible box");
+  togglePanel(e){
+    this.setState({open: !this.state.open})
   }
 
   render() {
@@ -66,14 +70,18 @@ class MainSearch extends Component {
                     alt="search"
                   />
                 </button>
-                <div className="searchInstruction">
-                  <button className="button-box">
-                    <img class="chevron-down"
-                      src="https://img.icons8.com/ios/50/000000/chevron-down.png"
-                      alt="search instructions"
-                    />  
-                  </button>
+                
+                <div>
+                <div onClick={(e)=>this.togglePanel(e)} className="header">
+                  {this.props.title}
                 </div>
+                {this.state.open ? (
+                  <div className="content">
+                  {this.props.children}
+                  </div>
+                ) : null}
+                </div>);
+
               </form>
               <div className="error-message">{error}</div>
             </span>

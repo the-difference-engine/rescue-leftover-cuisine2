@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.css';
-import { getRecipes } from '../../lib/apiClient';
+import { getRecipes, getUsers } from '../../lib/apiClient';
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class AdminPanel extends Component {
     this.state = {
       activeTab: 'recipes',
       recipes: [],
+      users: [],
     };
 
     this.toggle = this.toggle.bind(this);
@@ -27,6 +28,21 @@ class AdminPanel extends Component {
         recipes: data,
       });
     });
+
+    getUsers().then((data) => {
+      this.setState({
+        users: this.createFullName(data),
+      });
+    });
+  }
+
+  createFullName = (data) => {
+    const newData = data.map((obj) => {
+      const newObj = obj;
+      newObj.full_name = `${obj.first_name} ${obj.last_name}`;
+      return newObj;
+    });
+    return newData;
   }
 
   toggle(tab) {
@@ -40,7 +56,7 @@ class AdminPanel extends Component {
   }
 
   render() {
-    const { activeTab, recipes } = this.state;
+    const { activeTab, recipes, users } = this.state;
 
     return (
       <div className="admin-panel-container">
@@ -83,8 +99,8 @@ class AdminPanel extends Component {
           <TabPane tabId="recipes" className="table">
             <Recipes recipes={recipes} />
           </TabPane>
-          <TabPane tabId="users">
-            <Users />
+          <TabPane tabId="users" className="table">
+            <Users users={users} />
           </TabPane>
         </TabContent>
         <Footer />

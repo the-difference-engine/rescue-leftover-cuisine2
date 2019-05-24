@@ -78,36 +78,23 @@
   margin: 0px;
 }
 
-.button-box {
-  background-color: gray;
-  margin-left: 54%;
-  height: 2em;
-}
-
 .header{
   cursor: pointer;
-  height: 100px;
-  width: 90px;
-  float: right;
-  margin-right: 213px;
   padding: 15px;
   background-color: grey;
   color: #FFF;
-  font-family: verdana;
-  /*background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
-  object-fit: fill;
+  background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
   background-repeat: no-repeat;
-  background-size: 30%;
-  background-position: right;*/
+  background-size: 5%;
+  background-position: right;
 }
 
 .content{
-  margin-top: 100px;
   cursor: pointer;
   background-color: grey;
-  border-left: solid 1px #f2f2f2;
-  border-right: solid 1px #f2f2f2;
-  border-bottom: solid 1px #f2f2f2;
+  border-left: solid 1.5px blue;
+  border-right: solid 1.5px blue;
+  border-bottom: solid 1.5px blue;
   border-radius: 0 0 5px 5px;
   padding: 15px;
   font-family: verdana;
@@ -120,6 +107,6 @@ p.close {
   font-size: 14px;
 }
 
-.transition {
+/*.transition {
   transition: width 20s, height 40s;
-}
+}*/

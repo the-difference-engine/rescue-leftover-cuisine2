@@ -8,5 +8,5 @@ ENV PATH=/app/bin:$PATH RAILS_ENV=development
 WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-RUN gem install bundler
+RUN gem install bundler -v 1.17.3
 COPY . /app

@@ -86,17 +86,23 @@
 
 .header{
   cursor: pointer;
+  height: 100px;
+  width: 90px;
+  float: right;
+  margin-right: 213px;
   padding: 15px;
   background-color: grey;
   color: #FFF;
   font-family: verdana;
-  background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
+  /*background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
+  object-fit: fill;
   background-repeat: no-repeat;
-  background-size: 5%;
-  background-position: right;
+  background-size: 30%;
+  background-position: right;*/
 }
 
 .content{
+  margin-top: 100px;
   cursor: pointer;
   background-color: grey;
   border-left: solid 1px #f2f2f2;

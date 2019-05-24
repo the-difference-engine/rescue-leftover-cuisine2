@@ -65,7 +65,7 @@ class SignUp extends Component {
                   onBlur={event => (event.target.setAttribute('placeholder', 'First'))}
                   onChange={this.handleChange}
                 />
-                <label htmlFor="inputFirstName">First Name</label>
+                <label htmlFor="inputFirstName">First Nam</label>
               </div>
             </div>
             <div className="col">

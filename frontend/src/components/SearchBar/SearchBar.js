@@ -1,17 +1,26 @@
-import React, { Component } from 'react';
-import './SearchBar.css';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import "./SearchBar.css";
 
 // All this is copied from MainSearch, needs to be changed
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: '',
-      error: '',
+      searchTerm: null,
+      error: "",
+      redirect: false
     };
 
+    this.setSearchTerm = this.setSearchTerm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  setSearchTerm(searchTerm) {
+    this.setState({
+      searchTerm
+    });
   }
 
   handleChange(event) {
@@ -19,12 +28,12 @@ class SearchBar extends Component {
   }
 
   handleValidation() {
-    const { searchTerm } = this.state;
-    let error = '';
+    let error = "";
     let isValid = true;
+    const { searchTerm } = this.state;
 
     if (!searchTerm) {
-      error = 'Please enter at least one keyword to search';
+      error = "Please enter at least one keyword to search";
       isValid = false;
     }
 
@@ -41,6 +50,17 @@ class SearchBar extends Component {
     }
   }
 
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
+  };
+
   render() {
     const { error } = this.state;
     return (
@@ -51,12 +71,11 @@ class SearchBar extends Component {
             className="sb-search-input"
             placeholder="Search by keywords"
             onChange={this.handleChange}
+            setSearchTerm={this.setSearchTerm}
           />
-          <button type="submit" className="sb-search-button">
-            <img
-              src="https://img.icons8.com/ios/30/000000/search.png"
-              alt="search"
-            />
+          {this.renderRedirect()}
+          <button type="submit" className="sb-search-button" onClick={this.setRedirect}>
+            <img src="https://img.icons8.com/ios/30/000000/search.png" alt="search" />
           </button>
         </form>
         <div className="sb-error-message">{error}</div>

@@ -71,16 +71,15 @@ class MainSearch extends Component {
                   />
                 </button>
                 
-                <div>
-                <div onClick={(e)=>this.togglePanel(e)} className="header">
-                  {this.props.title}
-                </div>
-                {this.state.open ? (
-                  <div className="content">
-                  {this.props.children}
-                  <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
-                  </div>
-                ): null}
+                <div className="transition">
+                  <div onClick={(event)=>this.togglePanel(event)} className="header"></div>
+                  {/*ternary operator shortcut (if/else)*/}
+                  {this.state.open ? (
+                    <div className="content">
+                      <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
+                      <p class="close">Collapse</p>
+                    </div>
+                  ): null}
                 </div>
 
               </form>

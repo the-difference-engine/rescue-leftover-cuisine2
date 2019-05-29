@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-
-
-
 import './MainSearch.css';
 
 class MainSearch extends Component {
@@ -43,7 +40,7 @@ class MainSearch extends Component {
     }
   }
 
-  togglePanel(e){
+  togglePanel(event){
     this.setState({open: !this.state.open})
   }
 
@@ -77,7 +74,9 @@ class MainSearch extends Component {
                   {this.state.open ? (
                     <div className="content">
                       <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
-                      <p class="close">Collapse</p>
+                      <div onClick={(event)=>this.togglePanel(event)}>
+                        <p class="close">Collapse</p>
+                      </div>
                     </div>
                   ): null}
                 </div>

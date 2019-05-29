@@ -17,6 +17,7 @@
     "react-accessible-accordion": "^3.0.0",
     "react-accordeon": "^1.1.1",
     "react-collapse": "^4.0.3",
-    "react-collapsible": "^2.6.0"
+    "react-collapsible": "^2.6.0",
+    "eslint": "^5.12.0"
   }
 }

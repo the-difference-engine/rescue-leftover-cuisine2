@@ -62,8 +62,12 @@ const Users = ({ users }) => {
     {
       dataField: 'recipes',
       text: 'Number Of Recipes',
-      style: { textAlign: 'center' },
+      align: 'center',
+      style: {
+        paddingRight: '80px',
+      },
       headerStyle: {
+        paddingRight: '80px',
         textAlign: 'center',
         borderTop: 'none',
         borderBottom: 'none',
@@ -78,7 +82,7 @@ const Users = ({ users }) => {
         borderTop: 'none',
         borderBottom: 'none',
       },
-      style: { textAlign: 'center' },
+      align: 'left',
       formatter: () => (
         <div>
           <button type="button" className="admin-edit-button">

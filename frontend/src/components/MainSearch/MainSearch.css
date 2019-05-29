@@ -80,8 +80,8 @@
 
 .header{
   cursor: pointer;
-  padding: 15px;
   background-color: grey;
+  padding: 15px;
   background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
   background-repeat: no-repeat;
   background-size: 5%;
@@ -106,6 +106,8 @@ p.close {
   font-size: 14px;
 }
 
-/*.transition {
-  transition: width 20s, height 40s;
-}*/
+.header:focus {
+  -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

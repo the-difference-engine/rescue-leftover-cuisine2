@@ -33,8 +33,10 @@
 }
 
 .search-input {
+  width: 80%;
+  height: 80px;
   margin-top: 39px;
-  padding: 26px 265px 26px 26px;
+  padding: 8px 20px 8px 20px;
   font-weight: 100;
   font-family: 'Nunito', sans-serif;
   color: #9b9b9b;
@@ -51,8 +53,9 @@
 }
 
 .search-button {
+  height: 80px;
   margin-top: 39px;
-  padding: 26px 326px 26px 26px;
+  padding: 8px 20px 8px 20px;
   background: #fff;
   border: none;
   border-radius: 0px 10px 10px 0px;

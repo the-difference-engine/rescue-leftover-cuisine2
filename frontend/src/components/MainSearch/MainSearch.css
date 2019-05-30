@@ -81,19 +81,29 @@
   margin: 0px;
 }
 
-.header{
+.button-box{
+  position: absolute;
   cursor: pointer;
   background-color: grey;
-  padding: 15px;
-  background-image: url("https://img.icons8.com/ios/26/000000/chevron-down.png");
-  background-repeat: no-repeat;
-  background-size: 5%;
-  background-position: right;
+  height: 30px;
+  width: 50px;
+  margin-left: 63%;
+}
+
+.button-box: {
+  
+}
+
+.chevron {
+  margin-top: -12px
 }
 
 .content{
   cursor: pointer;
+  margin-left: 7%;
+  margin-right: 7%;
   background-color: grey;
+  border-top: solid 1.5px blue;
   border-left: solid 1.5px blue;
   border-right: solid 1.5px blue;
   border-bottom: solid 1.5px blue;

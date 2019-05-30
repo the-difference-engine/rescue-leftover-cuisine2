@@ -67,9 +67,14 @@ class MainSearch extends Component {
                     alt="search"
                   />
                 </button>
-                
                 <div className="transition">
-                  <div onClick={(event)=>this.togglePanel(event)} className="header"></div>
+                  <div onClick={(event)=>this.togglePanel(event)} className="button-box">
+                    <img
+                      src="https://img.icons8.com/ios/26/000000/chevron-down.png"
+                      alt="chevron button"
+                      className="chevron"
+                    />
+                  </div>
                   {/*ternary operator shortcut (if/else)*/}
                   {this.state.open ? (
                     <div className="content">

@@ -120,9 +120,3 @@ p.close {
   color: purple;
   font-size: 14px;
 }
-
-.header:focus {
-  -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    transform: rotate(180deg);
-}

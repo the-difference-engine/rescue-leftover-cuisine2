@@ -81,13 +81,19 @@
   margin: 0px;
 }
 
+.absoluteContainer {
+  /*display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;*/
+}
+
 .button-box{
-  position: absolute;
+  margin-left: 88%;
   cursor: pointer;
   background-color: grey;
   height: 30px;
   width: 50px;
-  margin-left: 64%;
 }
 
 .chevron {

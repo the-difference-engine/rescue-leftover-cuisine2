@@ -7,7 +7,7 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
-      open: false
+      open: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,8 +40,8 @@ class MainSearch extends Component {
     }
   }
 
-  togglePanel(event){
-    this.setState({open: !this.state.open});
+  togglePanel(event) {
+    this.setState({ open: !this.state.open });
   }
 
   render() {
@@ -55,40 +55,43 @@ class MainSearch extends Component {
             </p>
             <span className="search">
               <form className="search-form" onSubmit={this.handleSubmit}>
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search by recipe name or ingredient"
-                  onChange={this.handleChange}
-                />
-                <button type="submit" className="search-button">
-                  <img
-                    src="https://img.icons8.com/ios/30/000000/search.png"
-                    alt="search"
-                  />
-                </button>
-                
-                  {!this.state.open ? (
-                    <div onClick={(event)=>this.togglePanel(event)} className="button-box">
-                    <img
-                      src="https://img.icons8.com/ios/26/000000/chevron-down.png"
-                      alt="chevron button"
-                      className="chevron"
-                    />                
-                    </div>
-                  ) : null}
-
-                {/*ternary operator shortcut (if/else)*/}
-                {this.state.open ? (
-                  <div className="content">
-                    <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
-                    <div onClick={(event)=>this.togglePanel(event)}>
-                      <p className="close">Collapse</p>
-                    </div>
+                <div className="absoluteContainer">
+                  <div className="searchContainer">
+                    <input
+                      type="text"
+                      className="search-input"
+                      placeholder="Search by recipe name or ingredient"
+                      onChange={this.handleChange}
+                    />
+                    <button type="submit" className="search-button">
+                      <img
+                        src="https://img.icons8.com/ios/30/000000/search.png"
+                        alt="search"
+                      />
+                    </button>
                   </div>
+                  <div className="buttonContainer">
+                    {!this.state.open ? (
+                      <div onClick={(event) => this.togglePanel(event)} className="button-box">
+                        <img
+                          src="https://img.icons8.com/ios/26/000000/chevron-down.png"
+                          alt="chevron button"
+                          className="chevron"
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                  {/* ternary operator shortcut (if/else) */}
+                  {this.state.open ? (
+                    <div className="content">
+                      <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
+                      <div onClick={(event) => this.togglePanel(event)}>
+                        <p className="close">Collapse</p>
+                      </div>
+                    </div>
 
-                ) : null}
-
+                  ) : null}
+                </div>
               </form>
               <div className="error-message">{error}</div>
             </span>

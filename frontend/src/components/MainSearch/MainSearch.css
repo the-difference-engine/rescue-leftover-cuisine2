@@ -81,13 +81,6 @@
   margin: 0px;
 }
 
-.absoluteContainer {
-  /*display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100px;*/
-}
-
 .chevron-box{
   margin-left: 88%;
   cursor: pointer;

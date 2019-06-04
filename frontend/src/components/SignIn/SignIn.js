@@ -36,7 +36,9 @@ class SignIn extends Component {
       .catch((error) => {
         if (error.message.includes('401')) {
           this.setState({
+
             validationErrorText: 'Please make sure you have the correct email and password!',
+
           });
         }
       });
@@ -44,7 +46,9 @@ class SignIn extends Component {
 
   render() {
     const { changeAuthorizedState } = this.props;
+
     const { validationErrorText, isPasswordVisible } = this.state;
+
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
@@ -88,7 +92,9 @@ class SignIn extends Component {
           </div>
 
         </form>
+
         <p className="errorValidation">{validationErrorText}</p>
+
       </div>
     );
   }

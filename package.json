@@ -14,10 +14,6 @@
   "dependencies": {
     "install": "^0.12.2",
     "prop-types": "^15.7.2",
-    "react-accessible-accordion": "^3.0.0",
-    "react-accordeon": "^1.1.1",
-    "react-collapse": "^4.0.3",
-    "react-collapsible": "^2.6.0",
-    "eslint": "^5.16.0"
+    "eslint": "^5.12.0"
   }
 }

@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-bootstrap-table-next": "^3.0.0",

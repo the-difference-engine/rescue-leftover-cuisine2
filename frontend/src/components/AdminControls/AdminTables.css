@@ -22,12 +22,10 @@
 
 .admin-users-title {
   text-align: center;
-  padding-top: 50px;
 }
 
 .admin-recipes-title {
   text-align: center;
-  padding-top: 50px;
 }
 
 .admin-edit-button {
@@ -41,7 +39,7 @@
 
 .user-checkbox-spacing {
   margin-top: -10px;
-  margin-left: 100px;
+  margin-left: 80px;
 }
 
 .admin-checkbox-container {

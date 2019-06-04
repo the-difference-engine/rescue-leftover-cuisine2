@@ -88,7 +88,7 @@
   height: 100px;*/
 }
 
-.button-box{
+.chevron-box{
   margin-left: 88%;
   cursor: pointer;
   background-color: grey;
@@ -96,19 +96,16 @@
   width: 50px;
 }
 
-.chevron {
+.chevron-image {
   margin-top: -12px
 }
 
-.content{
+.search-instrucitons{
   cursor: pointer;
+  height: 85px;
   margin-left: 7%;
   margin-right: 7%;
   background-color: grey;
-  border-top: solid 1.5px blue;
-  border-left: solid 1.5px blue;
-  border-right: solid 1.5px blue;
-  border-bottom: solid 1.5px blue;
   border-radius: 0 0 5px 5px;
   padding: 15px;
   font-family: verdana;

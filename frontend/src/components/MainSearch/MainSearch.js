@@ -72,18 +72,18 @@ class MainSearch extends Component {
                   </div>
                   <div className="buttonContainer">
                     {!this.state.open ? (
-                      <div onClick={(event) => this.togglePanel(event)} className="button-box">
+                      <div onClick={(event) => this.togglePanel(event)} className="chevron-box">
                         <img
                           src="https://img.icons8.com/ios/26/000000/chevron-down.png"
                           alt="chevron button"
-                          className="chevron"
+                          className="chevron-image"
                         />
                       </div>
                     ) : null}
                   </div>
                   {/* ternary operator shortcut (if/else) */}
                   {this.state.open ? (
-                    <div className="content">
+                    <div className="search-instrucitons">
                       <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
                       <div onClick={(event) => this.togglePanel(event)}>
                         <p className="close">Collapse</p>

@@ -37,7 +37,7 @@ class SignIn extends Component {
         if (error.message.includes('401')) {
           this.setState({
 
-            validationErrorText: 'Please make sure you have the correct email and password!',
+            validationErrorText: 'Please make sure you have the correct email and passwords!',
 
           });
         }

@@ -10,9 +10,5 @@
     "lint": "cd frontend && npm run lint",
     "postinstall": "npm run build && npm run deploy",
     "start": "cd frontend && npm start"
-  },
-  "dependencies": {
-    "install": "^0.12.2",
-    "prop-types": "^15.7.2",
   }
 }

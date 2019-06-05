@@ -7,7 +7,6 @@ import LoginPage from './containers/LoginPage/LoginPage';
 import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
 import Recipe from './containers/RecipePage/Recipe';
 
-
 const App = () => (
   <div>
     <Switch>
@@ -18,7 +17,6 @@ const App = () => (
       <Route path="/recipe/new" component={CreateRecipe} />
       <Route path="/recipe" component={Recipe} />
     </Switch>
-
   </div>
 );
 

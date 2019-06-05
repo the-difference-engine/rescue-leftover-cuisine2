@@ -53,7 +53,7 @@ class Recipe extends Component {
             }
           </p>
         </div>
-        <div id="hr-line" />
+        <div id="hr" />
         <div className="separator col-sm-10 offset-sm-1" />
 
         <div id="ingredient-box">
@@ -69,7 +69,7 @@ class Recipe extends Component {
           </div>
         </div>
 
-        <div id="hr-line" />
+        <div id="hr" />
         <div className="separator col-sm-10 offset-sm-1" />
         <div id="direction-container" className="col-sm-10 offset-sm-1">
           <h1 id="direction-title">Directions</h1>

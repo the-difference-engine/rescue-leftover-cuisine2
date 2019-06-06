@@ -1,39 +1,40 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import "./SearchBar.css";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import './SearchBar.css';
 
-// All this is copied from MainSearch, needs to be changed
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: null,
-      error: "",
-      redirect: false
+      searchTerm: '',
+      error: '',
     };
 
-    this.setSearchTerm = this.setSearchTerm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  setSearchTerm(searchTerm) {
-    this.setState({
-      searchTerm
-    });
-  }
+  setRedirect = () => {
+    const { history } = this.props;
+    const { searchTerm } = this.state;
+    const queryString = `/?q=${searchTerm}`;
+    history.push(queryString, { searchTerm });
+  };
 
-  handleChange(event) {
-    this.setState({ searchTerm: event.target.value });
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.handleValidation()) {
+      this.setRedirect();
+    }
   }
 
   handleValidation() {
-    let error = "";
+    let error = '';
     let isValid = true;
     const { searchTerm } = this.state;
 
     if (!searchTerm) {
-      error = "Please enter at least one keyword to search";
+      error = 'Please enter at least one keyword to search';
       isValid = false;
     }
 
@@ -41,25 +42,9 @@ class SearchBar extends Component {
     return isValid;
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const { setSearchTerm } = this.props;
-    const { searchTerm } = this.state;
-    if (this.handleValidation()) {
-      setSearchTerm(searchTerm);
-    }
+  handleChange(event) {
+    this.setState({ searchTerm: event.target.value });
   }
-
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    });
-  };
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to="/" />;
-    }
-  };
 
   render() {
     const { error } = this.state;
@@ -71,10 +56,9 @@ class SearchBar extends Component {
             className="sb-search-input"
             placeholder="Search by keywords"
             onChange={this.handleChange}
-            setSearchTerm={this.setSearchTerm}
           />
-          {this.renderRedirect()}
-          <button type="submit" className="sb-search-button" onClick={this.setRedirect}>
+
+          <button type="submit" className="sb-search-button">
             <img src="https://img.icons8.com/ios/30/000000/search.png" alt="search" />
           </button>
         </form>
@@ -84,4 +68,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

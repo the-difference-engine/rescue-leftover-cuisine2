@@ -9,10 +9,9 @@ import './Homepage.css';
 class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      searchTerm: null,
-    };
-
+    this.state = { searchTerm: null };
+    const { location } = this.props;
+    this.state.searchTerm = { searchTerm: location.state.searchTerm };
     this.setSearchTerm = this.setSearchTerm.bind(this);
   }
 
@@ -41,7 +40,11 @@ class Homepage extends Component {
               <div className="col-12">
                 <h2>Our Suggestions</h2>
                 <br />
-                <h6>{ 'Based on this week\'s popular ingredient donations' }</h6>
+                <h6>
+                  {' '}
+                  {"Based on this week's popular ingredient donations"}
+                  {' '}
+                </h6>
               </div>
             </div>
             <div className="row">

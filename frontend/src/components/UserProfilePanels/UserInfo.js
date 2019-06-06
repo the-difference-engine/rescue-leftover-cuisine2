@@ -6,7 +6,7 @@ const UserInfo = () => (
   <div className="row">
     <div className="col-md-12 profile-content">
       <div className="row profilePage-user">
-        <div className="col-md-2 profile-pic" align="center">
+        <div className="col-md-2" align="center">
           <img
             src={profilePic}
             alt="User"

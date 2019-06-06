@@ -45,6 +45,15 @@ class MainSearch extends Component {
     this.setState({ open: !this.state.open });
   }
 
+  /*renderExplainerPanel() {
+    if open (alse) {
+      render div className = "buttonContainer"
+    }
+    else {
+      
+    }
+  }*/
+
   render() {
     const { error } = this.state;
     return (

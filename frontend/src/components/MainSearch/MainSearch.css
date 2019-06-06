@@ -95,11 +95,11 @@
 
 .search-instrucitons{
   cursor: pointer;
-  height: 85px;
+  height: 88px;
   margin-left: 7%;
   margin-right: 7%;
   background-color: grey;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   padding: 15px;
   font-family: verdana;
   font-size: 14px;

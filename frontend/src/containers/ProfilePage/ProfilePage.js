@@ -130,7 +130,6 @@ class ProfilePage extends Component {
           </div>
           <div className="col-md-9 right-pane">
             <TabContent activeTab={activeTab}>
-              {/* Recipes tab */}
               <TabPane tabId="recipes">
                 <div id="cards-wrapper">
                   {recipes.map(recipe => (
@@ -142,7 +141,6 @@ class ProfilePage extends Component {
                 </div>
               </TabPane>
               <TabPane tabId="settings">
-                {/* Component for settings tab */}
                 <SettingsTab />
               </TabPane>
             </TabContent>

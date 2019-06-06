@@ -5,12 +5,12 @@ import './UserInfo.css';
 const UserInfo = () => (
   <div className="row">
     <div className="col-md-12 profile-content">
-      <div className="row user">
+      <div className="row profilePage-user">
         <div className="col-md-2 profile-pic" align="center">
           <img
             src={profilePic}
             alt="User"
-            className="profilePic"
+            className="profilePage-profilePic"
           />
           <div>
             <button type="button" className="user-edit-button">
@@ -28,7 +28,7 @@ const UserInfo = () => (
           </div>
         </div>
         <div className="col-md-9 user-info">
-          <div className="user-name">
+          <div className="profilePage-user-name">
             <h1>Jason Oliver</h1>
             <button type="button" className="user-edit-button">
               <img

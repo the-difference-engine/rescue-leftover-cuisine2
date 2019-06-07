@@ -41,8 +41,7 @@ class MainSearch extends Component {
   }
 
   togglePanel() {
-    
-    this.setState({ open: !this.state.open });
+    this.setState(prevState => ({ open: !prevState.open }));
   }
 
   render() {

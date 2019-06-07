@@ -1,4 +1,4 @@
-/* global sessionStorage */
+//  global sessionStorage  eslint-disable-line no-undef
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
@@ -24,23 +24,9 @@ class NewPassword extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event, changeAuthorizedState) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    loginUser(this.state)
-      .then((response) => {
-        sessionStorage.jwt = response.headers.authorization;
-        changeAuthorizedState(response.data.id);
-      })
-      .catch((error) => {
-        if (error.message.includes('401')) {
-          const parentForm = document.getElementsByTagName('form')[1];
-          const errorDiv = document.createElement('p');
-          errorDiv.setAttribute('class', 'errorMessage');
-          errorDiv.innerHTML = 'Unable to log in. Check your email and password and try again.';
-          parentForm.insertAdjacentElement('beforeend', errorDiv);
-        }
-        console.log(error);
-      });
+    loginUser(this.state);
   };
 
   render() {

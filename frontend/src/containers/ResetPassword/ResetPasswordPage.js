@@ -4,7 +4,7 @@ import NewPassword from '../../components/NewPassword/NewPassword';
 import Footer from '../../components/Footer/Footer';
 import './ResetPasswordPage.css';
 
-class resetPasswordPage extends Component {
+class ResetPasswordPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,4 +40,4 @@ class resetPasswordPage extends Component {
   }
 }
 
-export default resetPasswordPage;
+export default ResetPasswordPage;

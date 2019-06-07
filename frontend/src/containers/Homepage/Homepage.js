@@ -9,9 +9,12 @@ import './Homepage.css';
 class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = { searchTerm: null };
     const { location } = this.props;
-    this.state.searchTerm = { searchTerm: location.state.searchTerm };
+    if (location.state) {
+      this.state = { searchTerm: location.state.searchTerm };
+    } else {
+      this.state = { searchTerm: null };
+    }
     this.setSearchTerm = this.setSearchTerm.bind(this);
   }
 

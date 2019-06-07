@@ -59,11 +59,12 @@ class SignUp extends Component {
                   name="firstName"
                   className="sign-in-input firstName col-md form-control-lg"
                   placeholder="First"
+                  required
                   onFocus={event => event.target.setAttribute('placeholder', '')}
                   onBlur={event => event.target.setAttribute('placeholder', 'First')}
                   onChange={this.handleChange}
                 />
-                <label htmlFor="inputFirstName">First</label>
+                <label htmlFor="inputFirstName">First Name</label>
               </div>
             </div>
             <div className="col">
@@ -74,11 +75,12 @@ class SignUp extends Component {
                   name="lastName"
                   className="sign-in-input col-md form-control-lg"
                   placeholder="Last"
+                  required
                   onFocus={event => event.target.setAttribute('placeholder', '')}
                   onBlur={event => event.target.setAttribute('placeholder', 'Last')}
                   onChange={this.handleChange}
                 />
-                <label htmlFor="inputLastName">Last</label>
+                <label htmlFor="inputLastName">Last Name</label>
               </div>
             </div>
           </div>
@@ -88,8 +90,10 @@ class SignUp extends Component {
               type="email"
               id="inputSignUpEmail"
               name="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               className="sign-in-input fullWidth form-control-lg"
               placeholder="Email"
+              required
               onFocus={event => event.target.setAttribute('placeholder', '')}
               onBlur={event => event.target.setAttribute('placeholder', 'Email')}
               onChange={this.handleChange}
@@ -104,6 +108,7 @@ class SignUp extends Component {
               className="sign-in-input fullWidth form-control-lg"
               minLength="6"
               placeholder="Password"
+              required
               onFocus={event => event.target.setAttribute('placeholder', '')}
               onBlur={event => event.target.setAttribute('placeholder', 'Password')}
               onChange={this.handleChange}

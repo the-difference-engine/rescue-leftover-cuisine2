@@ -3,11 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 
 import SignUp from './components/SignUp/SignUp';
 
-import AdminPanel from "./containers/AdminPanel/AdminPanel";
-import Homepage from "./containers/Homepage/Homepage";
-import LoginPage from "./containers/LoginPage/LoginPage";
-import CreateRecipe from "./containers/CreateRecipe/CreateRecipe";
-import ResetPassword from "./containers/ResetPassword/ResetPasswordPage";
+import AdminPanel from './containers/AdminPanel/AdminPanel';
+import Homepage from './containers/Homepage/Homepage';
+import LoginPage from './containers/LoginPage/LoginPage';
+import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
+import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 
 const App = () => (

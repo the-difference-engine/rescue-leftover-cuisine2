@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { loginUser } from '../../lib/apiClient';
 import './NewPassword.css';
 
-class SignIn extends Component {
+class NewPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -102,4 +102,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default NewPassword;

@@ -10,7 +10,6 @@ class NewPassword extends Component {
     super(props);
     this.state = {
       isPasswordVisible: false,
-      email: '',
       password: '',
     };
   }
@@ -79,8 +78,8 @@ class NewPassword extends Component {
               name="password"
               required=""
               placeholder="Confirm Password"
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Password')}
+              onFocus={event => event.target.setAttribute('placeholder', 'confirmPassword')}
+              onBlur={event => event.target.setAttribute('placeholder', 'confrimPassword')}
               onChange={this.handleChange}
               minLength="6"
             />

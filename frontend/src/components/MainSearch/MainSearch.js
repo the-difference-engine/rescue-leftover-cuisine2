@@ -44,8 +44,42 @@ class MainSearch extends Component {
     this.setState(prevState => ({ open: !prevState.open }));
   }
 
+  renderChevronButton() {
+    return (
+      <div className="chevronButtonContainer">
+        <div onClick={this.togglePanel} className="chevron-box">
+          <img
+            src="https://img.icons8.com/ios/26/000000/chevron-down.png"
+            alt="chevron button"
+            className="chevron-image"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  renderSearchInstructions() {
+    return (
+      <div className="searchInstrucitons">
+        <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
+        <div onClick={this.togglePanel}>
+          <p className="close">Collapse</p>
+        </div>
+      </div>
+    );
+  }
+
+  renderExplainerPanel() {
+    const { open } = this.state;
+    if (!open) {
+      return <renderChevronButton />;
+    }
+
+    return <renderSearchInstructions />;
+  }
+
   render() {
-    const { error, open } = this.state;
+    const { error } = this.state;
     return (
       <div className="mainSearch container-fluid">
         <div className="row">
@@ -70,27 +104,21 @@ class MainSearch extends Component {
                       />
                     </button>
                   </div>
-                  <div className="chevronButtonContainer">
-                    {!open ? (
-                      <div onClick={this.togglePanel} className="chevron-box">
-                        <img
-                          src="https://img.icons8.com/ios/26/000000/chevron-down.png"
-                          alt="chevron button"
-                          className="chevron-image"
-                        />
-                      </div>
-                    ) : null}
-                  </div>
-                  {/* ternary operator shortcut (if/else) */}
-                  {open ? (
-                    <div className="searchInstrucitons">
+                  {/* <div className="chevronButtonContainer">
+                    <div onClick={this.togglePanel} className="chevron-box">
+                      <img
+                        src="https://img.icons8.com/ios/26/000000/chevron-down.png"
+                        alt="chevron button"
+                        className="chevron-image"
+                      />
+                    </div>
+                  </div> */}
+                  { /* <div className="searchInstrucitons">
                       <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
                       <div onClick={this.togglePanel}>
                         <p className="close">Collapse</p>
                       </div>
-                    </div>
-
-                  ) : null}
+                    </div> */}
                 </div>
               </form>
               <div className="error-message">{error}</div>

@@ -1,0 +1,48 @@
+.profile-header {
+  height: 165px;
+  margin-bottom: 50px;
+}
+
+.profile-header .navbar {
+  box-shadow: 0 8px 40px -40px black;
+}
+
+.user-panel {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.user-nav-bar {
+  margin-top: 50px;
+  font-size: 22px;
+  padding-left: 40px;
+}
+
+.user-nav-bar .nav-tabs {
+  box-shadow: none;
+  color: #666565;
+}
+
+.user-nav-bar .nav-link {
+  cursor: pointer;
+}
+
+.user-nav-tab-active {
+  border-left: 3px solid #4ec8ed;
+  color: #4ec8ed;
+}
+
+.user-nav-bar .nav-item :hover {
+  border: none;
+}
+
+.right-pane {
+  border-left: 1px solid #dddddd;
+  margin-bottom: 60px;
+}
+
+.settings-panel {
+  margin-left: 30px;
+  margin-top: 50px;
+  width: 400px;
+}

@@ -70,7 +70,7 @@ class MainSearch extends Component {
                       />
                     </button>
                   </div>
-                  <div className="buttonContainer">
+                  <div className="chevronButtonContainer">
                     {!open ? (
                       <div onClick={this.togglePanel} className="chevron-box">
                         <img
@@ -83,7 +83,7 @@ class MainSearch extends Component {
                   </div>
                   {/* ternary operator shortcut (if/else) */}
                   {open ? (
-                    <div className="search-instrucitons">
+                    <div className="searchInstrucitons">
                       <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
                       <div onClick={this.togglePanel}>
                         <p className="close">Collapse</p>

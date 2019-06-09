@@ -45,38 +45,50 @@ class MainSearch extends Component {
   }
 
   renderChevronButton() {
-    return (
-      <div className="chevronButtonContainer">
-        <div onClick={this.togglePanel} className="chevron-box">
-          <img
-            src="https://img.icons8.com/ios/26/000000/chevron-down.png"
-            alt="chevron button"
-            className="chevron-image"
-          />
+    const { open } = this.state;
+
+    if (open) {
+      return (
+        <div className="chevronButtonContainer">
+          <div onClick={this.togglePanel} className="chevron-box">
+            <img
+              src="https://img.icons8.com/ios/26/000000/chevron-down.png"
+              alt="chevron button"
+              className="chevron-image"
+            />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+
+    return null;
   }
 
   renderSearchInstructions() {
-    return (
-      <div className="searchInstrucitons">
-        <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
-        <div onClick={this.togglePanel}>
-          <p className="close">Collapse</p>
-        </div>
-      </div>
-    );
-  }
-
-  renderExplainerPanel() {
     const { open } = this.state;
+
     if (!open) {
-      return <renderChevronButton />;
+      return (
+        <div className="searchInstrucitons">
+          <p> You can search recipe names or ingredients by keyword. Enter your keywords and click the search button or press enter to search. If you use multiple keywords, the search will return only results containing all of your keywords.</p>
+          <div onClick={this.togglePanel}>
+            <p className="close">Collapse</p>
+          </div>
+        </div>
+      );
     }
 
-    return <renderSearchInstructions />;
+    return null;
   }
+
+  // renderExplainerPanel() {
+  //   const { open } = this.state;
+  //   if (!open) {
+  //     return <renderChevronButton />;
+  //   }
+
+  //   return <renderSearchInstructions />;
+  // }
 
   render() {
     const { error } = this.state;
@@ -103,6 +115,9 @@ class MainSearch extends Component {
                         alt="search"
                       />
                     </button>
+                  </div>
+                  <div>
+                    {this.renderExplainerPanel}
                   </div>
                   {/* <div className="chevronButtonContainer">
                     <div onClick={this.togglePanel} className="chevron-box">

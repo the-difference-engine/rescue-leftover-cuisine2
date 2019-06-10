@@ -56,17 +56,15 @@ This will build your `db`, and `web` images
 
 ## Running rlc-web containers
 
-1. You will need an empty `Gemfile.lock` in order to build your `Dockerfile`. You can delete and create a new blank dockerfile by running the following commands in the rails app root directory:
-
+1. Run following command to start your containers:
 ```
-rm -rf Gemfile.lock
-touch Gemfile.lock
+docker-compose up
 ```
 
-2. Then, run following command to your containers:
-```
-docker-compose up -d
-```
+## Stopping rlc-web containers
+You can try to stop the running containers from the running `docker-compose up` session by pressing CTRL-C.
+
+You can delete the containers (resetting the database) entire by running `docker-compose down`.
 
 ## Staging
 You can preview what the applicaton will look a production-ish environment by merging changes into the `staging` branch:
@@ -89,6 +87,14 @@ Sometimes issues will come up with your Docker instance than cannot be solved wi
 3. Remove all images: `docker rmi $(docker images -q)`
     * If you receive the message `"docker rmi" requires at least 1 argument.` it means that there are no downloaded images; it is safe to proceed.
 4. Download images and rebuild containers: `docker-compose up`
+
+## Dependencies
+
+For icons throughout the site, we use [icons8](https://icons8.com/).
+
+We use React on the frontend, employing Bootstrap and Reactstrap for styling.
+
+We use Ruby on Rails in API mode on the backend, with Devise for authentication.
 
 ## Project directory structure
 

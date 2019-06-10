@@ -2,7 +2,6 @@
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
-import { loginUser } from '../../lib/apiClient';
 import './NewPassword.css';
 
 class NewPassword extends Component {
@@ -10,7 +9,6 @@ class NewPassword extends Component {
     super(props);
     this.state = {
       isPasswordVisible: false,
-      password: '',
     };
   }
 
@@ -22,11 +20,6 @@ class NewPassword extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    loginUser(this.state);
   };
 
   render() {
@@ -43,7 +36,7 @@ class NewPassword extends Component {
               id="inputSignInPassword"
               className=" newPassword-input fullWidth form-control-lg"
               name="password"
-              required=""
+              required
               placeholder="Password"
               onFocus={event => event.target.setAttribute('placeholder', '')}
               onBlur={event => event.target.setAttribute('placeholder', 'Password')}
@@ -61,8 +54,8 @@ class NewPassword extends Component {
               type={isPasswordVisible ? 'text' : 'password'}
               id="inputSignInPasswordConfirm"
               className="password-confirm-input fullWidth form-control-lg"
-              name="password"
-              required=""
+              name="confirm-password"
+              required
               placeholder="Confirm Password"
               onFocus={event => event.target.setAttribute('placeholder', 'confirmPassword')}
               onBlur={event => event.target.setAttribute('placeholder', 'confrimPassword')}

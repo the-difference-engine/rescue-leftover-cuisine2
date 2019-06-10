@@ -12,6 +12,7 @@ class SignIn extends Component {
       isPasswordVisible: false,
       email: '',
       password: '',
+      validationErrorText: '',
     };
   }
 
@@ -34,19 +35,16 @@ class SignIn extends Component {
       })
       .catch((error) => {
         if (error.message.includes('401')) {
-          const parentForm = document.getElementsByTagName('form')[1];
-          const errorDiv = document.createElement('p');
-          errorDiv.setAttribute('class', 'errorMessage');
-          errorDiv.innerHTML = 'Unable to log in. Check your email and password and try again.';
-          parentForm.insertAdjacentElement('beforeend', errorDiv);
+          this.setState({
+            validationErrorText: 'Please make sure you have the correct email and passwords!',
+          });
         }
-        console.log(error);
       });
   }
 
   render() {
     const { changeAuthorizedState } = this.props;
-    const { isPasswordVisible } = this.state;
+    const { validationErrorText, isPasswordVisible } = this.state;
 
     return (
       <div className="rightLoginCard loginCard">
@@ -89,8 +87,9 @@ class SignIn extends Component {
           <div className="row">
             <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>Log In</button>
           </div>
-
         </form>
+
+        <p className="errorValidation">{validationErrorText}</p>
       </div>
     );
   }

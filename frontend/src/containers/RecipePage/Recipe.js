@@ -1,31 +1,57 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
-import SpecsBar from './SpecsBar/SpecsBar';
 import TagsBar from './TagsBar/TagsBar';
-import DeleteIcon from './DeleteIcon/DeleteIcon';
-import EditIcon from './EditIcon/EditIcon';
 import recipephoto from '../../assets/bread.jpg';
+import { withRouter } from 'react-router-dom';
+ import { pageRecipe } from '../../lib/apiClient';
 import './Recipe.css';
+import axios from 'axios';
 
 class Recipe extends Component {
   constructor() {
     super();
     this.state = {
-      ingredients: [
-        '1 (8 ounce) package elbow macaroni',
-        '2/3 cup rice bran oil, divided',
-        '2 cups unsweetened soy milk',
-        '1 cup nutritional yeast',
-        '4 cloves garlic, minced',
-        '2 teaspoons yellow mustard',
-        '1 teaspoon ground paprika',
-      ],
-      directions: ['Preheat', 'Bring', 'Combine', 'Pour', 'Bake'],
+     
+      directions: ['bake'],
+      data: [],
+      title: 'Easy Creamy Vegan Macaroni and Cheese',
+      snippet: 'Although this does not taste like the the traditional mac n cheese recipes most of us grew up with it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy.',
+      meal: 'Todo',
+      ingredient: ['1 (8 ounce) package elbow macaroni', '1 cup nutritional yeast', '4 cloves garlice'],
+      photos: '',
+      difficulty: 'EASY',
+      duration: '30',
+      servings: '2',
+
     };
   }
 
+
   render() {
-    const { directions, ingredients } = this.state;
+
+
+
+    const { directions, ingredients, title ,ingredient, meal, snippet, photos, difficulty, duration, servings} = this.state;
+
+
+     const mealDifficulty = () => {
+    if (difficulty === 'EASY') {
+      return (
+        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/low-connection.png" alt="Easy Difficulty Rating" />
+      );
+    }
+    if (difficulty === 'MEDIUM') {
+      return (
+        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/medium-connection.png" alt="Medium Difficulty Rating" />
+      );
+    }
+    if (difficulty === 'ADVANCED') {
+      return (
+        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/bar-chart.png" alt="Advanced Difficulty Rating" />
+      );
+    }
+    return undefined; // TODO: This is probably bad. What should this return for invalid difficulty?
+  };
 
     return (
       <div className="overall-container">
@@ -34,33 +60,69 @@ class Recipe extends Component {
             <Header />
           </div>
         </div>
-        <header className="recipe-icon">
-          <EditIcon />
-          <DeleteIcon />
-        </header>
+        <div>
+            <button type="button" className="user-edit-button">
+              <img 
+                src="https://img.icons8.com/windows/32/ffa616/edit.png"
+                alt="edit"
+              />
+
+            </button>
+            <button type="button" className="user-edit-button">
+              <img
+                src="https://img.icons8.com/windows/32/ffa616/cancel.png"
+                alt="delete"
+              />
+            </button>
+        </div>
         <img src={recipephoto} alt="recipephoto" className="recipe-photo" />
-        <SpecsBar id="specBar" />
+          
+          <div className="specs-bars">
+          <div className="row">
+         
+          <div id="diff-spec-container1" className="spec-element col-sm-4 text-center">
+              <span className="card-meta"> {mealDifficulty()}
+               {difficulty}</span>
+               </div>
+
+             <div id="diff-spec-container2" className="spec-element col-sm-4 text-center">
+             <span className="Bluez">
+              <i className="fas fa-clock" />
+                 { duration }{' '}MIN</span>
+               </div>
+
+
+          <div id="diff-spec-container3" className="spec-element col-sm-4 text-center">
+           <i className="fas fa-utensil-spoon" />
+              <span className="Bluez">{ servings }</span>
+            </div>
+
+            </div>
+           </div>
+
         <div className="tags-bar">
           <TagsBar />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">
-            Easy Creamy Vegan Macaroni and Cheese
+             {title}
           </h1>
           <p id="recipe-descrip" className="col-sm-8 offset-sm-2">
             {
-              "Although this does not taste like the traditional mac 'n cheese recipes most of us grew up with, it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy. Stir in your favorite veggies and/or meatless filler and you've got yourself a satisfying meal. This recipe is very versatile; tweak ingredients to your liking!"
+              snippet
             }
           </p>
         </div>
         <div id="hr" />
         <div className="separator col-sm-10 offset-sm-1" />
 
+    
+
         <div id="ingredient-box">
           <div id="ingredient-list">
             <h1 id="ingredient-title">Ingredients</h1>
             <ul id="ingredient-ul">
-              {ingredients.map(ingred => (
+              {ingredient.map(ingred => (
                 <li>
                   <div id="single-ingredient">{ingred}</div>
                 </li>
@@ -88,4 +150,4 @@ class Recipe extends Component {
   }
 }
 
-export default Recipe;
+export default withRouter(Recipe);

@@ -14,17 +14,17 @@ class SearchBar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  setRedirect = () => {
+  handleRedirect = () => {
     const { history } = this.props;
     const { searchTerm } = this.state;
     const queryString = `/?q=${searchTerm}`;
-    history.push(queryString, { searchTerm });
+    history.push(queryString);
   };
 
   handleSubmit(event) {
     event.preventDefault();
     if (this.handleValidation()) {
-      this.setRedirect();
+      this.handleRedirect();
     }
   }
 

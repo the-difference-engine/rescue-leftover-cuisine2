@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './MainSearch.css';
 
 class MainSearch extends Component {
@@ -11,6 +12,20 @@ class MainSearch extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleRedirect = () => {
+    const { history } = this.props;
+    const { searchTerm } = this.state;
+    const queryString = `/?q=${searchTerm}`;
+    history.push(queryString);
+  };
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.handleValidation()) {
+      this.handleRedirect();
+    }
   }
 
   handleChange(event) {
@@ -29,14 +44,14 @@ class MainSearch extends Component {
     return isValid;
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const { setSearchTerm } = this.props;
-    const { searchTerm } = this.state;
-    if (this.handleValidation()) {
-      setSearchTerm(searchTerm);
-    }
-  }
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   const { setSearchTerm } = this.props;
+  //   const { searchTerm } = this.state;
+  //   if (this.handleValidation()) {
+  //     setSearchTerm(searchTerm);
+  //   }
+  // }
 
   render() {
     const { error } = this.state;
@@ -44,9 +59,7 @@ class MainSearch extends Component {
       <div className="mainSearch container-fluid">
         <div className="row">
           <div className="searchSection">
-            <p className="findText">
-              Find Recipes from Rescuing Leftover Cuisine
-            </p>
+            <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
             <span className="search">
               <form className="search-form" onSubmit={this.handleSubmit}>
                 <input
@@ -56,10 +69,7 @@ class MainSearch extends Component {
                   onChange={this.handleChange}
                 />
                 <button type="submit" className="search-button">
-                  <img
-                    src="https://img.icons8.com/ios/30/000000/search.png"
-                    alt="search"
-                  />
+                  <img src="https://img.icons8.com/ios/30/000000/search.png" alt="search" />
                 </button>
               </form>
               <div className="error-message">{error}</div>
@@ -71,4 +81,4 @@ class MainSearch extends Component {
   }
 }
 
-export default MainSearch;
+export default withRouter(MainSearch);

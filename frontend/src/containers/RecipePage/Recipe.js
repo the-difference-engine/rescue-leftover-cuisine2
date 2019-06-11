@@ -3,9 +3,7 @@ import Header from '../../components/Header/Header';
 import TagsBar from './TagsBar/TagsBar';
 import recipephoto from '../../assets/bread.jpg';
 import { withRouter } from 'react-router-dom';
- import { pageRecipe } from '../../lib/apiClient';
 import './Recipe.css';
-import axios from 'axios';
 
 class Recipe extends Component {
   constructor() {
@@ -31,7 +29,7 @@ class Recipe extends Component {
 
 
 
-    const { directions, ingredients, title ,ingredient, meal, snippet, photos, difficulty, duration, servings} = this.state;
+    const { directions, title, ingredient, snippet, difficulty, duration, servings} = this.state;
 
 
      const mealDifficulty = () => {

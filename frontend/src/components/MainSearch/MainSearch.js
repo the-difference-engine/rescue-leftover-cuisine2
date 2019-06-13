@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './MainSearch.css';
 
 class MainSearch extends Component {
@@ -15,6 +16,20 @@ class MainSearch extends Component {
     this.togglePanel = this.togglePanel.bind(this);
   }
 
+  handleRedirect = () => {
+    const { history } = this.props;
+    const { searchTerm } = this.state;
+    const queryString = `/?q=${searchTerm}`;
+    history.push(queryString);
+  };
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.handleValidation()) {
+      this.handleRedirect();
+    }
+  }
+
   handleChange(event) {
     this.setState({ searchTerm: event.target.value });
   }
@@ -29,15 +44,6 @@ class MainSearch extends Component {
     }
     this.setState({ error });
     return isValid;
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const { setSearchTerm } = this.props;
-    const { searchTerm } = this.state;
-    if (this.handleValidation()) {
-      setSearchTerm(searchTerm);
-    }
   }
 
   togglePanel() {
@@ -75,9 +81,7 @@ class MainSearch extends Component {
       <div className="mainSearch container-fluid">
         <div className="row">
           <div className="searchSection">
-            <p className="findText">
-              Find Recipes from Rescuing Leftover Cuisine
-            </p>
+            <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
             <span className="search">
               <form className="search-form" onSubmit={this.handleSubmit}>
                 <div className="absoluteContainer">
@@ -109,4 +113,4 @@ class MainSearch extends Component {
   }
 }
 
-export default MainSearch;
+export default withRouter(MainSearch);

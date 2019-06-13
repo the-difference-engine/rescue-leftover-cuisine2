@@ -39,7 +39,6 @@ class SignUp extends Component {
           errorDiv.innerHTML = 'A user with that email already exists! Try signing in.';
           parentForm.insertAdjacentElement('beforeend', errorDiv);
         }
-        console.log(error.response.data);
       });
   };
 

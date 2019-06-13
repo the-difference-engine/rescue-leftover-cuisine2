@@ -20,11 +20,11 @@ class SignIn extends Component {
     this.setState(prevState => ({
       isPasswordVisible: !prevState.isPasswordVisible,
     }));
-  }
+  };
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   handleSubmit = (event, changeAuthorizedState) => {
     event.preventDefault();
@@ -40,7 +40,7 @@ class SignIn extends Component {
           });
         }
       });
-  }
+  };
 
   render() {
     const { changeAuthorizedState } = this.props;
@@ -56,10 +56,10 @@ class SignIn extends Component {
               id="inputSignInEmail"
               className=" sign-in-input fullWidth form-control-lg"
               name="email"
-              required=""
+              required
               placeholder="Email"
-              onFocus={event => (event.target.setAttribute('placeholder', ''))}
-              onBlur={event => (event.target.setAttribute('placeholder', 'Email'))}
+              onFocus={event => event.target.setAttribute('placeholder', '')}
+              onBlur={event => event.target.setAttribute('placeholder', 'Email')}
               onChange={this.handleChange}
             />
             <label htmlFor="inputSignInEmail">Email</label>
@@ -71,21 +71,26 @@ class SignIn extends Component {
               id="inputSignInPassword"
               className="sign-in-input fullWidth form-control-lg"
               name="password"
-              required=""
+              required
               placeholder="Password"
-              onFocus={event => (event.target.setAttribute('placeholder', ''))}
-              onBlur={event => (event.target.setAttribute('placeholder', 'Password'))}
+              onFocus={event => event.target.setAttribute('placeholder', '')}
+              onBlur={event => event.target.setAttribute('placeholder', 'Password')}
               onChange={this.handleChange}
               minLength="6"
             />
             <label htmlFor="inputsignUpPassword">Password</label>
-            <span className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'} onClick={this.toggleIcon} />
+            <span
+              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
+              onClick={this.toggleIcon}
+            />
           </div>
           <div className="forgotPassword form-group row">
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>Log In</button>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>
+              Log In
+            </button>
           </div>
         </form>
 

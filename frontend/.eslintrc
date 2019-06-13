@@ -18,7 +18,7 @@
     "no-underscore-dangle": 0,
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
-    "max-len": 0
+    "max-len": 0,
   },
   "globals": {
     "window": true,

@@ -4,6 +4,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
 import AdminModal from '../AdminModal/AdminModal';
+import AdminSuspendModal from '../AdminModal/AdminSuspendModal';
 
 // add selectedUser to state which will update based on rowEvents click
 // then the modal will open on button click, and can access selected user in state
@@ -14,14 +15,22 @@ class Users extends Component {
 
     this.state = {
       modal: false,
+      suspendModal: false,
       selectedUser: {},
     };
     this.toggle = this.toggle.bind(this);
+    this.toggleSuspendModal = this.toggleSuspendModal.bind(this);
   }
 
   toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal,
+    }));
+  }
+
+  toggleSuspendModal() {
+    this.setState(prevState => ({
+      suspendModal: !prevState.suspendModal,
     }));
   }
 
@@ -113,7 +122,7 @@ class Users extends Component {
                 alt="edit"
               />
             </button>
-            <button type="button" className="admin-edit-button">
+            <button type="button" className="admin-edit-button" onClick={this.toggleSuspendModal}>
               <img
                 src="https://img.icons8.com/windows/32/000000/cancel.png"
                 alt="delete"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import queryString from 'query-string';
+import querystring from 'querystring';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainSearch from '../../components/MainSearch/MainSearch';
@@ -12,7 +12,7 @@ const Homepage = (props) => {
 
   const getSearchTerm = () => {
     const { location } = props;
-    const parsed = queryString.parse(location.search);
+    const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark
     setSearchTerm(parsed.q);
   };
 

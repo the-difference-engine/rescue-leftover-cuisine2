@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import querystring from 'querystring';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -8,17 +8,9 @@ import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
 import './Homepage.css';
 
 const Homepage = (props) => {
-  const [searchTerm, setSearchTerm] = useState(null);
-
-  const getSearchTerm = () => {
-    const { location } = props;
-    const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark
-    setSearchTerm(parsed.q);
-  };
-
-  useEffect(() => {
-    getSearchTerm();
-  });
+  const { location } = props;
+  const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark
+  const searchTerm = parsed.q;
 
   return (
     <div className="homepage container-fluid ">

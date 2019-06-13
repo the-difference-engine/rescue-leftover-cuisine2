@@ -10,7 +10,7 @@ class Recipe extends Component {
     super();
     this.state = {
      
-      directions: ['bake'],
+      directions: ['Mix all together', 'Bake in oven', 'Eat it all up'],
       data: [],
       title: 'Easy Creamy Vegan Macaroni and Cheese',
       snippet: 'Although this does not taste like the the traditional mac n cheese recipes most of us grew up with it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy.',
@@ -20,84 +20,74 @@ class Recipe extends Component {
       difficulty: 'EASY',
       duration: '30',
       servings: '2',
-
     };
   }
 
-
   render() {
-
-
-
     const { directions, title, ingredient, snippet, difficulty, duration, servings} = this.state;
 
-
-     const mealDifficulty = () => {
-    if (difficulty === 'EASY') {
-      return (
-        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/low-connection.png" alt="Easy Difficulty Rating" />
-      );
-    }
-    if (difficulty === 'MEDIUM') {
-      return (
-        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/medium-connection.png" alt="Medium Difficulty Rating" />
-      );
-    }
-    if (difficulty === 'ADVANCED') {
-      return (
-        <img className="icons" src="https://img.icons8.com/material-rounded/24/000000/bar-chart.png" alt="Advanced Difficulty Rating" />
-      );
-    }
-    return undefined; // TODO: This is probably bad. What should this return for invalid difficulty?
-  };
+    const mealDifficulty = () => {
+      if (difficulty === 'EASY') {
+        return (
+          <img className="icons" src="https://img.icons8.com/material-rounded/24/4EC8ED/low-connection.png" alt="Easy Difficulty Rating" />
+        );
+      }
+      if (difficulty === 'MEDIUM') {
+        return (
+          <img className="icons" src="https://img.icons8.com/material-rounded/24/4EC8ED/medium-connection.png" alt="Medium Difficulty Rating" />
+        );
+      }
+      if (difficulty === 'ADVANCED') {
+        return (
+          <img className="icons" src="https://img.icons8.com/material-rounded/24/4EC8ED/bar-chart.png" alt="Advanced Difficulty Rating" />
+        );
+      }
+      return ""; 
+    };
 
     return (
-      <div className="overall-container">
+      <div className="recipe-overall-container">
         <div className="row">
           <div className="header">
             <Header />
           </div>
         </div>
         <div>
-            <button type="button" className="user-edit-button">
-              <img 
-                src="https://img.icons8.com/windows/32/ffa616/edit.png"
-                alt="edit"
+          <button className="btn navbar-btn btn-lg editButton" type="button">
+            <img 
+             src="https://img.icons8.com/windows/32/ffa616/edit.png"
+              alt="edit"
+           />
+             Edit
+          </button>
+          <button  className="btn navbar-btn btn-lg cancelButton" type="button">
+             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png"
+              alt="delete"
               />
-
-            </button>
-            <button type="button" className="user-edit-button">
-              <img
-                src="https://img.icons8.com/windows/32/ffa616/cancel.png"
-                alt="delete"
-              />
-            </button>
+              Delete
+          </button>
         </div>
         <img src={recipephoto} alt="recipephoto" className="recipe-photo" />
-          
-          <div className="specs-bars">
+        <div className="recipe-specs-bars">
           <div className="row">
-         
-          <div id="diff-spec-container1" className="spec-element col-sm-4 text-center">
-              <span className="card-meta"> {mealDifficulty()}
-               {difficulty}</span>
-               </div>
-
-             <div id="diff-spec-container2" className="spec-element col-sm-4 text-center">
-             <span className="Bluez">
-              <i className="fas fa-clock" />
-                 { duration }{' '}MIN</span>
-               </div>
-
-
-          <div id="diff-spec-container3" className="spec-element col-sm-4 text-center">
-           <i className="fas fa-utensil-spoon" />
-              <span className="Bluez">{ servings }</span>
+            <div id="recipe-spec-container1" className="recipe-spec-element col-sm-4 text-center">
+               <span> 
+                 {mealDifficulty()}
+                {difficulty}
+               </span>
+             </div>
+            <div id="recipe-spec-container2" className="recipe-spec-element col-sm-4 text-center">
+              <span>
+                <i className="fas fa-clock" />
+                  { duration }{' '}MIN
+              </span>
             </div>
-
+            <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
+              <i className="fas fa-utensil-spoon" />
+                <span>{ servings }</span>
             </div>
-           </div>
-
+          </div>
+        </div>
         <div className="tags-bar">
           <TagsBar />
         </div>
@@ -106,9 +96,7 @@ class Recipe extends Component {
              {title}
           </h1>
           <p id="recipe-descrip" className="col-sm-8 offset-sm-2">
-            {
-              snippet
-            }
+            {snippet}
           </p>
         </div>
         <div id="hr" />
@@ -133,10 +121,10 @@ class Recipe extends Component {
         <div className="separator col-sm-10 offset-sm-1" />
         <div id="direction-container" className="col-sm-10 offset-sm-1">
           <h1 id="direction-title">Directions</h1>
-          <ul className="ListItems">
+          <ul className="direction-list">
             {directions.map((direction, index) => (
               <div className="single-direction">
-                <h1 className="direction-index">{index + 1}</h1>
+                <ol className="direction-index">{index + 1}</ol>
                 <p className="direction-action">{direction}</p>
                 <br />
               </div>

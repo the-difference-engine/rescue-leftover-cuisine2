@@ -8,7 +8,6 @@ class MainSearch extends Component {
       searchTerm: '',
       error: '',
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

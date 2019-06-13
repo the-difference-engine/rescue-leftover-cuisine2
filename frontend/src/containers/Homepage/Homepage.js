@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import MainSearch from '../../components/MainSearch/MainSearch';
 import RecipeSearchList from '../../components/RecipeSearchList/RecipeSearchList';
 import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
+import SearchLozenge from '../../components/SearchLozenge/SearchLozenge';
 import './Homepage.css';
 
 class Homepage extends Component {
@@ -12,7 +13,6 @@ class Homepage extends Component {
     this.state = {
       searchTerm: null,
     };
-
     this.setSearchTerm = this.setSearchTerm.bind(this);
   }
 
@@ -24,7 +24,7 @@ class Homepage extends Component {
 
   render() {
     const { searchTerm } = this.state;
-
+    console.log(searchTerm);
     return (
       <div className="homepage container-fluid ">
         <div className="row">
@@ -36,6 +36,11 @@ class Homepage extends Component {
           <div className="homepageContent">
             <div className="row">
               <MainSearch setSearchTerm={this.setSearchTerm} />
+            </div>
+            <div className="row lozenges">
+              <div className="col-12">
+                <SearchLozenge searchTerm={searchTerm} />
+              </div>
             </div>
             <div className="row suggestions">
               <div className="col-12">

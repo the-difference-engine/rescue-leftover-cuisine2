@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import querystring from 'querystring';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainSearch from '../../components/MainSearch/MainSearch';
@@ -7,62 +8,46 @@ import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
 import SearchLozenge from '../../components/SearchLozenge/SearchLozenge';
 import './Homepage.css';
 
-class Homepage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchTerm: null,
-    };
-    this.setSearchTerm = this.setSearchTerm.bind(this);
-  }
+const Homepage = (props) => {
+  const { location } = props;
+  const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark
+  const searchTerm = parsed.q;
 
-  setSearchTerm(searchTerm) {
-    this.setState({
-      searchTerm,
-    });
-  }
-
-  render() {
-    const { searchTerm } = this.state;
-    console.log(searchTerm);
-    return (
-      <div className="homepage container-fluid ">
-        <div className="row">
-          <div className="header">
-            <Header />
-          </div>
+  return (
+    <div className="homepage container-fluid ">
+      <div className="row">
+        <div className="header">
+          <Header />
         </div>
-        <div className="row">
-          <div className="homepageContent">
-            <div className="row">
-              <MainSearch setSearchTerm={this.setSearchTerm} />
+      </div>
+      <div className="row">
+        <div className="homepageContent">
+          <div className="row">
+            <MainSearch />
+          </div>
+          <div className="row suggestions">
+            <div className="col-12">
+              <h2>Our Suggestions</h2>
+              <br />
+              <h5>Based on this week&apos;s popular ingredient donations</h5>
             </div>
-            <div className="row lozenges">
-              <div className="col-12">
-                <SearchLozenge searchTerm={searchTerm} />
-              </div>
-            </div>
-            <div className="row suggestions">
-              <div className="col-12">
-                <h2>Our Suggestions</h2>
-                <br />
-                <h5>Based on this week&apos;s popular ingredient donations</h5>
-              </div>
-            </div>
-            <div className="row">
-              <RecipeSearchList searchTerm={searchTerm} />
-            </div>
-            <div className="row">
-              <BottomSignUp />
-            </div>
-            <div className="row">
-              <Footer />
-            </div>
+          </div>
+          <div className="row">
+            <SearchLozenge searchTerm={searchTerm} />
+          </div>
+          <div className="row">
+            <RecipeSearchList searchTerm={searchTerm} />
+          </div>
+          <div className="row">
+            <BottomSignUp />
+          </div>
+          <div className="row">
+            <Footer />
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Homepage;

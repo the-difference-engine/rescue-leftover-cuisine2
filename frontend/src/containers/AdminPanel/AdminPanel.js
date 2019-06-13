@@ -43,7 +43,7 @@ class AdminPanel extends Component {
       return newObj;
     });
     return newData;
-  }
+  };
 
   toggle(tab) {
     const { activeTab } = this.state;

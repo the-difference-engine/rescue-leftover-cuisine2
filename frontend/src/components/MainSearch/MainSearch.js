@@ -46,15 +46,6 @@ class MainSearch extends Component {
     return isValid;
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   const { setSearchTerm } = this.props;
-  //   const { searchTerm } = this.state;
-  //   if (this.handleValidation()) {
-  //     setSearchTerm(searchTerm);
-  //   }
-  // }
-
   togglePanel() {
     this.setState(prevState => ({ open: !prevState.open }));
   }

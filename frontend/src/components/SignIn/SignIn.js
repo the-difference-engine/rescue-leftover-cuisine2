@@ -56,7 +56,7 @@ class SignIn extends Component {
               id="inputSignInEmail"
               className=" sign-in-input fullWidth form-control-lg"
               name="email"
-              required=""
+              required
               placeholder="Email"
               onFocus={event => event.target.setAttribute('placeholder', '')}
               onBlur={event => event.target.setAttribute('placeholder', 'Email')}
@@ -71,7 +71,7 @@ class SignIn extends Component {
               id="inputSignInPassword"
               className="sign-in-input fullWidth form-control-lg"
               name="password"
-              required=""
+              required
               placeholder="Password"
               onFocus={event => event.target.setAttribute('placeholder', '')}
               onBlur={event => event.target.setAttribute('placeholder', 'Password')}

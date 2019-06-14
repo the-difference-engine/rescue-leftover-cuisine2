@@ -32,6 +32,7 @@ class Users extends Component {
     this.setState(prevState => ({
       suspendModal: !prevState.suspendModal,
     }));
+    console.log('Made it to suspend modal!!!');
   }
 
   render() {

@@ -1,4 +1,7 @@
 import React from 'react';
+// import {
+//   Button, Modal, ModalHeader, ModalBody, ModalFooter, toggle,
+// } from 'reactstrap';
 import './AdminSuspendModal.css';
 
 class AdminSuspendModal extends React.Component {
@@ -8,11 +11,8 @@ class AdminSuspendModal extends React.Component {
   }
 
   render() {
-    // const {
-    // } = this.props;
-
     return (
-      <div className="suspend">
+      <div>
         <h1>Suspend User?</h1>
         <p>
           Clicking &quot;Suspended&quot; will prevent the user from logging into the app using any features available to registered users. The user will remain suspended until this status is removed by an administrator.

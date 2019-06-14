@@ -1,17 +1,9 @@
 .logoCenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 108%;
-  padding-bottom: 012px;
-  padding-top: 012px;
-}
-
-a{
-  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 8%;
   padding-bottom: 012px;
   padding-top: 012px;
 }
+
+

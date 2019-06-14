@@ -128,6 +128,12 @@ class Users extends Component {
                 alt="delete"
               />
             </button>
+            <button type="button" className="admin-edit-button suspend-button" >
+              <img 
+                src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
+                alt="user currently suspended"
+              />
+            </button>
           </div>
         ),
       },

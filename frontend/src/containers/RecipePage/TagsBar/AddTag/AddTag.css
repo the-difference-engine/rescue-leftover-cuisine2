@@ -1,39 +1,19 @@
 #create-tag-container {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
 }
 
 #create-tag-text {
   color: #7ae47a;
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
-  display: inline-block;
 }
 
-#create-tag-icon {
-  width: 11px;
-  height: 11px;
-  border-radius: 100%;
-  border: 1px solid #7ae47a;
-  display: inline-block;
+#tag-icon {
+  width: 20px;
+  height: 20px; 
   margin-left: 6px;
+  position: absolute;
 }
 
-#create-tag-plus1 {
-  height: 5px;
-  width: 1px;
-  background-color: #7ae47a;
-  display: inline-block;
-  position: relative;
-  left: -6px;
-  top: -3px;
-}
 
-#create-tag-plus2 {
-  height: 1px;
-  width: 5px;
-  background-color: #7ae47a;
-  display: inline-block;
-  position: relative;
-  left: -9px;
-  top: -5px;
-}

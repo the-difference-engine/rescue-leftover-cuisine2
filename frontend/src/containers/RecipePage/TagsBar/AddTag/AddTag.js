@@ -6,9 +6,9 @@ const AddTag = () => (
     <div id="create-tag-text">
       Add Tag
     </div>
-    <div id="create-tag-icon" />
-    <div id="create-tag-plus1" />
-    <div id="create-tag-plus2" />
+    <div>
+   	  <img id="tag-icon" src="https://img.icons8.com/ios/50/7ae47a/plus.png"/>
+    </div>
   </div>
 );
 

@@ -54,17 +54,12 @@ class Recipe extends Component {
         </div>
         <div>
           <button className="btn navbar-btn btn-lg editButton" type="button">
-            <img 
-             src="https://img.icons8.com/windows/32/ffa616/edit.png"
-              alt="edit"
-           />
-             Edit
+            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit"/>
+             <p id="edit-icon-text">Edit</p>
           </button>
           <button  className="btn navbar-btn btn-lg cancelButton" type="button">
-             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png"
-              alt="delete"
-              />
-              Delete
+             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete"/>
+              <p id="delete-icon-text">Delete</p>
           </button>
         </div>
         <img src={recipephoto} alt="recipephoto" className="recipe-photo" />
@@ -73,7 +68,7 @@ class Recipe extends Component {
             <div id="recipe-spec-container1" className="recipe-spec-element col-sm-4 text-center">
                <span> 
                  {mealDifficulty()}
-                {difficulty}
+                 {difficulty}
                </span>
              </div>
             <div id="recipe-spec-container2" className="recipe-spec-element col-sm-4 text-center">
@@ -89,7 +84,7 @@ class Recipe extends Component {
           </div>
         </div>
         <div className="tags-bar">
-          <TagsBar />
+          <TagsBar/>
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">
@@ -101,9 +96,6 @@ class Recipe extends Component {
         </div>
         <div id="hr" />
         <div className="separator col-sm-10 offset-sm-1" />
-
-    
-
         <div id="ingredient-box">
           <div id="ingredient-list">
             <h1 id="ingredient-title">Ingredients</h1>
@@ -116,24 +108,23 @@ class Recipe extends Component {
             </ul>
           </div>
         </div>
-
         <div id="hr" />
         <div className="separator col-sm-10 offset-sm-1" />
-        <div id="direction-container" className="col-sm-10 offset-sm-1">
-          <h1 id="direction-title">Directions</h1>
-          <ul className="direction-list">
-            {directions.map((direction, index) => (
-              <div className="single-direction">
-                <ol className="direction-index">{index + 1}</ol>
-                <p className="direction-action">{direction}</p>
-                <br />
-              </div>
-            ))}
-          </ul>
+          <div id="direction-container" className="col-sm-10 offset-sm-1">
+            <h1 id="direction-title">Directions</h1>
+             <ul className="direction-list">
+                {directions.map((direction, index) => (
+                <div className="single-direction">
+                  <ol className="direction-index">{index + 1}</ol>
+                  <p className="direction-action">{direction}</p>
+                  <br />
+                </div>
+                ))}
+             </ul>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
 
 export default withRouter(Recipe);

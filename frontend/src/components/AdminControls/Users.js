@@ -5,9 +5,6 @@ import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
 import AdminEditModal from '../AdminEditModal/AdminEditModal';
 
-// add selectedUser to state which will update based on rowEvents click
-// then the modal will open on button click, and can access selected user in state
-
 class Users extends Component {
   constructor(props) {
     super(props);

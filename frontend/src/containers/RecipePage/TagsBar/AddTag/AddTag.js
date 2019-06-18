@@ -7,7 +7,7 @@ const AddTag = () => (
       Add Tag
     </div>
     <div>
-   	  <img id="tag-icon" src="https://img.icons8.com/ios/50/7ae47a/plus.png"/>
+   	  <img id="tag-icon" src="https://img.icons8.com/ios/50/7ae47a/plus.png" alt="Add Icon"/>
     </div>
   </div>
 );

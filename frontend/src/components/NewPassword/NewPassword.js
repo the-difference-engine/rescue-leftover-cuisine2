@@ -2,6 +2,7 @@
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './NewPassword.css';
 
 class NewPassword extends Component {
@@ -9,6 +10,9 @@ class NewPassword extends Component {
     super(props);
     this.state = {
       isPasswordVisible: false,
+      password: '',
+      confirmPassword: '',
+      token: 'eyJ1c2VySWQiOjF9',
     };
   }
 
@@ -22,14 +26,27 @@ class NewPassword extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { history } = this.props;
+    const { password, confirmPassword } = this.state;
+    const { token } = this.state;
+    const queryString = `/?q=${token}`;
+    if (password !== confirmPassword) {
+      alert("Passwords don't match"); // eslint-disable-line no-undef
+    } else {
+      // make API call
+    }
+    history.push(queryString);
+  };
+
   render() {
-    const { changeAuthorizedState } = this.props;
     const { isPasswordVisible } = this.state;
 
     return (
       <div className="newPasswordCard">
         <h3 className="newPasswordHeader">Reset Password</h3>
-        <form className="form-newPassword" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
+        <form className="form-newPassword" onSubmit={this.handleSubmit}>
           <div className="form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
@@ -70,7 +87,11 @@ class NewPassword extends Component {
           </div>
 
           <div className="row">
-            <button className="resetPasswordButton signUpButton btn btn-lg btn-block" type="submit" valid>
+            <button
+              className="resetPasswordButton signUpButton btn btn-lg btn-block"
+              type="submit"
+              valid
+            >
               Reset Password
             </button>
           </div>
@@ -80,4 +101,4 @@ class NewPassword extends Component {
   }
 }
 
-export default NewPassword;
+export default withRouter(NewPassword);

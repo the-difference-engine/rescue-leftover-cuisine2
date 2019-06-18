@@ -1,6 +1,14 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_params
 
+  def show
+    if !current_user
+      render json: {}, status: :unauthorized
+      return
+    end
+    render json: current_user
+  end
+
   protected
 
   def user_fields

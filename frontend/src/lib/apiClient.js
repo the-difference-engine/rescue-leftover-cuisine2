@@ -58,3 +58,12 @@ export default apiClient;
 export {
   createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes,
 };
+
+// something like this-- will handle request from admin page to update the user
+// const adminEditUser = userId => apiClient.patch(`api/v1/users/${userId}`, {
+
+// }).then((response) => {
+//   console.log(response);
+// }).catch((error) => {
+//   console.log(error.response.data);
+// });

@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
-import AdminModal from '../AdminModal/AdminModal';
+import AdminEditModal from '../AdminEditModal/AdminEditModal';
 
 // add selectedUser to state which will update based on rowEvents click
 // then the modal will open on button click, and can access selected user in state
@@ -13,15 +13,15 @@ class Users extends Component {
     super(props);
 
     this.state = {
-      modal: false,
+      editModal: false,
       selectedUser: {},
     };
-    this.toggle = this.toggle.bind(this);
+    this.toggleEditModal = this.toggleEditModal.bind(this);
   }
 
-  toggle() {
+  toggleEditModal() {
     this.setState(prevState => ({
-      modal: !prevState.modal,
+      editModal: !prevState.editModal,
     }));
   }
 
@@ -107,7 +107,7 @@ class Users extends Component {
         align: 'left',
         formatter: () => (
           <div>
-            <button type="button" className="admin-edit-button" onClick={this.toggle}>
+            <button type="button" className="admin-edit-button" onClick={this.toggleEditModal}>
               <img
                 src="https://img.icons8.com/windows/32/000000/edit.png"
                 alt="edit"
@@ -149,7 +149,7 @@ class Users extends Component {
       },
     };
 
-    const { modal, selectedUser } = this.state;
+    const { editModal, selectedUser } = this.state;
 
     return (
       <Fragment>
@@ -162,7 +162,11 @@ class Users extends Component {
           bordered={false}
           pagination={paginationFactory(options)}
         />
-        <AdminModal modal={modal} toggle={this.toggle} selectedUser={selectedUser} />
+        <AdminEditModal
+          editModal={editModal}
+          toggleEditModal={this.toggleEditModal}
+          selectedUser={selectedUser}
+        />
       </Fragment>
     );
   }

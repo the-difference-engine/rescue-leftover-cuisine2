@@ -165,7 +165,7 @@ class Users extends Component {
       },
     };
 
-    const { modal, selectedUser } = this.state;
+    const { modal, suspendModal, selectedUser } = this.state;
 
     return (
       <Fragment>
@@ -179,6 +179,7 @@ class Users extends Component {
           pagination={paginationFactory(options)}
         />
         <AdminModal modal={modal} toggle={this.toggle} selectedUser={selectedUser} />
+        <AdminSuspendModal suspendModal={suspendModal} toggleSuspendModal={this.toggleSuspendModal} selectedUser={selectedUser} />
       </Fragment>
     );
   }

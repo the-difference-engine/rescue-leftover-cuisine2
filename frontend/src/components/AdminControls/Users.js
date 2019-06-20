@@ -32,7 +32,7 @@ class Users extends Component {
     this.setState(prevState => ({
       suspendModal: !prevState.suspendModal,
     }));
-    console.log('Made it to suspend modal!!!');
+    console.log('inside User.js');
   }
 
   render() {
@@ -179,6 +179,7 @@ class Users extends Component {
           pagination={paginationFactory(options)}
         />
         <AdminModal modal={modal} toggle={this.toggle} selectedUser={selectedUser} />
+        <AdminSuspendModal suspendModal={ suspendModal } toggleSuspendModal={this.toggleSuspendModal } />
       </Fragment>
     );
   }

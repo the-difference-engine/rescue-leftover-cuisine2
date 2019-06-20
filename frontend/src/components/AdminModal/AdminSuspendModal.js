@@ -17,12 +17,6 @@ class AdminSuspendModal extends React.Component {
 
     return (
       <div>
-        <button type="button" className="suspend-user-close-button" onClick={toggle}>
-          <img
-            src="https://img.icons8.com/windows/32/9b9b9b/cancel.png"
-            alt="close"
-          />
-        </button>
         <Modal isOpen={suspendModal} toggle={toggle} backdrop={false}>
           <ModalHeader toggle={toggle} close={closeBtn}>Suspend User?</ModalHeader>
           <ModalBody>
@@ -35,6 +29,8 @@ class AdminSuspendModal extends React.Component {
               Suspend
             </Button>
           </ModalFooter>
+
+          {console.log('inside AdminSuspendModal.js')}
         </Modal>
       </div>
     );

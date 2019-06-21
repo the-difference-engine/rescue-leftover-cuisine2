@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import TagsBar from './TagsBar/TagsBar';
 import recipephoto from '../../assets/bread.jpg';
 import { withRouter } from 'react-router-dom';
@@ -122,6 +123,10 @@ class Recipe extends Component {
                 ))}
              </ul>
           </div>
+
+        <div className="row">
+            <Footer />
+        </div>
         </div>
       );
     }

@@ -3,6 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 import './AdminSuspendModal.css';
+import { suspendUser } from '../../lib/apiClient'
 
 class AdminSuspendModal extends React.Component {
   constructor(props) {
@@ -30,8 +31,6 @@ class AdminSuspendModal extends React.Component {
               Suspend
             </Button>
           </ModalFooter>
-
-          {console.log('inside AdminSuspendModal.js')}
         </Modal>
       </div>
     );

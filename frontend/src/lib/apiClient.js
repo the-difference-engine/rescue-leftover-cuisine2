@@ -33,6 +33,12 @@ const loginUser = (data) => {
   });
 };
 
+const suspendUser = userId => apiClient.patch(`api/v1/user/${userId}`, {
+  user: {
+    is_suspended: true,
+  },
+});
+
 const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
   headers: {
     Authorization: `${sessionStorage.jwt}`,
@@ -47,5 +53,5 @@ const getUsers = () => apiClient.get('api/v1/users')
 
 export default apiClient;
 export {
-  getRecipes, createUser, loginUser, getUser, getUsers,
+  getRecipes, createUser, loginUser, getUser, getUsers, suspendUser,
 };

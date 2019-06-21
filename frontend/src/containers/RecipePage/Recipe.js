@@ -29,17 +29,17 @@ class Recipe extends Component {
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {
         return (
-          <img className="icons" src="https://img.icons8.com/material-rounded/24/4EC8ED/low-connection.png" alt="Easy Difficulty Rating" />
+          <img  className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/low-connection.png" alt="Easy Difficulty Rating" />
         );
       }
       if (difficulty === 'MEDIUM') {
         return (
-          <img className="icons" src="https://img.icons8.com/material-rounded/24/4EC8ED/medium-connection.png" alt="Medium Difficulty Rating" />
+          <img  className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/medium-connection.png" alt="Medium Difficulty Rating" />
         );
       }
       if (difficulty === 'ADVANCED') {
         return (
-          <img className="icons" src="https://img.icons8.com/material-rounded/24/4EC8ED/bar-chart.png" alt="Advanced Difficulty Rating" />
+          <img  className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/bar-chart.png" alt="Advanced Difficulty Rating" />
         );
       }
       return ""; 

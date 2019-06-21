@@ -12,6 +12,11 @@
   color: #ffa616;
 }
 
+.recipe-difficulty {
+  padding-right: 5px;
+  color: #4EC8ED;
+}
+
 .recipe-cancel-button, .recipe-edit-button {
   display: flex;
   float: right;

@@ -39,7 +39,7 @@ const suspendUser = userId => apiClient.patch(`api/v1/user/${userId}`, {
   },
 });
 
-const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
+const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   headers: {
     Authorization: `${sessionStorage.jwt}`,
   },
@@ -55,3 +55,12 @@ export default apiClient;
 export {
   getRecipes, createUser, loginUser, getUser, getUsers, suspendUser,
 };
+
+// something like this-- will handle request from admin page to update the user
+// const adminEditUser = userId => apiClient.patch(`api/v1/users/${userId}`, {
+
+// }).then((response) => {
+//   console.log(response);
+// }).catch((error) => {
+//   console.log(error.response.data);
+// });

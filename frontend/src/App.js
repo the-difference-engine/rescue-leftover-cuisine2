@@ -6,6 +6,9 @@ import Homepage from './containers/Homepage/Homepage';
 import LoginPage from './containers/LoginPage/LoginPage';
 import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
 import Recipe from './containers/RecipePage/Recipe';
+import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
+import ProfilePage from './containers/ProfilePage/ProfilePage';
+
 
 const App = () => (
   <div>
@@ -16,6 +19,8 @@ const App = () => (
       <Route path="/admin" component={AdminPanel} />
       <Route path="/recipe/new" component={CreateRecipe} />
       <Route path="/recipe" component={Recipe} />
+      <Route path="/profile" component={ProfilePage} />
+      <Route path="/resetpassword" component={ResetPassword} />
     </Switch>
   </div>
 );

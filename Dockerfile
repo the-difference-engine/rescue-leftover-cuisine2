@@ -6,7 +6,7 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev sudo net-
 RUN mkdir -p /app/frontend
 ENV PATH=/app/bin:$PATH RAILS_ENV=development
 WORKDIR /app
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
-RUN gem install bundler
 COPY . /app
+RUN gem install bundler -v 1.17.3 && \
+    bundle install && \
+    cd frontend && npm install

@@ -33,8 +33,10 @@
 }
 
 .search-input {
+  width: 80%;
+  height: 80px;
   margin-top: 39px;
-  padding: 26px 265px 26px 26px;
+  padding: 8px 20px 8px 20px;
   font-weight: 100;
   font-family: 'Nunito', sans-serif;
   color: #9b9b9b;
@@ -51,8 +53,9 @@
 }
 
 .search-button {
+  height: 80px;
   margin-top: 39px;
-  padding: 26px 326px 26px 26px;
+  padding: 8px 20px 8px 20px;
   background: #fff;
   border: none;
   border-radius: 0px 10px 10px 0px;
@@ -76,4 +79,34 @@
   padding-top: 26px;
   font-weight: 500;
   margin: 0px;
+}
+
+.chevron-box{
+  margin-left: 88%;
+  cursor: pointer;
+  background-color: grey;
+  height: 30px;
+  width: 50px;
+}
+
+.chevron-image {
+  margin-top: -12px
+}
+
+.searchInstructions{
+  cursor: pointer;
+  height: 88px;
+  margin-left: 7%;
+  margin-right: 7%;
+  background-color: grey;
+  border-radius: 5px 5px 5px 5px;
+  padding: 15px;
+  font-family: verdana;
+  font-size: 14px;
+  color: white;
+}
+
+p.close {
+  color: purple;
+  font-size: 14px;
 }

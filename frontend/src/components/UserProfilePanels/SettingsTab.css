@@ -1,0 +1,18 @@
+.settings-panel h2 {
+  margin-bottom: 30px;
+}
+
+.settings-panel input {
+  height: 70px;
+  font-size: 22px;
+  color: #757373;
+  border: 1.5px solid #ced4da;
+}
+
+.settings-panel button {
+  font-size: 22px;
+  background-color: #4ec8ed;
+  height: 70px;
+  width: 400px;
+  border: none;
+}

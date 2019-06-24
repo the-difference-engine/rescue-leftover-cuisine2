@@ -9,17 +9,11 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
-  # fix this to handle updating of the user data
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to admin_path
-    else
-      render 'edit'
-    end
+    @user.update(user_params)
   end
 
-  # fix this for above (this helps format the data to spit it back into update above)
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email)
   end

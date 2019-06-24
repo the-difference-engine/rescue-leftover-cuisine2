@@ -37,6 +37,10 @@
   color: #9b9b9b;
 }
 
+.edit-user-alert {
+  margin-top: 30px;
+}
+
 .edit-user-save-button {
   width: 130px;
   background-color: #4ec8ed;

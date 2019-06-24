@@ -23,7 +23,7 @@ class Users extends Component {
   }
 
   render() {
-    const { users } = this.props;
+    const { users, refreshUsers } = this.props;
     const columns = [
       {
         dataField: 'inStock', // name?
@@ -163,6 +163,7 @@ class Users extends Component {
           editModal={editModal}
           toggleEditModal={this.toggleEditModal}
           selectedUser={selectedUser}
+          refreshUsers={refreshUsers}
         />
       </Fragment>
     );

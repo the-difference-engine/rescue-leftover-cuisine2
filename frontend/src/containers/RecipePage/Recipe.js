@@ -21,7 +21,7 @@ class Recipe extends Component {
   }
 
   render() {
-    const { directions, title, ingredient, snippet, difficulty, duration, servings} = this.state;
+    const { directions, title, ingredient, snippet, difficulty, duration, servings } = this.state;
 
     const mealDifficulty = () => {
       if (difficulty === 'EASY') { 

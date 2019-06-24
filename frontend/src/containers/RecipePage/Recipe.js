@@ -21,10 +21,11 @@ class Recipe extends Component {
   }
 
   render() {
+
     const { directions, title, ingredient, snippet, difficulty, duration, servings } = this.state;
 
     const mealDifficulty = () => {
-      if (difficulty === 'EASY') { 
+      if (difficulty === 'EASY') {
         return (
           <img className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/low-connection.png" alt="Easy Difficulty Rating" />
         );
@@ -39,7 +40,7 @@ class Recipe extends Component {
           <img className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/bar-chart.png" alt="Advanced Difficulty Rating" />
         );
       }
-      return ""; 
+      return '';
     };
     return (
       <div className="recipe-overall-container">
@@ -50,11 +51,11 @@ class Recipe extends Component {
         </div>
         <div>
           <button className="btn navbar-btn btn-lg editButton" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit"/>
+           <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
              <p id="edit-icon-text">Edit</p>
           </button>
           <button className="btn navbar-btn btn-lg cancelButton" type="button">
-             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
+            <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
               <p id="delete-icon-text">Delete</p>
           </button>
         </div>
@@ -62,15 +63,15 @@ class Recipe extends Component {
         <div className="recipe-specs-bars">
           <div className="row">
             <div id="recipe-spec-container1" className="recipe-spec-element col-sm-4 text-center">
-               <span> 
-                 {mealDifficulty()}
-                 {difficulty}
-               </span>
-             </div>
+              <span>
+                {mealDifficulty()}
+                {difficulty}
+              </span>
+            </div>
             <div id="recipe-spec-container2" className="recipe-spec-element col-sm-4 text-center">
               <span>
                 <i className="fas fa-clock" />
-                  { duration }{' '}MIN
+                { duration }{' '}MIN
               </span>
             </div>
             <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
@@ -80,11 +81,11 @@ class Recipe extends Component {
           </div>
         </div>
         <div className="tags-bar">
-          <TagsBar/>
+          <TagsBar />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">
-             {title}
+            {title}
           </h1>
           <p id="recipe-descrip" className="col-sm-8 offset-sm-2">
             {snippet}

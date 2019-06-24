@@ -10,7 +10,6 @@ class Recipe extends Component {
   constructor() {
     super();
     this.state = {
-     
       directions: ['Mix all together', 'Bake in oven', 'Eat it all up'],
       data: [],
       title: 'Easy Creamy Vegan Macaroni and Cheese',
@@ -116,7 +115,7 @@ class Recipe extends Component {
              <ul className="direction-list">
                 {directions.map((direction, index) => (
                 <div className="single-direction">
-                  <ol className="direction-index">{index + 1}</ol>
+                  <span className="direction-index">{index + 1}</span>
                   <p className="direction-action">{direction}</p>
                   <br />
                 </div>

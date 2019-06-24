@@ -118,11 +118,10 @@ class Recipe extends Component {
                 ))}
              </ul>
           </div>
-
         <div className="row">
             <Footer />
         </div>
-        </div>
+      </div>
       );
     }
   }

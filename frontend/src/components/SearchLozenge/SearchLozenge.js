@@ -1,44 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SearchLozenge.css';
-// import { getRecipes } from '../../lib/apiClient';
 
-
-class SearchLozenge extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lozenges: [],
-    };
+const SearchLozenge = (props) => {
+  let { searchTerm } = props;
+  if (!searchTerm) {
+    searchTerm = '';
   }
-
-  componentWillMount() {
-    const { searchTerm } = this.props;
-    console.log(searchTerm);
-    // this.createLozenges(searchTerm);
-  }
-
-
-  // createLozenges(searchTerm) {
-  //   this.setState({
-  //     lozenges: searchTerm.split(' '),
-  //   });
-  // }
-
-
-  render() {
-    const { lozenges } = this.state;
-    // console.log(lozenges);
-    return (
-      <div className="searchLozenge container-fluid">
-        <div className="row">
-          <div className="lozengeBubbles">
-            <h2>Filter Your Results!</h2>
-            { lozenges[0] }
-          </div>
+  const lozenges = searchTerm.split(' ');
+  return (
+    <div className="searchLozenge container">
+      <div className="row">
+        <div className="lozengeBubbles">
+          {lozenges.map(lozenge => (
+            <div className="lozenges">
+              {lozenge.charAt(0).toUpperCase() }
+              {lozenge.substr(1)}
+              {' '}
+              {' x'}
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default SearchLozenge;

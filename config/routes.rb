@@ -19,7 +19,9 @@ Rails.application.routes.draw do
       resources :user
 
       devise_scope :user do
-        get '/auth', to: 'registrations#show'
+        authenticate :user do
+          get '/auth', to: 'registrations#show'
+        end
       end
     end
   end

@@ -15,8 +15,8 @@ Rails.application.routes.draw do
              
   namespace :api do
     namespace :v1 do
-      resources :recipe
-      resources :user
+      resources :recipes
+      resources :users
 
       devise_scope :user do
         authenticate :user do

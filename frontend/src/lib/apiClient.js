@@ -37,10 +37,10 @@ const getCurrentUser = () => apiClient.get('api/v1/auth', {
 
 // USERS
 
-const getUsers = () => apiClient.get('api/v1/user')
+const getUsers = () => apiClient.get('api/v1/users')
   .then(results => results.data);
 
-const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
+const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   headers: {
     Authorization: sessionStorage.jwt,
   },
@@ -50,7 +50,7 @@ const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
 
 const getRecipes = (search) => {
   const query = search ? `?search=${search}` : '';
-  return apiClient.get(`api/v1/recipe${query}`)
+  return apiClient.get(`api/v1/recipes${query}`)
     .then(results => results.data);
 };
 

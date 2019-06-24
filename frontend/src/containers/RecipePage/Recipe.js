@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from './TagsBar/TagsBar';
 import recipephoto from '../../assets/bread.jpg';
-import { withRouter } from 'react-router-dom';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -11,12 +11,9 @@ class Recipe extends Component {
     super();
     this.state = {
       directions: ['Mix all together', 'Bake in oven', 'Eat it all up'],
-      data: [],
       title: 'Easy Creamy Vegan Macaroni and Cheese',
       snippet: 'Although this does not taste like the the traditional mac n cheese recipes most of us grew up with it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy.',
-      meal: 'Todo',
       ingredient: ['1 (8 ounce) package elbow macaroni', '1 cup nutritional yeast', '4 cloves garlice'],
-      photos: '',
       difficulty: 'EASY',
       duration: '30',
       servings: '2',
@@ -27,24 +24,23 @@ class Recipe extends Component {
     const { directions, title, ingredient, snippet, difficulty, duration, servings} = this.state;
 
     const mealDifficulty = () => {
-      if (difficulty === 'EASY') {
+      if (difficulty === 'EASY') { 
         return (
-          <img  className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/low-connection.png" alt="Easy Difficulty Rating" />
+          <img className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/low-connection.png" alt="Easy Difficulty Rating" />
         );
       }
       if (difficulty === 'MEDIUM') {
         return (
-          <img  className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/medium-connection.png" alt="Medium Difficulty Rating" />
+          <img className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/medium-connection.png" alt="Medium Difficulty Rating" />
         );
       }
       if (difficulty === 'ADVANCED') {
         return (
-          <img  className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/bar-chart.png" alt="Advanced Difficulty Rating" />
+          <img className="recipe-difficulty" src="https://img.icons8.com/material-rounded/24/4EC8ED/bar-chart.png" alt="Advanced Difficulty Rating" />
         );
       }
       return ""; 
     };
-
     return (
       <div className="recipe-overall-container">
         <div className="row">
@@ -57,8 +53,8 @@ class Recipe extends Component {
             <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit"/>
              <p id="edit-icon-text">Edit</p>
           </button>
-          <button  className="btn navbar-btn btn-lg cancelButton" type="button">
-             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete"/>
+          <button className="btn navbar-btn btn-lg cancelButton" type="button">
+             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
               <p id="delete-icon-text">Delete</p>
           </button>
         </div>

@@ -19,10 +19,11 @@ class Recipe extends Component {
       servings: '2',
     };
   }
-
+  
   render() {
-
-    const { directions, title, ingredient, snippet, difficulty, duration, servings } = this.state;
+    const { 
+      directions, title, ingredient, snippet, difficulty, duration, servings 
+          } = this.state;
 
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {
@@ -51,12 +52,12 @@ class Recipe extends Component {
         </div>
         <div>
           <button className="btn navbar-btn btn-lg editButton" type="button">
-           <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
-             <p id="edit-icon-text">Edit</p>
+            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
+            <p id="edit-icon-text">Edit</p>
           </button>
           <button className="btn navbar-btn btn-lg cancelButton" type="button">
             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
-              <p id="delete-icon-text">Delete</p>
+            <p id="delete-icon-text">Delete</p>
           </button>
         </div>
         <img src={recipephoto} alt="recipephoto" className="recipe-photo" />
@@ -71,11 +72,12 @@ class Recipe extends Component {
             <div id="recipe-spec-container2" className="recipe-spec-element col-sm-4 text-center">
               <span>
                 <i className="fas fa-clock" />
-                { duration }{' '}MIN
+                { duration }
+                {' '}MIN
               </span>
             </div>
             <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
-              <i className="fas fa-utensil-spoon" />
+            <i className="fas fa-utensil-spoon" />
                 <span>{ servings }</span>
             </div>
           </div>
@@ -106,11 +108,11 @@ class Recipe extends Component {
           </div>
         </div>
         <div id="hr" />
-        <div className="separator col-sm-10 offset-sm-1" />
+      <div className="separator col-sm-10 offset-sm-1" />
           <div id="direction-container" className="col-sm-10 offset-sm-1">
-            <h1 id="direction-title">Directions</h1>
-             <ul className="direction-list">
-                {directions.map((direction, index) => (
+          <h1 id="direction-title">Directions</h1>
+            <ul className="direction-list">
+                  {directions.map((direction, index) => (
                 <div className="single-direction">
                   <span className="direction-index">{index + 1}</span>
                   <p className="direction-action">{direction}</p>
@@ -119,12 +121,12 @@ class Recipe extends Component {
                 ))}
              </ul>
           </div>
-        <div className="row">
+      <div className="row">
             <Footer />
-        </div>
       </div>
-      );
-    }
+    </div>
+    );
   }
+}
 
 export default withRouter(Recipe);

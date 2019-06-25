@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Col, Input,
 } from 'reactstrap';
-import './AdminModal.css';
+// import './AdminModal.css';
 
 class AdminModal extends React.Component {
   constructor(props) {

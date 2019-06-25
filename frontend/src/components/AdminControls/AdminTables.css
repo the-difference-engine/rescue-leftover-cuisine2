@@ -32,10 +32,6 @@
   border: none;
 }
 
-.suspend-button {
-  display: none;
-}
-
 .recipe-checkbox-spacing {
   margin-left: 80px;
   margin-top: -10px;

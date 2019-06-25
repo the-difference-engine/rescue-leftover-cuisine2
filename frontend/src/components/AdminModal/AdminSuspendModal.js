@@ -30,8 +30,6 @@ class AdminSuspendModal extends React.Component {
               Suspend
             </Button>
           </ModalFooter>
-
-          {console.log('inside AdminSuspendModal.js')}
         </Modal>
       </div>
     );

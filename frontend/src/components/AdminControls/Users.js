@@ -122,20 +122,45 @@ class Users extends Component {
                 alt="edit"
               />
             </button>
-            <button type="button" className="admin-edit-button" onClick={this.toggleSuspendModal}>
-              <img
-                src="https://img.icons8.com/windows/32/000000/cancel.png"
-                alt="delete"
-              />
-            </button>
-            <button type="button" className="admin-edit-button suspend-button">
-              <img
-                src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
-                alt="user currently suspended"
-              />
-            </button>
           </div>
         ),
+      },
+      // Separate column added for suspend-user icons.
+      // Will display one icon or the other based on whether
+      // user is suspended or not.
+      {
+        dataField: 'is_suspended',
+        text: '',
+        headerStyle: {
+          textAlign: 'center',
+          borderTop: 'none',
+          borderBottom: 'none',
+        },
+        align: 'left',
+        formatter: (cell) => {
+          if (cell) {
+            return (
+              <div>
+                <button type="button" className="admin-edit-button">
+                  <img
+                    src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
+                    alt="user currently suspended"
+                  />
+                </button>
+              </div>
+            );
+          } 
+          return (
+            <div>
+              <button type="button" className="admin-edit-button" onClick={this.toggleSuspendModal} >
+                <img
+                  src="https://img.icons8.com/windows/32/000000/cancel.png"
+                  alt="suspend user"
+                />
+              </button>
+            </div>
+          );
+        },
       },
     ];
 

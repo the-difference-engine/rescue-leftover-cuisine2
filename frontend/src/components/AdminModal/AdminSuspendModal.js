@@ -3,6 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 import './AdminSuspendModal.css';
+import { suspendUser } from '../../lib/apiClient';
 
 class AdminSuspendModal extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class AdminSuspendModal extends React.Component {
               If you do not wish to suspend the user, close this dialog box.
           </ModalBody>
           <ModalFooter>
-            <Button className="suspend-user-save-button" color="primary" onClick={toggleSuspendModal}>
+            <Button className="suspend-user-save-button" color="primary" onClick={suspendUser(selectedUser.id)}>
               Suspend
             </Button>
           </ModalFooter>

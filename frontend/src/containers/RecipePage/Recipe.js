@@ -115,9 +115,9 @@ class Recipe extends Component {
           <ul className="direction-list">
             {directions.map((direction, index) => (
               <div className="single-direction">
-                  <span className="direction-index">{index + 1}</span>
-                  <p className="direction-action">{direction}</p>
-                  <br />
+                <span className="direction-index">{index + 1}</span>
+                <p className="direction-action">{direction}</p>
+                <br />
               </div>
             ))
             }

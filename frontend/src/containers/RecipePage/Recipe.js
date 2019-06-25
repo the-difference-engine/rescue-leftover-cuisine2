@@ -78,8 +78,8 @@ class Recipe extends Component {
               </span>
             </div>
             <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
-                <i className="fas fa-utensil-spoon" />
-                <span>{ servings }</span>
+              <i className="fas fa-utensil-spoon" />
+              <span>{ servings }</span>
             </div>
           </div>
         </div>
@@ -111,16 +111,15 @@ class Recipe extends Component {
         <div id="hr" />
         <div className="separator col-sm-10 offset-sm-1" />
         <div id="direction-container" className="col-sm-10 offset-sm-1">
-              <h1 id="direction-title">Directions</h1>
-              <ul className="direction-list">
-            {directions.map((direction, index) => (
-                    <div className="single-direction">
-                  <span className="direction-index">{index + 1}</span>
-                  <p className="direction-action">{direction}</p>
-                  <br />
-                </div>
-                    ),
-              )
+          <h1 id="direction-title">Directions</h1>
+          <ul className="direction-list">
+                {directions.map((direction, index) => (
+              <div className="single-direction">
+                      <span className="direction-index">{index + 1}</span>
+                      <p className="direction-action">{direction}</p>
+                      <br />
+              </div>
+                ))
             }
              </ul>
           </div>

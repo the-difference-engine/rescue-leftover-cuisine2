@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { resetPassword } from '../../lib/apiClient';
 import './NewPassword.css';
 
 class NewPassword extends Component {
@@ -12,7 +13,7 @@ class NewPassword extends Component {
       isPasswordVisible: false,
       password: '',
       confirmPassword: '',
-      token: 'eyJ1c2VySWQiOjF9',
+      resetPasswordToken: 'eyJ1c2VySWQiOjF9',
     };
   }
 
@@ -26,27 +27,43 @@ class NewPassword extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = (event, changeCreatedState) => {
     event.preventDefault();
     const { history } = this.props;
     const { password, confirmPassword } = this.state;
-    const { token } = this.state;
-    const queryString = `/?q=${token}`;
+    const { resetPasswordToken } = this.state;
+    const queryString = `resetpassword/?q=${resetPasswordToken}`;
     if (password !== confirmPassword) {
       alert("Passwords don't match"); // eslint-disable-line no-undef
     } else {
-      // make API call
+      resetPassword(this.state)
+        .then((response) => {
+          changeCreatedState(response.status);
+          history.push(queryString);
+        })
+        .catch((error) => {
+          if (error.message.includes('422')) {
+            const parentForm = document.getElementsByTagName('form')[0];
+            const errorDiv = document.createElement('p');
+            errorDiv.setAttribute('class', 'errorMessage reset-password');
+            errorDiv.innerHTML = 'Please enter a valid password.';
+            parentForm.insertAdjacentElement('beforeend', errorDiv);
+          }
+        });
     }
-    history.push(queryString);
   };
 
   render() {
+    const { changeCreatedState } = this.props;
     const { isPasswordVisible } = this.state;
 
     return (
       <div className="newPasswordCard">
         <h3 className="newPasswordHeader">Reset Password</h3>
-        <form className="form-newPassword" onSubmit={this.handleSubmit}>
+        <form
+          className="form-newPassword"
+          onSubmit={event => this.handleSubmit(event, changeCreatedState)}
+        >
           <div className="form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
@@ -65,13 +82,12 @@ class NewPassword extends Component {
               onClick={this.toggleIcon}
             />
           </div>
-
           <div className="passwordConfirm form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
               id="inputSignInPasswordConfirm"
               className="password-confirm-input fullWidth form-control-lg"
-              name="confirm-password"
+              name="confirmPassword"
               required
               placeholder="Confirm Password"
               onFocus={event => event.target.setAttribute('placeholder', 'confirmPassword')}
@@ -85,7 +101,6 @@ class NewPassword extends Component {
               onClick={this.toggleIcon}
             />
           </div>
-
           <div className="row">
             <button
               className="resetPasswordButton signUpButton btn btn-lg btn-block"

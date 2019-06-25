@@ -13,8 +13,7 @@ const apiClient = axios.create({
 
 const getRecipes = (search) => {
   const query = search ? `?search=${search}` : '';
-  return apiClient.get(`api/v1/recipe${query}`)
-    .then(results => results.data);
+  return apiClient.get(`api/v1/recipe${query}`).then(results => results.data);
 };
 
 const createUser = data => apiClient.post('api/v1/user', {
@@ -33,19 +32,27 @@ const loginUser = (data) => {
   });
 };
 
-const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
-  headers: {
-    Authorization: `${sessionStorage.jwt}`,
-  },
-}).then((response) => {
-  console.log(response);
-})
-  .catch((error) => { console.log(error.response.data); });
+const getUser = userId => apiClient
+  .get(`api/v1/user/${userId}`, {
+    headers: {
+      Authorization: `${sessionStorage.jwt}`,
+    },
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error.response.data);
+  });
 
-const getUsers = () => apiClient.get('api/v1/users')
-  .then(results => results.data);
+const getUsers = () => apiClient.get('api/v1/users').then(results => results.data);
+
+const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/password', {
+  resetPasswordToken,
+  password,
+});
 
 export default apiClient;
 export {
-  getRecipes, createUser, loginUser, getUser, getUsers,
+  getRecipes, createUser, loginUser, getUser, getUsers, resetPassword,
 };

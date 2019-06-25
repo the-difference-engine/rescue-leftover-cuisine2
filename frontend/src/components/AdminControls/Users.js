@@ -149,10 +149,10 @@ class Users extends Component {
                 </button>
               </div>
             );
-          } 
+          }
           return (
             <div>
-              <button type="button" className="admin-edit-button" onClick={this.toggleSuspendModal} >
+              <button type="button" className="admin-edit-button" onClick={this.toggleSuspendModal}>
                 <img
                   src="https://img.icons8.com/windows/32/000000/cancel.png"
                   alt="suspend user"

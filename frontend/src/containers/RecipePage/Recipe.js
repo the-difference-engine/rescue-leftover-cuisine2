@@ -77,8 +77,8 @@ class Recipe extends Component {
                 MIN
               </span>
             </div>
-              <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
-              <i className="fas fa-utensil-spoon" />
+            <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
+                <i className="fas fa-utensil-spoon" />
                 <span>{ servings }</span>
             </div>
           </div>
@@ -108,26 +108,26 @@ class Recipe extends Component {
             </ul>
           </div>
         </div>
-          <div id="hr" />
-    <div className="separator col-sm-10 offset-sm-1" />
-            <div id="direction-container" className="col-sm-10 offset-sm-1">
-          <h1 id="direction-title">Directions</h1>
-        <ul className="direction-list">
-                      {directions.map((direction, index) => (
-                <div className="single-direction">
+        <div id="hr" />
+        <div className="separator col-sm-10 offset-sm-1" />
+        <div id="direction-container" className="col-sm-10 offset-sm-1">
+              <h1 id="direction-title">Directions</h1>
+              <ul className="direction-list">
+            {directions.map((direction, index) => (
+                    <div className="single-direction">
                   <span className="direction-index">{index + 1}</span>
                   <p className="direction-action">{direction}</p>
                   <br />
                 </div>
-                )
+                    ),
               )
             }
              </ul>
           </div>
         <div className="row">
-            <Footer />
+          <Footer />
+        </div>
       </div>
-    </div>
     );
   }
 }

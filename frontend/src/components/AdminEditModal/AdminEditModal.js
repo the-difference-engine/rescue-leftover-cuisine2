@@ -1,29 +1,37 @@
 import React from 'react';
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Col, Input,
+  Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Col, Input,
 } from 'reactstrap';
-// import './AdminModal.css';
+import './AdminEditModal.css';
 
-class AdminModal extends React.Component {
+class AdminEditModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // userData: this.props.selectedUser,
     };
+  }
+
+  compareUserData = (event) => {
+    event.preventDefault();
+    console.log('submit clicked');
+    console.log(event.target[0].value);
+    console.log(event.target.elements.email.value);
   }
 
   render() {
     const {
-      modal, toggle, selectedUser,
+      editModal, toggleEditModal, selectedUser,
     } = this.props;
 
-    const closeBtn = <button type="button" className="edit-user-close-button" onClick={toggle}><img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" /></button>;
+    const closeBtn = <button type="button" className="edit-user-close-button" onClick={toggleEditModal}><img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" /></button>;
 
     return (
       <div>
-        <Modal className="edit-user-modal" isOpen={modal} toggle={toggle} backdrop={false}>
-          <ModalHeader toggle={toggle} close={closeBtn}>Edit User Information</ModalHeader>
+        <Modal className="edit-user-modal" isOpen={editModal} toggle={toggleEditModal} backdrop={false}>
+          <ModalHeader toggle={toggleEditModal} close={closeBtn}>Edit User Information</ModalHeader>
           <ModalBody>
-            <Form>
+            <Form onSubmit={this.compareUserData}>
               <FormGroup row>
                 <Label for="firstName" sm={4}>First Name</Label>
                 <Col sm={8}>
@@ -42,15 +50,13 @@ class AdminModal extends React.Component {
                   <Input type="email" name="email" id="email" defaultValue={selectedUser.email} />
                 </Col>
               </FormGroup>
+              <Button type="submit" className="submit edit-user-save-button" onClick={toggleEditModal}>Save</Button>
             </Form>
           </ModalBody>
-          <ModalFooter>
-            <Button className="edit-user-save-button" onClick={toggle}>Save</Button>
-          </ModalFooter>
         </Modal>
       </div>
     );
   }
 }
 
-export default AdminModal;
+export default AdminEditModal;

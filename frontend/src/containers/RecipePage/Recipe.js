@@ -13,7 +13,7 @@ class Recipe extends Component {
       directions: ['Mix all together', 'Bake in oven', 'Eat it all up'],
       title: 'Easy Creamy Vegan Macaroni and Cheese',
       snippet: 'Although this does not taste like the the traditional mac n cheese recipes most of us grew up with it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy.',
-      ingredient: ['1 (8 ounce) package elbow macaroni', '1 cup nutritional yeast', '4 cloves garlice'],
+      ingredients: ['1 (8 ounce) package elbow macaroni', '1 cup nutritional yeast', '4 cloves garlice'],
       difficulty: 'EASY',
       duration: '30',
       servings: '2',
@@ -22,7 +22,7 @@ class Recipe extends Component {
 
   render() {
     const {
-      directions, title, ingredient, snippet, difficulty, duration, servings,
+      directions, title, ingredients, snippet, difficulty, duration, servings,
     } = this.state;
 
     const mealDifficulty = () => {
@@ -51,11 +51,11 @@ class Recipe extends Component {
           </div>
         </div>
         <div>
-          <button className="btn navbar-btn btn-lg editButton" type="button">
+          <button className="btn navbar-btn btn-lg edit-button" type="button">
             <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
             <p id="edit-icon-text">Edit</p>
           </button>
-          <button className="btn navbar-btn btn-lg cancelButton" type="button">
+          <button className="btn navbar-btn btn-lg cancel-button" type="button">
             <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
             <p id="delete-icon-text">Delete</p>
           </button>
@@ -100,9 +100,9 @@ class Recipe extends Component {
           <div id="ingredient-list">
             <h1 id="ingredient-title">Ingredients</h1>
             <ul id="ingredient-ul">
-              {ingredient.map(ingred => (
+              {ingredients.map(ingredient => (
                 <li>
-                  <div id="single-ingredient">{ingred}</div>
+                  <div className="single-ingredient">{ingredient}</div>
                 </li>
               ))}
             </ul>

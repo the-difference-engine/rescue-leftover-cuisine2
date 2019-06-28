@@ -3,7 +3,7 @@
   padding: 0px;
 }
 
-.cancelButton, .editButton {
+.cancel-button, .edit-button {
   display: inline-block;
   float: right;
   margin: 20px 20px;
@@ -15,25 +15,6 @@
 .recipe-difficulty {
   padding-right: 5px;
   color: #4EC8ED;
-}
-
-.recipe-cancel-button, .recipe-edit-button {
-  display: flex;
-  float: right;
-  margin: 20px 20px;
-  border: 2px solid #ffa616;
-  border-radius: 20%;
-  color: #ffa616;
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  height: 3.5em;
-  padding-left: .5em;
-  padding-right: .8em;
-  line-height: 3em;
-  font-weight: bold;
-  width: 120px;
-  text-align: center;
-  margin-top: 70px;
 }
 
 #delete-icon-text, #edit-icon-text {
@@ -133,7 +114,7 @@
   padding: 3%;
 }
 
-#single-ingredient{
+.single-ingredient{
   padding: 2%;
   color: #696969;
   font-size: 22px;

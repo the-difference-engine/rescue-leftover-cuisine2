@@ -22,8 +22,6 @@ class AdminSuspendModal extends React.Component {
         <Modal className="suspend-user-modal" isOpen={suspendModal} toggleSuspendModal={toggleSuspendModal} backdrop={false}>
           <ModalHeader toggleSuspendModal={toggleSuspendModal} close={closeBtn}>
             Suspend User?
-            { /* selectedUser.id */ }
-            { console.log(selectedUser.is_suspended) }
           </ModalHeader>
           <ModalBody>
             Clicking &quot;Suspended&quot; will prevent the user from logging into the app. The user will remain suspended until this status is removed by an administrator.
@@ -31,7 +29,7 @@ class AdminSuspendModal extends React.Component {
               If you do not wish to suspend the user, close this dialog box.
           </ModalBody>
           <ModalFooter>
-            <Button className="suspend-user-save-button" color="primary" onClick={suspendUser(selectedUser.id)}>
+            <Button className="suspend-user-save-button" color="primary" onClick={toggleSuspendModal}>
               Suspend
             </Button>
           </ModalFooter>

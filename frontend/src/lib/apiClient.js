@@ -27,7 +27,7 @@ const loginUser = (data) => {
   });
 };
 
-const suspendUser = userId => apiClient.patch(`api/v1/user/${userId}`, {
+const suspendUser = (userId) => apiClient.patch(`api/v1/users/${userId}`, {
   user: {
     is_suspended: true,
   },

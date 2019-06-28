@@ -15,6 +15,10 @@ class AdminSuspendModal extends React.Component {
   render() {
     const { toggleSuspendModal, suspendModal, selectedUser } = this.props;
 
+    const handleSuspend = () => {
+      suspendUser(selectedUser, selectedUser.id)
+    }
+
     const closeBtn = <button type="button" className="suspend-user-close-button" onClick={toggleSuspendModal}><img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" /></button>;
 
     return (
@@ -29,7 +33,7 @@ class AdminSuspendModal extends React.Component {
               If you do not wish to suspend the user, close this dialog box.
           </ModalBody>
           <ModalFooter>
-            <Button className="suspend-user-save-button" color="primary" onClick={toggleSuspendModal}>
+            <Button className="suspend-user-save-button" color="primary" onClick={handleSuspend}>
               Suspend
             </Button>
           </ModalFooter>

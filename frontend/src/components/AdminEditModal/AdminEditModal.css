@@ -1,0 +1,49 @@
+.edit-user-modal {
+  text-align: center;
+  margin-top: 125px;
+}
+
+.edit-user-modal .modal-content {
+  background: #f2f2f2;
+  border: none;
+}
+
+.edit-user-modal .modal-header {
+  padding-left: 30%;
+  border-bottom: none;
+}
+
+.edit-user-modal .modal-title {
+  padding-top: 20px;
+  font-size: 25px;
+}
+
+.edit-user-modal .modal-footer {
+  border-top: none;
+}
+
+.edit-user-modal input {
+  text-align: center;
+}
+
+.edit-user-modal .form-group {
+  padding-top: 30px;
+  padding-right: 30px
+}
+
+.edit-user-close-button {
+  border: none;
+  background: #f2f2f2;
+  color: #9b9b9b;
+}
+
+.edit-user-alert {
+  margin-top: 30px;
+}
+
+.edit-user-save-button {
+  width: 130px;
+  background-color: #4ec8ed;
+  border: none;
+  margin-top: 30px;
+}

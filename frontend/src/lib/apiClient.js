@@ -9,15 +9,9 @@ const apiClient = axios.create({
   baseURL,
 });
 
-// TODO: add methods to wrap API endpoints
+// AUTHENTICATION
 
-const getRecipes = (search) => {
-  const query = search ? `?search=${search}` : '';
-  return apiClient.get(`api/v1/recipe${query}`)
-    .then(results => results.data);
-};
-
-const createUser = data => apiClient.post('api/v1/user', {
+const createUser = data => apiClient.post('api/v1/auth', {
   user: {
     first_name: data.firstName,
     last_name: data.lastName,
@@ -33,19 +27,44 @@ const loginUser = (data) => {
   });
 };
 
-const getUser = userId => apiClient.get(`api/v1/user/${userId}`, {
+// CURRENT USER
+
+const getCurrentUser = () => apiClient.get('api/v1/auth', {
   headers: {
-    Authorization: `${sessionStorage.jwt}`,
+    Authorization: sessionStorage.jwt,
   },
-}).then((response) => {
-  console.log(response);
-})
-  .catch((error) => { console.log(error.response.data); });
+});
+
+// USERS
 
 const getUsers = () => apiClient.get('api/v1/users')
   .then(results => results.data);
 
+const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
+  headers: {
+    Authorization: sessionStorage.jwt,
+  },
+});
+
+const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
+  first_name: data.firstName.value,
+  last_name: data.lastName.value,
+  email: data.email.value,
+}).then((response) => {
+  console.log(response);
+}).catch((error) => {
+  console.log(error.response.data);
+});
+
+// RECIPES
+
+const getRecipes = (search) => {
+  const query = search ? `?search=${search}` : '';
+  return apiClient.get(`api/v1/recipes${query}`)
+    .then(results => results.data);
+};
+
 export default apiClient;
 export {
-  getRecipes, createUser, loginUser, getUser, getUsers,
+  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, adminEditUser,
 };

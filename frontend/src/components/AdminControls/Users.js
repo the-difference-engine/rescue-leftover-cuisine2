@@ -1,10 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
+import AdminEditModal from '../AdminEditModal/AdminEditModal';
 
-const Users = ({ users }) => {
+const Users = ({ users, refreshUsers }) => {
+  const [editModal, setEditModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
+
+  const toggleEditModal = () => {
+    setEditModal(!editModal);
+  };
+
   const columns = [
     {
       dataField: 'inStock', // name?
@@ -85,7 +93,7 @@ const Users = ({ users }) => {
       align: 'left',
       formatter: () => (
         <div>
-          <button type="button" className="admin-edit-button">
+          <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
             <img
               src="https://img.icons8.com/windows/32/000000/edit.png"
               alt="edit"
@@ -116,6 +124,15 @@ const Users = ({ users }) => {
     ],
   };
 
+  // This is a react-bootstrap-table2 way of
+  // getting the row index, which we use to get
+  // the corresponding user data
+  const rowEvents = {
+    onClick: (e, row, rowIndex) => {
+      setSelectedUser(users[rowIndex]);
+    },
+  };
+
   return (
     <Fragment>
       <h1 className="admin-users-title">Admin Dashboard</h1>
@@ -123,8 +140,15 @@ const Users = ({ users }) => {
         keyField="id"
         data={users}
         columns={columns}
+        rowEvents={rowEvents}
         bordered={false}
         pagination={paginationFactory(options)}
+      />
+      <AdminEditModal
+        editModal={editModal}
+        toggleEditModal={toggleEditModal}
+        selectedUser={selectedUser}
+        refreshUsers={refreshUsers}
       />
     </Fragment>
   );

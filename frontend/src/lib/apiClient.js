@@ -2,6 +2,7 @@
 /* eslint no-undef: "error" */
 
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
@@ -54,7 +55,13 @@ const getRecipes = (search) => {
     .then(results => results.data);
 };
 
+// RECIPE
+
+const getRecipe = (id) => {
+  return apiClient.get(`api/v1/recipes/${id}`);
+};
+
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes,
+  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe,
 };

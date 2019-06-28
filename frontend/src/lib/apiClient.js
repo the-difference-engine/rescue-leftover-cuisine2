@@ -27,10 +27,8 @@ const loginUser = (data) => {
   });
 };
 
-const suspendUser = userId => apiClient.patch(`api/v1/user/${userId}`, {
-  user: {
-    is_suspended: true,
-  },
+const suspendUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
+    is_suspended: !data.is_suspended,
 });
 
 // CURRENT USER
@@ -52,8 +50,7 @@ const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   },
 });
 
-// RECIPES
-
+// RECIPE
 const getRecipes = (search) => {
   const query = search ? `?search=${search}` : '';
   return apiClient.get(`api/v1/recipes${query}`)

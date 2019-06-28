@@ -40,6 +40,12 @@ const RecipeCard = (props) => {
     return '';
   };
 
+  const goRecipePage = () => {
+    getRecipe(id).then(function(response){
+       console.log(response.data);
+    }).then(() => props.history.push(`/recipe/${id}`));
+    };
+
   return (
     <div className="card-deck d-inline-flex">
       <div className="card">

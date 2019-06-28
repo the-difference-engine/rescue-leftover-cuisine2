@@ -26,9 +26,6 @@ class Recipe extends Component {
   componentWillMount(){
     const {match: {params}} = this.props;
       getRecipe(params.id).then((response) => {
-       console.log("-------")
-       console.log(response)
-       console.log("-------")
         this.setState({
           title: response.data.title,
           snippet: response.data.snippet,

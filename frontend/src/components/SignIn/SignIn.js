@@ -49,7 +49,10 @@ class SignIn extends Component {
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
+        <form
+          className="form-signInUp"
+          onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}
+        >
           <div className="form-group row">
             <input
               type="email"

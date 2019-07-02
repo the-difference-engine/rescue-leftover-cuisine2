@@ -52,7 +52,19 @@ const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/p
   password,
 });
 
+const requestPasswordReset = email => apiClient.post('/api/v1/password', {
+  user: {
+    email,
+  },
+});
+
 export default apiClient;
 export {
-  getRecipes, createUser, loginUser, getUser, getUsers, resetPassword,
+  getRecipes,
+  createUser,
+  loginUser,
+  getUser,
+  getUsers,
+  resetPassword,
+  requestPasswordReset,
 };

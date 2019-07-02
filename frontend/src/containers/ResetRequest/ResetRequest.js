@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { requestPasswordReset } from '../../lib/apiClient';
 
 class ResetRequest extends Component {
@@ -16,7 +17,7 @@ class ResetRequest extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const email = this.state;
+    const { email } = this.state;
     requestPasswordReset(email)
       .then(this.handleRedirect)
       .catch(() => this.setState({ errorMessage: 'Oops something went wrong! Please try again.' }));

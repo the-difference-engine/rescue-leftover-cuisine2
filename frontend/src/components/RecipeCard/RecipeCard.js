@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getRecipe } from '../../lib/apiClient';
+import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
 
@@ -12,6 +15,7 @@ const RecipeCard = (props) => {
     servings,
     snippet,
     title,
+    id,
   } = props;
 
   const mealDifficulty = () => {
@@ -40,14 +44,10 @@ const RecipeCard = (props) => {
     return '';
   };
 
-  const goRecipePage = () => {
-    getRecipe(id).then(function(response){
-       console.log(response.data);
-    }).then(() => props.history.push(`/recipe/${id}`));
-    };
+  const goRecipePage = () => props.history.push(`/recipe/${id}`);
 
   return (
-    <div className="card-deck d-inline-flex">
+      <div className="card-deck d-inline-flex" onClick={goRecipePage}>
       <div className="card">
         <div className="image-holder">
           <img className="card-img-top" src={firstPhoto()} alt={alternate} />
@@ -91,4 +91,4 @@ RecipeCard.propTypes = {
 };
 
 
-export default RecipeCard;
+export default withRouter(RecipeCard);

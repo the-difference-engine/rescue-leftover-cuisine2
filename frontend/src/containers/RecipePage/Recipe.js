@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from './TagsBar/TagsBar';
 import { getRecipe } from '../../lib/apiClient';
+import ScrollToTopOnMount from '../../components/ScrollToTop/ScrollToTop';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -65,6 +66,7 @@ class Recipe extends Component {
     };
     return (
       <div className="recipe-overall-container">
+        <ScrollToTopOnMount/>
         <div className="row">
           <div className="header">
             <Header />

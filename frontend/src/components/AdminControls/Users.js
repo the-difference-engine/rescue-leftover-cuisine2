@@ -1,216 +1,200 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
 import AdminEditModal from '../AdminEditModal/AdminEditModal';
-import AdminSuspendModal from '../AdminModal/AdminSuspendModal';
+import AdminSuspendModal from '../AdminSuspendModal/AdminSuspendModal';
 
-// add selectedUser to state which will update based on rowEvents click
-// then the modal will open on button click, and can access selected user in state
+const Users = ({ users, refreshUsers }) => {
+  const [editModal, setEditModal] = useState(false);
+  const [suspendModal, setSuspendModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
 
-class Users extends Component {
-  constructor(props) {
-    super(props);
+  const toggleEditModal = () => {
+    setEditModal(!editModal);
+  };
 
-    this.state = {
-      editModal: false,
-      suspendModal: false,
-      selectedUser: {},
-    };
-    this.toggleEditModal = this.toggleEditModal.bind(this);
-    this.toggleSuspendModal = this.toggleSuspendModal.bind(this);
-  }
+  const toggleSuspendModal = () => {
+    setSuspendModal(!suspendModal);
+  };
 
-  toggleEditModal() {
-    this.setState(prevState => ({
-      editModal: !prevState.editModal,
-    }));
-  }
-
-  toggleSuspendModal() {
-    this.setState(prevState => ({
-      suspendModal: !prevState.suspendModal,
-    }));
-  }
-
-  render() {
-    const { users } = this.props;
-    const columns = [
-      {
-        dataField: 'inStock', // name?
-        text: '',
-        headerStyle: {
-          borderTop: 'none',
-          borderBottom: 'none',
-        },
-        style: {
-          paddingLeft: '10px',
-        },
-        formatter: (_cellContent, row) => (
-          <div className="checkbox">
-            <label htmlFor="adminCheckbox" className="admin-checkbox-container user-checkbox-spacing">
-              <input type="checkbox" id="adminCheckbox" checked={row.inStock} />
-              <span className="admin-table-checkmark" />
-            </label>
-          </div>
-        ),
+  const columns = [
+    {
+      dataField: 'inStock', // name?
+      text: '',
+      headerStyle: {
+        borderTop: 'none',
+        borderBottom: 'none',
       },
-      {
-        dataField: 'full_name',
-        text: 'User Name',
-        style: { textAlign: 'center' },
-        headerStyle: {
-          textAlign: 'center',
-          borderTop: 'none',
-          borderBottom: 'none',
-        },
+      style: {
+        paddingLeft: '10px',
       },
-      {
-        dataField: 'created_at',
-        text: 'Member Since',
-        style: { textAlign: 'center' },
-        headerStyle: {
-          textAlign: 'center',
-          borderTop: 'none',
-          borderBottom: 'none',
-        },
-        formatter: (cell) => {
-          let dateObj = cell;
-          if (typeof cell !== 'object') {
-            dateObj = new Date(cell);
-          }
+      formatter: (_cellContent, row) => (
+        <div className="checkbox">
+          <label htmlFor="adminCheckbox" className="admin-checkbox-container user-checkbox-spacing">
+            <input type="checkbox" id="adminCheckbox" checked={row.inStock} />
+            <span className="admin-table-checkmark" />
+          </label>
+        </div>
+      ),
+    },
+    {
+      dataField: 'full_name',
+      text: 'User Name',
+      style: { textAlign: 'center' },
+      headerStyle: {
+        textAlign: 'center',
+        borderTop: 'none',
+        borderBottom: 'none',
+      },
+    },
+    {
+      dataField: 'created_at',
+      text: 'Member Since',
+      style: { textAlign: 'center' },
+      headerStyle: {
+        textAlign: 'center',
+        borderTop: 'none',
+        borderBottom: 'none',
+      },
+      formatter: (cell) => {
+        let dateObj = cell;
+        if (typeof cell !== 'object') {
+          dateObj = new Date(cell);
+        }
 
-          const day = `0${dateObj.getUTCDate()}`.slice(-2);
-          const month = `0${dateObj.getUTCMonth() + 1}`;
-          const year = dateObj.getUTCFullYear();
-          return `${month}/${day}/${year}`;
-        },
-        editor: {
-          type: Type.DATE,
-        },
+
+        const day = `0${dateObj.getUTCDate()}`.slice(-2);
+        const month = `0${dateObj.getUTCMonth() + 1}`;
+        const year = dateObj.getUTCFullYear();
+        return `${month}/${day}/${year}`;
       },
-      {
-        dataField: 'recipes',
-        text: 'Number Of Recipes',
-        align: 'center',
-        style: {
-          paddingRight: '80px',
-        },
-        headerStyle: {
-          paddingRight: '80px',
-          textAlign: 'center',
-          borderTop: 'none',
-          borderBottom: 'none',
-        },
-        formatter: cell => `${cell.length}`,
+      editor: {
+        type: Type.DATE,
       },
-      {
-        dataField: 'edit',
-        text: '',
-        headerStyle: {
-          textAlign: 'center',
-          borderTop: 'none',
-          borderBottom: 'none',
-        },
-        align: 'left',
-        formatter: () => (
-          <div>
-            <button type="button" className="admin-edit-button" onClick={this.toggleEditModal}>
-              <img
-                src="https://img.icons8.com/windows/32/000000/edit.png"
-                alt="edit"
-              />
-            </button>
-          </div>
-        ),
+    },
+    {
+      dataField: 'recipes',
+      text: 'Number Of Recipes',
+      align: 'center',
+      style: {
+        paddingRight: '80px',
       },
-      // Separate column added for suspend-user icons.
-      // Will display one icon or the other based on whether
-      // user is suspended or not.
-      {
-        dataField: 'is_suspended',
-        text: '',
-        headerStyle: {
-          textAlign: 'center',
-          borderTop: 'none',
-          borderBottom: 'none',
-        },
-        align: 'left',
-        formatter: (cell) => {
-          if (cell) {
-            return (
-              <div>
-                <button type="button" className="admin-edit-button">
-                  <img
-                    src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
-                    alt="user currently suspended"
-                  />
-                </button>
-              </div>
-            );
-          }
+      headerStyle: {
+        paddingRight: '80px',
+        textAlign: 'center',
+        borderTop: 'none',
+        borderBottom: 'none',
+      },
+      formatter: cell => `${cell.length}`,
+    },
+    {
+      dataField: 'edit',
+      text: '',
+      headerStyle: {
+        textAlign: 'center',
+        borderTop: 'none',
+        borderBottom: 'none',
+      },
+      align: 'left',
+      formatter: () => (
+        <div>
+          <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
+            <img
+              src="https://img.icons8.com/windows/32/000000/edit.png"
+              alt="edit"
+            />
+          </button>
+        </div>
+      ),
+    },
+    // Separate column added for suspend-user icons.
+    // Will display one icon or the other based on whether
+    // user is suspended or not.
+    {
+      dataField: 'is_suspended',
+      text: '',
+      headerStyle: {
+        textAlign: 'center',
+        borderTop: 'none',
+        borderBottom: 'none',
+      },
+      align: 'left',
+      formatter: (cell) => {
+        if (cell) {
           return (
             <div>
-              <button type="button" className="admin-edit-button" onClick={this.toggleSuspendModal}>
+              <button type="button" className="admin-edit-button">
                 <img
-                  src="https://img.icons8.com/windows/32/000000/cancel.png"
-                  alt="suspend user"
+                  src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
+                  alt="user currently suspended"
                 />
               </button>
             </div>
           );
-        },
+        }
+        return (
+          <div>
+            <button type="button" className="admin-edit-button" onClick={toggleSuspendModal}>
+              <img
+                src="https://img.icons8.com/windows/32/000000/cancel.png"
+                alt="suspend user"
+              />
+            </button>
+          </div>
+        );
       },
-    ];
+    },
+  ];
 
-    const options = {
-      hideSizePerPage: true,
-      sizePerPageList: [
-        {
-          text: '5',
-          value: 20,
-        },
-        {
-          text: 'All',
-          value: users.length,
-        },
-      ],
-    };
-
-    // This is a react-bootstrap-table2 way of
-    // getting the row index, which we use to get
-    // the corresponding user data
-    const rowEvents = {
-      onClick: (e, row, rowIndex) => {
-        this.setState({
-          selectedUser: users[rowIndex],
-        });
+  const options = {
+    hideSizePerPage: true,
+    sizePerPageList: [
+      {
+        text: '5',
+        value: 20,
       },
-    };
+      {
+        text: 'All',
+        value: users.length,
+      },
+    ],
+  };
 
-    const { editModal, suspendModal, selectedUser } = this.state;
+  // This is a react-bootstrap-table2 way of
+  // getting the row index, which we use to get
+  // the corresponding user data
+  const rowEvents = {
+    onClick: (e, row, rowIndex) => {
+      setSelectedUser(users[rowIndex]);
+    },
+  };
 
-    return (
-      <Fragment>
-        <h1 className="admin-users-title">Admin Dashboard</h1>
-        <BootstrapTable
-          keyField="id"
-          data={users}
-          columns={columns}
-          rowEvents={rowEvents}
-          bordered={false}
-          pagination={paginationFactory(options)}
-        />
-        <AdminEditModal editModal={editModal} toggleEditModal={this.toggleEditModal} selectedUser={selectedUser} />
-        <AdminSuspendModal
-          suspendModal={suspendModal}
-          toggleSuspendModal={this.toggleSuspendModal}
-          selectedUser={selectedUser}
-        />
-      </Fragment>
-    );
-  }
-}
+  return (
+    <Fragment>
+      <h1 className="admin-users-title">Admin Dashboard</h1>
+      <BootstrapTable
+        keyField="id"
+        data={users}
+        columns={columns}
+        rowEvents={rowEvents}
+        bordered={false}
+        pagination={paginationFactory(options)}
+      />
+      <AdminEditModal
+        editModal={editModal}
+        toggleEditModal={toggleEditModal}
+        selectedUser={selectedUser}
+        refreshUsers={refreshUsers}
+      />
+      <AdminSuspendModal
+        suspendModal={suspendModal}
+        toggleSuspendModal={toggleSuspendModal}
+        selectedUser={selectedUser}
+      />
+    </Fragment>
+  );
+};
 
 export default Users;

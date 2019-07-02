@@ -27,10 +27,6 @@ const loginUser = (data) => {
   });
 };
 
-const suspendUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
-    is_suspended: !data.is_suspended,
-});
-
 // CURRENT USER
 
 const getCurrentUser = () => apiClient.get('api/v1/auth', {
@@ -48,6 +44,10 @@ const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   headers: {
     Authorization: sessionStorage.jwt,
   },
+});
+
+const suspendUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
+  is_suspended: !data.is_suspended,
 });
 
 // RECIPE
@@ -73,4 +73,4 @@ const getRecipes = (search) => {
 export default apiClient;
 export {
   createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, adminEditUser, suspendUser,
-
+};

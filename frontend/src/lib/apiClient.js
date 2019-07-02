@@ -51,6 +51,19 @@ const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
 });
 
 // RECIPE
+
+const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
+  first_name: data.firstName.value,
+  last_name: data.lastName.value,
+  email: data.email.value,
+}).then((response) => {
+  console.log(response);
+}).catch((error) => {
+  console.log(error.response.data);
+});
+
+// RECIPES
+
 const getRecipes = (search) => {
   const query = search ? `?search=${search}` : '';
   return apiClient.get(`api/v1/recipes${query}`)
@@ -59,14 +72,5 @@ const getRecipes = (search) => {
 
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, suspendUser,
-};
+  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, adminEditUser, suspendUser,
 
-// something like this-- will handle request from admin page to update the user
-// const adminEditUser = userId => apiClient.patch(`api/v1/users/${userId}`, {
-
-// }).then((response) => {
-//   console.log(response);
-// }).catch((error) => {
-//   console.log(error.response.data);
-// });

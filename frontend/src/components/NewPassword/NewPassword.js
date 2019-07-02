@@ -13,7 +13,6 @@ class NewPassword extends Component {
       isPasswordVisible: false,
       password: '',
       confirmPassword: '',
-      resetPasswordToken: 'eyJ1c2VySWQiOjF9',
     };
   }
 
@@ -32,7 +31,7 @@ class NewPassword extends Component {
     const { history } = this.props;
     const { password, confirmPassword } = this.state;
     const { resetPasswordToken } = this.state;
-    const queryString = `resetpassword/?q=${resetPasswordToken}`;
+    const queryString = `/login/?q=${resetPasswordToken}`;
     if (password !== confirmPassword) {
       alert("Passwords don't match"); // eslint-disable-line no-undef
     } else {
@@ -42,13 +41,14 @@ class NewPassword extends Component {
           history.push(queryString);
         })
         .catch((error) => {
-          if (error.message.includes('422')) {
-            const parentForm = document.getElementsByTagName('form')[0];
-            const errorDiv = document.createElement('p');
-            errorDiv.setAttribute('class', 'errorMessage reset-password');
-            errorDiv.innerHTML = 'Please enter a valid password.';
-            parentForm.insertAdjacentElement('beforeend', errorDiv);
-          }
+          console.log(error.message);
+          // if (error.message.includes('422')) {
+          //   const parentForm = document.getElementsByTagName('form')[0];
+          //   const errorDiv = document.createElement('p');
+          //   errorDiv.setAttribute('class', 'errorMessage reset-password');
+          //   errorDiv.innerHTML = 'Please enter a valid password.';
+          //   parentForm.insertAdjacentElement('beforeend', errorDiv);
+          // }
         });
     }
   };

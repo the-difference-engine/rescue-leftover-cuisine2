@@ -9,6 +9,7 @@ import LoginPage from './containers/LoginPage/LoginPage';
 import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
 import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
+import Email from './containers/Email/Email';
 
 const App = () => (
   <div>
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/recipe/new" component={CreateRecipe} />
       <Route path="/profile" component={ProfilePage} />
       <Route path="/resetpassword" component={ResetPassword} />
+      <Route path="/email" component={Email} />
     </Switch>
   </div>
 );

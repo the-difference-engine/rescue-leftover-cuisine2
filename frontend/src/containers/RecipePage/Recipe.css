@@ -32,9 +32,14 @@
   padding: 0px;
 }
  
+.photo-container {
+  height: 50px;
+  width: auto;
+  display: inline;
 
+}
 .recipe-photo {
-  width: 95%;
+  width: 90%;
   height: auto;
   display: block;
   margin-left: auto;

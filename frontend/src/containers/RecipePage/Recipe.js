@@ -82,7 +82,9 @@ class Recipe extends Component {
             <p id="delete-icon-text">Delete</p>
           </button>
         </div>
+        <div class='photo-container'>
         <img src={photo} alt="recipephoto" className="recipe-photo" />
+        </div>
         <div className="recipe-specs-bars">
           <div className="row">
             <div id="recipe-spec-container1" className="recipe-spec-element col-sm-4 text-center">

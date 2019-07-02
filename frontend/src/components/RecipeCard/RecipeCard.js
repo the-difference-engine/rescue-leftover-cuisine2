@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getRecipe } from '../../lib/apiClient';
 import { withRouter } from 'react-router-dom'
-import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
 

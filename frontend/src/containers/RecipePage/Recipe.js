@@ -15,7 +15,6 @@ class Recipe extends Component {
       data: [],
       title: '',
       snippet: '',
-      meal: '',
       ingredients: [],
       difficulty: '',
       duration: '',

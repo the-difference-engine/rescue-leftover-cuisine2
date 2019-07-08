@@ -2,7 +2,6 @@
 /* eslint no-undef: "error" */
 
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
 
 const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 

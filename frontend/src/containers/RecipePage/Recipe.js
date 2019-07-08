@@ -29,7 +29,6 @@ class Recipe extends Component {
         this.setState({
           title: response.data.title,
           snippet: response.data.snippet,
-          meal: response.data.meal,
           ingredients: response.data.ingredients,
           photo: response.data.photos[0],
           directions: response.data.directions,
@@ -42,7 +41,7 @@ class Recipe extends Component {
 
   render() {
     const {
-      directions, title, meal, ingredients, snippet, difficulty, duration, servings, photo, 
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo, 
     } = this.state;
 
     const mealDifficulty = () => {

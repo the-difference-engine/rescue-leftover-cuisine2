@@ -17,6 +17,7 @@ class AdminSuspendModal extends React.Component {
 
     const handleSuspend = () => {
       suspendUser(selectedUser, selectedUser.id);
+      toggleSuspendModal();
     };
 
     const closeBtn = <button type="button" className="suspend-user-close-button" onClick={toggleSuspendModal}><img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" /></button>;

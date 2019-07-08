@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import './RecipeCard.css';
 
 
@@ -65,7 +65,7 @@ const RecipeCard = (props) => {
             <i className="fas fa-clock" />
             {duration}
             {' '}
-MINUTES
+            MINUTES
           </span>
           <span className="card-meta">
             <i className="fas fa-utensil-spoon" />

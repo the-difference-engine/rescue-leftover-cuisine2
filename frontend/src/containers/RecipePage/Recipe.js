@@ -80,7 +80,7 @@ class Recipe extends Component {
             <p id="delete-icon-text">Delete</p>
           </button>
         </div>
-        <div class='photo-container'>
+        <div class='image-wrapper'>
         <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>
         <div className="recipe-specs-bars">

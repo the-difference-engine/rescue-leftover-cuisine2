@@ -7,7 +7,7 @@ class ScrollToTopOnMount extends Component {
   }
 
   render() {
-    return null;
+    return <div></div>;
   }
 }
 

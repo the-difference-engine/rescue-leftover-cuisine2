@@ -31,13 +31,14 @@
   color: white;
   padding: 0px;
 }
- 
+
 .image-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
   background-color: #f2f2f2;
 }
+
 .recipe-photo {
   height: 500px;
 }

@@ -12,36 +12,35 @@ class Recipe extends Component {
     super();
     this.state = {
       directions: [],
-      data: [],
       title: '',
       snippet: '',
       ingredients: [],
       difficulty: '',
       duration: '',
       servings: '',
-      photo: ''
+      photo: '',
     };
   }
 
-  componentWillMount(){
-    const {match: {params}} = this.props;
-      getRecipe(params.id).then((response) => {
-        this.setState({
-          title: response.data.title,
-          snippet: response.data.snippet,
-          ingredients: response.data.ingredients,
-          photo: response.data.photos[0],
-          directions: response.data.directions,
-          difficulty: response.data.difficulty,
-          duration: response.data.duration,
-          servings: response.data.servings
-        })
-  })
-}
+  componentWillMount() {
+    const { match: { params } } = this.props;
+    getRecipe(params.id).then((response) => {
+      this.setState({
+        title: response.data.title,
+        snippet: response.data.snippet,
+        ingredients: response.data.ingredients,
+        photo: response.data.photos[0],
+        directions: response.data.directions,
+        difficulty: response.data.difficulty,
+        duration: response.data.duration,
+        servings: response.data.servings,
+      });
+    });
+  }
 
   render() {
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings, photo, 
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo,
     } = this.state;
 
     const mealDifficulty = () => {
@@ -64,7 +63,7 @@ class Recipe extends Component {
     };
     return (
       <div className="recipe-overall-container">
-        <ScrollToTopOnMount/>
+        <ScrollToTopOnMount />
         <div className="row">
           <div className="header">
             <Header />
@@ -80,8 +79,8 @@ class Recipe extends Component {
             <p id="delete-icon-text">Delete</p>
           </button>
         </div>
-        <div class='image-wrapper'>
-        <img src={photo} alt="recipephoto" className="recipe-photo" />
+        <div className="image-wrapper">
+          <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>
         <div className="recipe-specs-bars">
           <div className="row">

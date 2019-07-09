@@ -45,7 +45,7 @@ const RecipeCard = (props) => {
   const goRecipePage = () => props.history.push(`/recipe/${id}`);
 
   return (
-      <div className="card-deck d-inline-flex" onClick={goRecipePage}>
+    <div className="card-deck d-inline-flex" onClick={goRecipePage}>
       <div className="card">
         <div className="image-holder">
           <img className="card-img-top" src={firstPhoto()} alt={alternate} />

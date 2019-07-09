@@ -66,9 +66,7 @@ const getRecipes = (search) => {
 
 // RECIPE
 
-const getRecipe = (id) => {
-  return apiClient.get(`api/v1/recipes/${id}`);
-};
+const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
 export default apiClient;
 export {

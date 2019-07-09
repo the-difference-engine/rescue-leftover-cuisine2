@@ -13,6 +13,7 @@ class NewPassword extends Component {
       isPasswordVisible: false,
       password: '',
       confirmPassword: '',
+      error: '',
     };
   }
 
@@ -26,44 +27,31 @@ class NewPassword extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event, changeCreatedState) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    const { history } = this.props;
     const { password, confirmPassword } = this.state;
-    const { resetPasswordToken } = this.state;
-    const queryString = `/login/?q=${resetPasswordToken}`;
     if (password !== confirmPassword) {
       alert("Passwords don't match"); // eslint-disable-line no-undef
     } else {
       resetPassword(this.state)
-        .then((response) => {
-          changeCreatedState(response.status);
-          history.push(queryString);
+        .then(() => {
+          const { history } = this.props;
+          history.push('/');
         })
         .catch((error) => {
-          console.log(error.message);
-          // if (error.message.includes('422')) {
-          //   const parentForm = document.getElementsByTagName('form')[0];
-          //   const errorDiv = document.createElement('p');
-          //   errorDiv.setAttribute('class', 'errorMessage reset-password');
-          //   errorDiv.innerHTML = 'Please enter a valid password.';
-          //   parentForm.insertAdjacentElement('beforeend', errorDiv);
-          // }
+          this.setState({ error: error.message });
         });
     }
   };
 
   render() {
-    const { changeCreatedState } = this.props;
     const { isPasswordVisible } = this.state;
+    const { error } = this.state;
 
     return (
       <div className="newPasswordCard">
         <h3 className="newPasswordHeader">Reset Password</h3>
-        <form
-          className="form-newPassword"
-          onSubmit={event => this.handleSubmit(event, changeCreatedState)}
-        >
+        <form className="form-newPassword" onSubmit={this.handleSubmit}>
           <div className="form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
@@ -111,6 +99,8 @@ class NewPassword extends Component {
             </button>
           </div>
         </form>
+
+        <p>{error}</p>
       </div>
     );
   }

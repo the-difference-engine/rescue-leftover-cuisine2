@@ -9,7 +9,7 @@ import './ResetPasswordPage.css';
 const ResetPasswordPage = (props) => {
   const { location } = props;
   const parsed = querystring.parse(location.search.slice(1));
-  const token = parsed.q;
+  const token = parsed.t;
 
   return (
     <div className="resetPasswordPage container-fluid">

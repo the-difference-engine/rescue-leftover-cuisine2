@@ -22,7 +22,7 @@ class Recipe extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { match: { params } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({

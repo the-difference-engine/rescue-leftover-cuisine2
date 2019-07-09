@@ -13,10 +13,15 @@ class AdminSuspendModal extends React.Component {
   }
 
   render() {
-    const { toggleSuspendModal, suspendModal, selectedUser } = this.props;
+    const {
+      toggleSuspendModal, suspendModal, selectedUser, refreshUsers,
+    } = this.props;
 
     const handleSuspend = () => {
-      suspendUser(selectedUser, selectedUser.id);
+      suspendUser(selectedUser, selectedUser.id).then(() => {
+        toggleSuspendModal();
+        refreshUsers();
+      });
     };
 
     const closeBtn = <button type="button" className="suspend-user-close-button" onClick={toggleSuspendModal}><img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" /></button>;

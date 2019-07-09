@@ -9,7 +9,7 @@
 }
 
 .edit-user-modal .modal-header {
-  padding-left: 30%;
+  padding-left: 30px;
   border-bottom: none;
 }
 
@@ -37,13 +37,10 @@
   color: #9b9b9b;
 }
 
-<<<<<<< HEAD
-=======
 .edit-user-alert {
   margin-top: 30px;
 }
 
->>>>>>> a35cb36b6114fe69f880f8dd73032fece6b1dd72
 .edit-user-save-button {
   width: 130px;
   background-color: #4ec8ed;

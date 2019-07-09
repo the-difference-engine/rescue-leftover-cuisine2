@@ -72,6 +72,8 @@ class SignIn extends Component {
       this.setState({
         validationErrorText: 'Your account is suspended. Please contact an administrator for assistance.',
       });
+    } else {
+      this.handleSubmit();
     }
   };
 
@@ -121,7 +123,7 @@ class SignIn extends Component {
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSuspendedUser} valid>
               Log In
             </button>
           </div>

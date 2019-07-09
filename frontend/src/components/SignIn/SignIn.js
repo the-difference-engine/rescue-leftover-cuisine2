@@ -2,7 +2,7 @@
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
-import { loginUser } from '../../lib/apiClient';
+import { loginUser, getUsers } from '../../lib/apiClient';
 import './SignIn.css';
 
 class SignIn extends Component {
@@ -13,7 +13,21 @@ class SignIn extends Component {
       email: '',
       password: '',
       validationErrorText: '',
+      response: [],
+      suspendedUserList: [],
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSuspendedUser = this.handleSuspendedUser.bind(this);
+  }
+
+  componentDidMount() {
+    getUsers().then((data) => {
+      this.setState({
+        response: data,
+      });
+    });
   }
 
   toggleIcon = () => {
@@ -40,6 +54,25 @@ class SignIn extends Component {
           });
         }
       });
+  };
+
+
+  handleSuspendedUser = () => {
+    let { suspendedUserList } = this.state;
+    const { response, email } = this.state;
+    suspendedUserList = response.filter(element => element.is_suspended === true);
+
+    console.log(suspendedUserList);
+    console.log(email);
+
+    const search = suspendedUserList.find(elem => elem.email === email);
+
+    console.log(search);
+    if (search !== undefined) {
+      this.setState({
+        validationErrorText: 'Your account is suspended. Please contact an administrator for assistance.',
+      });
+    }
   };
 
   render() {
@@ -88,7 +121,7 @@ class SignIn extends Component {
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid>
               Log In
             </button>
           </div>

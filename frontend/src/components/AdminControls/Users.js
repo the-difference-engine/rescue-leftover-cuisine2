@@ -192,6 +192,7 @@ const Users = ({ users, refreshUsers }) => {
         suspendModal={suspendModal}
         toggleSuspendModal={toggleSuspendModal}
         selectedUser={selectedUser}
+        refreshUsers={refreshUsers}
       />
     </Fragment>
   );

@@ -7,6 +7,7 @@ import RecipeSearchList from '../../components/RecipeSearchList/RecipeSearchList
 import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
 import SearchLozenge from '../../components/SearchLozenge/SearchLozenge';
 import './Homepage.css';
+import SearchResults from '../../components/SearchResults/SearchResults';
 
 const Homepage = (props) => {
   const { location } = props;
@@ -31,6 +32,9 @@ const Homepage = (props) => {
               <br />
               <h5>Based on this week&apos;s popular ingredient donations</h5>
             </div>
+          </div>
+          <div className="row">
+            <SearchResults searchTerm={searchTerm} />
           </div>
           <div className="row">
             <SearchLozenge searchTerm={searchTerm} />

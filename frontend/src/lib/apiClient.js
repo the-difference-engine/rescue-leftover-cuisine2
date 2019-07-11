@@ -47,10 +47,13 @@ const getUser = userId => apiClient
 
 const getUsers = () => apiClient.get('api/v1/users').then(results => results.data);
 
-const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/password', {
-  resetPasswordToken,
-  password,
-});
+const resetPassword = (resetPasswordToken, password) => {
+  console.log(resetPasswordToken, password);
+  return apiClient.put('/api/v1/password', {
+    reset_password_token: resetPasswordToken,
+    password,
+  });
+};
 
 const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   user: {

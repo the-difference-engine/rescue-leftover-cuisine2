@@ -28,15 +28,18 @@ class NewPassword extends Component {
   };
 
   handleSubmit = (event) => {
+    const { token } = this.props;
     event.preventDefault();
     const { password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
       alert("Passwords don't match"); // eslint-disable-line no-undef
     } else {
-      resetPassword(this.state)
-        .then(() => {
-          const { history } = this.props;
-          history.push('/');
+      resetPassword(token, password)
+        .then((response) => {
+          console.log(response);
+
+          // const { history } = this.props;
+          // history.push('/');
         })
         .catch((error) => {
           this.setState({ error: error.message });

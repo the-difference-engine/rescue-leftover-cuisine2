@@ -16,10 +16,6 @@ class SignIn extends Component {
       response: [],
       suspendedUserList: [],
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSuspendedUser = this.handleSuspendedUser.bind(this);
   }
 
   componentDidMount() {

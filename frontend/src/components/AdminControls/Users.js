@@ -90,29 +90,6 @@ const Users = ({ users, refreshUsers }) => {
       formatter: cell => `${cell.length}`,
     },
     {
-      dataField: 'edit',
-      text: '',
-      headerStyle: {
-        textAlign: 'center',
-        borderTop: 'none',
-        borderBottom: 'none',
-      },
-      align: 'left',
-      formatter: () => (
-        <div>
-          <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
-            <img
-              src="https://img.icons8.com/windows/32/000000/edit.png"
-              alt="edit"
-            />
-          </button>
-        </div>
-      ),
-    },
-    // Separate column added for suspend-user icons.
-    // Will display one icon or the other based on whether
-    // user is suspended or not.
-    {
       dataField: 'is_suspended',
       text: '',
       headerStyle: {
@@ -125,7 +102,13 @@ const Users = ({ users, refreshUsers }) => {
         if (cell) {
           return (
             <div>
-              <button type="button" className="admin-edit-button">
+              <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
+                <img
+                  src="https://img.icons8.com/windows/32/000000/edit.png"
+                  alt="edit"
+                />
+              </button>
+              <button type="button" className="admin-suspend-button">
                 <img
                   src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
                   alt="user currently suspended"
@@ -136,7 +119,13 @@ const Users = ({ users, refreshUsers }) => {
         }
         return (
           <div>
-            <button type="button" className="admin-edit-button" onClick={toggleSuspendModal}>
+            <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
+              <img
+                src="https://img.icons8.com/windows/32/000000/edit.png"
+                alt="edit"
+              />
+            </button>
+            <button type="button" className="admin-suspend-button" onClick={toggleSuspendModal}>
               <img
                 src="https://img.icons8.com/windows/32/000000/cancel.png"
                 alt="suspend user"

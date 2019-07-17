@@ -33,7 +33,9 @@ class AdminSuspendModal extends React.Component {
             Suspend User?
           </ModalHeader>
           <ModalBody>
-            Clicking &quot;Suspended&quot; will prevent the user from logging into the app. The user will remain suspended until this status is removed by an administrator.
+            Clicking &quot;Suspended&quot; will prevent the user from logging into the app.
+
+              The user will remain suspended until this status is removed by an administrator.
 
               If you do not wish to suspend the user, close this dialog box.
           </ModalBody>

@@ -11,5 +11,10 @@
     "lint": "cd frontend && npm run lint",
     "postinstall": "npm run build && npm run deploy",
     "start": "cd frontend && npm start"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-cookie": "^4.0.1",
+    "universal-cookie": "^4.0.2"
   }
 }

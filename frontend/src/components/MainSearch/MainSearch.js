@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import './MainSearch.css';
 
 class MainSearch extends Component {
@@ -8,12 +9,20 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
-      open: false,
+      open: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePanel = this.togglePanel.bind(this);
+  }
+
+  componentDidMount() {
+    const cookies = new Cookies();
+    cookies.set('visit', false, { path: '/' });
+    const open = cookies.get('visit');
+    console.log(cookies.get('visit'));
+    console.log(open);
   }
 
   handleRedirect = () => {
@@ -81,6 +90,7 @@ class MainSearch extends Component {
 
   render() {
     const { error, open } = this.state;
+
     return (
       <div className="mainSearch container-fluid">
         <div className="row">

@@ -24,16 +24,15 @@ class AdminSuspendModal extends React.Component {
       });
     };
 
-    const
-      closeBtn = (
-        <button
-          type="button"
-          className="suspend-user-close-button"
-          onClick={toggleSuspendModal}
-        >
-          <img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" />
-        </button>
-      );
+    const closeBtn = (
+      <button
+        type="button"
+        className="suspend-user-close-button"
+        onClick={toggleSuspendModal}
+      >
+        <img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" />
+      </button>
+    );
 
     return (
       <div>

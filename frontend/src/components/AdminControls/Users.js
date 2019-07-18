@@ -64,7 +64,6 @@ const Users = ({ users, refreshUsers }) => {
           dateObj = new Date(cell);
         }
 
-
         const day = `0${dateObj.getUTCDate()}`.slice(-2);
         const month = `0${dateObj.getUTCMonth() + 1}`;
         const year = dateObj.getUTCFullYear();

@@ -48,7 +48,7 @@ const getUser = userId => apiClient
 const getUsers = () => apiClient.get('api/v1/users').then(results => results.data);
 
 const resetPassword = (password, resetPasswordToken) => apiClient.put('/api/v1/password', {
-  "user": {
+  user: {
     password,
     reset_password_token: resetPasswordToken,
   },

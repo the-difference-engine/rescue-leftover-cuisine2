@@ -74,5 +74,6 @@ const getRecipes = (search) => {
 
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, adminEditUser, suspendUser, getSuspendedUsers,
+  createUser, loginUser, getCurrentUser, getUsers, getUser,
+  getRecipes, adminEditUser, suspendUser, getSuspendedUsers,
 };

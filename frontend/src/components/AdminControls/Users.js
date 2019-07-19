@@ -89,7 +89,7 @@ const Users = ({ users, refreshUsers }) => {
       formatter: cell => `${cell.length}`,
     },
     {
-      dataField: 'is_suspended',
+      dataField: 'suspended',
       text: '',
       headerStyle: {
         textAlign: 'center',

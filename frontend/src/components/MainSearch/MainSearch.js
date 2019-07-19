@@ -27,7 +27,7 @@ class MainSearch extends Component {
       });
     }
     console.log(cookie);
-    console.log(this.state.open);
+    // console.log(this.state.open);
   }
 
   handleRedirect = () => {

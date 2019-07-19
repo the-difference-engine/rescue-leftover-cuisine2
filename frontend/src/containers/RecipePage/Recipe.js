@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from './TagsBar/TagsBar';
 import { getRecipe } from '../../lib/apiClient';
+import ScrollToTopOnMount from '../../components/ScrollToTop/ScrollToTop';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -22,7 +23,6 @@ class Recipe extends Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0);
     const { match: { params } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({
@@ -63,6 +63,7 @@ class Recipe extends Component {
     };
     return (
       <div className="recipe-overall-container">
+        <ScrollToTopOnMount />
         <div className="row">
           <div className="header">
             <Header />
@@ -78,7 +79,7 @@ class Recipe extends Component {
             <p id="delete-icon-text">Delete</p>
           </button>
         </div>
-        <div className="recipe-image">
+        <div className="image-wrapper">
           <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>
         <div className="recipe-specs-bars">

@@ -20,9 +20,14 @@ class MainSearch extends Component {
   componentDidMount() {
     const cookies = new Cookies();
     cookies.set('visit', false, { path: '/' });
-    const open = cookies.get('visit');
-    console.log(cookies.get('visit'));
-    console.log(open);
+    const cookie = cookies.get('visit');
+    if (cookie === false) {
+      this.setState({
+        open: false,
+      });
+    }
+    console.log(cookie);
+    console.log(this.state.open);
   }
 
   handleRedirect = () => {

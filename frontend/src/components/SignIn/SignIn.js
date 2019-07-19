@@ -2,7 +2,7 @@
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
-import { loginUser, getUsers } from '../../lib/apiClient';
+import { loginUser } from '../../lib/apiClient';
 import './SignIn.css';
 
 class SignIn extends Component {
@@ -18,13 +18,13 @@ class SignIn extends Component {
     };
   }
 
-  componentDidMount() {
-    getUsers().then((data) => {
-      this.setState({
-        response: data,
-      });
-    });
-  }
+  // componentDidMount() {
+  //   getUsers().then((data) => {
+  //     this.setState({
+  //       response: data,
+  //     });
+  //   });
+  // }
 
   toggleIcon = () => {
     this.setState(prevState => ({
@@ -119,7 +119,7 @@ class SignIn extends Component {
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSuspendedUser} valid>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid>
               Log In
             </button>
           </div>

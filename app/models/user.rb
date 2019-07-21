@@ -21,11 +21,11 @@ class User < ApplicationRecord
   # end
 
   def active_for_authentication?
-    super && !suspended
+    super && suspended?
   end
 
   def inactive_message
-    'Your account is suspended. Please contact an administrator for assistance.'
+    suspended? ? super : :is_suspended
   end
 
   has_many :recipes

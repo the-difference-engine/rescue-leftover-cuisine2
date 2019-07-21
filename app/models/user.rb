@@ -16,12 +16,16 @@ class User < ApplicationRecord
     self.skip_confirmation!
   end
 
-  def destroy
-    update_attributes(suspended: true) unless suspended
-  end
+  # def destroy
+  #   update_attributes(suspended: true) unless suspended
+  # end
 
   def active_for_authentication?
     super && !suspended
+  end
+
+  def inactive_message
+    'Your account is suspended. Please contact an administrator for assistance.'
   end
 
   has_many :recipes

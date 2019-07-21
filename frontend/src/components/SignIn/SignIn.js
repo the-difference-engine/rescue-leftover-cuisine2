@@ -44,11 +44,12 @@ class SignIn extends Component {
         changeAuthorizedState(response.data.id);
       })
       .catch((error) => {
-        if (error.message.includes('401')) {
-          this.setState({
-            validationErrorText: 'Please make sure you have the correct email and passwords!',
-          });
-        }
+        console.log(error.message);
+        // if (error.message.includes('401')) {
+        //   this.setState({
+        //     validationErrorText: 'Please make sure you have the correct email and passwords!',
+        //   });
+        // }
       });
   };
 
@@ -66,7 +67,8 @@ class SignIn extends Component {
   //   console.log(search);
   //   if (search !== undefined) {
   //     this.setState({
-  //       validationErrorText: 'Your account is suspended. Please contact an administrator for assistance.',
+  //       validationErrorText: 'Your account is suspended. Please contact an
+  // administrator for assistance.',
   //     });
   //   } else {
   //     this.handleSubmit();

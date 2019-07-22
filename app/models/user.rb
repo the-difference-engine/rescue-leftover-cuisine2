@@ -21,11 +21,11 @@ class User < ApplicationRecord
   # end
 
   def active_for_authentication?
-    super && suspended?
+    super && !is_suspended
   end
 
   def inactive_message
-    suspended? ? super : :is_suspended
+    !is_suspended ? super : :is_suspended
   end
 
   has_many :recipes

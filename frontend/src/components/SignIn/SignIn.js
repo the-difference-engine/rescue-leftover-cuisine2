@@ -18,14 +18,6 @@ class SignIn extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   getUsers().then((data) => {
-  //     this.setState({
-  //       response: data,
-  //     });
-  //   });
-  // }
-
   toggleIcon = () => {
     this.setState(prevState => ({
       isPasswordVisible: !prevState.isPasswordVisible,
@@ -52,28 +44,6 @@ class SignIn extends Component {
         // }
       });
   };
-
-
-  // handleSuspendedUser = () => {
-  //   let { suspendedUserList } = this.state;
-  //   const { response, email } = this.state;
-  //   suspendedUserList = response.filter(element => element.is_suspended === true);
-
-  //   console.log(suspendedUserList);
-  //   console.log(email);
-
-  //   const search = suspendedUserList.find(elem => elem.email === email);
-
-  //   console.log(search);
-  //   if (search !== undefined) {
-  //     this.setState({
-  //       validationErrorText: 'Your account is suspended. Please contact an
-  // administrator for assistance.',
-  //     });
-  //   } else {
-  //     this.handleSubmit();
-  //   }
-  // };
 
   render() {
     const { changeAuthorizedState } = this.props;

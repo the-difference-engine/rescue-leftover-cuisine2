@@ -64,7 +64,11 @@ const getRecipes = (search) => {
     .then(results => results.data);
 };
 
+// RECIPE
+
+const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
+
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, adminEditUser,
+  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe, adminEditUser,
 };

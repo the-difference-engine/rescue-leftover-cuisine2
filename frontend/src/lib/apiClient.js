@@ -50,7 +50,8 @@ const suspendUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, 
   suspended: !data.suspended,
 });
 
-const getSuspendedUsers = () => apiClient.get('api/v1/users', { is_suspended: true }).then(response => response.data);
+// const getSuspendedUsers = () => apiClient.get('api/v1/users', { is_suspended: true }).
+// then(response => response.data);
 
 // RECIPE
 
@@ -75,5 +76,5 @@ const getRecipes = (search) => {
 export default apiClient;
 export {
   createUser, loginUser, getCurrentUser, getUsers, getUser,
-  getRecipes, adminEditUser, suspendUser, getSuspendedUsers,
+  getRecipes, adminEditUser, suspendUser,
 };

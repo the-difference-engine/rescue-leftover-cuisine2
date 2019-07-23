@@ -10,25 +10,29 @@ class MainSearch extends Component {
       searchTerm: '',
       error: '',
       open: true,
-    };
+   };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePanel = this.togglePanel.bind(this);
   }
 
-  componentDidMount() {
-    const cookies = new Cookies();
-    cookies.set('visit', false, { path: '/' });
-    const cookie = cookies.get('visit');
-    if (cookie === false) {
-      this.setState({
-        open: false,
-      });
-    }
-    console.log(cookie);
-    // console.log(this.state.open);
+  componentWillUnmount() {
+    const cookies  = new Cookies();
+    cookies.set('visit', 'set', { path: '/' });
+    console.log(cookies.get('visit'));;
   }
+
+  componentWillMount() {
+      const cookies = new Cookies();
+      if (cookies.get('visit') === 'set') {
+        console.log('2');
+        this.setState({
+        open: false,
+        });
+      }
+      console.log(this.state.open);
+    }
 
   handleRedirect = () => {
     const { history } = this.props;

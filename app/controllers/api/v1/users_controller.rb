@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by!(id: params[:id])
+    @user = User.find_by(id: params[:id])
     @user.update(user_params)
   end
 

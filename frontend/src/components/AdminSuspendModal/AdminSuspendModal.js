@@ -3,7 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 import './AdminSuspendModal.css';
-// import { suspendUser } from '../../lib/apiClient';
+import { suspendUser } from '../../lib/apiClient';
 
 class AdminSuspendModal extends React.Component {
   constructor(props) {
@@ -14,19 +14,14 @@ class AdminSuspendModal extends React.Component {
 
   render() {
     const {
-      toggleSuspendModal, suspendModal,
+      toggleSuspendModal, suspendModal, selectedUser, refreshUsers,
     } = this.props;
 
-    // const {
-    //   toggleSuspendModal, suspendModal, selectedUser, refreshUsers,
-    // } = this.props;
-
     const handleSuspend = () => {
-      // suspendUser(selectedUser, selectedUser.id).then(() => {
-      //   toggleSuspendModal();
-      //   refreshUsers();
-      // });
-      console.log('Starting user suspension');
+      suspendUser(selectedUser, selectedUser.id).then(() => {
+        toggleSuspendModal();
+        refreshUsers();
+      });
     };
 
     const closeBtn = (

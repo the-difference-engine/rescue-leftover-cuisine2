@@ -17,12 +17,11 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
-    puts 'authentication done'
     super && !is_suspended
   end
 
   def inactive_message
-    is_suspended ? :is_suspended : super
+    is_suspended ? 'Your account is suspended' : super
   end
 
   has_many :recipes

@@ -18,7 +18,7 @@ const App = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/admin" component={AdminPanel} />
       <Route path="/recipe/new" component={CreateRecipe} />
-      <Route path="/recipe" component={Recipe} />
+      <Route path="/recipe/:id" component={Recipe} />
       <Route path="/profile" component={ProfilePage} />
       <Route path="/resetpassword" component={ResetPassword} />
     </Switch>

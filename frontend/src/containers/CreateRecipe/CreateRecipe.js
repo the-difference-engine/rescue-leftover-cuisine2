@@ -4,11 +4,11 @@ import Header from '../../components/Header/Header';
 import EditRecipeForm from '../../components/EditRecipe/EditRecipeForm';
 import './CreateRecipe.css';
 
-const CreateRecipe = () => (
+const CreateRecipe = ({ user, setJwt }) => (
   <div className="createRecipePage container-fluid">
     <div className="row">
       <div className="createRecipePage-header">
-        <Header showSearchBar />
+        <Header showSearchBar user={user} setJwt={setJwt} />
       </div>
     </div>
     <div className="row justify-content-md-center">

@@ -2,6 +2,10 @@
   height: 125px;
 }
 
+.navbar-btn {
+  height: 50px;
+}
+
 .browseButton {
   color: black;
 }
@@ -21,17 +25,13 @@
   color: white;
 }
 
-.loginButton {
+.login-or-create-button {
   color: #4ec8ed;
   border: solid #4ec8ed 1.75px;
 }
 
-.loginButton:hover {
+.login-or-create-button:hover {
   color: white;
   background-color: #06a6d3;
   border-color: #06a6d3;
-}
-
-.navbar{
-  display: inline-flex;
 }

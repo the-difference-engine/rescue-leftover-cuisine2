@@ -1,48 +1,48 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
 } from 'reactstrap';
 import './HeaderDropdown.css';
-import profilePic from '../../assets/profilePic.PNG';
+import defaultPic from '../../assets/default-profile-pic.png';
 
+const HeaderDropdown = ({ history, user, setJwt }) => {
+  const profilePic = user.profile_photo || defaultPic;
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-class HeaderDropdown extends Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen: false,
-    };
-  }
+  const logout = () => {
+    setJwt(null);
+    history.push('/');
+  };
 
-  toggle(state) {
-    this.setState({
-      dropdownOpen: !state.dropdownOpen,
-    });
-  }
+  return (
+    <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
+      <DropdownToggle tag="button" className="header-dropdown-toggle">
+        <img
+          src={profilePic}
+          alt="User"
+          className="header-dropdown-profile-pic"
+        />
+      </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem header className="header-dropdown-header">
+          Hi
+          {' '}
+          {user.first_name}
+          !
+        </DropdownItem>
+        <DropdownItem onClick={() => history.push('/profile')} className="header-dropdown-item">My Recipes</DropdownItem>
+        <DropdownItem className="header-dropdown-item">Settings</DropdownItem>
+        <DropdownItem divider />
+        <DropdownItem onClick={logout} className="header-dropdown-item">Log Out</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
 
+HeaderDropdown.defaultProps = {
+  user: {},
+};
 
-  render() {
-    const { dropdownOpen } = this.state;
-    return (
-      <Dropdown isOpen={dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle type="button" className="headerDropdown-button">
-          <img
-            src={profilePic}
-            alt="User"
-            className="headerDropdown-profilePic"
-          />
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Hi Jason!</DropdownItem>
-          <DropdownItem>My Recipes</DropdownItem>
-          <DropdownItem>Settings</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Log Out</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    );
-  }
-}
-
-export default HeaderDropdown;
+export default withRouter(HeaderDropdown);

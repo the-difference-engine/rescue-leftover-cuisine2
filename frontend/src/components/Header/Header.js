@@ -6,30 +6,56 @@ import SearchBar from '../SearchBar/SearchBar';
 import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
 import './Header.css';
 
-const Header = ({ showSearchBar, showHeaderDropdown }) => (
-  <nav className="navbar navbar-white bg-white fixed-top">
-    <a className="navbar-brand" href="/">
-      <img
-        src={rlcLogo}
-        alt="RLC Logo"
-        className="rlcLogo"
-      />
-    </a>
-    {showSearchBar ? <SearchBar /> : null}
-    <div className="d-inline-flex justify-content-lg-end">
-      <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
-      Browse Recipes
-      </button>
-
-      <a href="https://www.rescuingleftovercuisine.org/sponsor-a-meal">
-        <button className="btn navbar-btn ml-4 px-4 btn-lg donateButton" type="button">
-        Donate
+const Header = ({
+  history, user, setJwt, showSearchBar,
+}) => {
+  const loginOrCreateButton = () => {
+    if (user) {
+      return (
+        <button className="btn navbar-btn btn-lg login-or-create-button ml-3" onClick={() => { history.push('/recipe/new'); }} type="button">
+          Create Recipe +
         </button>
+      );
+    }
+    return (
+      <button className="btn navbar-btn btn-lg login-or-create-button ml-3" onClick={() => { history.push('/login'); }} type="button">
+        Log In or Sign Up
+      </button>
+    );
+  };
+
+  return (
+    <nav className="navbar navbar-white bg-white fixed-top">
+      <a className="navbar-brand" href="/">
+        <img
+          src={rlcLogo}
+          alt="RLC Logo"
+          className="rlcLogo"
+        />
       </a>
-      { showHeaderDropdown ? <HeaderDropdown /> : null }
-    </div>
-  </nav>
-);
+
+      {showSearchBar ? <SearchBar /> : null}
+
+      <div className="d-inline-flex justify-content-lg-end align-items-center">
+        <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
+          Browse Recipes
+        </button>
+
+        {loginOrCreateButton()}
+
+        <button
+          className="btn navbar-btn btn-lg donateButton ml-4"
+          type="button"
+          onClick={() => window.location.replace('https://www.rescuingleftovercuisine.org/sponsor-a-meal')}
+        >
+          Donate
+        </button>
+
+        {user ? <HeaderDropdown user={user} setJwt={setJwt} /> : null }
+      </div>
+    </nav>
+  );
+};
 
 Header.propTypes = {
   showSearchBar: PropTypes.bool,

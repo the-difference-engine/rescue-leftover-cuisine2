@@ -9,14 +9,12 @@ const apiClient = axios.create({
   baseURL,
 });
 
-// TODO: add methods to wrap API endpoints
-
 const getRecipes = (search) => {
   const query = search ? `?search=${search}` : '';
   return apiClient.get(`api/v1/recipe${query}`).then(results => results.data);
 };
 
-const createUser = data => apiClient.post('api/v1/user', {
+const createUser = data => apiClient.post('api/v1/auth', {
   user: {
     first_name: data.firstName,
     last_name: data.lastName,
@@ -54,6 +52,12 @@ const resetPassword = (password, resetPasswordToken) => apiClient.put('/api/v1/p
   },
 });
 
+// CURRENT USER
+const getCurrentUser = () => apiClient.get('api/v1/auth', {
+  headers: {
+    Authorization: sessionStorage.jwt,
+  },
+});
 
 const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   user: {
@@ -61,13 +65,28 @@ const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   },
 });
 
+const adminEditUser = (data, userId) => apiClient
+  .patch(`api/v1/users/${userId}`, {
+    first_name: data.firstName.value,
+    last_name: data.lastName.value,
+    email: data.email.value,
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error.response.data);
+  });
+
 export default apiClient;
 export {
   getRecipes,
   createUser,
+  getCurrentUser,
   loginUser,
   getUser,
   getUsers,
   resetPassword,
   requestPasswordReset,
+  adminEditUser,
 };

@@ -36,6 +36,14 @@ class AdminPanel extends Component {
     });
   }
 
+  refreshUsers = () => {
+    getUsers().then((data) => {
+      this.setState({
+        users: this.createFullName(data),
+      });
+    });
+  }
+
   createFullName = (data) => {
     const newData = data.map((obj) => {
       const newObj = obj;
@@ -100,7 +108,7 @@ class AdminPanel extends Component {
             <Recipes recipes={recipes} />
           </TabPane>
           <TabPane tabId="users" className="table">
-            <Users users={users} />
+            <Users users={users} refreshUsers={this.refreshUsers} />
           </TabPane>
         </TabContent>
         <Footer />

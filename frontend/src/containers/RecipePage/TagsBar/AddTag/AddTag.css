@@ -1,0 +1,17 @@
+#create-tag-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#create-tag-text {
+  color: #7ae47a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+}
+
+#tag-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  position: absolute;
+}

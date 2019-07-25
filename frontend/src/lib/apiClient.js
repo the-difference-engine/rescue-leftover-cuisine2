@@ -80,8 +80,13 @@ const adminEditUser = (data, userId) => apiClient
     console.log(error.response.data);
   });
 
+// RECIPE
+
+const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
+
 export default apiClient;
 export {
+
   getRecipes,
   createUser,
   getCurrentUser,
@@ -91,4 +96,5 @@ export {
   resetPassword,
   requestPasswordReset,
   adminEditUser,
+getRecipe, adminEditUser
 };

@@ -36,12 +36,10 @@ class SignIn extends Component {
         changeAuthorizedState(response.data.id);
       })
       .catch((error) => {
-        console.log(error.message);
-        // if (error.message.includes('401')) {
-        //   this.setState({
-        //     validationErrorText: 'Please make sure you have the correct email and passwords!',
-        //   });
-        // }
+        console.log(error.response.data.errors[0].message);
+        this.setState({
+          validationErrorText: error.response.data.errors[0].message,
+        });
       });
   };
 

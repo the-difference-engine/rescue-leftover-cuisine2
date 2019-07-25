@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end
 
   def inactive_message
-    is_suspended ? 'Your account is suspended' : super
+    is_suspended ? :is_suspended : super
   end
 
   has_many :recipes

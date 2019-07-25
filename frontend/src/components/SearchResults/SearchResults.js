@@ -6,6 +6,7 @@ class SearchResults extends Component {
     super(props);
     this.state = {
       recipesFound: [],
+      searchTerm: null,
     };
   }
 
@@ -19,6 +20,9 @@ class SearchResults extends Component {
     if (searchTerm !== nextProps.searchTerm) {
       this.recipeData(nextProps.searchTerm);
     }
+    this.setState({
+      searchTerm: true,
+    });
   }
 
   recipeData(searchTerm) {
@@ -28,10 +32,19 @@ class SearchResults extends Component {
           recipesFound: data,
         });
       });
+    if (!searchTerm) {
+      this.setState({
+        searchTerm: false,
+      });
+    }
   }
 
   render() {
+    const { searchTerm } = this.state;
     const { recipesFound } = this.state;
+    if (!searchTerm) {
+      return <div />;
+    }
     return (
       <div className="container">
         <div className="row">

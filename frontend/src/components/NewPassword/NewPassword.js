@@ -32,19 +32,19 @@ class NewPassword extends Component {
     event.preventDefault();
     const { password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
-      alert("Passwords don't match"); // eslint-disable-line no-undef
+      this.setState({ error: "Passwords don't match" });
     } else {
       resetPassword(token, password)
-        .then((response) => {
-          console.log(response);
-
-          // const { history } = this.props;
-          // history.push('/');
-        })
+        .then(this.handleRedirect)
         .catch((error) => {
           this.setState({ error: error.message });
         });
     }
+  };
+
+  handleRedirect = () => {
+    const { history } = this.props;
+    history.push('/login');
   };
 
   render() {

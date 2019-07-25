@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { requestPasswordReset } from '../../lib/apiClient';
+import './ResetRequest.css';
 
 class ResetRequest extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class ResetRequest extends Component {
     this.state = {
       email: '',
       errorMessage: '',
+      successMessage: '',
     };
   }
 
@@ -19,17 +21,16 @@ class ResetRequest extends Component {
     event.preventDefault();
     const { email } = this.state;
     requestPasswordReset(email)
-      .then(this.handleRedirect)
+      .then(
+        this.setState({
+          successMessage: 'Check your email for instructions on resetting your password.',
+        }),
+      )
       .catch(() => this.setState({ errorMessage: 'Oops something went wrong! Please try again.' }));
   };
 
-  handleRedirect = () => {
-    const { history } = this.props;
-    history.push('/resetpassword');
-  };
-
   render() {
-    const { errorMessage } = this.state;
+    const { errorMessage, successMessage } = this.state;
     return (
       <div className="leftLoginCard loginCard">
         <h3 className="loginHeader">Enter Email To Reset Your Password</h3>
@@ -54,12 +55,13 @@ class ResetRequest extends Component {
 
           <div>{errorMessage}</div>
 
-          <div className="form-group row">
-            <button className="signUpButton btn btn-lg btn-block" type="submit">
+          <div className="form-group row btn-wrapper">
+            <button className="submit-btn btn btn-lg" type="submit">
               Submit
             </button>
           </div>
         </form>
+        <div>{successMessage}</div>
       </div>
     );
   }

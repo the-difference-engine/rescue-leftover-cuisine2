@@ -47,7 +47,7 @@ const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
 });
 
 const suspendUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
-  suspended: !data.suspended,
+  is_suspended: !data.is_suspended,
 });
 
 // const getSuspendedUsers = () => apiClient.get('api/v1/users', { is_suspended: true }).

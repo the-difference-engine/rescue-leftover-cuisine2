@@ -7,9 +7,12 @@ class ApplicationController < ActionController::API
 
   def record_not_found
     render json: {
-      status: 'error',
-      code: 404,
-      message: "Ope! We couldn't find what you were looking for.  Give it another try!"
-    }
+      errors: [
+        {
+          title: 'Not Found',
+          message: "We couldn't find what you were looking for."
+        }
+      ]
+    }, status: :not_found
   end
 end

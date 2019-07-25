@@ -1,5 +1,9 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_permitted_params
+  before_action :configure_permitted_params, except: [:show]
+
+  def show
+    render json: current_user
+  end
 
   protected
 

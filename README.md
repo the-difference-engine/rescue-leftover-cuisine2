@@ -7,6 +7,36 @@ Any gotchas that aren’t intuitive.
 
 # Dev Setup
 
+## Local Environment
+
+### Language Versions
+
+We require specific versions of Node (8.11.4) and Ruby (2.5.3) in this project. In order to get the correct versions installed, it is recommened to use a VM (version manager) like [asdf-vm](https://asdf-vm.com/#/).
+
+### Linting
+
+We use `[eslint](https://eslint.org/)` to help out with code styling for our front-end code (everything in the `frontend/` directory). Assuming you have the correct version of node installed, running the following command from within the `frontend/` directory will run the linter locally:
+
+```
+npm run lint
+```
+
+The linter automatically fix _some_ styling mistakes if you run the following (also from within the `frontend/` directory):
+
+```
+npm run lint -- --fix
+```
+
+Note: You will have to run `npm install` before-hand (again, also from within the `frontend/` directory) in order for this to work.
+
+### Editorconfig
+
+We have a `.editorconfig` file which specifies some default text editor settings that should help with code styling (e.g. cleaning up whitespace). This requires a plugin to work, so follow the link below to the install instructions for you specific editor:
+
+* [VSCode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+* [Atom](https://atom.io/packages/editorconfig)
+* [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
+
 ## Docker
 
 ### New to Docker?

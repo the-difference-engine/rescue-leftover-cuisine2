@@ -9,7 +9,7 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
-      open: false,
+      show: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,11 +19,11 @@ class MainSearch extends Component {
 
   componentDidMount() {
     const cookies = new Cookies();
-    if (cookies.get('visit') !== 'set') {
+    if (cookies.get('rlc') !== 'visited') {
       this.setState({
-        open: true,
+        show: true,
       });
-      cookies.set('visit', 'set', { path: '/' });
+      cookies.set('rlc', 'visited', { path: '/' });
     }
   }
 
@@ -91,7 +91,7 @@ class MainSearch extends Component {
   }
 
   render() {
-    const { error, open } = this.state;
+    const { error, show } = this.state;
 
     return (
       <div className="mainSearch container-fluid">
@@ -116,7 +116,7 @@ class MainSearch extends Component {
                     </button>
                   </div>
                   <div>
-                    { open ? this.renderSearchInstructions() : this.renderChevronButton() }
+                    { show ? this.renderSearchInstructions() : this.renderChevronButton() }
                   </div>
                 </div>
               </form>

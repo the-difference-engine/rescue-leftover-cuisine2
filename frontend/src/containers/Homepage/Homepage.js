@@ -7,8 +7,7 @@ import RecipeSearchList from '../../components/RecipeSearchList/RecipeSearchList
 import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
 import './Homepage.css';
 
-const Homepage = (props) => {
-  const { location } = props;
+const Homepage = ({ location, user, setJwt }) => {
   const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark
   const searchTerm = parsed.q;
 
@@ -16,7 +15,7 @@ const Homepage = (props) => {
     <div className="homepage container-fluid ">
       <div className="row">
         <div className="header">
-          <Header />
+          <Header user={user} setJwt={setJwt} />
         </div>
       </div>
       <div className="row">

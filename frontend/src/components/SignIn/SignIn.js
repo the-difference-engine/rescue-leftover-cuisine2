@@ -1,7 +1,7 @@
-/* global sessionStorage */
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { loginUser } from '../../lib/apiClient';
 import './SignIn.css';
 
@@ -28,12 +28,15 @@ class SignIn extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event, changeAuthorizedState) => {
+  handleSubmit = (event) => {
     event.preventDefault();
+
+    const { history, setJwt } = this.props;
+
     loginUser(this.state)
       .then((response) => {
-        sessionStorage.jwt = response.headers.authorization;
-        changeAuthorizedState(response.data.id);
+        setJwt(response.headers.authorization);
+        history.push('/');
       })
       .catch((error) => {
         this.setState({
@@ -43,13 +46,12 @@ class SignIn extends Component {
   };
 
   render() {
-    const { changeAuthorizedState } = this.props;
     const { validationErrorText, isPasswordVisible } = this.state;
 
     return (
       <div className="rightLoginCard loginCard">
         <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
+        <form className="form-signInUp" onSubmit={this.handleSubmit}>
           <div className="form-group row">
             <input
               type="email"
@@ -100,4 +102,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

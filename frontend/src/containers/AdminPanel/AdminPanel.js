@@ -64,12 +64,13 @@ class AdminPanel extends Component {
   }
 
   render() {
+    const { user, setJwt } = this.props;
     const { activeTab, recipes, users } = this.state;
 
     return (
       <div className="admin-panel-container">
         <div className="admin-header">
-          <Header showSearchBar />
+          <Header showSearchBar user={user} setJwt={setJwt} />
         </div>
         <Nav tabs>
           <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>

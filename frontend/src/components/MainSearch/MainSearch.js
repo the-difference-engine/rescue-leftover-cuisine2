@@ -17,18 +17,14 @@ class MainSearch extends Component {
     this.togglePanel = this.togglePanel.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const cookies = new Cookies();
-    if (cookies.get('visit') === 'set') {
+    if (cookies.get('visit') !== 'set') {
       this.setState({
-        open: false,
+        open: true,
       });
+      cookies.set('visit', 'set', { path: '/' });
     }
-  }
-
-  componentWillUnmount() {
-    const cookies = new Cookies();
-    cookies.set('visit', 'set', { path: '/' });
   }
 
   handleRedirect = () => {

@@ -9,7 +9,7 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
-      open: true,
+      open: false,
     };
 
     this.handleChange = this.handleChange.bind(this);

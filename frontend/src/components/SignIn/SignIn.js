@@ -36,7 +36,6 @@ class SignIn extends Component {
         changeAuthorizedState(response.data.id);
       })
       .catch((error) => {
-        console.log(error.response.data.errors[0].message);
         this.setState({
           validationErrorText: error.response.data.errors[0].message,
         });
@@ -89,7 +88,7 @@ class SignIn extends Component {
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid>
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid="true">
               Log In
             </button>
           </div>

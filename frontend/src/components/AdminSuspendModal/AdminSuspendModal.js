@@ -17,8 +17,15 @@ class AdminSuspendModal extends React.Component {
       toggleSuspendModal, suspendModal, selectedUser, refreshUsers,
     } = this.props;
 
+    // const handleSuspend = () => {
+    //   suspendUser(selectedUser, selectedUser.id).then(() => {
+    //     toggleSuspendModal();
+    //     refreshUsers();
+    //   });
+    // };
+
     const handleSuspend = () => {
-      suspendUser(selectedUser, selectedUser.id).then(() => {
+      suspendUser(selectedUser.id, !selectedUser.is_suspended).then(() => {
         toggleSuspendModal();
         refreshUsers();
       });

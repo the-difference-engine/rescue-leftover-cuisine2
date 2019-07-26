@@ -21,11 +21,9 @@ class ResetRequest extends Component {
     event.preventDefault();
     const { email } = this.state;
     requestPasswordReset(email)
-      .then(
-        this.setState({
-          successMessage: 'Check your email for instructions on resetting your password.',
-        }),
-      )
+      .then(() => this.setState({
+        successMessage: 'Check your email for instructions on resetting your password.',
+      }))
       .catch(() => this.setState({ errorMessage: 'Oops something went wrong! Please try again.' }));
   };
 
@@ -55,8 +53,8 @@ class ResetRequest extends Component {
 
           <div>{errorMessage}</div>
 
-          <div className="form-group row btn-wrapper">
-            <button className="submit-btn btn btn-lg" type="submit">
+          <div className="form-group row reset-password-btn-wrapper">
+            <button className="reset-password-btn btn btn-lg" type="submit">
               Submit
             </button>
           </div>

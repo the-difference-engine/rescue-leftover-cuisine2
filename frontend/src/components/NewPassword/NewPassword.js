@@ -1,6 +1,3 @@
-//  global sessionStorage  eslint-disable-line no-undef
-/* eslint no-undef: "error" */
-
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { resetPassword } from '../../lib/apiClient';
@@ -28,23 +25,25 @@ class NewPassword extends Component {
   };
 
   handleSubmit = (event) => {
-    const { token } = this.props;
+    const { token, history } = this.props;
     event.preventDefault();
     const { password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
       this.setState({ error: "Passwords don't match" });
     } else {
       resetPassword(token, password)
-        .then(this.handleRedirect)
+        .then((response) => {
+          if (response) {
+            history.push('/login');
+          }
+        })
         .catch((error) => {
-          this.setState({ error: error.message });
+          if (error) {
+            this.setState({ error: 'Error' });
+            console.log('Error response', error.response.data.errors); // eslint no-console
+          }
         });
     }
-  };
-
-  handleRedirect = () => {
-    const { history } = this.props;
-    history.push('/login');
   };
 
   render() {

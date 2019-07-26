@@ -10,7 +10,6 @@ const ResetPasswordPage = (props) => {
   const { location } = props;
   const parsed = querystring.parse(location.search.slice(1));
   const { token } = parsed;
-  console.log(token);
 
   return (
     <div className="resetPasswordPage container-fluid">

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { getRecipes } from '../../lib/apiClient';
+import './ResultsCounter.css';
+
 
 class SearchResults extends Component {
   constructor(props) {
@@ -48,7 +50,7 @@ class SearchResults extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="searchResults">
+          <div className="resultsCounter">
             { recipesFound.length}
             {' Recipes Found'}
           </div>

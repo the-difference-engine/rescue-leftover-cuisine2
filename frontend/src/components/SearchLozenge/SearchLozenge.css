@@ -2,16 +2,22 @@
     text-align: center;
 }
 
-
-.lozenges{
+.lozenge{
     float: left;
     text-align: center;
     cursor: pointer;
     border: #888AA0;
-    color: #888AA0;
+    color: #757575;
+    font-size: 20px;
     box-shadow: 1.5px 1.5px 1.5px 1.5px #E7E7E7;
     margin: 10px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 50px 50px;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    color: #888AA0;
 }

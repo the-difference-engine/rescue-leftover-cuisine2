@@ -18,10 +18,9 @@ const SearchLozenge = (props) => {
       <div className="row">
         <div className="lozengeBubbles">
           {lozenges.map(lozenge => (
-            <div className="lozenges">
+            <div className="lozenge">
               {capitalize(lozenge)}
-              {' '}
-              {' x'}
+              <button type="button">x</button>
             </div>
           ))}
         </div>

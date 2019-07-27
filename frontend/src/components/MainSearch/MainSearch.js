@@ -9,7 +9,7 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
-      show: false,
+      showInstructions: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +21,7 @@ class MainSearch extends Component {
     const cookies = new Cookies();
     if (cookies.get('rlc') !== 'visited') {
       this.setState({
-        show: true,
+        showInstructions: true,
       });
       cookies.set('rlc', 'visited', { path: '/' });
     }
@@ -58,7 +58,7 @@ class MainSearch extends Component {
   }
 
   togglePanel() {
-    this.setState(prevState => ({ open: !prevState.open }));
+    this.setState(prevState => ({ showInstructions: !prevState.showInstructions }));
   }
 
   renderChevronButton() {
@@ -75,7 +75,7 @@ class MainSearch extends Component {
     );
   }
 
-  renderSearchInstructions() {
+  renderInstructions() {
     return (
       <div className="searchInstructions">
         <p>
@@ -91,7 +91,7 @@ class MainSearch extends Component {
   }
 
   render() {
-    const { error, show } = this.state;
+    const { error, showInstructions } = this.state;
 
     return (
       <div className="mainSearch container-fluid">
@@ -116,7 +116,7 @@ class MainSearch extends Component {
                     </button>
                   </div>
                   <div>
-                    { show ? this.renderSearchInstructions() : this.renderChevronButton() }
+                    { showInstructions ? this.renderInstructions() : this.renderChevronButton() }
                   </div>
                 </div>
               </form>

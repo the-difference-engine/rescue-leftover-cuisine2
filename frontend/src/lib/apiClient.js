@@ -7,6 +7,7 @@ const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const apiClient = axios.create({
   baseURL,
+  headers: { 'Content-Type': 'application/json' },
 });
 
 // AUTHENTICATION
@@ -50,10 +51,6 @@ const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`
   first_name: data.firstName.value,
   last_name: data.lastName.value,
   email: data.email.value,
-}).then((response) => {
-  console.log(response);
-}).catch((error) => {
-  console.log(error.response.data);
 });
 
 // RECIPES
@@ -64,7 +61,9 @@ const getRecipes = (search) => {
     .then(results => results.data);
 };
 
+const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
+
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, adminEditUser,
+  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe, adminEditUser,
 };

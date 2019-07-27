@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import './RecipeCard.css';
 
 
 const RecipeCard = (props) => {
   const {
-    alternate,
     difficulty,
     duration,
     meal,
     servings,
     snippet,
     title,
+    id,
   } = props;
 
   const mealDifficulty = () => {
@@ -40,11 +41,13 @@ const RecipeCard = (props) => {
     return '';
   };
 
+  const goRecipePage = () => props.history.push(`/recipe/${id}`);
+
   return (
-    <div className="card-deck d-inline-flex">
+    <div className="card-deck d-inline-flex" onClick={goRecipePage}>
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={firstPhoto()} alt={alternate} />
+          <img className="card-img-top" src={firstPhoto()} alt={title} />
           <button className="card-meal-btn" type="button">{meal}</button>
         </div>
         <div className="card-body">
@@ -61,7 +64,7 @@ const RecipeCard = (props) => {
             <i className="fas fa-clock" />
             {duration}
             {' '}
-MINUTES
+            MINUTES
           </span>
           <span className="card-meta">
             <i className="fas fa-utensil-spoon" />
@@ -76,7 +79,6 @@ MINUTES
 RecipeCard.propTypes = {
   meal: PropTypes.string.isRequired,
   photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-  alternate: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   snippet: PropTypes.string.isRequired,
   difficulty: PropTypes.string.isRequired,
@@ -85,4 +87,4 @@ RecipeCard.propTypes = {
 };
 
 
-export default RecipeCard;
+export default withRouter(RecipeCard);

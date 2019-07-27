@@ -32,12 +32,15 @@
   padding: 0px;
 }
 
+.recipe-image-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
 .recipe-photo {
-  width: 90%;
   height: 500px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .tags-bar {

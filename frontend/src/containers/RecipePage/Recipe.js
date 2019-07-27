@@ -3,26 +3,45 @@ import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from './TagsBar/TagsBar';
-import recipephoto from '../../assets/bread.jpg';
+import { getRecipe } from '../../lib/apiClient';
 import './Recipe.css';
 
 class Recipe extends Component {
   constructor() {
     super();
     this.state = {
-      directions: ['Mix all together', 'Bake in oven', 'Eat it all up'],
-      title: 'Easy Creamy Vegan Macaroni and Cheese',
-      snippet: 'Although this does not taste like the the traditional mac n cheese recipes most of us grew up with it will satisfy your comfort food craving while helping you avoid preservatives, dyes, meat, and dairy.',
-      ingredients: ['1 (8 ounce) package elbow macaroni', '1 cup nutritional yeast', '4 cloves garlice'],
-      difficulty: 'EASY',
-      duration: '30',
-      servings: '2',
+      directions: [],
+      title: '',
+      snippet: '',
+      ingredients: [],
+      difficulty: '',
+      duration: '',
+      servings: '',
+      photo: '',
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    const { match: { params } } = this.props;
+    getRecipe(params.id).then((response) => {
+      this.setState({
+        title: response.data.title,
+        snippet: response.data.snippet,
+        ingredients: response.data.ingredients,
+        photo: response.data.photos[0],
+        directions: response.data.directions,
+        difficulty: response.data.difficulty,
+        duration: response.data.duration,
+        servings: response.data.servings,
+      });
+    });
+  }
+
   render() {
+    const { user, setJwt } = this.props;
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings,
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo,
     } = this.state;
 
     const mealDifficulty = () => {
@@ -47,7 +66,7 @@ class Recipe extends Component {
       <div className="recipe-overall-container">
         <div className="row">
           <div className="header">
-            <Header />
+            <Header user={user} setJwt={setJwt} />
           </div>
         </div>
         <div>
@@ -60,7 +79,9 @@ class Recipe extends Component {
             <p id="delete-icon-text">Delete</p>
           </button>
         </div>
-        <img src={recipephoto} alt="recipephoto" className="recipe-photo" />
+        <div className="recipe-image-wrapper">
+          <img src={photo} alt="recipephoto" className="recipe-photo" />
+        </div>
         <div className="recipe-specs-bars">
           <div className="row">
             <div id="recipe-spec-container1" className="recipe-spec-element col-sm-4 text-center">

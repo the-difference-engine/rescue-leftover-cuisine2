@@ -39,6 +39,7 @@ class Recipe extends Component {
   }
 
   render() {
+    const { user, setJwt } = this.props;
     const {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo,
     } = this.state;
@@ -65,7 +66,7 @@ class Recipe extends Component {
       <div className="recipe-overall-container">
         <div className="row">
           <div className="header">
-            <Header />
+            <Header user={user} setJwt={setJwt} />
           </div>
         </div>
         <div>

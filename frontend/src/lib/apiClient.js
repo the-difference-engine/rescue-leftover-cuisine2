@@ -7,6 +7,7 @@ const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const apiClient = axios.create({
   baseURL,
+  headers: { 'Content-Type': 'application/json' },
 });
 
 // User Functions

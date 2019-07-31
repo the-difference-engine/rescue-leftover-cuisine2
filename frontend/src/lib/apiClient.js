@@ -51,8 +51,6 @@ const suspendUser = (userId, isSuspended) => apiClient.patch(`api/v1/users/${use
   is_suspended: isSuspended,
 });
 
-// RECIPE
-
 const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
   first_name: data.firstName.value,
   last_name: data.lastName.value,

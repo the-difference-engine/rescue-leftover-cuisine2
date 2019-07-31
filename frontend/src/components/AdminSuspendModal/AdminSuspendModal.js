@@ -6,12 +6,6 @@ import './AdminSuspendModal.css';
 import { suspendUser } from '../../lib/apiClient';
 
 class AdminSuspendModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
   render() {
     const {
       toggleSuspendModal, suspendModal, selectedUser, refreshUsers,

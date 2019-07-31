@@ -11,7 +11,6 @@ User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmati
 User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Joe", last_name: "Domain", confirmed_at: Time.now)
 User.create(email: "vespucci@domain.com", password: "Vespucci@RLC123", password_confirmation: "Vespucci@RLC123", username: "Vespucci@RLC",first_name: "Vespucci", last_name: "Domain", confirmed_at: Time.now, is_suspended: true)
 
-
 Recipe.create(
   title: "Cauliflower Salad",
   snippet: "Soul-satisfying despite its healthy ingredients, this salad sings",

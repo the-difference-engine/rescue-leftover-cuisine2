@@ -54,7 +54,7 @@ class AdminEditModal extends React.Component {
           this.onDismiss();
         }}
       >
-        <img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" />
+        <img src="https://img.icons8.com/windows/32/000000/cancel.png" alt="close" />
       </button>
     );
 

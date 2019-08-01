@@ -7,29 +7,10 @@ const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const apiClient = axios.create({
   baseURL,
+  headers: { 'Content-Type': 'application/json' },
 });
 
-// User Functions
-const getUser = userId => apiClient
-  .get(`api/v1/user/${userId}`, {
-    headers: {
-      Authorization: `${sessionStorage.jwt}`,
-    },
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error.response.data);
-  });
-
-const getCurrentUser = () => apiClient.get('api/v1/auth', {
-  headers: {
-    Authorization: sessionStorage.jwt,
-  },
-});
-
-const getUsers = () => apiClient.get('api/v1/users').then(results => results.data);
+// AUTHENTICATION
 
 const createUser = data => apiClient.post('api/v1/auth', {
   user: {
@@ -40,28 +21,6 @@ const createUser = data => apiClient.post('api/v1/auth', {
   },
 });
 
-const adminEditUser = (data, userId) => apiClient
-  .patch(`api/v1/users/${userId}`, {
-    first_name: data.firstName.value,
-    last_name: data.lastName.value,
-    email: data.email.value,
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error.response.data);
-  });
-
-// Recipe Functions
-const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
-
-const getRecipes = (search) => {
-  const query = search ? `?search=${search}` : '';
-  return apiClient.get(`api/v1/recipe${query}`).then(results => results.data);
-};
-
-// Password Functions
 const loginUser = (data) => {
   const credentials = { email: data.email, password: data.password };
   return apiClient.post('api/v1/auth/login', {
@@ -69,11 +28,42 @@ const loginUser = (data) => {
   });
 };
 
-const requestPasswordReset = email => apiClient.post('/api/v1/password', {
-  user: {
-    email,
+// CURRENT USER
+
+const getCurrentUser = () => apiClient.get('api/v1/auth', {
+  headers: {
+    Authorization: sessionStorage.jwt,
   },
 });
+
+// USERS
+
+const getUsers = () => apiClient.get('api/v1/users')
+  .then(results => results.data);
+
+const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
+  headers: {
+    Authorization: sessionStorage.jwt,
+  },
+});
+
+const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
+  first_name: data.firstName.value,
+  last_name: data.lastName.value,
+  email: data.email.value,
+});
+
+// RECIPES
+
+const getRecipes = (search) => {
+  const query = search ? `?search=${search}` : '';
+  return apiClient.get(`api/v1/recipes${query}`)
+    .then(results => results.data);
+};
+
+const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
+
+// PASSWORD REQUEST
 
 const resetPassword = (password, resetPasswordToken) => apiClient.put('/api/v1/password', {
   user: {
@@ -82,17 +72,14 @@ const resetPassword = (password, resetPasswordToken) => apiClient.put('/api/v1/p
   },
 });
 
-export default apiClient;
+const requestPasswordReset = email => apiClient.post('/api/v1/password', {
+  user: {
+    email,
+  },
+});
 
+export default apiClient;
 export {
-  adminEditUser,
-  createUser,
-  getCurrentUser,
-  getRecipe,
-  getRecipes,
-  getUser,
-  getUsers,
-  loginUser,
-  resetPassword,
-  requestPasswordReset,
+  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe, adminEditUser,
+  resetPassword, requestPasswordReset,
 };

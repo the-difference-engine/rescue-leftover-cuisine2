@@ -38,7 +38,11 @@ class NewPassword extends Component {
         .catch((error) => {
           if (error.response.data.errors.reset_password_token[0]) {
             this.setState({
-              error: `Reset password token ${error.response.data.errors.reset_password_token[0]}.`,
+              error: 'The request failed due to an invalid password reset token.',
+            });
+          } else {
+            this.setState({
+              error: 'Oops! Something went wrong with our system!',
             });
           }
         });
@@ -55,7 +59,7 @@ class NewPassword extends Component {
             {error}
             {' '}
             <Link to="/resetrequest" id="requestLink">
-              Click here to request a new password reset token.
+              Sumbit a new password reset request.
             </Link>
           </p>
         </div>

@@ -47,6 +47,10 @@ const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   },
 });
 
+const suspendUser = (userId, isSuspended) => apiClient.patch(`api/v1/users/${userId}`, {
+  is_suspended: isSuspended,
+});
+
 const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
   first_name: data.firstName.value,
   last_name: data.lastName.value,
@@ -65,5 +69,6 @@ const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe, adminEditUser,
+  createUser, loginUser, getCurrentUser, getUsers, getUser,
+  getRecipes, getRecipe, adminEditUser, suspendUser,
 };

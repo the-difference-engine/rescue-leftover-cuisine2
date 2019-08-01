@@ -1,0 +1,35 @@
+.suspend-user-modal {
+  text-align: center;
+  margin-top: 125px;
+}
+
+.suspend-user-close-button {
+  border: none;
+  background: #f2f2f2;
+  color: #9b9b9b;
+}
+
+.suspend-user-modal .modal-header {
+  padding-left: 30%;
+  border-bottom: none;
+}
+
+.suspend-user-modal .modal-title {
+  padding-top: 20px;
+  font-size: 25px;
+}
+
+.suspend-user-modal .modal-footer {
+  border-top: none;
+}
+
+.suspend-user-save-button {
+  width: 130px;
+  background-color: #4ec8ed;
+  border: none;
+}
+
+.suspend-user-modal .modal-content {
+  background: #f2f2f2;
+  border: none;
+}

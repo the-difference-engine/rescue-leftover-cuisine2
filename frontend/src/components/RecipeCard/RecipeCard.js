@@ -6,7 +6,6 @@ import './RecipeCard.css';
 
 const RecipeCard = (props) => {
   const {
-    alternate,
     difficulty,
     duration,
     meal,
@@ -48,7 +47,7 @@ const RecipeCard = (props) => {
     <div className="card-deck d-inline-flex" onClick={goRecipePage}>
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={firstPhoto()} alt={alternate} />
+          <img className="card-img-top" src={firstPhoto()} alt={title} />
           <button className="card-meal-btn" type="button">{meal}</button>
         </div>
         <div className="card-body">
@@ -80,7 +79,6 @@ const RecipeCard = (props) => {
 RecipeCard.propTypes = {
   meal: PropTypes.string.isRequired,
   photos: PropTypes.arrayOf(PropTypes.string).isRequired,
-  alternate: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   snippet: PropTypes.string.isRequired,
   difficulty: PropTypes.string.isRequired,

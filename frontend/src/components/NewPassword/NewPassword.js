@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { resetPassword } from '../../lib/apiClient';
 import './NewPassword.css';
 
@@ -25,31 +25,42 @@ class NewPassword extends Component {
   };
 
   handleSubmit = (event) => {
-    const { token, history } = this.props;
     event.preventDefault();
+    const { token, history } = this.props;
     const { password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
       this.setState({ error: "Passwords don't match" });
     } else {
       resetPassword(token, password)
-        .then((response) => {
-          if (response) {
-            history.push('/login');
-          }
+        .then(() => {
+          history.push('/login');
         })
         .catch((error) => {
-          if (error) {
-            this.setState({ error: 'Error' });
-            console.log('Error response', error.response.data.errors); // eslint no-console
+          if (error.response.data.errors.reset_password_token[0]) {
+            this.setState({
+              error: `Reset password token ${error.response.data.errors.reset_password_token[0]}.`,
+            });
           }
         });
     }
   };
 
   render() {
-    const { isPasswordVisible } = this.state;
-    const { error } = this.state;
+    const { isPasswordVisible, error } = this.state;
 
+    if (error) {
+      return (
+        <div className="errorMessage">
+          <p>
+            {error}
+            {' '}
+            <Link to="/resetrequest" id="requestLink">
+              Click here to request a new password reset token.
+            </Link>
+          </p>
+        </div>
+      );
+    }
     return (
       <div className="newPasswordCard">
         <h3 className="newPasswordHeader">Reset Password</h3>
@@ -57,6 +68,7 @@ class NewPassword extends Component {
           <div className="form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
+              autoComplete="new-password"
               id="inputSignInPassword"
               className=" newPassword-input fullWidth form-control-lg"
               name="password"
@@ -75,6 +87,7 @@ class NewPassword extends Component {
           <div className="passwordConfirm form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
+              autoComplete="password-confrimation"
               id="inputSignInPasswordConfirm"
               className="password-confirm-input fullWidth form-control-lg"
               name="confirmPassword"
@@ -95,14 +108,12 @@ class NewPassword extends Component {
             <button
               className="resetPasswordButton signUpButton btn btn-lg btn-block"
               type="submit"
-              valid
+              valid="true"
             >
               Reset Password
             </button>
           </div>
         </form>
-
-        <p>{error}</p>
       </div>
     );
   }

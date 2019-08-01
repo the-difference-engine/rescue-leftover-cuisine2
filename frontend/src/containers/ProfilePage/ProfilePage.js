@@ -90,13 +90,14 @@ class ProfilePage extends Component {
   }
 
   render() {
+    const { user, setJwt } = this.props;
     const { activeTab, recipes } = this.state;
 
     return (
       <div className="profile-page container-fluid">
         <div className="row">
           <div className="profile-header">
-            <Header showSearchBar />
+            <Header showSearchBar user={user} setJwt={setJwt} />
           </div>
         </div>
         {/* Component for top user info and bio section */}

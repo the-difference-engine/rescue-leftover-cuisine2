@@ -1,5 +1,4 @@
 import React from 'react';
-
 import querystring from 'querystring';
 import LogInPageHeader from '../../components/LogInPageHeader/LogInPageHeader';
 import NewPassword from '../../components/NewPassword/NewPassword';

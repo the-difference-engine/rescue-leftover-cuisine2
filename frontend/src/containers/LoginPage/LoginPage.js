@@ -1,4 +1,3 @@
-/* global sessionStorage */
 /* eslint no-undef: "error" */
 
 import React, { Component } from 'react';
@@ -14,7 +13,6 @@ class LoginPage extends Component {
     super(props);
     this.state = {
       isCreated: false,
-      isAuthorized: false,
       userId: '', // eslint-disable-line react/no-unused-state
     };
   }
@@ -27,33 +25,26 @@ class LoginPage extends Component {
     }
   }
 
-  changeAuthorizedState = (returnUserId) => {
-    if (sessionStorage.jwt) {
-      this.setState({
-        isAuthorized: true,
-        userId: returnUserId, // eslint-disable-line react/no-unused-state
-      });
-    }
-  }
-
-  renderLoginOrThankYouCard = (isCreated, isAuthorized) => {
-    if (isCreated || isAuthorized) {
+  renderLoginOrThankYouCard = (isCreated) => {
+    if (isCreated) {
       return (
         <div className="column mx-auto thankYouColumn">
           <ThankYouCard />
         </div>
       );
     }
+
+    const { setJwt } = this.props;
     return (
       <div className="row">
         <div className="col loginColumnOne"><SignUp changeCreatedState={this.changeCreatedState} /></div>
-        <div className="col loginColumnTwo"><SignIn changeAuthorizedState={this.changeAuthorizedState} /></div>
+        <div className="col loginColumnTwo"><SignIn setJwt={setJwt} /></div>
       </div>
     );
   }
 
   render() {
-    const { isAuthorized, isCreated } = this.state;
+    const { isCreated } = this.state;
 
     return (
       <div className="loginPage container-fluid">
@@ -62,7 +53,7 @@ class LoginPage extends Component {
         </div>
         <div className="topLoginImage">
           <div className="loginCardWrapper">
-            {this.renderLoginOrThankYouCard(isAuthorized, isCreated)}
+            {this.renderLoginOrThankYouCard(isCreated)}
             <div className="loginFooter row">
               <Footer />
             </div>

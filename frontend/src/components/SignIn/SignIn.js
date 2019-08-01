@@ -13,6 +13,8 @@ class SignIn extends Component {
       email: '',
       password: '',
       validationErrorText: '',
+      response: [],
+      suspendedUserList: [],
     };
   }
 
@@ -37,11 +39,9 @@ class SignIn extends Component {
         history.push('/');
       })
       .catch((error) => {
-        if (error.message.includes('401')) {
-          this.setState({
-            validationErrorText: 'Please make sure you have the correct email and passwords!',
-          });
-        }
+        this.setState({
+          validationErrorText: error.response.data.errors[0].message,
+        });
       });
   };
 
@@ -90,11 +90,7 @@ class SignIn extends Component {
             <a href="##########">I forgot my password</a>
           </div>
           <div className="row">
-            <button
-              className="signInButton signUpButton btn btn-lg btn-block"
-              type="submit"
-              valid="true"
-            >
+            <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid="true">
               Log In
             </button>
           </div>

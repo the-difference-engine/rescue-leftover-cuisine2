@@ -16,5 +16,13 @@ class User < ApplicationRecord
     self.skip_confirmation!
   end
 
+  def active_for_authentication?
+    super && !is_suspended
+  end
+
+  def inactive_message
+    is_suspended ? :is_suspended : super
+  end
+
   has_many :recipes
 end

@@ -23,7 +23,7 @@ class LoginPage extends Component {
         isCreated: true,
       });
     }
-  }
+  };
 
   renderLoginOrThankYouCard = (isCreated) => {
     if (isCreated) {
@@ -37,11 +37,15 @@ class LoginPage extends Component {
     const { setJwt } = this.props;
     return (
       <div className="row">
-        <div className="col loginColumnOne"><SignUp changeCreatedState={this.changeCreatedState} /></div>
-        <div className="col loginColumnTwo"><SignIn setJwt={setJwt} /></div>
+        <div className="col loginColumnOne">
+          <SignUp changeCreatedState={this.changeCreatedState} />
+        </div>
+        <div className="col loginColumnTwo">
+          <SignIn setJwt={setJwt} />
+        </div>
       </div>
     );
-  }
+  };
 
   render() {
     const { isCreated } = this.state;

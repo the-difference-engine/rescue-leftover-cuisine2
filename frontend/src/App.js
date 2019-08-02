@@ -10,7 +10,7 @@ import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
 import Recipe from './containers/RecipePage/Recipe';
 import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
-
+import ResetRequest from './containers/ResetRequest/ResetRequest';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,13 +30,33 @@ const App = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" render={props => <Homepage {...props} user={user} setJwt={setJwt} />} />
+        <Route
+          exact
+          path="/"
+          render={props => <Homepage {...props} user={user} setJwt={setJwt} />}
+        />
         <Route path="/login" render={props => <LoginPage {...props} setJwt={setJwt} />} />
-        <Route path="/admin" render={props => <AdminPanel {...props} user={user} setJwt={setJwt} />} />
-        <Route path="/recipe/new" render={props => <CreateRecipe {...props} user={user} setJwt={setJwt} />} />
-        <Route path="/recipe/:id" render={props => <Recipe {...props} user={user} setJwt={setJwt} />} />
-        <Route path="/profile" render={props => <ProfilePage {...props} user={user} setJwt={setJwt} />} />
-        <Route path="/resetpassword" render={props => <ResetPassword {...props} setJwt={setJwt} />} />
+        <Route
+          path="/admin"
+          render={props => <AdminPanel {...props} user={user} setJwt={setJwt} />}
+        />
+        <Route
+          path="/recipe/new"
+          render={props => <CreateRecipe {...props} user={user} setJwt={setJwt} />}
+        />
+        <Route
+          path="/recipe/:id"
+          render={props => <Recipe {...props} user={user} setJwt={setJwt} />}
+        />
+        <Route
+          path="/profile"
+          render={props => <ProfilePage {...props} user={user} setJwt={setJwt} />}
+        />
+        <Route
+          path="/resetpassword"
+          render={props => <ResetPassword {...props} setJwt={setJwt} />}
+        />
+        <Route path="/resetrequest" render={props => <ResetRequest {...props} setJwt={setJwt} />} />
       </Switch>
     </div>
   );

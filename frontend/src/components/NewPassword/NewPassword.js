@@ -27,7 +27,7 @@ const NewPassword = ({ history, token }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (user.password !== user.passwordConfirmation) {
-      setError("The password and password confirmation fields don't match.")
+      setError("The password and password confirmation fields don't match.");
       return;
     }
 

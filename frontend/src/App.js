@@ -10,7 +10,7 @@ import CreateRecipe from './containers/CreateRecipe/CreateRecipe';
 import Recipe from './containers/RecipePage/Recipe';
 import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
-import ResetRequest from './containers/ResetRequest/ResetRequest';
+import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
 
 const App = () => {
   const [user, setUser] = useState(null);

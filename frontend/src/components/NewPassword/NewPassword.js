@@ -1,124 +1,82 @@
-import React, { Component } from 'react';
+
+import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { AuthCard, AuthInput } from '../AuthItems/AuthItems';
 import { resetPassword, loginUser } from '../../lib/apiClient';
-import './NewPassword.css';
 
-class NewPassword extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPasswordVisible: false,
-      password: '',
-      confirmPassword: '',
-      error: '',
-    };
-  }
+const NewPassword = ({ history, token }) => {
+  const [errorMsg, setError] = useState(null);
+  const [user, setUser] = useState({
+    password: '',
+    passwordConfirmation: '',
+  });
 
-  toggleIcon = () => {
-    this.setState(prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible,
-    }));
+  const resetLink = (
+    <Link to="/resetrequest" id="reset-request-link">
+      Submit a new password reset request.
+    </Link>
+  );
+
+  const handleChange = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const { token, history } = this.props;
-    const { password, confirmPassword } = this.state;
-    if (password !== confirmPassword) {
-      this.setState({ error: "Passwords don't match" });
-    } else {
-      resetPassword(password, token)
-        .then((response) => {
-          this.setState({ email: response.data.email });
-          loginUser(this.state);
-          history.push('/');
-        })
-        .catch((error) => {
-          if (error.response.data.errors.reset_password_token[0]) {
-            this.setState({
-              error: 'The request failed due to an invalid password reset token.',
-            });
-          } else {
-            this.setState({
-              error: 'Oops! Something went wrong with our system!',
-            });
-          }
-        });
+    if (user.password !== user.passwordConfirmation) {
+      setError("The password and password confirmation fields don't match.")
+      return;
     }
+
+    resetPassword(token, user.password)
+      .then((response) => {
+        const { email } = response.data;
+        loginUser({
+          email,
+          password: user.password,
+        });
+        history.push('/')
+      })
+      .catch((error) => {
+        const { errors } = error.response.data;
+        if (errors.reset_password_token) {
+          setError('The request failed due to an invalid password reset token.');
+        } else {
+          setError('Something unexpectedly went wrong. Please try again.');
+        }
+      });
   };
 
-  render() {
-    const { isPasswordVisible, error } = this.state;
-
-    if (error) {
-      return (
-        <div className="errorMessage">
-          <p>
-            {error}
-            {' '}
-            <Link to="/resetrequest" id="requestLink">
-              Submit a new password reset request.
-            </Link>
-          </p>
-        </div>
-      );
-    }
-    return (
-      <div className="newPasswordCard">
-        <h3 className="newPasswordHeader">Reset Password</h3>
-        <form className="form-newPassword" onSubmit={this.handleSubmit}>
-          <div className="form-group row">
-            <input
-              type={isPasswordVisible ? 'text' : 'password'}
-              autoComplete="new-password"
-              id="inputSignInPassword"
-              className=" newPassword-input fullWidth form-control-lg"
-              name="password"
-              required
-              placeholder="Password"
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Password')}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="inputNewPassword">Password</label>
-            <span
-              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
-              onClick={this.toggleIcon}
-            />
-          </div>
-          <div className="passwordConfirm form-group row">
-            <input
-              type={isPasswordVisible ? 'text' : 'password'}
-              autoComplete="password-confrimation"
-              id="inputSignInPasswordConfirm"
-              className="password-confirm-input fullWidth form-control-lg"
-              name="confirmPassword"
-              required
-              placeholder="Confirm Password"
-              onFocus={event => event.target.setAttribute('placeholder', 'confirmPassword')}
-              onBlur={event => event.target.setAttribute('placeholder', 'confrimPassword')}
-              onChange={this.handleChange}
-              minLength="6"
-            />
-            <label htmlFor="inputsignUpPassword">Password Confirmation</label>
-            <span
-              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
-              onClick={this.toggleIcon}
-            />
-          </div>
-          <div className="row">
-            <button className="resetPasswordButton signUpButton btn btn-lg btn-block" type="submit" valid="true">
-              Reset Password
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <AuthCard
+      title="Reset Password"
+      submitText="Reset Password"
+      handleSubmit={handleSubmit}
+      errorMessage={errorMsg}
+      successMessage={resetLink}
+    >
+      <AuthInput
+        form="resetpword"
+        name="password"
+        placeholder="Password"
+        type="password"
+        required="true"
+        minLength="6"
+        handleChange={handleChange}
+      />
+      <AuthInput
+        form="resetpword"
+        name="passwordConfirmation"
+        placeholder="Password Confirmation"
+        type="password"
+        required="true"
+        handleChange={handleChange}
+      />
+    </AuthCard>
+  );
+};
 
 export default withRouter(NewPassword);

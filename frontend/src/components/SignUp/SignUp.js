@@ -1,133 +1,88 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { AuthCard, AuthInput } from '../AuthItems/AuthItems';
 import { createUser } from '../../lib/apiClient';
-import './SignUp.css';
 
-class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-      isPasswordVisible: false,
-      isAuthorized: false,
-    };
-  }
+const SignUp = ({ history }) => {
+  const [errorMsg, setError] = useState(null);
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
 
-  toggleIcon = () => {
-    this.setState(prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible,
-    }));
+  const handleChange = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleSubmit = (event, changeCreatedState) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    createUser(this.state)
-      .then((response) => {
-        changeCreatedState(response.status);
-      })
+    createUser(user)
+      .then(() => history.push('/thanks'))
       .catch((error) => {
-        if (error.message.includes('422')) {
-          const parentForm = document.getElementsByTagName('form')[0];
-          const errorDiv = document.createElement('p');
-          errorDiv.setAttribute('class', 'errorMessage sign-up');
-          errorDiv.innerHTML = 'A user with that email already exists! Try signing in.';
-          parentForm.insertAdjacentElement('beforeend', errorDiv);
+        const { errors } = error.response.data;
+        if (errors.email) {
+          setError(`Email address ${errors.email[0]}.`);
+        } else if (errors.password) {
+          setError(`The provided password ${errors.password[0]}.`);
+        } else {
+          setError('Something unexpectedly went wrong. Please try again.');
         }
       });
   };
 
-  render() {
-    const { changeCreatedState } = this.props;
-    const { isPasswordVisible } = this.state;
-
-    return (
-      <div className="leftLoginCard loginCard">
-        <h3 className="loginHeader">Create an Account</h3>
-        <form className="form-signInUp" onSubmit={event => this.handleSubmit(event, changeCreatedState)}>
-          <div className="form-group row">
-            <div className="name col">
-              <div className="name row">
-                <input
-                  type="text"
-                  id="inputFirstName"
-                  name="firstName"
-                  className="sign-in-input firstName col-md form-control-lg"
-                  placeholder="First"
-                  required
-                  onFocus={event => event.target.setAttribute('placeholder', '')}
-                  onBlur={event => event.target.setAttribute('placeholder', 'First')}
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="inputFirstName">First Name</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="name row">
-                <input
-                  type="text"
-                  id="inputLastName"
-                  name="lastName"
-                  className="sign-in-input col-md form-control-lg"
-                  placeholder="Last"
-                  required
-                  onFocus={event => event.target.setAttribute('placeholder', '')}
-                  onBlur={event => event.target.setAttribute('placeholder', 'Last')}
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="inputLastName">Last Name</label>
-              </div>
-            </div>
-          </div>
-
-          <div className="form-group row">
-            <input
-              type="email"
-              id="inputSignUpEmail"
-              name="email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              className="sign-in-input fullWidth form-control-lg"
-              placeholder="Email"
-              required
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Email')}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="inputSignUpEmail">Email</label>
-          </div>
-          <div className="password form-group row">
-            <input
-              type={isPasswordVisible ? 'text' : 'password'}
-              id="inputSignUpPassword"
-              name="password"
-              className="sign-in-input fullWidth form-control-lg"
-              minLength="6"
-              placeholder="Password"
-              required
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Password')}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="inputSignUpPassword">Password</label>
-            <span
-              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
-              onClick={this.toggleIcon}
-            />
-          </div>
-          <div className="form-group row">
-            <button className="signUpButton btn btn-lg btn-block" type="submit">
-              Sign Up
-            </button>
-          </div>
-        </form>
+  return (
+    <AuthCard
+      title="Create an Account"
+      submitText="Sign Up"
+      handleSubmit={handleSubmit}
+      errorMessage={errorMsg}
+    >
+      <div className="form-group d-flex flex-row justify-content-center">
+        <AuthInput
+          form="signup"
+          name="firstName"
+          placeholder="First Name"
+          type="text"
+          required="true"
+          handleChange={handleChange}
+          column="true"
+        />
+        <div className="auth-card-column-divider" />
+        <AuthInput
+          form="signup"
+          name="lastName"
+          placeholder="Last Name"
+          type="text"
+          required="true"
+          handleChange={handleChange}
+          column="true"
+        />
       </div>
-    );
-  }
-}
+      <AuthInput
+        form="signup"
+        name="email"
+        placeholder="Email"
+        type="text"
+        required="true"
+        pattern="^.+@.+\..+$"
+        handleChange={handleChange}
+      />
+      <AuthInput
+        form="signup"
+        name="password"
+        placeholder="Password"
+        type="password"
+        required="true"
+        minLength="6"
+        handleChange={handleChange}
+      />
+    </AuthCard>
+  );
+};
 
-export default SignUp;
+export default withRouter(SignUp);

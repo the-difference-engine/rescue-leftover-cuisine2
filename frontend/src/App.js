@@ -11,6 +11,7 @@ import Recipe from './containers/RecipePage/Recipe';
 import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
+import ThanksPage from './containers/ThanksPage/ThanksPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -56,7 +57,8 @@ const App = () => {
           path="/resetpassword"
           render={props => <ResetPassword {...props} setJwt={setJwt} />}
         />
-        <Route path="/resetrequest" render={props => <ResetRequest {...props} setJwt={setJwt} />} />
+        <Route path="/resetrequest" component={ResetRequestPage} />
+        <Route exact path="/thanks" component={ThanksPage} />
 
         <Route // kludge until we can fix the routes in the email
           path="/api/v1/password/edit"

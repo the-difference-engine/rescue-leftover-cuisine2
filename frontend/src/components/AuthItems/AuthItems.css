@@ -1,6 +1,7 @@
 .auth-page {
   margin: 0;
   padding: 0;
+  color: #696969;
 }
 
 .auth-page-content {
@@ -36,7 +37,6 @@
 
 .auth-card-header {
   text-align: center;
-  color: #696969;
   padding-top: 5%;
   padding-bottom: 5%;
 }

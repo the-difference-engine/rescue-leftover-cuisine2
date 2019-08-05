@@ -38,7 +38,7 @@ const NewPassword = ({ history, token }) => {
           email,
           password: user.password,
         });
-        history.push('/')
+        history.push('/');
       })
       .catch((error) => {
         const { errors } = error.response.data;

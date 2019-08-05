@@ -8,5 +8,4 @@ const ResetRequestPage = () => (
   </AuthPage>
 );
 
-
 export default ResetRequestPage;

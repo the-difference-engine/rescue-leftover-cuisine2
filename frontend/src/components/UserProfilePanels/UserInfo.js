@@ -2,7 +2,7 @@ import React from 'react';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
 
-const UserInfo = () => (
+const UserInfo = user => (
   <div className="row">
     <div className="col-md-12 profile-content">
       <div className="row profilePage-user">
@@ -29,7 +29,10 @@ const UserInfo = () => (
         </div>
         <div className="col-md-9 user-info">
           <div className="profilePage-user-name">
-            <h1>Jason Oliver</h1>
+            <h1 user={user} {...console.log(user)}>
+              Jason Oliver
+              {user.first_name}
+            </h1>
             <button type="button" className="user-edit-button">
               <img
                 src="https://img.icons8.com/windows/32/000000/edit.png"
@@ -58,5 +61,9 @@ const UserInfo = () => (
     </div>
   </div>
 );
+
+UserInfo.defaultProps = {
+  user: {},
+};
 
 export default UserInfo;

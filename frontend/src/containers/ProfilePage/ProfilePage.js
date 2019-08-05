@@ -101,7 +101,7 @@ class ProfilePage extends Component {
           </div>
         </div>
         {/* Component for top user info and bio section */}
-        <UserInfo />
+        <UserInfo user={user} />
         {/* Bottom section with recipes and settings */}
         <div className="row user-panel">
           <div className="col-md-2 user-nav-bar">

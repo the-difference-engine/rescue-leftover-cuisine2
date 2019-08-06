@@ -101,7 +101,7 @@ class ProfilePage extends Component {
           </div>
         </div>
         {/* Component for top user info and bio section */}
-        {user ? <UserInfo user={user} /> : null }
+        {user ? <UserInfo user={user} /> : <h1>401 (unauthorized) Login to access this page.</h1>}
         {/* Bottom section with recipes and settings */}
         <div className="row user-panel">
           <div className="col-md-2 user-nav-bar">

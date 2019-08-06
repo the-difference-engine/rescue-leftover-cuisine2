@@ -31,7 +31,7 @@ class NewPassword extends Component {
     if (password !== confirmPassword) {
       this.setState({ error: "Passwords don't match" });
     } else {
-      resetPassword(token, password)
+      resetPassword(password, token)
         .then(() => {
           history.push('/login');
         })
@@ -51,6 +51,8 @@ class NewPassword extends Component {
 
   render() {
     const { isPasswordVisible, error } = this.state;
+    const { token } = this.props;
+    console.log(token);
 
     if (error) {
       return (

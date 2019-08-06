@@ -2,11 +2,7 @@ import React from 'react';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
 
-function formatName(user) {
-  return `${user.first_name} ${user.last_name}`;
-}
-
-const UserInfo = user => (
+const UserInfo = ({ user }) => (
   <div className="row">
     <div className="col-md-12 profile-content">
       <div className="row profilePage-user">
@@ -33,9 +29,10 @@ const UserInfo = user => (
         </div>
         <div className="col-md-9 user-info">
           <div className="profilePage-user-name">
-            <h1 {...console.log(user)}>
+            <h1>
+              {user.first_name}
               {' '}
-              {formatName(user)}
+              {user.last_name}
             </h1>
             <button type="button" className="user-edit-button">
               <img

@@ -101,52 +101,54 @@ class ProfilePage extends Component {
           </div>
         </div>
         {/* Component for top user info and bio section */}
-        {user ? <UserInfo user={user} /> : <h1>401 (unauthorized) Login to access this page.</h1>}
-        {/* Bottom section with recipes and settings */}
-        <div className="row user-panel">
-          <div className="col-md-2 user-nav-bar">
-            {/* Left navigation tabs */}
-            <Nav tabs>
-              <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
-                <NavLink
-                  className={activeTab === 'recipes' ? 'recipes' : ''}
-                  onClick={() => {
-                    this.toggle('recipes');
-                  }}
-                >
-                  My Recipes
-                </NavLink>
-              </NavItem>
-              <NavItem className={activeTab === 'settings' ? 'user-nav-tab-active' : ''}>
-                <NavLink
-                  className={activeTab === 'settings' ? 'settings' : ''}
-                  onClick={() => {
-                    this.toggle('settings');
-                  }}
-                >
-                  Settings
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </div>
-          <div className="col-md-9 right-pane">
-            <TabContent activeTab={activeTab}>
-              <TabPane tabId="recipes">
-                <div id="cards-wrapper">
-                  {recipes.map(recipe => (
-                    <RecipeCard
-                      {...recipe}
-                      key={recipe.id}
-                    />
-                  ))}
-                </div>
-              </TabPane>
-              <TabPane tabId="settings">
-                <SettingsTab />
-              </TabPane>
-            </TabContent>
-          </div>
-        </div>
+        { user
+          ? (<div>
+            <UserInfo user={user} />
+            <div className="row user-panel">
+              <div className="col-md-2 user-nav-bar">
+                <Nav tabs>
+                  <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
+                    <NavLink
+                      className={activeTab === 'recipes' ? 'recipes' : ''}
+                      onClick={() => {
+                        this.toggle('recipes');
+                      }}
+                    >
+                      My Recipes
+                    </NavLink>
+                  </NavItem>
+                  <NavItem className={activeTab === 'settings' ? 'user-nav-tab-active' : ''}>
+                    <NavLink
+                      className={activeTab === 'settings' ? 'settings' : ''}
+                      onClick={() => {
+                        this.toggle('settings');
+                      }}
+                    >
+                      Settings
+                    </NavLink>
+                  </NavItem>
+                </Nav>
+              </div>
+              <div className="col-md-9 right-pane">
+                <TabContent activeTab={activeTab}>
+                  <TabPane tabId="recipes">
+                    <div id="cards-wrapper">
+                      {recipes.map(recipe => (
+                        <RecipeCard
+                          {...recipe}
+                          key={recipe.id}
+                        />
+                      ))}
+                    </div>
+                  </TabPane>
+                  <TabPane tabId="settings">
+                    <SettingsTab />
+                  </TabPane>
+                </TabContent>
+              </div>
+            </div>
+          </div>)
+          : <h1>Login to access this page.</h1>}
         <div className="row">
           <Footer />
         </div>

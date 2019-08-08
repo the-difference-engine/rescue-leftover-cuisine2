@@ -25,6 +25,7 @@ class MainSearch extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.handleValidation()) {
+      this.setState({ searchTerm: '' });
       this.handleRedirect();
     }
   }
@@ -79,7 +80,7 @@ class MainSearch extends Component {
   }
 
   render() {
-    const { error, open } = this.state;
+    const { error, open, searchTerm } = this.state;
     return (
       <div className="mainSearch container-fluid">
         <div className="row">
@@ -93,6 +94,7 @@ class MainSearch extends Component {
                       type="text"
                       className="search-input"
                       placeholder="Search by recipe name or ingredient"
+                      value={searchTerm}
                       onChange={this.handleChange}
                     />
                     <button type="submit" className="search-button">

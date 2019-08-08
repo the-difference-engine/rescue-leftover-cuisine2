@@ -24,7 +24,7 @@ const Homepage = (props) => {
       <div className="row">
         <div className="homepageContent">
           <div className="row">
-            <MainSearch />
+            <MainSearch searchTerm={searchTerm} />
           </div>
           <div className="row suggestions">
             <div className="col-12">
@@ -35,11 +35,7 @@ const Homepage = (props) => {
           </div>
           <div className="row">
             <ResultsCounter searchTerm={searchTerm} />
-          </div>
-          <div className="row">
-            <SearchLozenge searchTerm={searchTerm} />
-          </div>
-          <div className="row">
+            <SearchLozenge searchTerm={searchTerm} parsed={parsed} />
             <RecipeSearchList searchTerm={searchTerm} />
           </div>
           <div className="row">

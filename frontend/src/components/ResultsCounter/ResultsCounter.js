@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { getRecipes } from '../../lib/apiClient';
 import './ResultsCounter.css';
 
-
-class SearchResults extends Component {
+class ResultsCounter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,17 +32,16 @@ class SearchResults extends Component {
         this.setState({
           recipesFound: data,
         });
+        if (!searchTerm) {
+          this.setState({
+            searchTerm: null,
+          });
+        }
       });
-    if (!searchTerm) {
-      this.setState({
-        searchTerm: false,
-      });
-    }
   }
 
   render() {
-    const { searchTerm } = this.state;
-    const { recipesFound } = this.state;
+    const { searchTerm, recipesFound } = this.state;
     if (!searchTerm) {
       return <div />;
     }
@@ -59,4 +57,4 @@ class SearchResults extends Component {
     );
   }
 }
-export default SearchResults;
+export default ResultsCounter;

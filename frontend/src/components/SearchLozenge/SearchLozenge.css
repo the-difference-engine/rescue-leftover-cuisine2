@@ -16,7 +16,7 @@
     border-radius: 50px 50px;
 }
 
-button{
+.closeLozenge{
     cursor: pointer;
     border: none;
     color: #888AA0;

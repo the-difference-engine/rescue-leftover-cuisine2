@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './SearchLozenge.css';
 
 const SearchLozenge = (props) => {
@@ -9,6 +10,19 @@ const SearchLozenge = (props) => {
 
   const lozenges = searchTerm.split(' ');
 
+  function handleClick(event) {
+    const targetLozenge = event.currentTarget.textContent;
+    const lozengeValue = targetLozenge.substring(0, targetLozenge.length - 1).toLowerCase();
+    const newSearchTerm = searchTerm.replace(lozengeValue, '').trim();
+    const { history } = props;
+    const queryString = `/?q=${newSearchTerm}`;
+    history.push(queryString);
+    if (!newSearchTerm) {
+      const newQueryString = '';
+      history.push(newQueryString);
+    }
+  }
+
   if (!searchTerm) {
     return (
       <div />
@@ -18,9 +32,9 @@ const SearchLozenge = (props) => {
       <div className="row">
         <div className="lozengeBubbles">
           {lozenges.map(lozenge => (
-            <div className="lozenge">
+            <div onClick={handleClick} className="lozenge">
               {capitalize(lozenge)}
-              <button type="button">x</button>
+              <button className="closeLozenge" type="button">x</button>
             </div>
           ))}
         </div>
@@ -29,4 +43,4 @@ const SearchLozenge = (props) => {
   );
 };
 
-export default SearchLozenge;
+export default withRouter(SearchLozenge);

@@ -45,14 +45,16 @@ class AdminEditModal extends React.Component {
     } = this.props;
     const { alertVisible } = this.state;
 
-    const handleClose = () => {
-      toggleEditModal();
-      this.onDismiss();
-    };
-
     const closeBtn = (
-      <button type="button" className="edit-user-close-button" onClick={handleClose}>
-        <img src="https://img.icons8.com/windows/32/9b9b9b/cancel.png" alt="close" />
+      <button
+        type="button"
+        className="edit-user-close-button"
+        onClick={() => {
+          toggleEditModal();
+          this.onDismiss();
+        }}
+      >
+        <img src="https://img.icons8.com/windows/32/000000/cancel.png" alt="close" />
       </button>
     );
 

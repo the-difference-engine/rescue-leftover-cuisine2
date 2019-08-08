@@ -32,6 +32,10 @@
   border: none;
 }
 
+.admin-suspend-button {
+  border: none;
+}
+
 .recipe-checkbox-spacing {
   margin-left: 80px;
   margin-top: -10px;

@@ -1,7 +1,6 @@
-//  global sessionStorage  eslint-disable-line no-undef
-/* eslint no-undef: "error" */
-
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { resetPassword } from '../../lib/apiClient';
 import './NewPassword.css';
 
 class NewPassword extends Component {
@@ -9,6 +8,9 @@ class NewPassword extends Component {
     super(props);
     this.state = {
       isPasswordVisible: false,
+      password: '',
+      confirmPassword: '',
+      error: '',
     };
   }
 
@@ -22,17 +24,55 @@ class NewPassword extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  render() {
-    const { changeAuthorizedState } = this.props;
-    const { isPasswordVisible } = this.state;
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { token, history } = this.props;
+    const { password, confirmPassword } = this.state;
+    if (password !== confirmPassword) {
+      this.setState({ error: "Passwords don't match" });
+    } else {
+      resetPassword(token, password)
+        .then(() => {
+          history.push('/login');
+        })
+        .catch((error) => {
+          if (error.response.data.errors.reset_password_token[0]) {
+            this.setState({
+              error: 'The request failed due to an invalid password reset token.',
+            });
+          } else {
+            this.setState({
+              error: 'Oops! Something went wrong with our system!',
+            });
+          }
+        });
+    }
+  };
 
+  render() {
+    const { isPasswordVisible, error } = this.state;
+
+    if (error) {
+      return (
+        <div className="errorMessage">
+          <p>
+            {error}
+            {' '}
+            <Link to="/resetrequest" id="requestLink">
+              Submit a new password reset request.
+            </Link>
+          </p>
+        </div>
+      );
+    }
     return (
       <div className="newPasswordCard">
         <h3 className="newPasswordHeader">Reset Password</h3>
-        <form className="form-newPassword" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
+        <form className="form-newPassword" onSubmit={this.handleSubmit}>
           <div className="form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
+              autoComplete="new-password"
               id="inputSignInPassword"
               className=" newPassword-input fullWidth form-control-lg"
               name="password"
@@ -48,13 +88,13 @@ class NewPassword extends Component {
               onClick={this.toggleIcon}
             />
           </div>
-
           <div className="passwordConfirm form-group row">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
+              autoComplete="password-confrimation"
               id="inputSignInPasswordConfirm"
               className="password-confirm-input fullWidth form-control-lg"
-              name="confirm-password"
+              name="confirmPassword"
               required
               placeholder="Confirm Password"
               onFocus={event => event.target.setAttribute('placeholder', 'confirmPassword')}
@@ -68,9 +108,8 @@ class NewPassword extends Component {
               onClick={this.toggleIcon}
             />
           </div>
-
           <div className="row">
-            <button className="resetPasswordButton signUpButton btn btn-lg btn-block" type="submit" valid>
+            <button className="resetPasswordButton signUpButton btn btn-lg btn-block" type="submit" valid="true">
               Reset Password
             </button>
           </div>
@@ -80,4 +119,4 @@ class NewPassword extends Component {
   }
 }
 
-export default NewPassword;
+export default withRouter(NewPassword);

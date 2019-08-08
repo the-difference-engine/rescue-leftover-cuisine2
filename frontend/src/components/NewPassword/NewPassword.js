@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { resetPassword } from '../../lib/apiClient';
+import { resetPassword, loginUser } from '../../lib/apiClient';
 import './NewPassword.css';
 
 class NewPassword extends Component {
@@ -10,21 +10,21 @@ class NewPassword extends Component {
       isPasswordVisible: false,
       password: '',
       confirmPassword: '',
-      error: '',
+      error: ''
     };
   }
 
   toggleIcon = () => {
     this.setState(prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible,
+      isPasswordVisible: !prevState.isPasswordVisible
     }));
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     const { token, history } = this.props;
     const { password, confirmPassword } = this.state;
@@ -32,17 +32,19 @@ class NewPassword extends Component {
       this.setState({ error: "Passwords don't match" });
     } else {
       resetPassword(password, token)
-        .then(() => {
-          history.push('/login');
+        .then(response => {
+          this.setState({ email: response.data.email });
+          loginUser(this.state);
+          history.push('/');
         })
-        .catch((error) => {
+        .catch(error => {
           if (error.response.data.errors.reset_password_token[0]) {
             this.setState({
-              error: 'The request failed due to an invalid password reset token.',
+              error: 'The request failed due to an invalid password reset token.'
             });
           } else {
             this.setState({
-              error: 'Oops! Something went wrong with our system!',
+              error: 'Oops! Something went wrong with our system!'
             });
           }
         });
@@ -51,15 +53,12 @@ class NewPassword extends Component {
 
   render() {
     const { isPasswordVisible, error } = this.state;
-    const { token } = this.props;
-    console.log(token);
 
     if (error) {
       return (
         <div className="errorMessage">
           <p>
-            {error}
-            {' '}
+            {error}{' '}
             <Link to="/resetrequest" id="requestLink">
               Submit a new password reset request.
             </Link>

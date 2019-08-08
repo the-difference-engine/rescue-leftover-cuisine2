@@ -89,20 +89,19 @@ class ProfilePage extends Component {
     }
   }
 
-  render() {
+  renderProfile() {
     const { user, setJwt } = this.props;
     const { activeTab, recipes } = this.state;
 
-    return (
-      <div className="profile-page container-fluid">
-        <div className="row">
-          <div className="profile-header">
-            <Header showSearchBar user={user} setJwt={setJwt} />
+    if (user) {
+      return (
+        <div className="profile-page container-fluid">
+          <div className="row">
+            <div className="profile-header">
+              <Header showSearchBar user={user} setJwt={setJwt} />
+            </div>
           </div>
-        </div>
-        {/* Component for top user info and bio section */}
-        { user
-          ? (<div>
+          <div>
             <UserInfo user={user} />
             <div className="row user-panel">
               <div className="col-md-2 user-nav-bar">
@@ -147,11 +146,34 @@ class ProfilePage extends Component {
                 </TabContent>
               </div>
             </div>
-          </div>)
-          : <h1>Login to access this page.</h1>}
-        <div className="row">
-          <Footer />
+          </div>
+          <div className="row">
+            <Footer />
+          </div>
         </div>
+      );
+    }
+    return (
+      <div className="profile-page container-fluid">
+        <div className="row">
+          <div className="profile-header">
+            <Header showSearchBar user={user} setJwt={setJwt} />
+          </div>
+        </div>
+        <div>
+          <h1>Login to access this page.</h1>
+          <div className="row">
+            <Footer />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        {this.renderProfile()}
       </div>
     );
   }

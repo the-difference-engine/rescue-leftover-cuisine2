@@ -4,13 +4,19 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Type } from 'react-bootstrap-table2-editor';
 import './AdminTables.css';
 import AdminEditModal from '../AdminEditModal/AdminEditModal';
+import AdminSuspendModal from '../AdminSuspendModal/AdminSuspendModal';
 
 const Users = ({ users, refreshUsers }) => {
   const [editModal, setEditModal] = useState(false);
+  const [suspendModal, setSuspendModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState({});
 
   const toggleEditModal = () => {
     setEditModal(!editModal);
+  };
+
+  const toggleSuspendModal = () => {
+    setSuspendModal(!suspendModal);
   };
 
   const columns = [
@@ -83,7 +89,7 @@ const Users = ({ users, refreshUsers }) => {
       formatter: cell => `${cell.length}`,
     },
     {
-      dataField: 'edit',
+      dataField: 'is_suspended',
       text: '',
       headerStyle: {
         textAlign: 'center',
@@ -91,22 +97,42 @@ const Users = ({ users, refreshUsers }) => {
         borderBottom: 'none',
       },
       align: 'left',
-      formatter: () => (
-        <div>
-          <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
-            <img
-              src="https://img.icons8.com/windows/32/000000/edit.png"
-              alt="edit"
-            />
-          </button>
-          <button type="button" className="admin-edit-button">
-            <img
-              src="https://img.icons8.com/windows/32/000000/cancel.png"
-              alt="delete"
-            />
-          </button>
-        </div>
-      ),
+      formatter: (cell) => {
+        if (cell) {
+          return (
+            <div>
+              <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
+                <img
+                  src="https://img.icons8.com/windows/32/000000/edit.png"
+                  alt="edit"
+                />
+              </button>
+              <button type="button" className="admin-suspend-button">
+                <img
+                  src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
+                  alt="user currently suspended"
+                />
+              </button>
+            </div>
+          );
+        }
+        return (
+          <div>
+            <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
+              <img
+                src="https://img.icons8.com/windows/32/000000/edit.png"
+                alt="edit"
+              />
+            </button>
+            <button type="button" className="admin-suspend-button" onClick={toggleSuspendModal}>
+              <img
+                src="https://img.icons8.com/windows/32/000000/cancel.png"
+                alt="suspend user"
+              />
+            </button>
+          </div>
+        );
+      },
     },
   ];
 
@@ -147,6 +173,12 @@ const Users = ({ users, refreshUsers }) => {
       <AdminEditModal
         editModal={editModal}
         toggleEditModal={toggleEditModal}
+        selectedUser={selectedUser}
+        refreshUsers={refreshUsers}
+      />
+      <AdminSuspendModal
+        suspendModal={suspendModal}
+        toggleSuspendModal={toggleSuspendModal}
         selectedUser={selectedUser}
         refreshUsers={refreshUsers}
       />

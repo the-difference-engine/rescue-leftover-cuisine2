@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import './MainSearch.css';
 
 class MainSearch extends Component {
@@ -8,11 +9,21 @@ class MainSearch extends Component {
     this.state = {
       searchTerm: '',
       error: '',
-      open: false,
+      showInstructions: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePanel = this.togglePanel.bind(this);
+  }
+
+  componentDidMount() {
+    const cookies = new Cookies();
+    if (cookies.get('rlc') !== 'visited') {
+      this.setState({
+        showInstructions: true,
+      });
+      cookies.set('rlc', 'visited', { path: '/' });
+    }
   }
 
   handleRedirect = () => {
@@ -47,7 +58,7 @@ class MainSearch extends Component {
   }
 
   togglePanel() {
-    this.setState(prevState => ({ open: !prevState.open }));
+    this.setState(prevState => ({ showInstructions: !prevState.showInstructions }));
   }
 
   renderChevronButton() {
@@ -64,13 +75,13 @@ class MainSearch extends Component {
     );
   }
 
-  renderSearchInstructions() {
+  renderInstructions() {
     return (
       <div className="searchInstructions">
         <p>
-          You can search recipe names or ingredients by keyword. Enter your keywords and click the
-          search button or press enter to search. If you use multiple keywords, the search will
-          return only results containing all of your keywords.
+          You can search recipe names or ingredients by keyword. Enter your keywords and
+          click the search button or press enter to search. If you use multiple keywords, the
+          search will return only results containing all of your keywords.
         </p>
         <div onClick={this.togglePanel}>
           <p className="close">Collapse</p>
@@ -80,7 +91,8 @@ class MainSearch extends Component {
   }
 
   render() {
-    const { error, open, searchTerm } = this.state;
+    const { error, showInstructions, searchTerm } = this.state;
+
     return (
       <div className="mainSearch container-fluid">
         <div className="row">
@@ -105,7 +117,7 @@ class MainSearch extends Component {
                     </button>
                   </div>
                   <div>
-                    { open ? this.renderSearchInstructions() : this.renderChevronButton() }
+                    { showInstructions ? this.renderInstructions() : this.renderChevronButton() }
                   </div>
                 </div>
               </form>

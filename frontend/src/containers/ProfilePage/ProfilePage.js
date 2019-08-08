@@ -89,7 +89,7 @@ class ProfilePage extends Component {
     }
   }
 
-  renderProfile() {
+  render() {
     const { user, setJwt } = this.props;
     const { activeTab, recipes } = this.state;
 
@@ -153,6 +153,7 @@ class ProfilePage extends Component {
         </div>
       );
     }
+
     return (
       <div className="profile-page container-fluid">
         <div className="row">
@@ -166,14 +167,6 @@ class ProfilePage extends Component {
             <Footer />
           </div>
         </div>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        {this.renderProfile()}
       </div>
     );
   }

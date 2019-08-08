@@ -87,7 +87,7 @@ class SignIn extends Component {
             />
           </div>
           <div className="forgotPassword form-group row">
-            <a href="##########">I forgot my password</a>
+            <a href="/resetrequest">I forgot my password</a>
           </div>
           <div className="row">
             <button className="signInButton signUpButton btn btn-lg btn-block" type="button" onClick={this.handleSubmit} valid="true">

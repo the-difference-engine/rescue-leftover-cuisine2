@@ -84,6 +84,15 @@ const requestPasswordReset = email => apiClient.post('/api/v1/password', {
 
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe, adminEditUser,
-  resetPassword, requestPasswordReset, suspendUser,
+  createUser,
+  loginUser,
+  getCurrentUser,
+  getUsers,
+  getUser,
+  getRecipes,
+  getRecipe,
+  adminEditUser,
+  resetPassword,
+  requestPasswordReset,
+  suspendUser,
 };

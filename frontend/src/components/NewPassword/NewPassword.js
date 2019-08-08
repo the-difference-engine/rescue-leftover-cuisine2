@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { resetPassword } from '../../lib/apiClient';
+import { resetPassword, loginUser } from '../../lib/apiClient';
 import './NewPassword.css';
 
 class NewPassword extends Component {
@@ -31,9 +31,11 @@ class NewPassword extends Component {
     if (password !== confirmPassword) {
       this.setState({ error: "Passwords don't match" });
     } else {
-      resetPassword(token, password)
-        .then(() => {
-          history.push('/login');
+      resetPassword(password, token)
+        .then((response) => {
+          this.setState({ email: response.data.email });
+          loginUser(this.state);
+          history.push('/');
         })
         .catch((error) => {
           if (error.response.data.errors.reset_password_token[0]) {

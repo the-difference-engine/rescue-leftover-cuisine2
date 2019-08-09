@@ -5,8 +5,6 @@ import Footer from '../../components/Footer/Footer';
 import MainSearch from '../../components/MainSearch/MainSearch';
 import RecipeSearchList from '../../components/RecipeSearchList/RecipeSearchList';
 import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
-import SearchLozenge from '../../components/SearchLozenge/SearchLozenge';
-import ResultsCounter from '../../components/ResultsCounter/ResultsCounter';
 import './Homepage.css';
 
 const Homepage = ({ location, user, setJwt }) => {
@@ -33,9 +31,7 @@ const Homepage = ({ location, user, setJwt }) => {
             </div>
           </div>
           <div className="row">
-            <ResultsCounter searchTerm={searchTerm} />
-            <SearchLozenge searchTerm={searchTerm} parsed={parsed} />
-            <RecipeSearchList searchTerm={searchTerm} />
+            <RecipeSearchList searchTerm={searchTerm} parsed={parsed} />
           </div>
           <div className="row">
             <BottomSignUp />

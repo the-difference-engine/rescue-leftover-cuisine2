@@ -1,10 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './SearchLozenge.css';
 
 const SearchLozenge = (props) => {
-  let { searchTerm } = props;
-  searchTerm = searchTerm || '';
+  const { searchTerm } = props;
 
   const capitalize = lozenge => lozenge.charAt(0).toUpperCase() + lozenge.slice(1).toLowerCase();
 
@@ -23,11 +23,7 @@ const SearchLozenge = (props) => {
     }
   }
 
-  if (!searchTerm) {
-    return (
-      <div />
-    );
-  } return (
+  return (
     <div className="searchLozenge container">
       <div className="row">
         <div className="lozengeBubbles">
@@ -41,6 +37,14 @@ const SearchLozenge = (props) => {
       </div>
     </div>
   );
+};
+
+SearchLozenge.propTypes = {
+  searchTerm: PropTypes.string,
+};
+
+SearchLozenge.defaultProps = {
+  searchTerm: '',
 };
 
 export default withRouter(SearchLozenge);

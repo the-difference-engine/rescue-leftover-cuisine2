@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import TagsBar from './TagsBar/TagsBar';
+import TagsBar from '../../components/TagsBar/TagsBar';
 import { getRecipe } from '../../lib/apiClient';
 import './Recipe.css';
 

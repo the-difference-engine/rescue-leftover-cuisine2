@@ -1,7 +1,7 @@
 /* global sessionStorage */
 
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { getCurrentUser } from './lib/apiClient';
 import AdminPanel from './containers/AdminPanel/AdminPanel';
 import Homepage from './containers/Homepage/Homepage';
@@ -57,6 +57,17 @@ const App = () => {
           render={props => <ResetPassword {...props} setJwt={setJwt} />}
         />
         <Route path="/resetrequest" render={props => <ResetRequest {...props} setJwt={setJwt} />} />
+
+        <Route // kludge until we can fix the routes in the email
+          path="/api/v1/password/edit"
+          render={props => (
+            <Redirect to={{
+              pathname: '/resetpassword',
+              search: props.location.search,
+            }}
+            />
+          )}
+        />
       </Switch>
     </div>
   );

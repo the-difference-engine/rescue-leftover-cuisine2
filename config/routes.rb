@@ -7,12 +7,13 @@ Rails.application.routes.draw do
                registration: 'auth'
              },
              controllers: {
-               registrations: 'api/v1/registrations'
+               registrations: 'api/v1/registrations',
+               passwords: 'api/v1/passwords'
              },
              defaults: {
                format: :json
              }
-             
+
   namespace :api do
     namespace :v1 do
       resources :recipes

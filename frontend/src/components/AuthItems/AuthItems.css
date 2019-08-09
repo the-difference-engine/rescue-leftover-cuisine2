@@ -1,0 +1,116 @@
+.auth-page {
+  margin: 0;
+  padding: 0;
+  color: #696969;
+}
+
+.auth-page-content {
+  background-image: url('../../assets/Login_Page.jpg');
+  background-size: cover;
+  height: 375px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 275px;
+}
+
+.auth-page-divider {
+  width: 50px;
+}
+
+.auth-cards-wrapper {
+  padding-top: 125px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-card {
+  width: 450px;
+  height: 500px;
+  padding: 50px 75px;
+  border-radius: none;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.auth-card-header {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.auth-card-form .form-group {
+  margin: 0;
+  height: 78px;
+}
+
+.auth-card-input {
+  width: 100%;
+  font-size: medium;
+  color: black;
+  margin-right: 0;
+  border: 1px;
+  border-style: solid;
+  border-color: #9b9b9b;
+}
+
+.auth-card-column-divider {
+  width: 20px;
+}
+
+.auth-card-submit {
+  color: white;
+  background-color: #4ec8ed;
+}
+
+.auth-card-submit:hover {
+  background-color: #06a6d3;
+}
+
+.auth-card-error {
+  margin-top: 25px;
+  color: red;
+}
+
+.auth-card-success,
+.auth-card-error {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.auth-card-input + label {
+  position: relative;
+  bottom: 60px;
+  left: 5px;
+  padding-top: 20px;
+  font-size: x-small;
+  color: #4EC8ED;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.auth-card-input:focus + label {
+  visibility: visible;
+}
+
+.auth-pword-vis {
+  position: relative;
+  bottom: 33px;
+  left: 30px;
+}
+
+#forgot-password-link {
+  position: relative;
+  font-size: small;
+  color: #696969;
+  text-decoration: underline;
+  margin-top: -25px;
+  margin-left: 10px;
+  margin-bottom: 25px;
+}
+
+.auth-card-form input[type="password"] {
+  padding-right: 50px;
+}

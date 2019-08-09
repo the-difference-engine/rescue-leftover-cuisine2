@@ -1,83 +1,82 @@
-//  global sessionStorage  eslint-disable-line no-undef
-/* eslint no-undef: "error" */
 
-import React, { Component } from 'react';
-import './NewPassword.css';
+import React, { useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { AuthCard, AuthInput } from '../AuthItems/AuthItems';
+import { resetPassword, loginUser } from '../../lib/apiClient';
 
-class NewPassword extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPasswordVisible: false,
-    };
-  }
+const NewPassword = ({ history, token }) => {
+  const [errorMsg, setError] = useState(null);
+  const [user, setUser] = useState({
+    password: '',
+    passwordConfirmation: '',
+  });
 
-  toggleIcon = () => {
-    this.setState(prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible,
-    }));
+  const resetLink = (
+    <Link to="/resetrequest" id="reset-request-link">
+      Submit a new password reset request.
+    </Link>
+  );
+
+  const handleChange = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (user.password !== user.passwordConfirmation) {
+      setError("The password and password confirmation fields don't match.");
+      return;
+    }
+
+    resetPassword(token, user.password)
+      .then((response) => {
+        const { email } = response.data;
+        loginUser({
+          email,
+          password: user.password,
+        });
+        history.push('/');
+      })
+      .catch((error) => {
+        const { errors } = error.response.data;
+        if (errors.reset_password_token) {
+          setError('The request failed due to an invalid password reset token.');
+        } else {
+          setError('Something unexpectedly went wrong. Please try again.');
+        }
+      });
   };
 
-  render() {
-    const { changeAuthorizedState } = this.props;
-    const { isPasswordVisible } = this.state;
+  return (
+    <AuthCard
+      title="Reset Password"
+      submitText="Reset Password"
+      handleSubmit={handleSubmit}
+      errorMessage={errorMsg}
+      successMessage={resetLink}
+    >
+      <AuthInput
+        form="resetpword"
+        name="password"
+        placeholder="Password"
+        type="password"
+        required="true"
+        minLength="6"
+        handleChange={handleChange}
+      />
+      <AuthInput
+        form="resetpword"
+        name="passwordConfirmation"
+        placeholder="Password Confirmation"
+        type="password"
+        required="true"
+        handleChange={handleChange}
+      />
+    </AuthCard>
+  );
+};
 
-    return (
-      <div className="newPasswordCard">
-        <h3 className="newPasswordHeader">Reset Password</h3>
-        <form className="form-newPassword" onSubmit={event => this.handleSubmit(event, changeAuthorizedState)}>
-          <div className="form-group row">
-            <input
-              type={isPasswordVisible ? 'text' : 'password'}
-              id="inputSignInPassword"
-              className=" newPassword-input fullWidth form-control-lg"
-              name="password"
-              required
-              placeholder="Password"
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Password')}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="inputNewPassword">Password</label>
-            <span
-              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
-              onClick={this.toggleIcon}
-            />
-          </div>
-
-          <div className="passwordConfirm form-group row">
-            <input
-              type={isPasswordVisible ? 'text' : 'password'}
-              id="inputSignInPasswordConfirm"
-              className="password-confirm-input fullWidth form-control-lg"
-              name="confirm-password"
-              required
-              placeholder="Confirm Password"
-              onFocus={event => event.target.setAttribute('placeholder', 'confirmPassword')}
-              onBlur={event => event.target.setAttribute('placeholder', 'confrimPassword')}
-              onChange={this.handleChange}
-              minLength="6"
-            />
-            <label htmlFor="inputsignUpPassword">Password Confirmation</label>
-            <span
-              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
-              onClick={this.toggleIcon}
-            />
-          </div>
-
-          <div className="row">
-            <button className="resetPasswordButton signUpButton btn btn-lg btn-block" type="submit" valid>
-              Reset Password
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
-
-export default NewPassword;
+export default withRouter(NewPassword);

@@ -5,6 +5,6 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # Indentation override for all JS under lib directory
-[*.{js, rb}]
+[{*.js, *.rb, *.css}]
 indent_style = space
 indent_size = 2

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import ResultsCounter from '../ResultsCounter/ResultsCounter';
+import SearchLozenge from '../SearchLozenge/SearchLozenge';
 import { getRecipes } from '../../lib/apiClient';
 
 class RecipeSearchList extends Component {
@@ -33,8 +35,17 @@ class RecipeSearchList extends Component {
 
   render() {
     const { recipes } = this.state;
+    const { searchTerm } = this.props;
+    const renderCounter = !searchTerm ? <div /> : <ResultsCounter recipes={recipes} />;
+    const renderLozenge = !searchTerm ? (
+      <div />
+    ) : (
+      <SearchLozenge searchTerm={searchTerm} />
+    );
     return (
       <div id="cards-wrapper">
+        { renderCounter }
+        { renderLozenge }
         {recipes.map(recipe => (
           <RecipeCard
             {...recipe}

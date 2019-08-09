@@ -13,13 +13,13 @@
 #difficulty-scale1 {
   height: 10px;
   width: 6px;
-  background-color: #55ffff;
+  background-color: #06a6d3;
   border-radius: 40%;
   display: inline-block;
   position: relative;
   top: 2px;
   left: -1px;
-  box-shadow: 0 0 1px 1px #55ffff;
+  box-shadow: 0 0 1px 1px #06a6d3;
 }
 
 #difficulty-scale2 {

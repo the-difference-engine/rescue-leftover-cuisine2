@@ -6,9 +6,7 @@ const AddTag = () => (
     <div id="create-tag-text">
       Add Tag
     </div>
-    <div id="create-tag-icon" />
-    <div id="create-tag-plus1" />
-    <div id="create-tag-plus2" />
+    <div id="create-tag-icon">+</div>
   </div>
 );
 

@@ -1,105 +1,61 @@
-/* eslint no-undef: "error" */
-
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { AuthCard, AuthInput } from '../AuthItems/AuthItems';
 import { loginUser } from '../../lib/apiClient';
-import './SignIn.css';
 
-class SignIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPasswordVisible: false,
-      email: '',
-      password: '',
-      validationErrorText: '',
-    };
-  }
+const SignIn = ({ history, setJwt }) => {
+  const [errorMsg, setError] = useState(null);
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
 
-  toggleIcon = () => {
-    this.setState(prevState => ({
-      isPasswordVisible: !prevState.isPasswordVisible,
-    }));
+  const handleChange = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { history, setJwt } = this.props;
-
-    loginUser(this.state)
+    loginUser(user)
       .then((response) => {
         setJwt(response.headers.authorization);
         history.push('/');
       })
       .catch((error) => {
-        if (error.message.includes('401')) {
-          this.setState({
-            validationErrorText: 'Please make sure you have the correct email and passwords!',
-          });
-        }
+        setError(error.response.data.errors[0].message);
       });
   };
 
-  render() {
-    const { validationErrorText, isPasswordVisible } = this.state;
-
-    return (
-      <div className="rightLoginCard loginCard">
-        <h3 className="loginHeader">Log In</h3>
-        <form className="form-signInUp" onSubmit={this.handleSubmit}>
-          <div className="form-group row">
-            <input
-              type="email"
-              id="inputSignInEmail"
-              className=" sign-in-input fullWidth form-control-lg"
-              name="email"
-              required
-              placeholder="Email"
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Email')}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="inputSignInEmail">Email</label>
-          </div>
-
-          <div className="signInPassword form-group row">
-            <input
-              type={isPasswordVisible ? 'text' : 'password'}
-              id="inputSignInPassword"
-              className="sign-in-input fullWidth form-control-lg"
-              name="password"
-              required
-              placeholder="Password"
-              onFocus={event => event.target.setAttribute('placeholder', '')}
-              onBlur={event => event.target.setAttribute('placeholder', 'Password')}
-              onChange={this.handleChange}
-              minLength="6"
-            />
-            <label htmlFor="inputsignUpPassword">Password</label>
-            <span
-              className={isPasswordVisible ? 'fas fa-eye-slash fa-lg' : 'fas fa-eye fa-lg'}
-              onClick={this.toggleIcon}
-            />
-          </div>
-          <div className="forgotPassword form-group row">
-            <a href="##########">I forgot my password</a>
-          </div>
-          <div className="row">
-            <button className="signInButton signUpButton btn btn-lg btn-block" type="submit" valid="true">
-              Log In
-            </button>
-          </div>
-        </form>
-
-        <p className="errorValidation">{validationErrorText}</p>
-      </div>
-    );
-  }
-}
+  return (
+    <AuthCard
+      title="Log In"
+      submitText="Log In"
+      handleSubmit={handleSubmit}
+      errorMessage={errorMsg}
+    >
+      <AuthInput
+        form="signin"
+        name="email"
+        placeholder="Email"
+        type="text"
+        required="true"
+        handleChange={handleChange}
+      />
+      <AuthInput
+        form="signin"
+        name="password"
+        placeholder="Password"
+        type="password"
+        required="true"
+        handleChange={handleChange}
+      />
+      <Link to="/resetrequest" className="row" id="forgot-password-link">I forgot my password.</Link>
+    </AuthCard>
+  );
+};
 
 export default withRouter(SignIn);

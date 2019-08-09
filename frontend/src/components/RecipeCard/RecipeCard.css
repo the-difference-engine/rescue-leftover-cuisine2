@@ -2,7 +2,7 @@
   padding: 26px 26px;
   height: auto;
   width: auto;
-  color: darkgrey;
+  color: #9b9b9b;
 }
 
 .card-deck {
@@ -19,7 +19,7 @@
   width: 335px;
   max-height: 600px;
   padding: 10px;
-  box-shadow: 3px 3px #f5f6f7;
+  box-shadow: 3px 3px #f2f2f2;
   border-radius: 10px;
   background: white;
 }
@@ -44,8 +44,12 @@
   font-size: 120%;
 }
 
+.card-meta {
+  margin: 0;
+}
+
 .card-meta:not(:last-child) {
-  border-right: 2px solid darkgrey;
+  border-right: 2px solid #9b9b9b;
   padding-right: 10px;
 }
 
@@ -54,6 +58,7 @@
 }
 
 i.fas {
+  padding-left: 0;
   padding-right: 5px;
 }
 
@@ -64,14 +69,10 @@ i.fas {
 }
 
 .icons {
+  padding-left: 0;
   padding-right: 5px;
-  color: darkgrey;
+  color: #696969;
   filter: invert(60%);
-}
-
-.card-bottom {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .card-meal-btn {
@@ -84,12 +85,12 @@ i.fas {
   width: auto;
   font-size: 75%;
   font-weight: bold;
-  background-color: #31df7d;
+  background-color: #32e37f;
   position: absolute;
   top: 6%;
   right: 6%;
 }
 
 .card-meal-btn:hover {
-  background-color: #c7ced4;
+  background-color: #696969;
 }

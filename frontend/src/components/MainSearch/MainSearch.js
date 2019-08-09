@@ -11,7 +11,6 @@ class MainSearch extends Component {
       error: '',
       showInstructions: false,
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePanel = this.togglePanel.bind(this);
@@ -37,6 +36,7 @@ class MainSearch extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.handleValidation()) {
+      this.setState({ searchTerm: '' });
       this.handleRedirect();
     }
   }
@@ -79,9 +79,9 @@ class MainSearch extends Component {
     return (
       <div className="searchInstructions">
         <p>
-          You can search recipe names or ingredients by keyword. Enter your keywords and click the
-          search button or press enter to search. If you use multiple keywords, the search will
-          return only results containing all of your keywords.
+          You can search recipe names or ingredients by keyword. Enter your keywords and
+          click the search button or press enter to search. If you use multiple keywords, the
+          search will return only results containing all of your keywords.
         </p>
         <div onClick={this.togglePanel}>
           <p className="close">Collapse</p>
@@ -91,7 +91,7 @@ class MainSearch extends Component {
   }
 
   render() {
-    const { error, showInstructions } = this.state;
+    const { error, showInstructions, searchTerm } = this.state;
 
     return (
       <div className="mainSearch container-fluid">
@@ -106,6 +106,7 @@ class MainSearch extends Component {
                       type="text"
                       className="search-input"
                       placeholder="Search by recipe name or ingredient"
+                      value={searchTerm}
                       onChange={this.handleChange}
                     />
                     <button type="submit" className="search-button">

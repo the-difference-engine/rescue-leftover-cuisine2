@@ -21,7 +21,7 @@ const Homepage = ({ location, user, setJwt }) => {
       <div className="row">
         <div className="homepageContent">
           <div className="row">
-            <MainSearch />
+            <MainSearch searchTerm={searchTerm} />
           </div>
           <div className="row suggestions">
             <div className="col-12">

@@ -47,6 +47,10 @@ const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   },
 });
 
+const suspendUser = (userId, isSuspended) => apiClient.patch(`api/v1/users/${userId}`, {
+  is_suspended: isSuspended,
+});
+
 const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
   first_name: data.firstName.value,
   last_name: data.lastName.value,
@@ -63,7 +67,32 @@ const getRecipes = (search) => {
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
+// PASSWORD REQUEST
+
+const resetPassword = (password, resetPasswordToken) => apiClient.put('/api/v1/password', {
+  user: {
+    password,
+    reset_password_token: resetPasswordToken,
+  },
+});
+
+const requestPasswordReset = email => apiClient.post('/api/v1/password', {
+  user: {
+    email,
+  },
+});
+
 export default apiClient;
 export {
-  createUser, loginUser, getCurrentUser, getUsers, getUser, getRecipes, getRecipe, adminEditUser,
+  createUser,
+  loginUser,
+  getCurrentUser,
+  getUsers,
+  getUser,
+  getRecipes,
+  getRecipe,
+  adminEditUser,
+  resetPassword,
+  requestPasswordReset,
+  suspendUser,
 };

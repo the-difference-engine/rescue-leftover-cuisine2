@@ -3,21 +3,17 @@ import Checkmark from '../../assets/checkmark-icon.png';
 import './ThankYouCard.css';
 
 const ThankYouCard = () => (
-  <div className="thankYou loginCard">
-    <img src={Checkmark} alt="checkmark icon" className="checkStyle" />
-    <h3 className="loginHeader">
-Thank you for
+  <div className="auth-card">
+    <h3 className="auth-card-header">
+      <img src={Checkmark} alt="checkmark" className="thanks-check" />
       <br />
-Joining our Community!!
+      Thank you for joining our community!
     </h3>
-    <h6 className="welcomeText">
-Welcome to
-      <br />
-      {' '}
-Rescuing Leftover Cuisine Recipes
-    </h6>
+    <div className="thanks-welcome-text row">
+      Welcome to Rescuing Leftover Cuisine Recipes
+    </div>
     <div className="row">
-      <button className="dashboardButton signUpButton btn btn-lg btn-block" type="submit">Continue to my Dashboard</button>
+      Check your email for instructions on how to verify your account.
     </div>
   </div>
 );

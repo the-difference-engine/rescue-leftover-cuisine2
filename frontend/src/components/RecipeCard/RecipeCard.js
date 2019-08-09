@@ -54,19 +54,19 @@ const RecipeCard = (props) => {
           <div className="card-title">{title}</div>
           <p className="card-snippet">{snippet}</p>
         </div>
-        <div className="card-bottom">
-          <span className="card-meta">
+        <div className="card-bottom d-flex flex-row justify-content-around">
+          <span className="card-meta flex-fill text-center">
             {mealDifficulty()}
             {difficulty}
           </span>
           {/* duration will be readyInMinutes in Spoonacular API */}
-          <span className="card-meta">
+          <span className="card-meta flex-fill text-center">
             <i className="fas fa-clock" />
             {duration}
             {' '}
             MINUTES
           </span>
-          <span className="card-meta">
+          <span className="card-meta flex-fill text-center">
             <i className="fas fa-utensil-spoon" />
             {servings}
           </span>

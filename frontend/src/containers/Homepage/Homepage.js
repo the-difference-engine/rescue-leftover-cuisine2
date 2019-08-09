@@ -31,7 +31,7 @@ const Homepage = ({ location, user, setJwt }) => {
             </div>
           </div>
           <div className="row">
-            <RecipeSearchList searchTerm={searchTerm} parsed={parsed} />
+            <RecipeSearchList searchTerm={searchTerm} />
           </div>
           <div className="row">
             <BottomSignUp />

@@ -35,12 +35,12 @@ class RecipeSearchList extends Component {
 
   render() {
     const { recipes } = this.state;
-    const { searchTerm, parsed } = this.props;
+    const { searchTerm } = this.props;
     const renderCounter = !searchTerm ? <div /> : <ResultsCounter recipes={recipes} />;
     const renderLozenge = !searchTerm ? (
       <div />
     ) : (
-      <SearchLozenge parsed={parsed} searchTerm={searchTerm} />
+      <SearchLozenge searchTerm={searchTerm} />
     );
     return (
       <div id="cards-wrapper">

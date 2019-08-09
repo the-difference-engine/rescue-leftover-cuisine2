@@ -15,12 +15,8 @@ const SearchLozenge = (props) => {
     const lozengeValue = targetLozenge.substring(0, targetLozenge.length - 1).toLowerCase();
     const newSearchTerm = searchTerm.replace(lozengeValue, '').trim();
     const { history } = props;
-    const queryString = `/?q=${newSearchTerm}`;
+    const queryString = newSearchTerm ? `/?q=${newSearchTerm}` : '';
     history.push(queryString);
-    if (!newSearchTerm) {
-      const newQueryString = '';
-      history.push(newQueryString);
-    }
   }
 
   return (

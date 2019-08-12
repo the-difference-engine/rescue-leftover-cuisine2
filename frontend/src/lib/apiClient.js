@@ -69,7 +69,7 @@ const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
 // PASSWORD REQUEST
 
-const resetPassword = (password, resetPasswordToken) => apiClient.put('/api/v1/password', {
+const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/password', {
   user: {
     password,
     reset_password_token: resetPasswordToken,

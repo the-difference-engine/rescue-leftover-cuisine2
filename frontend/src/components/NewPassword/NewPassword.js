@@ -1,14 +1,13 @@
-
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { AuthCard, AuthInput } from '../AuthItems/AuthItems';
 import { resetPassword, loginUser } from '../../lib/apiClient';
 
-const NewPassword = ({ history, token }) => {
+const NewPassword = ({ history, token, setJwt }) => {
   const [errorMsg, setError] = useState(null);
   const [user, setUser] = useState({
     password: '',
-    passwordConfirmation: '',
+    passwordconfirmation: '',
   });
 
   const resetLink = (
@@ -26,7 +25,7 @@ const NewPassword = ({ history, token }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (user.password !== user.passwordConfirmation) {
+    if (user.password !== user.passwordconfirmation) {
       setError("The password and password confirmation fields don't match.");
       return;
     }
@@ -37,8 +36,14 @@ const NewPassword = ({ history, token }) => {
         loginUser({
           email,
           password: user.password,
-        });
-        history.push('/');
+        })
+          .then((resp) => {
+            setJwt(resp.headers.authorization);
+            history.push('/');
+          })
+          .catch(() => {
+            setError('Something unexpectedly went wrong. Please try again.');
+          });
       })
       .catch((error) => {
         const { errors } = error.response.data;

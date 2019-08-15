@@ -20,9 +20,11 @@ const App = () => {
   useEffect(() => {
     if (jwt == null) {
       sessionStorage.removeItem('jwt');
-    } else {
-      sessionStorage.setItem('jwt', jwt);
+      setUser(null);
+      return;
     }
+
+    sessionStorage.setItem('jwt', jwt);
     getCurrentUser()
       .then(response => setUser(response.data))
       .catch(() => setUser(null));

@@ -45,7 +45,7 @@ class Recipe extends Component {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
     } = this.state;
 
-    const renderButtons = () => {
+    const renderButtons = function () {
       return (
         <div>
           <button className="btn navbar-btn btn-lg edit-button" type="button">

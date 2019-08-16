@@ -76,6 +76,12 @@ const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/p
   },
 });
 
+const resetLoginPassword = password => apiClient.put('/api/v1/password', {
+  user: {
+    password,
+  },
+});
+
 const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   user: {
     email,
@@ -93,6 +99,7 @@ export {
   getRecipe,
   adminEditUser,
   resetPassword,
+  resetLoginPassword,
   requestPasswordReset,
   suspendUser,
 };

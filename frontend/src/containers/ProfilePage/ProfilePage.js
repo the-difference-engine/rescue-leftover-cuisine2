@@ -90,7 +90,10 @@ class ProfilePage extends Component {
   }
 
   render() {
+    // console.log(this.props.match);
+
     const { user, setJwt } = this.props;
+
     const { activeTab, recipes } = this.state;
 
     if (user) {
@@ -141,7 +144,7 @@ class ProfilePage extends Component {
                     </div>
                   </TabPane>
                   <TabPane tabId="settings">
-                    <SettingsTab />
+                    <SettingsTab user={user} />
                   </TabPane>
                 </TabContent>
               </div>

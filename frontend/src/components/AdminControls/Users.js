@@ -1,3 +1,4 @@
+import isObject from 'lodash/isObject';
 import React, { Fragment, useState } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
@@ -60,7 +61,7 @@ const Users = ({ users, refreshUsers }) => {
       },
       formatter: (cell) => {
         let dateObj = cell;
-        if (typeof cell !== 'object') {
+        if (!isObject(cell)) {
           dateObj = new Date(cell);
         }
 

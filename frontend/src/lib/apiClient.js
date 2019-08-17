@@ -1,4 +1,4 @@
-/* global sessionStorage */
+/* global localStorage */
 /* eslint no-undef: "error" */
 
 import axios from 'axios';
@@ -32,7 +32,7 @@ const loginUser = (data) => {
 
 const getCurrentUser = () => apiClient.get('api/v1/auth', {
   headers: {
-    Authorization: sessionStorage.jwt,
+    Authorization: localStorage.jwt,
   },
 });
 
@@ -43,7 +43,7 @@ const getUsers = () => apiClient.get('api/v1/users')
 
 const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   headers: {
-    Authorization: sessionStorage.jwt,
+    Authorization: localStorage.jwt,
   },
 });
 

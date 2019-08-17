@@ -68,7 +68,7 @@ const NewPassword = ({ history, token, setJwt }) => {
         name="password"
         placeholder="Password"
         type="password"
-        required="true"
+        required
         minLength="6"
         handleChange={handleChange}
       />
@@ -77,7 +77,7 @@ const NewPassword = ({ history, token, setJwt }) => {
         name="passwordConfirmation"
         placeholder="Password Confirmation"
         type="password"
-        required="true"
+        required
         handleChange={handleChange}
       />
     </AuthCard>

@@ -45,20 +45,18 @@ class Recipe extends Component {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
     } = this.state;
 
-    const renderButtons = function () {
-      return (
-        <div>
-          <button className="btn navbar-btn btn-lg edit-button" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
-            <p id="edit-icon-text">Edit</p>
-          </button>
-          <button className="btn navbar-btn btn-lg cancel-button" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
-            <p id="delete-icon-text">Delete</p>
-          </button>
-        </div>
-      );
-    };
+    const renderButtons = () => (
+      <div>
+        <button className="btn navbar-btn btn-lg edit-button" type="button">
+          <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
+          <p id="edit-icon-text">Edit</p>
+        </button>
+        <button className="btn navbar-btn btn-lg cancel-button" type="button">
+          <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
+          <p id="delete-icon-text">Delete</p>
+        </button>
+      </div>
+    );
 
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {

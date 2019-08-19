@@ -34,6 +34,7 @@ class Recipe extends Component {
         difficulty: response.data.difficulty,
         duration: response.data.duration,
         servings: response.data.servings,
+        userId: response.data.user_id,
       });
     });
   }
@@ -41,8 +42,21 @@ class Recipe extends Component {
   render() {
     const { user, setJwt } = this.props;
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings, photo,
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
     } = this.state;
+
+    const renderButtons = () => (
+      <div>
+        <button className="btn navbar-btn btn-lg edit-button" type="button">
+          <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
+          <p id="edit-icon-text">Edit</p>
+        </button>
+        <button className="btn navbar-btn btn-lg cancel-button" type="button">
+          <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
+          <p id="delete-icon-text">Delete</p>
+        </button>
+      </div>
+    );
 
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {
@@ -69,16 +83,7 @@ class Recipe extends Component {
             <Header user={user} setJwt={setJwt} />
           </div>
         </div>
-        <div>
-          <button className="btn navbar-btn btn-lg edit-button" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
-            <p id="edit-icon-text">Edit</p>
-          </button>
-          <button className="btn navbar-btn btn-lg cancel-button" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
-            <p id="delete-icon-text">Delete</p>
-          </button>
-        </div>
+        { user && (user.id === userId) ? renderButtons() : null }
         <div className="recipe-image-wrapper">
           <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>

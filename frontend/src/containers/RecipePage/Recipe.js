@@ -1,3 +1,4 @@
+import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header/Header';
@@ -126,8 +127,8 @@ class Recipe extends Component {
           <div id="ingredient-list">
             <h1 id="ingredient-title">Ingredients</h1>
             <ul id="ingredient-ul">
-              {ingredients.map(ingredient => (
-                <li>
+              {map(ingredients, ingredient => (
+                <li key={ingredient}>
                   <div className="single-ingredient">{ingredient}</div>
                 </li>
               ))}
@@ -139,8 +140,8 @@ class Recipe extends Component {
         <div id="direction-container" className="col-sm-10 offset-sm-1">
           <h1 id="direction-title">Directions</h1>
           <ul className="direction-list">
-            {directions.map((direction, index) => (
-              <div className="single-direction">
+            {map(directions, (direction, index) => (
+              <div className="single-direction" key={direction}>
                 <span className="direction-index">{index + 1}</span>
                 <p className="direction-action">{direction}</p>
                 <br />

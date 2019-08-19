@@ -6,8 +6,8 @@ import { createUser } from '../../lib/apiClient';
 const SignUp = ({ history }) => {
   const [errorMsg, setError] = useState(null);
   const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
   });

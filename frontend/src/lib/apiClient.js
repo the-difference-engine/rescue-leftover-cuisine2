@@ -14,8 +14,8 @@ const apiClient = axios.create({
 
 const createUser = data => apiClient.post('api/v1/auth', {
   user: {
-    first_name: data.firstName,
-    last_name: data.lastName,
+    first_name: data.firstname,
+    last_name: data.lastname,
     email: data.email,
     password: data.password,
   },

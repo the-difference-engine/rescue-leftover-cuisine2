@@ -8,12 +8,13 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   protected
 
   def user_fields
-    return [:email, :username, :first_name, :last_name, :profile_photo, :interests]
+    return [:email, :username, :current_password, :first_name, :last_name, :profile_photo, :interests]
   end
 
   def configure_permitted_params
     devise_parameter_sanitizer.permit(:sign_up, keys: user_fields)
     devise_parameter_sanitizer.permit(:account_update, keys: user_fields)
+    devise_parameter_sanitizer.permit(:current_password, keys: user_fields)
   end
 
   def update_resource(resource, params)

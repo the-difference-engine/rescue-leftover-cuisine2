@@ -1,3 +1,4 @@
+import map from 'lodash/map';
 import React, { Component } from 'react';
 
 import AddTag from './AddTag/AddTag';
@@ -17,7 +18,7 @@ export default class TagsBar extends Component {
     const { tags } = this.state;
     return (
       <div className="tags-bar col-sm-10 offset-sm-1">
-        {tags.map(tag => <SingleTag tag={tag} />)}
+        {map(tags, tag => <SingleTag tag={tag} key={tag} />)}
         <AddTag />
       </div>
     );

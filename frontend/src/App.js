@@ -1,5 +1,6 @@
-/* global sessionStorage */
+/* global localStorage */
 
+import isNil from 'lodash/isNil';
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { getCurrentUser } from './lib/apiClient';
@@ -16,14 +17,16 @@ import Redirectss from './components/RedirectToHome/Redirectss';
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [jwt, setJwt] = useState(sessionStorage.jwt);
+  const [jwt, setJwt] = useState(localStorage.jwt);
 
   useEffect(() => {
-    if (jwt == null) {
-      sessionStorage.removeItem('jwt');
-    } else {
-      sessionStorage.setItem('jwt', jwt);
+    if (isNil(jwt)) {
+      localStorage.removeItem('jwt');
+      setUser(null);
+      return;
     }
+
+    localStorage.setItem('jwt', jwt);
     getCurrentUser()
       .then(response => setUser(response.data))
       .catch(() => setUser(null));

@@ -1,3 +1,4 @@
+import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header/Header';
@@ -34,6 +35,7 @@ class Recipe extends Component {
         difficulty: response.data.difficulty,
         duration: response.data.duration,
         servings: response.data.servings,
+        userId: response.data.user_id,
       });
     });
   }
@@ -41,8 +43,21 @@ class Recipe extends Component {
   render() {
     const { user, setJwt } = this.props;
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings, photo,
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
     } = this.state;
+
+    const renderButtons = () => (
+      <div>
+        <button className="btn navbar-btn btn-lg edit-button" type="button">
+          <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
+          <p id="edit-icon-text">Edit</p>
+        </button>
+        <button className="btn navbar-btn btn-lg cancel-button" type="button">
+          <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
+          <p id="delete-icon-text">Delete</p>
+        </button>
+      </div>
+    );
 
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {
@@ -69,16 +84,7 @@ class Recipe extends Component {
             <Header user={user} setJwt={setJwt} />
           </div>
         </div>
-        <div>
-          <button className="btn navbar-btn btn-lg edit-button" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
-            <p id="edit-icon-text">Edit</p>
-          </button>
-          <button className="btn navbar-btn btn-lg cancel-button" type="button">
-            <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
-            <p id="delete-icon-text">Delete</p>
-          </button>
-        </div>
+        { user && (user.id === userId) ? renderButtons() : null }
         <div className="recipe-image-wrapper">
           <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>
@@ -121,8 +127,8 @@ class Recipe extends Component {
           <div id="ingredient-list">
             <h1 id="ingredient-title">Ingredients</h1>
             <ul id="ingredient-ul">
-              {ingredients.map(ingredient => (
-                <li>
+              {map(ingredients, ingredient => (
+                <li key={ingredient}>
                   <div className="single-ingredient">{ingredient}</div>
                 </li>
               ))}
@@ -134,8 +140,8 @@ class Recipe extends Component {
         <div id="direction-container" className="col-sm-10 offset-sm-1">
           <h1 id="direction-title">Directions</h1>
           <ul className="direction-list">
-            {directions.map((direction, index) => (
-              <div className="single-direction">
+            {map(directions, (direction, index) => (
+              <div className="single-direction" key={direction}>
                 <span className="direction-index">{index + 1}</span>
                 <p className="direction-action">{direction}</p>
                 <br />

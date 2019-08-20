@@ -6,8 +6,8 @@ import { createUser } from '../../lib/apiClient';
 const SignUp = ({ history }) => {
   const [errorMsg, setError] = useState(null);
   const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
   });
@@ -47,7 +47,7 @@ const SignUp = ({ history }) => {
           name="firstName"
           placeholder="First Name"
           type="text"
-          required="true"
+          required
           handleChange={handleChange}
           column="true"
         />
@@ -57,7 +57,7 @@ const SignUp = ({ history }) => {
           name="lastName"
           placeholder="Last Name"
           type="text"
-          required="true"
+          required
           handleChange={handleChange}
           column="true"
         />
@@ -67,7 +67,7 @@ const SignUp = ({ history }) => {
         name="email"
         placeholder="Email"
         type="text"
-        required="true"
+        required
         pattern="^.+@.+\..+$"
         handleChange={handleChange}
       />
@@ -76,7 +76,7 @@ const SignUp = ({ history }) => {
         name="password"
         placeholder="Password"
         type="password"
-        required="true"
+        required
         minLength="6"
         handleChange={handleChange}
       />

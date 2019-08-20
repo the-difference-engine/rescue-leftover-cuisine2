@@ -3,16 +3,17 @@ import {
   Button, Form, FormGroup, Label, Input, FormText,
 } from 'reactstrap';
 import './SettingsTab.css';
-import { resetLoginPassword } from '../../lib/apiClient';
+import { resetCurrentUserPassword } from '../../lib/apiClient';
 
-const SettingsTab = ({ user }) => {
-  const [newPassword, setPassword] = useState();
-  const handleChange = event => setPassword(event.target.value);
+const SettingsTab = () => {
+  const [newPassword, setNewPassword] = useState();
+  const [currentPassword, setCurrentPassword] = useState();
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('password:', newPassword); // eslint no-console
-    resetLoginPassword({ password: user.newPassword });
+    console.log('currentPassword:', currentPassword, 'newPassword:', newPassword); // eslint no - console
+    resetCurrentUserPassword(currentPassword, newPassword);
   };
 
   return (
@@ -22,13 +23,12 @@ const SettingsTab = ({ user }) => {
       <Form>
         <FormGroup>
           <Label for="oldPassword" hidden>Old Password</Label>
-          <Input type="password" name="password" id="oldPassword" placeholder="Old Password" />
+          <Input type="password" value={currentPassword} name="password" id="oldPassword" placeholder="Old Password" onChange={e => setCurrentPassword(e.target.value)} />
           <FormText>I forgot my password.</FormText>
         </FormGroup>
-
         <FormGroup>
           <Label for="newPassword" hidden>New Password</Label>
-          <Input type="password" value={newPassword} name="password" id="newPassword" placeholder="New Password" onChange={handleChange} />
+          <Input type="password" value={newPassword} name="password" id="newPassword" placeholder="New Password" onChange={e => setNewPassword(e.target.value)} />
         </FormGroup>
         <Button onClick={handleSubmit}>Change Password </Button>
       </Form>

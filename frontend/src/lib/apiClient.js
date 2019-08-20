@@ -76,9 +76,10 @@ const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/p
   },
 });
 
-const resetLoginPassword = password => apiClient.put('/api/v1/password', {
+const resetCurrentUserPassword = (currentPassword, newPassword) => apiClient.put('api/v1/registrations#update', {
   user: {
-    password,
+    current_password: currentPassword,
+    passsword: newPassword,
   },
 });
 
@@ -99,7 +100,7 @@ export {
   getRecipe,
   adminEditUser,
   resetPassword,
-  resetLoginPassword,
+  resetCurrentUserPassword,
   requestPasswordReset,
   suspendUser,
 };

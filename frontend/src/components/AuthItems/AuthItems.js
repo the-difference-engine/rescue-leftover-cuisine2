@@ -1,3 +1,4 @@
+import toLower from 'lodash/toLower';
 import React, { useState } from 'react';
 import LogInPageHeader from '../LogInPageHeader/LogInPageHeader';
 import Footer from '../Footer/Footer';
@@ -25,7 +26,13 @@ const AuthCard = ({
   const [pwordVisible, setPwordVisible] = useState(false);
   const childrenWithProps = React.Children.map(
     children,
-    child => React.cloneElement(child, { pwordVisible, setPwordVisible }),
+    (child) => {
+      // Only add password-visibility stuff to children that can use it
+      if (child.type.name === 'AuthInput') {
+        return React.cloneElement(child, { pwordVisible, setPwordVisible });
+      }
+      return child;
+    },
   );
 
   return (
@@ -89,7 +96,7 @@ const AuthInput = ({
         type={visibleType()}
         className="auth-card-input form-control-lg"
         id={id}
-        name={name.toLowerCase()}
+        name={toLower(name)}
         required={required}
         minLength={minLength || '0'}
         maxLength="128"

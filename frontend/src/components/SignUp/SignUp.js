@@ -18,7 +18,6 @@ const SignUp = ({ history }) => {
       [event.target.name]: event.target.value,
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     createUser(user)

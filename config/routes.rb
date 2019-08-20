@@ -4,11 +4,11 @@ Rails.application.routes.draw do
              path_names: {
                sign_in: 'auth/login',
                sign_out: 'auth/logout',
-               registration: 'auth'
+               registration: 'auth',
              },
              controllers: {
                registrations: 'api/v1/registrations',
-               passwords: 'api/v1/passwords'
+               passwords: 'api/v1/passwords',
              },
              defaults: {
                format: :json
@@ -16,12 +16,15 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      
       resources :recipes
       resources :users
 
       devise_scope :user do
+        get '/confirm', to: "confirmations#shoz"
         authenticate :user do
           get '/auth', to: 'registrations#show'
+          
         end
       end
     end

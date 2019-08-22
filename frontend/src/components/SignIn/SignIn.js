@@ -14,7 +14,7 @@ const SignIn = ({ history, setJwt }) => {
     setUser({
       ...user,
       [event.target.name]: event.target.value,
-    });
+    }); 
   };
 
   const handleSubmit = (event) => {

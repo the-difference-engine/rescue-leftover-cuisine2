@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :users
 
       devise_scope :user do
-        get '/confirm', to: "confirmations#shoz"
+        put '/confirms', to: "confirmations#create"
         authenticate :user do
           get '/auth', to: 'registrations#show'
           

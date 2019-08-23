@@ -14,10 +14,10 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   def configure_permitted_params
     devise_parameter_sanitizer.permit(:sign_up, keys: user_fields)
     devise_parameter_sanitizer.permit(:account_update, keys: user_fields)
-    devise_parameter_sanitizer.permit(:current_password, keys: user_fields)
   end
 
   def update_resource(resource, params)
+    puts params
     if params[:current_password]
       return resource.update_with_password(params)
     end

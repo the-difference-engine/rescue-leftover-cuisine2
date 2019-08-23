@@ -76,12 +76,18 @@ const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/p
   },
 });
 
-const resetCurrentUserPassword = (currentPassword, newPassword) => apiClient.put('api/v1/registrations#update', {
-  user: {
-    current_password: currentPassword,
-    passsword: newPassword,
+const resetCurrentUserPassword = (currentPassword, newPassword) => apiClient.put('api/v1/auth',
+  {
+    user: {
+      current_password: currentPassword,
+      password: newPassword,
+    },
   },
-});
+  {
+    headers: {
+      Authorization: localStorage.jwt,
+    },
+  });
 
 const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   user: {

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
              controllers: {
                registrations: 'api/v1/registrations',
                passwords: 'api/v1/passwords',
+               confirmations: 'api/v1/confirmations'
              },
              defaults: {
                format: :json
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
       resources :users
 
       devise_scope :user do
-        put '/confirms', to: "confirmations#create"
         authenticate :user do
           get '/auth', to: 'registrations#show'
           

@@ -13,7 +13,7 @@ import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
 import ThanksPage from './containers/ThanksPage/ThanksPage';
-import Redirectss from './components/RedirectToHome/Redirectss';
+import ConfirmUser from './components/ConfirmUser/ConfirmUser';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -63,7 +63,7 @@ const App = () => {
         />
         <Route
           path="/api/v1/confirmation"
-          render={props => <Redirectss {...props} setJwt={setJwt} />}
+          render={props => <ConfirmUser {...props} user={user} setJwt={setJwt} />}
         />
         <Route path="/resetrequest" component={ResetRequestPage} />
         <Route exact path="/thanks" component={ThanksPage} />

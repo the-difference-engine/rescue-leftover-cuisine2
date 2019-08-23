@@ -12,7 +12,6 @@ const SettingsTab = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('currentPassword:', currentPassword, 'newPassword:', newPassword); // eslint no - console
     resetCurrentUserPassword(currentPassword, newPassword);
   };
 

@@ -17,7 +17,6 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    puts params
     if params[:current_password]
       return resource.update_with_password(params)
     end

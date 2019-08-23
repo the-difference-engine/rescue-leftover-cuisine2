@@ -28,7 +28,6 @@ const SignIn = ({ history, setJwt }) => {
       .catch((error) => {
         setError(error.response.data.errors[0].message);
       });
-      
   };
 
   return (

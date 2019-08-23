@@ -144,7 +144,7 @@ class ProfilePage extends Component {
                     </div>
                   </TabPane>
                   <TabPane tabId="settings">
-                    <SettingsTab user={user} />
+                    <SettingsTab />
                   </TabPane>
                 </TabContent>
               </div>

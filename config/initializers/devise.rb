@@ -298,7 +298,5 @@ Devise.setup do |config|
     jwt.dispatch_requests = [
                           ['GET', %r{^/api/v1/confirmation}],
                         ]
-
   end
-
 end

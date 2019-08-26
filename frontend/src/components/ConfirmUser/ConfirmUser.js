@@ -1,22 +1,24 @@
-
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+import { confirmUser } from '../../lib/apiClient';
 
-const ConfirmUser = ({ history }) => {
-  const code = () => {
+
+const ConfirmUser = ({ history}) => {
+
+  const doConfirm = () => {
     const url = (window.location.href);
     const ind = url.split('/');
     const l = ind.length;
     const c = (ind[l - 1]);
-    axios.get(`http://localhost:3000/api/v1/${c}`).then(() => {
+    confirmUser(c).then(() => {
       history.push('/login');
     });
   };
 
   return (
     <div>
-      {code()}
+      {doConfirm()}
+      <h3>THis is the redirecting Page!</h3>
     </div>
   );
 };

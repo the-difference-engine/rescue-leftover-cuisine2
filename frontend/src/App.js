@@ -63,7 +63,7 @@ const App = () => {
         />
         <Route
           path="/api/v1/confirmation"
-          render={props => <ConfirmUser {...props} user={user} setJwt={setJwt} />}
+          render={props => <ConfirmUser {...props} setJwt={setJwt} />}
         />
         <Route path="/resetrequest" component={ResetRequestPage} />
         <Route exact path="/thanks" component={ThanksPage} />

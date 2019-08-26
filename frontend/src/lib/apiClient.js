@@ -82,6 +82,8 @@ const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   },
 });
 
+const confirmUser = search => apiClient.get(`api/v1/${search}`);
+
 export default apiClient;
 export {
   createUser,
@@ -95,4 +97,5 @@ export {
   resetPassword,
   requestPasswordReset,
   suspendUser,
+  confirmUser,
 };

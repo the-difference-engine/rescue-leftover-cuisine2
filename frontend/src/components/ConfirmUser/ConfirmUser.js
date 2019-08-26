@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { confirmUser } from '../../lib/apiClient';
 
 
-const ConfirmUser = ({ history}) => {
-
+const ConfirmUser = ({ history }) => {
   const doConfirm = () => {
     const url = (window.location.href);
     const ind = url.split('/');

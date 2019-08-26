@@ -3,13 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { confirmUser } from '../../lib/apiClient';
 
 
-const ConfirmUser = ({ history }) => {
+const ConfirmUser = ({ history, location }) => {
   const doConfirm = () => {
-    const url = (window.location.href);
-    const ind = url.split('/');
-    const l = ind.length;
-    const c = (ind[l - 1]);
-    confirmUser(c).then(() => {
+    confirmUser(location.search).then(() => {
       history.push('/login');
     });
   };

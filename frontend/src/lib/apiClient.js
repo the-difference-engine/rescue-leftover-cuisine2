@@ -28,6 +28,8 @@ const loginUser = (data) => {
   });
 };
 
+const endSession = () => apiClient.delete('/api/v1/auth/logout');
+
 // CURRENT USER
 
 const getCurrentUser = () => apiClient.get('api/v1/auth', {
@@ -94,5 +96,5 @@ export {
   adminEditUser,
   resetPassword,
   requestPasswordReset,
-  suspendUser,
+  suspendUser, endSession,
 };

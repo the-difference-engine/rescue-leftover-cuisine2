@@ -3,10 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { confirmUser } from '../../lib/apiClient';
 
 
-const ConfirmUser = ({ history, location }) => {
+const ConfirmUser = ({ history, location, setJwt }) => {
   const doConfirm = () => {
-    confirmUser(location.search).then(() => {
-      history.push('/login');
+    confirmUser(location.search).then((response) => {
+      setJwt(response.headers.authorization);
+      history.push('/');
     });
   };
 

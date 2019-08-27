@@ -23,7 +23,6 @@ Rails.application.routes.draw do
       devise_scope :user do
         authenticate :user do
           get '/auth', to: 'registrations#show'
-          
         end
       end
     end

@@ -82,7 +82,7 @@ const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   },
 });
 
-const confirmUser = search => apiClient.get(`api/v1/${search}`);
+const confirmUser = search => apiClient.get(`api/v1/confirmation${search}`);
 
 export default apiClient;
 export {

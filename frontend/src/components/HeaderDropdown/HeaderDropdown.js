@@ -13,8 +13,8 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const logout = () => {
-    setJwt(null);
     endSession();
+    setJwt(null);
     history.push('/');
   };
 

@@ -96,5 +96,6 @@ export {
   adminEditUser,
   resetPassword,
   requestPasswordReset,
-  suspendUser, endSession,
+  suspendUser,
+  endSession,
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { confirmUser } from '../../lib/apiClient';
 
-
 const ConfirmUser = ({ history, location, setJwt }) => {
   const doConfirm = () => {
     confirmUser(location.search).then((response) => {

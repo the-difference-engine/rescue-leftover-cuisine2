@@ -28,6 +28,8 @@ const loginUser = (data) => {
   });
 };
 
+const confirmUser = search => apiClient.get(`api/v1/confirmation${search}`);
+
 // CURRENT USER
 
 const getCurrentUser = () => apiClient.get('api/v1/auth', {
@@ -81,8 +83,6 @@ const requestPasswordReset = email => apiClient.post('/api/v1/password', {
     email,
   },
 });
-
-const confirmUser = search => apiClient.get(`api/v1/confirmation${search}`);
 
 export default apiClient;
 export {

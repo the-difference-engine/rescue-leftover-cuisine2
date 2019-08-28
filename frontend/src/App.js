@@ -13,6 +13,7 @@ import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
 import ThanksPage from './containers/ThanksPage/ThanksPage';
+import ConfirmUser from './components/ConfirmUser/ConfirmUser';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -59,6 +60,10 @@ const App = () => {
         <Route
           path="/resetpassword"
           render={props => <ResetPassword {...props} setJwt={setJwt} />}
+        />
+        <Route
+          path="/api/v1/confirmation"
+          render={props => <ConfirmUser {...props} setJwt={setJwt} />}
         />
         <Route path="/resetrequest" component={ResetRequestPage} />
         <Route exact path="/thanks" component={ThanksPage} />

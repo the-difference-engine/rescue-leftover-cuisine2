@@ -28,6 +28,12 @@ const loginUser = (data) => {
   });
 };
 
+const endSession = () => apiClient.delete('/api/v1/auth/logout', {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
 const confirmUser = search => apiClient.get(`api/v1/confirmation${search}`);
 
 // CURRENT USER
@@ -97,5 +103,6 @@ export {
   resetPassword,
   requestPasswordReset,
   suspendUser,
+  endSession,
   confirmUser,
 };

@@ -3,6 +3,7 @@ import {
   TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
+import map from 'lodash/map';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
@@ -112,7 +113,7 @@ const ProfilePage = ({
               <TabContent activeTab={activeTab}>
                 <TabPane tabId="recipes" id="recipes">
                   <div id="cards-wrapper">
-                    {recipes.map(recipe => (
+                    {map(recipes, recipe => (
                       <RecipeCard
                         {...recipe}
                         key={recipe.id}

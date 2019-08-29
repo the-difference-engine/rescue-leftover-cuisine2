@@ -32,10 +32,10 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
           {user.first_name}
           !
         </DropdownItem>
-        <Link to="/profile">
+        <Link className="header-dropdown-item" to="/profile#recipes">
           <DropdownItem className="header-dropdown-item">My Recipes</DropdownItem>
         </Link>
-        <Link to="/profile">
+        <Link className="header-dropdown-item" to="/profile#settings">
           <DropdownItem className="header-dropdown-item">Settings</DropdownItem>
         </Link>
         <DropdownItem divider />

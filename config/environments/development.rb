@@ -5,7 +5,17 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
 
-config.action_mailer.default_url_options = { :host => 'localhost:5000' }
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: "rescuingleftovercuisine.org",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"]
+  }
+  
+  config.action_mailer.default_url_options = { :host => 'localhost', :port => '5000' }
 
   config.cache_classes = false
 
@@ -32,10 +42,7 @@ config.action_mailer.default_url_options = { :host => 'localhost:5000' }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
-
-  # Use the API dev URL for auth-related email for now
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
+  
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

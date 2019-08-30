@@ -8,7 +8,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   protected
 
   def user_fields
-    return [:email, :username, :current_password, :first_name, :last_name, :profile_photo, :interests]
+    return [:email, :username, :first_name, :last_name, :profile_photo, :interests]
   end
 
   def configure_permitted_params

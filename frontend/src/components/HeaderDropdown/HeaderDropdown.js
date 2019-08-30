@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import {
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
 } from 'reactstrap';
@@ -34,12 +34,8 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
           {user.first_name}
           !
         </DropdownItem>
-        <Link className="header-dropdown-item" to="/profile#recipes">
-          <DropdownItem className="header-dropdown-item">My Recipes</DropdownItem>
-        </Link>
-        <Link className="header-dropdown-item" to="/profile#settings">
-          <DropdownItem className="header-dropdown-item">Settings</DropdownItem>
-        </Link>
+        <DropdownItem onClick={() => history.push('/profile')} className="header-dropdown-item">My Recipes</DropdownItem>
+        <DropdownItem className="header-dropdown-item">Settings</DropdownItem>
         <DropdownItem divider />
         <DropdownItem onClick={logout} className="header-dropdown-item">Log Out</DropdownItem>
       </DropdownMenu>

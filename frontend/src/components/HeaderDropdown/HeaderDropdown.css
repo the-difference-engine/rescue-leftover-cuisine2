@@ -19,4 +19,5 @@
 .header-dropdown-item:hover {
   color: #4ec8ed;
   background-color: white;
+  text-decoration: none;
 }

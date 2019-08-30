@@ -1,32 +1,60 @@
-import map from 'lodash/map';
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import ResultsCounter from '../ResultsCounter/ResultsCounter';
 import SearchLozenge from '../SearchLozenge/SearchLozenge';
 import { getRecipes } from '../../lib/apiClient';
 
-const RecipeSearchList = ({ searchTerm }) => {
-  const [recipes, setRecipes] = useState([]);
-  useEffect(() => {
+class RecipeSearchList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipes: [],
+    };
+  }
+
+  componentDidMount() {
+    const { searchTerm } = this.props;
+    this.updateRecipes(searchTerm);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { searchTerm } = this.props;
+    if (searchTerm !== nextProps.searchTerm) {
+      this.updateRecipes(nextProps.searchTerm);
+    }
+  }
+
+  updateRecipes(searchTerm) {
     getRecipes(searchTerm)
-      .then(data => setRecipes(data));
-  }, [searchTerm]);
+      .then((data) => {
+        this.setState({
+          recipes: data,
+        });
+      });
+  }
 
-  const renderCounter = searchTerm ? <ResultsCounter recipes={recipes} /> : <div />;
-  const renderLozenge = searchTerm ? <SearchLozenge searchTerm={searchTerm} /> : <div />;
-
-  return (
-    <div id="cards-wrapper">
-      { renderCounter }
-      { renderLozenge }
-      {map(recipes, recipe => (
-        <RecipeCard
-          {...recipe}
-          key={recipe.id}
-        />
-      ))}
-    </div>
-  );
-};
+  render() {
+    const { recipes } = this.state;
+    const { searchTerm } = this.props;
+    const renderCounter = !searchTerm ? <div /> : <ResultsCounter recipes={recipes} />;
+    const renderLozenge = !searchTerm ? (
+      <div />
+    ) : (
+      <SearchLozenge searchTerm={searchTerm} />
+    );
+    return (
+      <div id="cards-wrapper">
+        { renderCounter }
+        { renderLozenge }
+        {recipes.map(recipe => (
+          <RecipeCard
+            {...recipe}
+            key={recipe.id}
+          />
+        ))}
+      </div>
+    );
+  }
+}
 
 export default RecipeSearchList;

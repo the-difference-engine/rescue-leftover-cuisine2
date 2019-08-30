@@ -53,7 +53,7 @@ exports[`renders correctly 1`] = `
               onFocus={[Function]}
               pattern="^.+@.+\\\\..+$"
               placeholder="Email"
-              required={true}
+              required="true"
               type="text"
             />
             <label

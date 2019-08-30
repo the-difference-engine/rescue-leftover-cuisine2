@@ -13,12 +13,6 @@ Any gotchas that aren’t intuitive.
 
 We require specific versions of Node (8.11.4) and Ruby (2.5.3) in this project. In order to get the correct versions installed, it is recommened to use a VM (version manager) like [asdf-vm](https://asdf-vm.com/#/).
 
-### Testing
-
-This project uses [`jest` 23.x](https://jestjs.io/docs/en/23.x/getting-started.html) for unit testing. Use the `npm test` command from within the `frontend` folder to run the existing tests.
-
-In order to add new tests for a component (e.g. `YourComponent.js`), add a `YourComponent.test.js` file to the same folder as the component you would like to test.
-
 ### Linting
 
 We use `[eslint](https://eslint.org/)` to help out with code styling for our front-end code (everything in the `frontend/` directory). Assuming you have the correct version of node installed, running the following command from within the `frontend/` directory will run the linter locally:

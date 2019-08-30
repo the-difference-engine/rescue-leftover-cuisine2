@@ -4,6 +4,7 @@ import {
 } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import map from 'lodash/map';
+import isNil from 'lodash/isNil';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
@@ -82,7 +83,7 @@ const ProfilePage = ({
     activeTab = 'recipes';
   }
 
-  if (user) {
+  if (!isNil(user)) {
     return (
       <div className="profile-page container-fluid">
         <div className="row">

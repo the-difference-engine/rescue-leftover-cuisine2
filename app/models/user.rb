@@ -10,6 +10,8 @@ class User < ApplicationRecord
          :confirmable, :jwt_authenticatable,
          jwt_revocation_strategy: JWTBlacklist
 
+  before_create :skip_confirmation_method
+
   def skip_confirmation_method
     self.skip_confirmation!
   end

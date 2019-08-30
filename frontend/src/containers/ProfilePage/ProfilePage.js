@@ -95,14 +95,14 @@ const ProfilePage = ({
           <div className="row user-panel">
             <div className="col-md-2 user-nav-bar">
               <Nav tabs>
-                <NavItem>
+                <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
                   <NavLink
                     onClick={() => history.push('/profile#recipes')}
                   >
                     My Recipes
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className={activeTab === 'settings' ? 'user-nav-tab-active' : ''}>
                   <NavLink onClick={() => history.push('/profile#settings')}>
                     Settings
                   </NavLink>

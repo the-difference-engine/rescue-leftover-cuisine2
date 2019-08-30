@@ -13,16 +13,6 @@ Any gotchas that aren’t intuitive.
 
 We require specific versions of Node (8.11.4) and Ruby (2.5.3) in this project. In order to get the correct versions installed, it is recommened to use a VM (version manager) like [asdf-vm](https://asdf-vm.com/#/).
 
-### Lodash
-
-This project uses [`lodash`](https://lodash.com/docs/4.17) to provide some additional JavaScript helper functions. Check out lodash's developer documentation, it's super helpful.
-
-If you find a function you'd like to use (e.g. [`map`](https://lodash.com/docs/4.17.11#map)), you should import it individually at the top of your file like so:
-
-```javascript
-import map from 'lodash/map';
-```
-
 ### Testing
 
 This project uses [`jest` 23.x](https://jestjs.io/docs/en/23.x/getting-started.html) for unit testing. Use the `npm test` command from within the `frontend` folder to run the existing tests.

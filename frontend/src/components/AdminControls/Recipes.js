@@ -1,4 +1,3 @@
-import isObject from 'lodash/isObject';
 import React, { Fragment } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
@@ -58,7 +57,7 @@ const Recipes = ({ recipes }) => {
       },
       formatter: (cell) => {
         let dateObj = cell;
-        if (!isObject(cell)) {
+        if (typeof cell !== 'object') {
           dateObj = new Date(cell);
         }
 

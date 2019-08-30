@@ -5,7 +5,6 @@ import {
 } from 'reactstrap';
 import './HeaderDropdown.css';
 import defaultPic from '../../assets/default-profile-pic.png';
-import { endSession } from '../../lib/apiClient';
 
 const HeaderDropdown = ({ history, user, setJwt }) => {
   const profilePic = user.profile_photo || defaultPic;
@@ -13,7 +12,6 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const logout = () => {
-    endSession();
     setJwt(null);
     history.push('/');
   };

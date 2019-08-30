@@ -1,5 +1,6 @@
-/* global sessionStorage */
+/* global localStorage */
 
+import isNil from 'lodash/isNil';
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { getCurrentUser } from './lib/apiClient';
@@ -12,17 +13,20 @@ import ResetPassword from './containers/ResetPassword/ResetPasswordPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
 import ThanksPage from './containers/ThanksPage/ThanksPage';
+import ConfirmUser from './components/ConfirmUser/ConfirmUser';
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [jwt, setJwt] = useState(sessionStorage.jwt);
+  const [jwt, setJwt] = useState(localStorage.jwt);
 
   useEffect(() => {
-    if (jwt == null) {
-      sessionStorage.removeItem('jwt');
-    } else {
-      sessionStorage.setItem('jwt', jwt);
+    if (isNil(jwt)) {
+      localStorage.removeItem('jwt');
+      setUser(null);
+      return;
     }
+
+    localStorage.setItem('jwt', jwt);
     getCurrentUser()
       .then(response => setUser(response.data))
       .catch(() => setUser(null));
@@ -56,6 +60,10 @@ const App = () => {
         <Route
           path="/resetpassword"
           render={props => <ResetPassword {...props} setJwt={setJwt} />}
+        />
+        <Route
+          path="/api/v1/confirmation"
+          render={props => <ConfirmUser {...props} setJwt={setJwt} />}
         />
         <Route path="/resetrequest" component={ResetRequestPage} />
         <Route exact path="/thanks" component={ThanksPage} />

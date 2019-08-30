@@ -1,4 +1,4 @@
-/* global localStorage */
+/* global sessionStorage */
 /* eslint no-undef: "error" */
 
 import axios from 'axios';
@@ -14,8 +14,8 @@ const apiClient = axios.create({
 
 const createUser = data => apiClient.post('api/v1/auth', {
   user: {
-    first_name: data.firstname,
-    last_name: data.lastname,
+    first_name: data.firstName,
+    last_name: data.lastName,
     email: data.email,
     password: data.password,
   },
@@ -28,19 +28,11 @@ const loginUser = (data) => {
   });
 };
 
-const endSession = () => apiClient.delete('/api/v1/auth/logout', {
-  headers: {
-    Authorization: localStorage.jwt,
-  },
-});
-
-const confirmUser = search => apiClient.get(`api/v1/confirmation${search}`);
-
 // CURRENT USER
 
 const getCurrentUser = () => apiClient.get('api/v1/auth', {
   headers: {
-    Authorization: localStorage.jwt,
+    Authorization: sessionStorage.jwt,
   },
 });
 
@@ -51,7 +43,7 @@ const getUsers = () => apiClient.get('api/v1/users')
 
 const getUser = userId => apiClient.get(`api/v1/users/${userId}`, {
   headers: {
-    Authorization: localStorage.jwt,
+    Authorization: sessionStorage.jwt,
   },
 });
 
@@ -84,19 +76,6 @@ const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/p
   },
 });
 
-const resetCurrentUserPassword = (currentPassword, newPassword) => apiClient.put('api/v1/auth',
-  {
-    user: {
-      current_password: currentPassword,
-      password: newPassword,
-    },
-  },
-  {
-    headers: {
-      Authorization: localStorage.jwt,
-    },
-  });
-
 const requestPasswordReset = email => apiClient.post('/api/v1/password', {
   user: {
     email,
@@ -114,9 +93,6 @@ export {
   getRecipe,
   adminEditUser,
   resetPassword,
-  resetCurrentUserPassword,
   requestPasswordReset,
   suspendUser,
-  endSession,
-  confirmUser,
 };

@@ -36,7 +36,7 @@ const ResetRequest = () => {
         name="email"
         placeholder="Email"
         type="text"
-        required
+        required="true"
         pattern="^.+@.+\..+$"
         handleChange={handleChange}
       />

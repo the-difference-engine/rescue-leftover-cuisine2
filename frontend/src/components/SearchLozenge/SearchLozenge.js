@@ -1,32 +1,30 @@
-import capitalize from 'lodash/capitalize';
-import map from 'lodash/map';
-import replace from 'lodash/replace';
-import split from 'lodash/split';
-import toLower from 'lodash/toLower';
-import trim from 'lodash/trim';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './SearchLozenge.css';
 
-const SearchLozenge = ({ history, searchTerm }) => {
-  const lozenges = split(searchTerm, ' ');
+const SearchLozenge = (props) => {
+  const { searchTerm } = props;
 
-  const handleClick = (event) => {
+  const capitalize = lozenge => lozenge.charAt(0).toUpperCase() + lozenge.slice(1).toLowerCase();
+
+  const lozenges = searchTerm.split(' ');
+
+  function handleClick(event) {
     const targetLozenge = event.currentTarget.textContent;
-    const lozengeValue = toLower(targetLozenge.substring(0, targetLozenge.length - 1));
-    // Remove the deleted search term and clean up extra spaces
-    const newSearchTerm = trim(replace(replace(searchTerm, lozengeValue, ''), '  ', ' '));
+    const lozengeValue = targetLozenge.substring(0, targetLozenge.length - 1).toLowerCase();
+    const newSearchTerm = searchTerm.replace(lozengeValue, '').trim();
+    const { history } = props;
     const queryString = newSearchTerm ? `/?q=${newSearchTerm}` : '';
     history.push(queryString);
-  };
+  }
 
   return (
     <div className="searchLozenge container">
       <div className="row">
         <div className="lozengeBubbles">
-          {map(lozenges, lozenge => (
-            <div onClick={handleClick} className="lozenge" key={lozenge}>
+          {lozenges.map(lozenge => (
+            <div onClick={handleClick} className="lozenge">
               {capitalize(lozenge)}
               <button className="closeLozenge" type="button">x</button>
             </div>

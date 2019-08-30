@@ -42,7 +42,7 @@ const SignIn = ({ history, setJwt }) => {
         name="email"
         placeholder="Email"
         type="text"
-        required
+        required="true"
         handleChange={handleChange}
       />
       <AuthInput
@@ -50,7 +50,7 @@ const SignIn = ({ history, setJwt }) => {
         name="password"
         placeholder="Password"
         type="password"
-        required
+        required="true"
         handleChange={handleChange}
       />
       <Link to="/resetrequest" className="row" id="forgot-password-link">I forgot my password.</Link>

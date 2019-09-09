@@ -295,5 +295,8 @@ Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
     jwt.expiration_time = ENV.fetch('DEVISE_JWT_EXPIRATION_TIME') { 1.day.to_i }
+    jwt.dispatch_requests = [
+                          ['GET', %r{^/api/v1/confirmation}],
+                        ]
   end
 end

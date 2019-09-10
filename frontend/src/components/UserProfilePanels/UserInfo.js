@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
+// import { adminEditUser } from '../../lib/apiClient';
 
 function UserInfo({ user }) {
   const [editBox, editBoxHidden] = useState(false);
-
+  const [userName, setUserName] = useState(`${user.first_name} ${user.last_name}`);
+  const editUser = () => {
+    setUserName(' ');
+  };
   return (
     <div className="row">
       <div className="col-md-12 profile-content">
@@ -35,11 +39,20 @@ function UserInfo({ user }) {
               { editBox
                 ? (
                   <div>
-                    <input type="text" defaultValue={`${user.first_name} ${user.last_name}`} />
-                    <img
-                      src="https://img.icons8.com/android/48/000000/checkmark.png"
-                      alt="save"
+                    <input
+                      type="text"
+                      defaultValue={userName}
+                      onChange={e => setUserName(e.target.value)}
                     />
+                    <button
+                      type="button"
+                      onClick={editUser}
+                    >
+                      <img
+                        src="https://img.icons8.com/android/48/000000/checkmark.png"
+                        alt="save"
+                      />
+                    </button>
                   </div>
                 )
                 : (

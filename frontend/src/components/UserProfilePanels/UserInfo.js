@@ -39,6 +39,59 @@ function UserInfo({ user }) {
     }
   };
 
+  const renderEditBox = (x) => {
+    let contentRendered;
+    if (x === true) {
+      contentRendered = (
+        <div>
+          <input
+            type="text"
+            defaultValue={userFirstName}
+            placeholder="First Name"
+            onChange={e => setUserFirstName(firstStrToUpper(e.target.value))}
+          />
+          <input
+            type="text"
+            defaultValue={userLastName}
+            placeholder="Last Name"
+            onChange={e => setUserLastName(firstStrToUpper(e.target.value))}
+          />
+          <button
+            type="button"
+            onClick={editUser}
+          >
+            <img
+              src="https://img.icons8.com/android/48/000000/checkmark.png"
+              alt="save"
+            />
+          </button>
+          <p>{error}</p>
+        </div>
+      );
+    } else {
+      contentRendered = (
+        <div>
+          <h1>
+            {userFirstName}
+            {' '}
+            {userLastName}
+          </h1>
+          <button
+            type="button"
+            className="user-edit-button"
+            onClick={() => editBoxHidden(true)}
+          >
+            <img
+              src="https://img.icons8.com/windows/32/000000/edit.png"
+              alt="edit"
+            />
+          </button>
+        </div>
+      );
+    }
+    return contentRendered;
+  };
+
   return (
     <div className="row">
       <div className="col-md-12 profile-content">
@@ -66,53 +119,7 @@ function UserInfo({ user }) {
           </div>
           <div className="col-md-9 user-info">
             <div className="profilePage-user-name">
-              { editBox
-                ? (
-                  <div>
-                    <input
-                      type="text"
-                      defaultValue={userFirstName}
-                      placeholder="First Name"
-                      onChange={e => setUserFirstName(firstStrToUpper(e.target.value))}
-                    />
-                    <input
-                      type="text"
-                      defaultValue={userLastName}
-                      placeholder="Last Name"
-                      onChange={e => setUserLastName(firstStrToUpper(e.target.value))}
-                    />
-                    <button
-                      type="button"
-                      onClick={editUser}
-                    >
-                      <img
-                        src="https://img.icons8.com/android/48/000000/checkmark.png"
-                        alt="save"
-                      />
-                    </button>
-                    <p>{error}</p>
-                  </div>
-                )
-                : (
-                  <div>
-                    <h1>
-                      {userFirstName}
-                      {' '}
-                      {userLastName}
-                    </h1>
-                    <button
-                      type="button"
-                      className="user-edit-button"
-                      onClick={() => editBoxHidden(true)}
-                    >
-                      <img
-                        src="https://img.icons8.com/windows/32/000000/edit.png"
-                        alt="edit"
-                      />
-                    </button>
-                  </div>
-                )
-              }
+              {renderEditBox(editBox)}
             </div>
             <br />
             <p>Member since December 2018</p>

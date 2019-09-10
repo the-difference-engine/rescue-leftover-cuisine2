@@ -65,6 +65,11 @@ const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`
   email: data.email.value,
 });
 
+const userEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
+  first_name: data.firstName,
+  last_name: data.lastName,
+});
+
 // RECIPES
 
 const getRecipes = (search) => {
@@ -113,6 +118,7 @@ export {
   getRecipes,
   getRecipe,
   adminEditUser,
+  userEditUser,
   resetPassword,
   resetCurrentUserPassword,
   requestPasswordReset,

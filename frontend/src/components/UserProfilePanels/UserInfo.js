@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
-// import { adminEditUser } from '../../lib/apiClient';
+import { userEditUser } from '../../lib/apiClient';
 
 function UserInfo({ user }) {
   const [editBox, editBoxHidden] = useState(false);
   const [userName, setUserName] = useState(`${user.first_name}`);
   const [userLastName, setUserLastName] = useState(`${user.last_name}`);
   const [error, setError] = useState('');
+  const newData = { firstName: userName, lastName: userLastName };
   const validateUserName = (userInputName, userInputLast) => {
     let result;
     if (userInputName !== '' && userInputName !== ' ' && userInputLast !== '' && userInputLast !== ' ') {
@@ -20,8 +21,9 @@ function UserInfo({ user }) {
     return result;
   };
   const editUser = () => {
-    setUserName(' ');
-    if (validateUserName(userName)) ;
+    if (validateUserName(userName)) {
+      userEditUser(newData, user.id);
+    }
   };
 
   return (

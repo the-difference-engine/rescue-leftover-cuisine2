@@ -32,7 +32,16 @@ function UserInfo({ user }) {
           </div>
           <div className="col-md-9 user-info">
             <div className="profilePage-user-name">
-              { editBox ? <input type="text" defaultValue={`${user.first_name} ${user.last_name}`} />
+              { editBox
+                ? (
+                  <div>
+                    <input type="text" defaultValue={`${user.first_name} ${user.last_name}`} />
+                    <img
+                      src="https://img.icons8.com/android/48/000000/checkmark.png"
+                      alt="save"
+                    />
+                  </div>
+                )
                 : (
                   <div>
                     <h1>

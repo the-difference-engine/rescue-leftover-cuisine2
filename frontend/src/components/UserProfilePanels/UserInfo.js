@@ -5,22 +5,23 @@ import './UserInfo.css';
 
 function UserInfo({ user }) {
   const [editBox, editBoxHidden] = useState(false);
-  const [userName, setUserName] = useState(`${user.first_name} ${user.last_name}`);
-  const [errors, setErrors] = useState('');
-  const validateUserName = (userInput) => {
+  const [userName, setUserName] = useState(`${user.first_name}`);
+  const [userLastName, setUserLastName] = useState(`${user.last_name}`);
+  const [error, setError] = useState('');
+  const validateUserName = (userInputName, userInputLast) => {
     let result;
-    const userArr = userInput.split(' ');
-    if (userArr.length === 2 && userArr[0] !== '' && userArr[1] !== '') {
+    if (userInputName !== '' && userInputName !== ' ' && userInputLast !== '' && userInputLast !== ' ') {
       result = true;
+      setError('');
     } else {
-      setErrors('Please enter your first and last name separated by a space.');
+      setError('Please enter your first and last name');
       result = false;
     }
     return result;
   };
   const editUser = () => {
     setUserName(' ');
-    validateUserName(userName);
+    if (validateUserName(userName)) ;
   };
 
   return (
@@ -56,7 +57,14 @@ function UserInfo({ user }) {
                     <input
                       type="text"
                       defaultValue={userName}
+                      placeholder="First Name"
                       onChange={e => setUserName(e.target.value)}
+                    />
+                    <input
+                      type="text"
+                      defaultValue={userLastName}
+                      placeholder="Last Name"
+                      onChange={e => setUserLastName(e.target.value)}
                     />
                     <button
                       type="button"
@@ -67,7 +75,7 @@ function UserInfo({ user }) {
                         alt="save"
                       />
                     </button>
-                    <p>{errors}</p>
+                    <p>{error}</p>
                   </div>
                 )
                 : (

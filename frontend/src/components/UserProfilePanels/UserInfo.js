@@ -43,7 +43,7 @@ function UserInfo({ user }) {
     let contentRendered;
     if (x === true) {
       contentRendered = (
-        <div>
+        <div className="edit-name">
           <input
             type="text"
             defaultValue={userFirstName}
@@ -58,10 +58,11 @@ function UserInfo({ user }) {
           />
           <button
             type="button"
+            className="user-edit-button"
             onClick={editUser}
           >
             <img
-              src="https://img.icons8.com/android/48/000000/checkmark.png"
+              src="https://img.icons8.com/android/32/000000/checkmark.png"
               alt="save"
             />
           </button>

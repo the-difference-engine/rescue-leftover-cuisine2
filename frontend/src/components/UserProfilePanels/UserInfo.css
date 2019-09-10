@@ -3,6 +3,14 @@
   border-radius: 50%;
 }
 
+.edit-name input {
+  height: 70px;
+  font-size: 22px;
+  color: #757373;
+  border: 1.5px solid #ced4da;
+  padding-left: 15px;
+}
+
 .user-edit-button {
   border: none;
   margin: 10px;

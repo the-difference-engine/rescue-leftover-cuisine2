@@ -55,7 +55,7 @@ const App = () => {
         />
         <Route
           path="/profile"
-          render={props => <ProfilePage {...props} user={user} setJwt={setJwt} />}
+          render={props => <ProfilePage {...props} user={user} setUser={setUser} setJwt={setJwt} />}
         />
         <Route
           path="/resetpassword"

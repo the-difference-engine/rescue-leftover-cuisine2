@@ -5,10 +5,9 @@ import { userEditUser } from '../../lib/apiClient';
 
 function UserInfo({ user }) {
   const [editBox, editBoxHidden] = useState(false);
-  const [userName, setUserName] = useState(`${user.first_name}`);
+  const [userFirstName, setUserFirstName] = useState(`${user.first_name}`);
   const [userLastName, setUserLastName] = useState(`${user.last_name}`);
   const [error, setError] = useState('');
-  const newData = { firstName: userName, lastName: userLastName };
   const validateUserName = (userInputName, userInputLast) => {
     let result;
     if (userInputName !== '' && userInputName !== ' ' && userInputLast !== '' && userInputLast !== ' ') {
@@ -21,8 +20,10 @@ function UserInfo({ user }) {
     return result;
   };
   const editUser = () => {
-    if (validateUserName(userName)) {
+    const newData = { firstName: userFirstName, lastName: userLastName };
+    if (validateUserName(userFirstName, userLastName)) {
       userEditUser(newData, user.id);
+      editBoxHidden(false);
     }
   };
 
@@ -58,9 +59,9 @@ function UserInfo({ user }) {
                   <div>
                     <input
                       type="text"
-                      defaultValue={userName}
+                      defaultValue={userFirstName}
                       placeholder="First Name"
-                      onChange={e => setUserName(e.target.value)}
+                      onChange={e => setUserFirstName(e.target.value)}
                     />
                     <input
                       type="text"
@@ -83,9 +84,9 @@ function UserInfo({ user }) {
                 : (
                   <div>
                     <h1>
-                      {user.first_name}
+                      {userFirstName}
                       {' '}
-                      {user.last_name}
+                      {userLastName}
                     </h1>
                     <button
                       type="button"

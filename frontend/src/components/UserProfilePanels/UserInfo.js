@@ -6,9 +6,23 @@ import './UserInfo.css';
 function UserInfo({ user }) {
   const [editBox, editBoxHidden] = useState(false);
   const [userName, setUserName] = useState(`${user.first_name} ${user.last_name}`);
+  const [errors, setErrors] = useState('');
+  const validateUserName = (userInput) => {
+    let result;
+    const userArr = userInput.split(' ');
+    if (userArr.length === 2 && userArr[0] !== '' && userArr[1] !== '') {
+      result = true;
+    } else {
+      setErrors('Please enter your first and last name separated by a space.');
+      result = false;
+    }
+    return result;
+  };
   const editUser = () => {
     setUserName(' ');
+    validateUserName(userName);
   };
+
   return (
     <div className="row">
       <div className="col-md-12 profile-content">
@@ -53,6 +67,7 @@ function UserInfo({ user }) {
                         alt="save"
                       />
                     </button>
+                    <p>{errors}</p>
                   </div>
                 )
                 : (

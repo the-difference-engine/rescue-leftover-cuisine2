@@ -8,17 +8,29 @@ function UserInfo({ user }) {
   const [userFirstName, setUserFirstName] = useState(`${user.first_name}`);
   const [userLastName, setUserLastName] = useState(`${user.last_name}`);
   const [error, setError] = useState('');
+
+  const firstStrToUpper = (input) => {
+    if (input.length > 0) {
+      return `${input[0].toUpperCase()}${input.slice(1)}`;
+    }
+    return input;
+  };
+
   const validateUserName = (userInputName, userInputLast) => {
     let result;
-    if (userInputName !== '' && userInputName !== ' ' && userInputLast !== '' && userInputLast !== ' ') {
-      result = true;
-      setError('');
-    } else {
-      setError('Please enter your first and last name');
+    if (userInputName === '' || userInputName === ' ' || userInputLast === '' || userInputLast === ' ') {
       result = false;
+      setError('Please enter your first and last name');
+    } else if (userInputName.split(' ').length > 1 || userInputLast.split(' ').length > 1) {
+      result = false;
+      setError('Please do not include spaces in names');
+    } else {
+      setError('');
+      result = true;
     }
     return result;
   };
+
   const editUser = () => {
     const newData = { firstName: userFirstName, lastName: userLastName };
     if (validateUserName(userFirstName, userLastName)) {
@@ -61,13 +73,13 @@ function UserInfo({ user }) {
                       type="text"
                       defaultValue={userFirstName}
                       placeholder="First Name"
-                      onChange={e => setUserFirstName(e.target.value)}
+                      onChange={e => setUserFirstName(firstStrToUpper(e.target.value))}
                     />
                     <input
                       type="text"
                       defaultValue={userLastName}
                       placeholder="Last Name"
-                      onChange={e => setUserLastName(e.target.value)}
+                      onChange={e => setUserLastName(firstStrToUpper(e.target.value))}
                     />
                     <button
                       type="button"

@@ -1,6 +1,7 @@
 import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
@@ -81,6 +82,13 @@ class Recipe extends Component {
     };
     return (
       <div className="recipe-overall-container">
+        <Helmet>
+          <title>{title}</title>
+          <meta property="og:title" content={`${title} | Rescuing Leftover Cuisine`} />
+          <meta property="og:image" content={photo} />
+          <meta property="og:image:alt" content={title} />
+        </Helmet>
+
         <div className="row">
           <div className="header">
             <Header user={user} setJwt={setJwt} />

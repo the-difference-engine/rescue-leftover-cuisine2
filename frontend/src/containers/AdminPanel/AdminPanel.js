@@ -1,7 +1,9 @@
+import map from 'lodash/map';
 import React, { Component } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink, Button,
 } from 'reactstrap';
+import { Helmet } from 'react-helmet';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
@@ -45,7 +47,7 @@ class AdminPanel extends Component {
   }
 
   createFullName = (data) => {
-    const newData = data.map((obj) => {
+    const newData = map(data, (obj) => {
       const newObj = obj;
       newObj.full_name = `${obj.first_name} ${obj.last_name}`;
       return newObj;
@@ -69,6 +71,11 @@ class AdminPanel extends Component {
 
     return (
       <div className="admin-panel-container">
+        <Helmet>
+          <title>Admin</title>
+          <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
+        </Helmet>
+
         <div className="admin-header">
           <Header showSearchBar user={user} setJwt={setJwt} />
         </div>

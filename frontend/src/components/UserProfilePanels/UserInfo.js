@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
 import { userEditUser } from '../../lib/apiClient';
+import checkmark from '../../assets/checkmark-iconSave.png';
 
 function UserInfo({ user }) {
   const [editBox, editBoxHidden] = useState(false);
@@ -39,9 +40,9 @@ function UserInfo({ user }) {
     }
   };
 
-  const renderEditBox = (x) => {
+  const renderEditBox = (contentToRender) => {
     let contentRendered;
-    if (x === true) {
+    if (contentToRender === true) {
       contentRendered = (
         <div className="edit-name">
           <input
@@ -62,8 +63,9 @@ function UserInfo({ user }) {
             onClick={editUser}
           >
             <img
-              src="https://img.icons8.com/android/32/000000/checkmark.png"
+              src={checkmark}
               alt="save"
+              height="60"
             />
           </button>
           <p>{error}</p>

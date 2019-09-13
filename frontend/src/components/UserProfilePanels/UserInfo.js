@@ -22,7 +22,7 @@ function UserInfo({ user, setUser }) {
     if (userInputName === '' || userInputName === ' ' || userInputLast === '' || userInputLast === ' ') {
       result = false;
       setError('Please enter your first and last name');
-    } else if (userInputName.split(' ').length > 1 || userInputLast.split(' ').length > 1) {
+    } else if (userInputName.split(' ').length > 2 || userInputLast.split(' ').length > 1 || userInputName.split(' ')[0] === '') {
       result = false;
       setError('Please do not include spaces in names');
     } else {

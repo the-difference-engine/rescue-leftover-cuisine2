@@ -4,7 +4,7 @@ import './UserInfo.css';
 import { userEditUser } from '../../lib/apiClient';
 import checkmark from '../../assets/checkmark-iconSave.png';
 
-function UserInfo({ user }) {
+function UserInfo({ user, setUser }) {
   const [editBox, editBoxHidden] = useState(false);
   const [userFirstName, setUserFirstName] = useState(`${user.first_name}`);
   const [userLastName, setUserLastName] = useState(`${user.last_name}`);
@@ -32,10 +32,12 @@ function UserInfo({ user }) {
     return result;
   };
 
-  const editUser = () => {
-    const newData = { firstName: userFirstName, lastName: userLastName };
+  const editUser = async () => {
+    const newData = { first_name: userFirstName, last_name: userLastName };
     if (validateUserName(userFirstName, userLastName)) {
-      userEditUser(newData, user.id);
+      await userEditUser(newData, user.id);
+      const newUserData = { ...user, ...newData };
+      setUser(newUserData);
       editBoxHidden(false);
     }
   };

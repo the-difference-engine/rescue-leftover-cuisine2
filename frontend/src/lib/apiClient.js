@@ -66,8 +66,8 @@ const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`
 });
 
 const userEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
-  first_name: data.firstName,
-  last_name: data.lastName,
+  first_name: data.first_name,
+  last_name: data.last_name,
 });
 
 // RECIPES

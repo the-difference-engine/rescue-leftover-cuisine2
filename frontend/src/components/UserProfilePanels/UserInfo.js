@@ -22,7 +22,13 @@ function UserInfo({ user, setUser }) {
     if (userInputName === '' || userInputName === ' ' || userInputLast === '' || userInputLast === ' ') {
       result = false;
       setError('Please enter your first and last name');
-    } else if (userInputName.split(' ').length > 2 || userInputLast.split(' ').length > 1 || userInputName.split(' ')[0] === '') {
+    } else if (userInputName.split(' ').length > 2 && userInputName.split(' ')[0] !== '') {
+      result = false;
+      setError('Please do not use more than two words in a first name');
+    } else if (userInputLast.split(' ').length > 1 && userInputLast.split(' ')[0] !== '') {
+      result = false;
+      setError('Please do not use more than one word in a last name');
+    } else if (userInputName.split(' ')[0] === '' || userInputLast.split(' ')[0] === '') {
       result = false;
       setError('Please do not include spaces in names');
     } else {

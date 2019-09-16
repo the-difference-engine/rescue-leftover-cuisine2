@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import capitalize from 'lodash/capitalize';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
 import { userEditUser } from '../../lib/apiClient';
@@ -9,13 +10,6 @@ function UserInfo({ user, setUser }) {
   const [userFirstName, setUserFirstName] = useState(`${user.first_name}`);
   const [userLastName, setUserLastName] = useState(`${user.last_name}`);
   const [error, setError] = useState('');
-
-  const firstStrToUpper = (input) => {
-    if (input.length > 0) {
-      return `${input[0].toUpperCase()}${input.slice(1)}`;
-    }
-    return input;
-  };
 
   const validateUserName = (userInputName, userInputLast) => {
     let result;
@@ -57,13 +51,13 @@ function UserInfo({ user, setUser }) {
             type="text"
             defaultValue={userFirstName}
             placeholder="First Name"
-            onChange={e => setUserFirstName(firstStrToUpper(e.target.value))}
+            onChange={e => setUserFirstName(capitalize(e.target.value))}
           />
           <input
             type="text"
             defaultValue={userLastName}
             placeholder="Last Name"
-            onChange={e => setUserLastName(firstStrToUpper(e.target.value))}
+            onChange={e => setUserLastName(capitalize(e.target.value))}
           />
           <button
             type="button"

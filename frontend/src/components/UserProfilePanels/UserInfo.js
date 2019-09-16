@@ -30,10 +30,9 @@ function UserInfo({ user, setUser }) {
     }
   };
 
-  const renderEditBox = (contentToRender) => {
-    let contentRendered;
-    if (contentToRender === true) {
-      contentRendered = (
+  const renderEditBox = (isEditing) => {
+    if (isEditing === true) {
+      return (
         <div className="edit-name">
           <input
             type="text"
@@ -61,28 +60,26 @@ function UserInfo({ user, setUser }) {
           <p>{error}</p>
         </div>
       );
-    } else {
-      contentRendered = (
-        <div>
-          <h1>
-            {userFirstName}
-            {' '}
-            {userLastName}
-          </h1>
-          <button
-            type="button"
-            className="user-edit-button"
-            onClick={() => editBoxHidden(true)}
-          >
-            <img
-              src="https://img.icons8.com/windows/32/000000/edit.png"
-              alt="edit"
-            />
-          </button>
-        </div>
-      );
     }
-    return contentRendered;
+    return (
+      <div>
+        <h1>
+          {userFirstName}
+          {' '}
+          {userLastName}
+        </h1>
+        <button
+          type="button"
+          className="user-edit-button"
+          onClick={() => editBoxHidden(true)}
+        >
+          <img
+            src="https://img.icons8.com/windows/32/000000/edit.png"
+            alt="edit"
+          />
+        </button>
+      </div>
+    );
   };
 
   return (

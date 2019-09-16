@@ -111,10 +111,12 @@ const Recipes = ({ recipes }) => {
 
   const options = {
     hideSizePerPage: true,
+    alwaysShowAllBtns: true,
+    withFirstAndLast: false,
     sizePerPageList: [
       {
         text: '5',
-        value: 20,
+        value: 5,
       },
       {
         text: 'All',

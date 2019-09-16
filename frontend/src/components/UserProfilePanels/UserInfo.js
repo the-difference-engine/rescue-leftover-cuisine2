@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import capitalize from 'lodash/capitalize';
 import trim from 'lodash/trim';
-import split from 'lodash/split';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
 import { userEditUser } from '../../lib/apiClient';
@@ -16,14 +15,6 @@ function UserInfo({ user, setUser }) {
   const validateUserName = (userInputName, userInputLast) => {
     if (userInputName === '' || userInputLast === '') {
       setError('Please enter your first and last name.');
-      return false;
-    }
-    if (split(userInputName, ' ').length > 1) {
-      setError('Please do not use more than one word in a first name.');
-      return false;
-    }
-    if (split(userInputLast, ' ').length > 1) {
-      setError('Please do not use more than one word in a last name.');
       return false;
     }
     return true;

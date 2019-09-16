@@ -111,3 +111,28 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+#bootstrap-overrides .page-link {
+  color: #808080;
+  background-color: #fff;
+  border: none;
+}
+
+#bootstrap-overrides .page-item.active .page-link {
+  z-index: 1;
+  color: #000000;
+  background-color: none;
+  border-color: none;
+}
+
+#bootstrap-overrides .page-link:focus {
+  box-shadow: none;
+}
+
+#bootstrap-overrides .page-item:last-child .page-link {
+  color: rgb(101,203,237);
+}
+
+#bootstrap-overrides .page-item:first-child .page-link {
+  color: rgb(101,203,237);
+}

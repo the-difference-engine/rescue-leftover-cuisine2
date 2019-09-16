@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import capitalize from 'lodash/capitalize';
+import trim from 'lodash/trim';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
 import { userEditUser } from '../../lib/apiClient';
@@ -13,18 +14,15 @@ function UserInfo({ user, setUser }) {
 
   const validateUserName = (userInputName, userInputLast) => {
     let result;
-    if (userInputName === '' || userInputName === ' ' || userInputLast === '' || userInputLast === ' ') {
+    if (userInputName === '' || userInputLast === '') {
       result = false;
       setError('Please enter your first and last name');
-    } else if (userInputName.split(' ').length > 2 && userInputName.split(' ')[0] !== '') {
+    } else if (userInputName.split(' ').length > 1) {
       result = false;
-      setError('Please do not use more than two words in a first name');
-    } else if (userInputLast.split(' ').length > 1 && userInputLast.split(' ')[0] !== '') {
+      setError('Please do not use more than one word in a first name');
+    } else if (userInputLast.split(' ').length > 1) {
       result = false;
       setError('Please do not use more than one word in a last name');
-    } else if (userInputName.split(' ')[0] === '' || userInputLast.split(' ')[0] === '') {
-      result = false;
-      setError('Please do not include spaces in names');
     } else {
       setError('');
       result = true;
@@ -51,13 +49,13 @@ function UserInfo({ user, setUser }) {
             type="text"
             defaultValue={userFirstName}
             placeholder="First Name"
-            onChange={e => setUserFirstName(capitalize(e.target.value))}
+            onChange={e => setUserFirstName(capitalize(trim(e.target.value)))}
           />
           <input
             type="text"
             defaultValue={userLastName}
             placeholder="Last Name"
-            onChange={e => setUserLastName(capitalize(e.target.value))}
+            onChange={e => setUserLastName(capitalize(trim(e.target.value)))}
           />
           <button
             type="button"

@@ -112,17 +112,14 @@
   transform: rotate(45deg);
 }
 
-#bootstrap-overrides .page-link {
+#bootstrap-overrides .page-link, .page-item.active .page-link {
   color: #808080;
   background-color: #fff;
   border: none;
 }
 
 #bootstrap-overrides .page-item.active .page-link {
-  z-index: 1;
   color: #000000;
-  background-color: none;
-  border-color: none;
 }
 
 #bootstrap-overrides .page-link:focus {

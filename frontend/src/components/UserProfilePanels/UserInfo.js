@@ -21,9 +21,9 @@ function UserInfo({ user, setUser }) {
   };
 
   const editUser = async () => {
-    const newData = { first_name: userFirstName, last_name: userLastName };
     if (validateUserName(userFirstName, userLastName)) {
       await editCurrentUserName(userFirstName, userLastName);
+      const newData = { first_name: userFirstName, last_name: userLastName };
       const newUserData = { ...user, ...newData };
       setUser(newUserData);
       setEditBox(false);

@@ -16,7 +16,7 @@ const CreateRecipe = ({ user, setJwt }) => (
     </div>
     <div className="row">
       <div className="edit-recipe-form">
-        <EditRecipeForm />
+        <EditRecipeForm user={user} />
       </div>
     </div>
   </div>

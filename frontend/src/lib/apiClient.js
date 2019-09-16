@@ -88,6 +88,18 @@ const getRecipes = (search) => {
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
+const createRecipe = recipe => apiClient.post('api/v1/recipes#create', {
+  recipe: {
+    title: recipe.title,
+    snippet: recipe.description,
+    difficulty: recipe.difficulty,
+    duration: recipe.duration,
+    servings: recipe.servings,
+    user_id: recipe.currentUserId,
+  },
+});
+
+
 // PASSWORD REQUEST
 
 const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/password', {
@@ -126,6 +138,7 @@ export {
   getUser,
   getRecipes,
   getRecipe,
+  createRecipe,
   adminEditUser,
   resetPassword,
   resetCurrentUserPassword,

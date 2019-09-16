@@ -4,16 +4,17 @@ import { createRecipe } from '../../lib/apiClient';
 import './EditRecipeForm.css';
 
 
-const EditRecipeForm = () => {
+const EditRecipeForm = ({ user }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [duration, setDuration] = useState('');
-  const [servings, setServings] = useState('');
+  const [difficulty, setDifficulty] = useState('Advanced');
+  const [duration, setDuration] = useState('60 mins');
+  const [servings, setServings] = useState('2');
 
   const handleSubmit = () => {
+    const currentUserId = user.id;
     createRecipe({
-      title, description, difficulty, duration, servings,
+      title, description, difficulty, duration, servings, currentUserId,
     });
   };
   return (
@@ -70,7 +71,7 @@ const EditRecipeForm = () => {
             <option>12</option>
           </select>
         </div>
-      </div >
+      </div>
       <div id="btn-container">
         <button type="submit" value="submit" onClick={handleSubmit}>Submit</button>
       </div>

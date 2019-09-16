@@ -75,13 +75,14 @@ const getRecipes = (search) => {
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
-const createRecipe = data => apiClient.post('api/v1/recipes#create', {
-  recipes: {
-    title: data.title,
-    description: data.description,
-    difficulty: data.difficulty,
-    duration: data.duration,
-    servings: data.servings,
+const createRecipe = recipe => apiClient.post('api/v1/recipes#create', {
+  recipe: {
+    title: recipe.title,
+    snippet: recipe.description,
+    difficulty: recipe.difficulty,
+    duration: recipe.duration,
+    servings: recipe.servings,
+    user_id: recipe.currentUserId,
   },
 });
 

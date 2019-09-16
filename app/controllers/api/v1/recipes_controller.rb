@@ -14,12 +14,16 @@ class Api::V1::RecipesController < ApplicationController
       render json: @recipes, :include => [:user]
   end
 
+
   def create
-    @recipes = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    @recipe.save
+    @recipe
+
   end
 
   def recipe_params
-   params.require(:recipes).permit(:title, :description, :difficulty, :duration, :servings )
+   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, :user_id )
   end
 
 end

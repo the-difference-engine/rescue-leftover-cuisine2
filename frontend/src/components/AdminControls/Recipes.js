@@ -116,7 +116,7 @@ const Recipes = ({ recipes }) => {
     sizePerPageList: [
       {
         text: '5',
-        value: 5,
+        value: 20,
       },
       {
         text: 'All',

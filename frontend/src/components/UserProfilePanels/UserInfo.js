@@ -7,8 +7,8 @@ import checkmark from '../../assets/checkmark-iconSave.png';
 
 function UserInfo({ user, setUser }) {
   const [editBox, editBoxHidden] = useState(false);
-  const [userFirstName, setUserFirstName] = useState(`${user.first_name}`);
-  const [userLastName, setUserLastName] = useState(`${user.last_name}`);
+  const [userFirstName, setUserFirstName] = useState(user.first_name);
+  const [userLastName, setUserLastName] = useState(user.last_name);
   const [error, setError] = useState('');
 
   const validateUserName = (userInputName, userInputLast) => {

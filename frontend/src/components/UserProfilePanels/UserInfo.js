@@ -7,7 +7,7 @@ import { userEditUser } from '../../lib/apiClient';
 import checkmark from '../../assets/checkmark-iconSave.png';
 
 function UserInfo({ user, setUser }) {
-  const [editBox, editBoxHidden] = useState(false);
+  const [editBox, setEditBox] = useState(false);
   const [userFirstName, setUserFirstName] = useState(user.first_name);
   const [userLastName, setUserLastName] = useState(user.last_name);
   const [error, setError] = useState('');
@@ -26,7 +26,7 @@ function UserInfo({ user, setUser }) {
       await userEditUser(newData, user.id);
       const newUserData = { ...user, ...newData };
       setUser(newUserData);
-      editBoxHidden(false);
+      setEditBox(false);
     }
   };
 
@@ -71,7 +71,7 @@ function UserInfo({ user, setUser }) {
         <button
           type="button"
           className="user-edit-button"
-          onClick={() => editBoxHidden(true)}
+          onClick={() => setEditBox(true)}
         >
           <img
             src="https://img.icons8.com/windows/32/000000/edit.png"

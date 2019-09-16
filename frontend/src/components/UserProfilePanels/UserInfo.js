@@ -3,7 +3,7 @@ import capitalize from 'lodash/capitalize';
 import trim from 'lodash/trim';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
-import { userEditUser } from '../../lib/apiClient';
+import { editCurrentUserName } from '../../lib/apiClient';
 import checkmark from '../../assets/checkmark-iconSave.png';
 
 function UserInfo({ user, setUser }) {
@@ -23,7 +23,7 @@ function UserInfo({ user, setUser }) {
   const editUser = async () => {
     const newData = { first_name: userFirstName, last_name: userLastName };
     if (validateUserName(userFirstName, userLastName)) {
-      await userEditUser(newData, user.id);
+      await editCurrentUserName(userFirstName, userLastName);
       const newUserData = { ...user, ...newData };
       setUser(newUserData);
       setEditBox(false);

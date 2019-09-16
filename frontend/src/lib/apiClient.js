@@ -44,6 +44,19 @@ const getCurrentUser = () => apiClient.get('api/v1/auth', {
   },
 });
 
+const editCurrentUserName = (firstName, lastName) => apiClient.put('api/v1/auth',
+  {
+    user: {
+      first_name: firstName,
+      last_name: lastName,
+    },
+  },
+  {
+    headers: {
+      Authorization: localStorage.jwt,
+    },
+  });
+
 // USERS
 
 const getUsers = () => apiClient.get('api/v1/users')
@@ -63,11 +76,6 @@ const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`
   first_name: data.firstName.value,
   last_name: data.lastName.value,
   email: data.email.value,
-});
-
-const userEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
-  first_name: data.first_name,
-  last_name: data.last_name,
 });
 
 // RECIPES
@@ -113,12 +121,12 @@ export {
   createUser,
   loginUser,
   getCurrentUser,
+  editCurrentUserName,
   getUsers,
   getUser,
   getRecipes,
   getRecipe,
   adminEditUser,
-  userEditUser,
   resetPassword,
   resetCurrentUserPassword,
   requestPasswordReset,

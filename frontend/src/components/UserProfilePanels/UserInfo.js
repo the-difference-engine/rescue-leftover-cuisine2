@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import capitalize from 'lodash/capitalize';
 import trim from 'lodash/trim';
 import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.css';
@@ -38,13 +37,13 @@ function UserInfo({ user, setUser }) {
             type="text"
             defaultValue={userFirstName}
             placeholder="First Name"
-            onChange={e => setUserFirstName(capitalize(trim(e.target.value)))}
+            onChange={e => setUserFirstName(trim(e.target.value))}
           />
           <input
             type="text"
             defaultValue={userLastName}
             placeholder="Last Name"
-            onChange={e => setUserLastName(capitalize(trim(e.target.value)))}
+            onChange={e => setUserLastName(trim(e.target.value))}
           />
           <button
             type="button"

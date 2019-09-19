@@ -7,7 +7,7 @@ import { editCurrentUserName } from '../../lib/apiClient';
 import checkmark from '../../assets/checkmark-iconSave.png';
 
 function UserInfo({ user, setUser }) {
-  const [editBox, hideEditBox] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [userFirstName, setUserFirstName] = useState(user.first_name);
   const [userLastName, setUserLastName] = useState(user.last_name);
   const [error, setError] = useState('');
@@ -26,12 +26,12 @@ function UserInfo({ user, setUser }) {
       const newData = { first_name: userFirstName, last_name: userLastName };
       const newUserData = { ...user, ...newData };
       setUser(newUserData);
-      hideEditBox(false);
+      setIsEditing(false);
     }
   };
 
-  const renderEditBox = (isEditing) => {
-    if (isEditing === true) {
+  const renderEditBox = () => {
+    if (isEditing) {
       return (
         <div className="edit-name">
           <input
@@ -64,14 +64,12 @@ function UserInfo({ user, setUser }) {
     return (
       <div>
         <h1>
-          {userFirstName}
-          {' '}
-          {userLastName}
+          { `${userFirstName} ${userLastName}` }
         </h1>
         <button
           type="button"
           className="user-edit-button"
-          onClick={() => hideEditBox(true)}
+          onClick={() => setIsEditing(true)}
         >
           <img
             src="https://img.icons8.com/windows/32/000000/edit.png"
@@ -109,7 +107,7 @@ function UserInfo({ user, setUser }) {
           </div>
           <div className="col-md-9 user-info">
             <div className="profilePage-user-name">
-              {renderEditBox(editBox)}
+              {renderEditBox(isEditing)}
             </div>
             <br />
             <p>Member since December 2018</p>

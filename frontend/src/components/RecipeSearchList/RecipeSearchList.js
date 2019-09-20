@@ -17,8 +17,8 @@ const RecipeSearchList = ({ searchTerm }) => {
 
   return (
     <div id="cards-wrapper">
-      { renderCounter }
-      { renderLozenge }
+      {renderCounter}
+      {renderLozenge}
       {map(recipes, recipe => (
         <RecipeCard
           {...recipe}

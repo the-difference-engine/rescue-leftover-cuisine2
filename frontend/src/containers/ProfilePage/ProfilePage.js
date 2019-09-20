@@ -3,6 +3,7 @@ import {
   TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import map from 'lodash/map';
 import isNil from 'lodash/isNil';
 import Header from '../../components/Header/Header';
@@ -13,7 +14,7 @@ import SettingsTab from '../../components/UserProfilePanels/SettingsTab';
 import './ProfilePage.css';
 
 const ProfilePage = ({
-  user, setJwt, history, location,
+  user, setUser, setJwt, history, location,
 }) => {
   const recipes = [
     {
@@ -86,13 +87,21 @@ const ProfilePage = ({
   if (!isNil(user)) {
     return (
       <div className="profile-page container-fluid">
+        <Helmet>
+          <title>Profile</title>
+          <meta property="og:title" content="Profile | Rescuing Leftover Cuisine" />
+          <meta property="og:type" content="profile" />
+          <meta property="og:profile:first_name" content={user.first_name} />
+          <meta property="og:profile:last_name" content={user.last_name} />
+          <meta property="og:profile:username" content={user.email} />
+        </Helmet>
         <div className="row">
           <div className="profile-header">
             <Header showSearchBar user={user} setJwt={setJwt} />
           </div>
         </div>
         <div>
-          <UserInfo user={user} />
+          <UserInfo user={user} setUser={setUser} />
           <div className="row user-panel">
             <div className="col-md-2 user-nav-bar">
               <Nav tabs>

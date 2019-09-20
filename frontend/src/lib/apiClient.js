@@ -44,6 +44,19 @@ const getCurrentUser = () => apiClient.get('api/v1/auth', {
   },
 });
 
+const editCurrentUserName = (firstName, lastName) => apiClient.put('api/v1/auth',
+  {
+    user: {
+      first_name: firstName,
+      last_name: lastName,
+    },
+  },
+  {
+    headers: {
+      Authorization: localStorage.jwt,
+    },
+  });
+
 // USERS
 
 const getUsers = () => apiClient.get('api/v1/users')
@@ -74,6 +87,21 @@ const getRecipes = (search) => {
 };
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
+
+const createRecipe = recipe => apiClient.post('api/v1/recipes', {
+  recipe: {
+    title: recipe.title,
+    snippet: recipe.description,
+    difficulty: recipe.difficulty,
+    duration: recipe.duration,
+    servings: recipe.servings,
+  },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
 
 // PASSWORD REQUEST
 
@@ -108,10 +136,12 @@ export {
   createUser,
   loginUser,
   getCurrentUser,
+  editCurrentUserName,
   getUsers,
   getUser,
   getRecipes,
   getRecipe,
+  createRecipe,
   adminEditUser,
   resetPassword,
   resetCurrentUserPassword,

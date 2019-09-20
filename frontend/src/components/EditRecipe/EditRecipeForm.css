@@ -39,3 +39,13 @@ label {
   padding-right: 15px;
   padding-bottom: 0px;
 }
+
+#recipe-submit-btn {
+  font-size: 22px;
+  background-color: #4ec8ed;
+  color: white;
+  margin-top: 25px;
+  height: 70px;
+  width: 200px;
+  border: none;
+}

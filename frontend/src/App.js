@@ -3,6 +3,7 @@
 import isNil from 'lodash/isNil';
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { getCurrentUser } from './lib/apiClient';
 import AdminPanel from './containers/AdminPanel/AdminPanel';
 import Homepage from './containers/Homepage/Homepage';
@@ -34,6 +35,13 @@ const App = () => {
 
   return (
     <div>
+      <Helmet titleTemplate="%s | Rescuing Leftover Cuisine" defaultTitle="Rescuing Leftover Cuisine">
+        <meta property="og:title" content="Rescuing Leftover Cuisine" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://rlc-prod.herokuapp.com/static/media/RLC_logo.4e05bcde.png" />
+        <meta property="og:image:alt" content="Rescuing Leftover Cuisine Logo" />
+      </Helmet>
+
       <Switch>
         <Route
           exact

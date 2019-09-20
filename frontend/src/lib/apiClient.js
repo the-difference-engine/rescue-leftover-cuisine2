@@ -88,14 +88,17 @@ const getRecipes = (search) => {
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
-const createRecipe = recipe => apiClient.post('api/v1/recipes#create', {
+const createRecipe = recipe => apiClient.post('api/v1/recipes', {
   recipe: {
     title: recipe.title,
     snippet: recipe.description,
     difficulty: recipe.difficulty,
     duration: recipe.duration,
     servings: recipe.servings,
-    user_id: recipe.currentUserId,
+  },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
   },
 });
 

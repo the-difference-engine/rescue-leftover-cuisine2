@@ -1,4 +1,5 @@
 class Api::V1::RecipesController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
 
   def show
     @recipe = Recipe.find_by!(id: params[:id])
@@ -16,15 +17,13 @@ class Api::V1::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    @recipe
-
+    @recipe.user = current_user
+    @recipe.save  
+    render json: @recipe
   end
 
   def recipe_params
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, :user_id )
+   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings )
   end
 
 end
-
-

@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import { createRecipe } from '../../lib/apiClient';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
 
-const EditRecipeForm = ({ user }) => {
+const EditRecipeForm = ({ history }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [difficulty, setDifficulty] = useState('Advanced');
-  const [duration, setDuration] = useState('60 mins');
+  const [difficulty, setDifficulty] = useState('ADVANCED');
+  const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
 
   const handleSubmit = () => {
-    const currentUserId = user.id;
+    const parsedDuration = parseInt(duration, 10);
+    const parsedServings = parseInt(servings, 10);
+
     createRecipe({
-      title, description, difficulty, duration, servings, currentUserId,
-    });
+      title, description, difficulty, duration: parsedDuration, servings: parsedServings,
+    }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
   return (
@@ -40,9 +43,9 @@ const EditRecipeForm = ({ user }) => {
             Difficulty
           </h2>
           <select className="difficulty" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
-            <option>Advanced</option>
-            <option>Medium</option>
-            <option>Easy</option>
+            <option>ADVANCED</option>
+            <option>MEDIUM</option>
+            <option>EASY</option>
           </select>
         </div>
         <div className="dropdown col-2">
@@ -73,7 +76,7 @@ const EditRecipeForm = ({ user }) => {
         </div>
       </div>
       <div id="btn-container">
-        <button type="submit" value="submit" onClick={handleSubmit}>Submit</button>
+        <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
       </div>
       <div className="row form-footer">
         <Footer />
@@ -82,4 +85,4 @@ const EditRecipeForm = ({ user }) => {
   );
 };
 
-export default EditRecipeForm;
+export default withRouter(EditRecipeForm);

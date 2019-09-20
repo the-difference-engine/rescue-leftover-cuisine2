@@ -139,6 +139,8 @@ const Users = ({ users, refreshUsers }) => {
 
   const options = {
     hideSizePerPage: true,
+    alwaysShowAllBtns: true,
+    withFirstAndLast: false,
     sizePerPageList: [
       {
         text: '5',

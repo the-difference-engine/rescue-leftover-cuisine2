@@ -112,24 +112,24 @@
   transform: rotate(45deg);
 }
 
-#bootstrap-overrides .page-link, .page-item.active .page-link {
+#bootstrap-overrides-pagination .page-link, .page-item.active .page-link {
   color: #808080;
   background-color: #fff;
   border: none;
 }
 
-#bootstrap-overrides .page-item.active .page-link {
+#bootstrap-overrides-pagination .page-item.active .page-link {
   color: #000000;
 }
 
-#bootstrap-overrides .page-link:focus {
+#bootstrap-overrides-pagination .page-link:focus {
   box-shadow: none;
 }
 
-#bootstrap-overrides .page-item:last-child .page-link {
+#bootstrap-overrides-pagination .page-item:last-child .page-link {
   color: rgb(101,203,237);
 }
 
-#bootstrap-overrides .page-item:first-child .page-link {
+#bootstrap-overrides-pagination .page-item:first-child .page-link {
   color: rgb(101,203,237);
 }

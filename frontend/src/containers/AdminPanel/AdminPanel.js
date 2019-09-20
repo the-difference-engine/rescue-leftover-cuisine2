@@ -104,7 +104,7 @@ class AdminPanel extends Component {
             </Button>
           )}
         </Nav>
-        <TabContent activeTab={activeTab}>
+        <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
           <TabPane tabId="recipes" className="table">
             <Recipes recipes={recipes} />
           </TabPane>

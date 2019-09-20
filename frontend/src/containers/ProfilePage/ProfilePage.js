@@ -13,7 +13,7 @@ import SettingsTab from '../../components/UserProfilePanels/SettingsTab';
 import './ProfilePage.css';
 
 const ProfilePage = ({
-  user, setJwt, history, location,
+  user, setUser, setJwt, history, location,
 }) => {
   const recipes = [
     {
@@ -92,7 +92,7 @@ const ProfilePage = ({
           </div>
         </div>
         <div>
-          <UserInfo user={user} />
+          <UserInfo user={user} setUser={setUser} />
           <div className="row user-panel">
             <div className="col-md-2 user-nav-bar">
               <Nav tabs>

@@ -38,6 +38,11 @@ class MainSearch extends Component {
     if (this.handleValidation()) {
       this.setState({ searchTerm: '' });
       this.handleRedirect();
+
+      const { onSubmit } = this.props;
+      if (onSubmit) {
+        onSubmit();
+      }
     }
   }
 
@@ -58,7 +63,9 @@ class MainSearch extends Component {
   }
 
   togglePanel() {
-    this.setState(prevState => ({ showInstructions: !prevState.showInstructions }));
+    this.setState(prevState => ({
+      showInstructions: !prevState.showInstructions,
+    }));
   }
 
   renderChevronButton() {
@@ -79,9 +86,10 @@ class MainSearch extends Component {
     return (
       <div className="searchInstructions">
         <p>
-          You can search recipe names or ingredients by keyword. Enter your keywords and
-          click the search button or press enter to search. If you use multiple keywords, the
-          search will return only results containing all of your keywords.
+          You can search recipe names or ingredients by keyword. Enter your
+          keywords and click the search button or press enter to search. If you
+          use multiple keywords, the search will return only results containing
+          all of your keywords.
         </p>
         <div onClick={this.togglePanel}>
           <p className="close">Collapse</p>
@@ -97,7 +105,9 @@ class MainSearch extends Component {
       <div className="mainSearch container-fluid">
         <div className="row">
           <div className="searchSection">
-            <p className="findText">Find Recipes from Rescuing Leftover Cuisine</p>
+            <p className="findText">
+              Find Recipes from Rescuing Leftover Cuisine
+            </p>
             <span className="search">
               <form className="search-form" onSubmit={this.handleSubmit}>
                 <div className="absoluteContainer">
@@ -117,7 +127,9 @@ class MainSearch extends Component {
                     </button>
                   </div>
                   <div>
-                    { showInstructions ? this.renderInstructions() : this.renderChevronButton() }
+                    {showInstructions
+                      ? this.renderInstructions()
+                      : this.renderChevronButton()}
                   </div>
                 </div>
               </form>

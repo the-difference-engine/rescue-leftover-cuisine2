@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import querystring from 'querystring';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -11,6 +11,13 @@ const Homepage = ({ location, user, setJwt }) => {
   const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark
   const searchTerm = parsed.q;
 
+  const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
+
+  const myRef = useRef(null);
+  const executeScroll = () => {
+    scrollToRef(myRef);
+  };
+
   return (
     <div className="homepage container-fluid ">
       <div className="row">
@@ -21,9 +28,9 @@ const Homepage = ({ location, user, setJwt }) => {
       <div className="row">
         <div className="homepageContent">
           <div className="row">
-            <MainSearch searchTerm={searchTerm} />
+            <MainSearch onSubmit={executeScroll} searchTerm={searchTerm} />
           </div>
-          <div className="row suggestions">
+          <div className="row suggestions" ref={myRef}>
             <div className="col-12">
               <h2>Our Suggestions</h2>
               <br />

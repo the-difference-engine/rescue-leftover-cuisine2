@@ -1,6 +1,7 @@
 import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
@@ -22,6 +23,7 @@ class Recipe extends Component {
     };
   }
 
+
   componentDidMount() {
     window.scrollTo(0, 0);
     const { match: { params } } = this.props;
@@ -30,7 +32,8 @@ class Recipe extends Component {
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
-        photo: response.data.photos[0],
+        // TODO: add placeholder photo later
+        photo: response.data.photos ? response.data.photos[0] : '',
         directions: response.data.directions,
         difficulty: response.data.difficulty,
         duration: response.data.duration,
@@ -79,12 +82,19 @@ class Recipe extends Component {
     };
     return (
       <div className="recipe-overall-container">
+        <Helmet>
+          <title>{title}</title>
+          <meta property="og:title" content={`${title} | Rescuing Leftover Cuisine`} />
+          <meta property="og:image" content={photo} />
+          <meta property="og:image:alt" content={title} />
+        </Helmet>
+
         <div className="row">
           <div className="header">
             <Header user={user} setJwt={setJwt} />
           </div>
         </div>
-        { user && (user.id === userId) ? renderButtons() : null }
+        {user && (user.id === userId) ? renderButtons() : null}
         <div className="recipe-image-wrapper">
           <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>
@@ -99,14 +109,14 @@ class Recipe extends Component {
             <div id="recipe-spec-container2" className="recipe-spec-element col-sm-4 text-center">
               <span>
                 <i className="fas fa-clock" />
-                { duration }
+                {duration}
                 {' '}
                 MIN
               </span>
             </div>
             <div id="recipe-spec-container3" className="recipe-spec-element col-sm-4 text-center">
               <i className="fas fa-utensil-spoon" />
-              <span>{ servings }</span>
+              <span>{servings}</span>
             </div>
           </div>
         </div>

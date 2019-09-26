@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
+import RecipeComments from '../../components/RecipeComments/RecipeComments';
 import { getRecipe } from '../../lib/apiClient';
 import './Recipe.css';
 
@@ -160,6 +161,7 @@ class Recipe extends Component {
             }
           </ul>
         </div>
+        <RecipeComments />
         <div className="row">
           <Footer />
         </div>

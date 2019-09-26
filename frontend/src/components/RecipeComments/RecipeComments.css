@@ -1,0 +1,21 @@
+#box-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+#comment-box{
+    height: 150px;
+    width: 500px;
+    border: solid 2px black;
+}
+
+.comment-display{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.comments{
+    display: inline-block;
+}

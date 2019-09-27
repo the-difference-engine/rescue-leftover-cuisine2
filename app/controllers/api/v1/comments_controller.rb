@@ -9,5 +9,16 @@ class Api::V1::CommentsController < ApplicationController
       @comment = Comment.find_by!(id: params[:id])
       render json: @comment
     end
-  
+    
+    def create
+      @comment = Comment.new(comment_params)
+      @comment.user = current_user
+      @comment.save
+      render json: @comment
+    end
+
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
+
   end

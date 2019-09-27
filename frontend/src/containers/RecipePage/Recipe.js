@@ -161,7 +161,7 @@ class Recipe extends Component {
             }
           </ul>
         </div>
-        <RecipeComments />
+        <RecipeComments user={user} setJwt={setJwt} />
         <div className="row">
           <Footer />
         </div>

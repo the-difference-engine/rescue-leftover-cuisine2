@@ -22,6 +22,7 @@ class Recipe extends Component {
       servings: '',
       photo: '',
       recipeId: '',
+      comments: '',
     };
   }
 
@@ -42,6 +43,7 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
+        comments: response.data.comments,
       });
     });
   }
@@ -50,7 +52,7 @@ class Recipe extends Component {
     const { user, setJwt } = this.props;
     const {
       recipeId, directions, title, ingredients, snippet, difficulty, duration, servings, photo,
-      userId,
+      userId, comments,
     } = this.state;
 
     const renderButtons = () => (
@@ -164,7 +166,7 @@ class Recipe extends Component {
             }
           </ul>
         </div>
-        <RecipeComments user={user} setJwt={setJwt} recipeId={recipeId} />
+        <RecipeComments comments={comments} recipeId={recipeId} />
         <div className="row">
           <Footer />
         </div>

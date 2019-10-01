@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { createComment } from '../../lib/apiClient';
+// import PropTypes from 'prop-types';
 import './RecipeComments.css';
 
-const RecipeComments = ({ recipeId }) => {
+const RecipeComments = ({ comments, recipeId }) => {
   const [comment, setComment] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
@@ -11,6 +12,11 @@ const RecipeComments = ({ recipeId }) => {
 
   const handleSubmit = () => {
     createComment(comment, recipeId);
+  };
+
+  const renderComments = () => {
+    // console.log(comments);
+    // comments.map(comment => console.log(comment));
   };
 
   return (
@@ -22,12 +28,19 @@ const RecipeComments = ({ recipeId }) => {
       </div>
       <div className="comment-display">
         <div className="comments">
-          <h5>First Name & Last Name</h5>
-          <p>lorem ipsum</p>
+          {renderComments()}
         </div>
       </div>
     </div>
   );
 };
+
+// RecipeComments.defaultProps = {
+//   comments: [],
+// };
+
+// RecipeComments.PropTypes = {
+//   comments: PropTypes.arrayOf(Proptypes.shape({})),
+// }
 
 export default RecipeComments;

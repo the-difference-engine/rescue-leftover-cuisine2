@@ -114,7 +114,7 @@ const createComment = (comment, recipe_id) => apiClient.post('api/v1/recipes/${r
 }, {
   headers: {
     Authorization: localStorage.jwt,
-  }
+  },
 });
 
 // PASSWORD REQUEST

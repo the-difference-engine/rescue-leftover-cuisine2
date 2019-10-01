@@ -30,6 +30,7 @@ class Recipe extends Component {
     const { match: { params } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({
+        recipeId: params.id,
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
@@ -47,7 +48,8 @@ class Recipe extends Component {
   render() {
     const { user, setJwt } = this.props;
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
+      recipeId, directions, title, ingredients, snippet, difficulty, duration, servings, photo,
+      userId,
     } = this.state;
 
     const renderButtons = () => (
@@ -161,7 +163,7 @@ class Recipe extends Component {
             }
           </ul>
         </div>
-        <RecipeComments user={user} setJwt={setJwt} />
+        <RecipeComments user={user} setJwt={setJwt} recipeId={recipeId} />
         <div className="row">
           <Footer />
         </div>

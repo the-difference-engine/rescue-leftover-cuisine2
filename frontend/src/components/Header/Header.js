@@ -46,6 +46,7 @@ const Header = ({
         <button
           className="btn navbar-btn btn-lg donateButton ml-4"
           type="button"
+          // eslint-disable-next-line lodash/prefer-lodash-method
           onClick={() => window.location.replace('https://www.rescuingleftovercuisine.org/sponsor-a-meal')}
         >
           Donate

@@ -40,7 +40,7 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=5000 react-scripts start",
     "build": "react-scripts build",
     "coverage": "react-scripts test --coverage ; open coverage/lcov-report/index.html",
     "lint": "bash ./scripts/lint.sh",

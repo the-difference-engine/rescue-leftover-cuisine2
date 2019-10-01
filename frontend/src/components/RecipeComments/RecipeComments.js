@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
-const RecipeComments = (recipeId) => {
+const RecipeComments = ({ recipeId }) => {
   const [comment, setComment] = useState('');
-
   const handleChange = (event) => {
     event.preventDefault();
     setComment(event.target.value);
   };
 
   const handleSubmit = () => {
-    createComment(recipeId, comment);
+    createComment(comment, recipeId);
   };
 
   return (

@@ -21,6 +21,7 @@ class Recipe extends Component {
       duration: '',
       servings: '',
       photo: '',
+      recipeId: '',
     };
   }
 

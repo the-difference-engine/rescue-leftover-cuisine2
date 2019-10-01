@@ -14,6 +14,7 @@ class Api::V1::CommentsController < ApplicationController
     def create
       @comment = Comment.new(comment_params)
       @comment.user = current_user
+      @comment.recipe_id = params[:recipe_id]
       @comment.save
       render json: @comment
     end

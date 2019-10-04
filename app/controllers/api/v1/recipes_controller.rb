@@ -16,8 +16,15 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    rp = recipe_params
+    tags = rp.delete(:tags)
+    @recipe = Recipe.new(rp)
+
+    # @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
+
+    @recipe.tag_ids = tags
+    
     @recipe.save  
     render json: @recipe
   end

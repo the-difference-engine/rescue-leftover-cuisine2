@@ -27,6 +27,9 @@
   margin-top: 5%;
 }
 
-.comments{
-  display: inline-block;
+.comment-content {
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 40px;
 }
+

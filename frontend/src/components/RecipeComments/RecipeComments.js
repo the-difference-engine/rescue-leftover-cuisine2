@@ -15,7 +15,28 @@ const RecipeComments = ({ comments, recipeId }) => {
   };
 
   const renderComments = () => {
-    //console.log(comments[0].user.first_name);
+    let commentsArr = [];
+    for (let i = comments.length - 1; i >= 0; i--) {
+      let commentArr = []
+      let commenter = (`${comments[i].user.first_name} ${comments[i].user.last_name}`)
+      commentArr.push(commenter)
+      let commentBody = comments[i].body
+      commentArr.push(commentBody)
+      commentsArr.push(commentArr);
+    }
+    return (
+      <div>
+        {commentsArr.map((value, index) => {
+          return (
+            <div className="comment-content">
+              <hr />
+              <p>{value[0]}</p>
+              <p>{value[1]}</p>
+            </div>
+          )
+        })}
+      </div>
+    )
   };
 
   return (
@@ -30,7 +51,7 @@ const RecipeComments = ({ comments, recipeId }) => {
             </form>
           </div>
           <div className="comment-display">
-            <div className="comments">
+            <div>
               {renderComments()}
             </div>
           </div>

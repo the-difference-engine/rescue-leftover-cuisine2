@@ -166,7 +166,7 @@ class Recipe extends Component {
             }
           </ul>
         </div>
-        <RecipeComments comments={comments} recipeId={recipeId} />
+        {comments ? <RecipeComments comments={comments} recipeId={recipeId} /> : null }
         <div className="row">
           <Footer />
         </div>

@@ -15,7 +15,7 @@ const RecipeComments = ({ comments, recipeId }) => {
   };
 
   const renderComments = () => {
-    console.log(comments);
+    //console.log(comments[0].user.first_name);
   };
 
   return (

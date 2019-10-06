@@ -15,28 +15,27 @@ const RecipeComments = ({ comments, recipeId }) => {
   };
 
   const renderComments = () => {
-    let commentsArr = [];
+    const commentsArr = [];
     for (let i = comments.length - 1; i >= 0; i--) {
-      let commentArr = []
-      let commenter = (`${comments[i].user.first_name} ${comments[i].user.last_name}`)
-      commentArr.push(commenter)
-      let commentBody = comments[i].body
-      commentArr.push(commentBody)
+      const commentArr = [];
+      const commenter = (`${comments[i].user.first_name} ${comments[i].user.last_name}`);
+      commentArr.push(commenter);
+      commentArr.push(comments[i].body);
       commentsArr.push(commentArr);
     }
     return (
       <div>
-        {commentsArr.map((value, index) => {
+        {commentsArr.map((value) => {
           return (
             <div className="comment-content">
               <hr />
-              <p>{value[0]}</p>
+              <p><strong>{value[0]}</strong></p>
               <p>{value[1]}</p>
             </div>
-          )
+          );
         })}
       </div>
-    )
+    );
   };
 
   return (
@@ -59,49 +58,6 @@ const RecipeComments = ({ comments, recipeId }) => {
       </div>
     </div>
   );
-};
-
-
-RecipeComments.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.shape({
-    body: PropTypes.string,
-    created_at: PropTypes.string,
-    id: PropTypes.number,
-    recipe_id: PropTypes.id,
-    updated_at: PropTypes.string,
-    user: PropTypes.shape({
-      created_at: PropTypes.string,
-      email: PropTypes.string,
-      first_name: PropTypes.string,
-      id: PropTypes.number,
-      interests: PropTypes.number,
-      is_admin: PropTypes.bool,
-      is_suspended: PropTypes.bool,
-      last_name: PropTypes.string,
-      profile_photo: PropTypes.string,
-      updated_at: PropTypes.string,
-      username: PropTypes.string,
-    }),
-    user_id: PropTypes.number,
-  })),
-};
-
-RecipeComments.defaultProps = {
-  comments: [{
-    body: "comment",
-    created_at: "2019-10-03T00:31:25.357Z",
-    id: 10,
-    recipe_id: 28,
-    updated_at: "2019-10-03T00:31:25.357Z",
-    user: {
-      id: 1,
-      email: 'bob@domain.com',
-      created_at: "2019-09-24T01:03:56.610Z",
-      updated_at: "2019-09-24T01:03:56.610Z",
-      username: "Bob@RLC",
-    },
-    user_id: 1,
-  }],
 };
 
 export default RecipeComments;

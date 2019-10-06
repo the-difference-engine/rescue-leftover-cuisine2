@@ -15,19 +15,25 @@ const RecipeComments = ({ comments, recipeId }) => {
   };
 
   const renderComments = () => {
-    console.log(comments[0]);
+    console.log(comments);
   };
 
   return (
-    <div className="comment-section">
-      <div id="box-wrapper">
-        <form onSubmit={handleSubmit}>
-          <input id="comment-box" type="text" value={comment} onChange={handleChange} placeholder="Type a comment" />
-        </form>
-      </div>
-      <div className="comment-display">
-        <div className="comments">
-          {renderComments()}
+    <div className="comment-section container">
+      <div className="row">
+        <div className="col-sm-12">
+          <h1>Comments</h1>
+          <div id="box-wrapper">
+            <form onSubmit={handleSubmit}>
+              <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange}/>
+              <input type="submit" />
+            </form>
+          </div>
+          <div className="comment-display">
+            <div className="comments">
+              {renderComments()}
+            </div>
+          </div>
         </div>
       </div>
     </div>

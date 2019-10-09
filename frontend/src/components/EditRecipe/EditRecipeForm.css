@@ -27,12 +27,19 @@ label {
 
 .form-recipe-label {
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   font-size: 28.5px;
 }
 
 .form-title {
   margin-bottom: 50px;
+}
+
+.search-tag {
+  width: 35%;
+  font-size: 25px;
+  font-weight: 200;
+  
 }
 
 .editRecipeForm i.fas.fa-utensil-spoon {

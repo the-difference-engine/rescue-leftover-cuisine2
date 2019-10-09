@@ -140,3 +140,27 @@ Recipe.create(
   photos: ["recipe-seeds/tartetatin.jpg"],
   user_id: 1
 )
+
+Tag.create(
+ title: "Breakfast"
+)
+
+Tag.create(
+ title: "Lunch"
+)
+
+Tag.create(
+ title: "Dinner"
+)
+
+Tag.create(
+ title: "Snack"
+)
+
+tag1 = Tag.find(1)
+tag2 = Tag.find(2)
+
+recipe1 = Recipe.find(1)
+recipe1.tags << tag1
+recipe1.tags << tag2
+recipe1.save

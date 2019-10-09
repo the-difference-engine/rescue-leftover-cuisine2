@@ -51,7 +51,7 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     <div className="comment-section container">
       <div className="row">
         <div className="col-sm-12">
-          {comments.length == 0 ? <h1>No one has commented on this recipe.</h1> : <h1>Comments</h1>}
+          {comments.length == 0 && !user ? <h1>No one has commented on this recipe.</h1> : <h1>Comments</h1>}
           <div id="box-wrapper">
             {user ? renderForm() : <h3>Please log in to post a comment.</h3>}
           </div>

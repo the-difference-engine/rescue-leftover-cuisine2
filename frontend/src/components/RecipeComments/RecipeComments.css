@@ -15,16 +15,20 @@
   background-color: rgb(242, 250, 254);
   padding-bottom: 30px;
 }
+
 .comment-section h1 {
   padding: 20px;
 }
+
 .comment-section h3 {
   padding: 20px;
 }
+
 .comment-section form {
   padding-left: 20px;
   padding-right: 20px;
 }
+
 .comment-display{
   text-align: center;
   margin-top: 5%;
@@ -35,4 +39,3 @@
   padding-left: 40px;
   padding-right: 40px;
 }
-

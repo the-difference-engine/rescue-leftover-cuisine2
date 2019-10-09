@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import map from 'lodash/map';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
@@ -14,18 +14,16 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     createComment(comment, recipeId);
   };
 
-  const renderForm = () => {
-    return (
-      <form onSubmit={handleSubmit}>
-        <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange}/>
-        <input type="submit" />
-      </form>
-    )
-  }
+  const renderForm = () => (
+    <form onSubmit={handleSubmit}>
+      <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
+      <input type="submit" />
+    </form>
+  );
 
   const renderComments = () => {
     const commentsArr = [];
-    for (let i = comments.length - 1; i >= 0; i--) {
+    for (let i = comments.length - 1; i >= 0; i - 1) {
       const commentArr = [];
       const commenter = (`${comments[i].user.first_name} ${comments[i].user.last_name}`);
       commentArr.push(commenter);
@@ -34,15 +32,14 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     }
     return (
       <div>
-        {commentsArr.map((value) => {
-          return (
-            <div className="comment-content">
-              <hr />
-              <p><strong>{value[0]}</strong></p>
-              <p>{value[1]}</p>
-            </div>
-          );
-        })}
+        {map(commentsArr, value => (
+          <div className="comment-content">
+            <hr />
+            <p><strong>{value[0]}</strong></p>
+            <p>{value[1]}</p>
+          </div>
+        ))
+        }
       </div>
     );
   };
@@ -51,7 +48,8 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     <div className="comment-section container">
       <div className="row">
         <div className="col-sm-12">
-          {comments.length == 0 && !user ? <h1>No one has commented on this recipe.</h1> : <h1>Comments</h1>}
+          {comments.length === 0
+            && !user ? <h1>No one has commented on this recipe.</h1> : <h1>Comments</h1>}
           <div id="box-wrapper">
             {user ? renderForm() : <h3>Please log in to post a comment.</h3>}
           </div>

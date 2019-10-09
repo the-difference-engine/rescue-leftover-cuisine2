@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { createRecipe } from '../../lib/apiClient';
+import SearchTag from '../SearchTag/SearchTag';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
 
@@ -36,6 +37,11 @@ const EditRecipeForm = ({ history }) => {
           </label>
         </div>
       </div>
+      <div className="search-tag offset-4">
+        <h4> Add tag </h4>
+        <SearchTag />
+      </div>
+
       <div className="row form-dropdown">
         <div className="dropdown col-2 offset-3">
           <h2>

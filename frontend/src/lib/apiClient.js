@@ -102,6 +102,11 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
   },
 });
 
+// TAGS
+
+const getTags = () => apiClient.get('/api/v1/tags')
+  .then(results => results.data);
+
 
 // PASSWORD REQUEST
 
@@ -141,6 +146,7 @@ export {
   getUser,
   getRecipes,
   getRecipe,
+  getTags,
   createRecipe,
   adminEditUser,
   resetPassword,

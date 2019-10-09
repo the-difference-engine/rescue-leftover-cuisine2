@@ -18,6 +18,9 @@
 .comment-section h1 {
   padding: 20px;
 }
+.comment-section h3 {
+  padding: 20px;
+}
 .comment-section form {
   padding-left: 20px;
   padding-right: 20px;

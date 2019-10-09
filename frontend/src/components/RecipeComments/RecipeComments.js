@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
-const RecipeComments = ({ comments, recipeId }) => {
+const RecipeComments = ({ comments, recipeId, user }) => {
   const [comment, setComment] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
@@ -13,6 +13,15 @@ const RecipeComments = ({ comments, recipeId }) => {
   const handleSubmit = () => {
     createComment(comment, recipeId);
   };
+
+  const renderForm = () => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange}/>
+        <input type="submit" />
+      </form>
+    )
+  }
 
   const renderComments = () => {
     const commentsArr = [];
@@ -42,12 +51,9 @@ const RecipeComments = ({ comments, recipeId }) => {
     <div className="comment-section container">
       <div className="row">
         <div className="col-sm-12">
-          <h1>Comments</h1>
+          {comments.length == 0 ? <h1>No one has commented on this recipe.</h1> : <h1>Comments</h1>}
           <div id="box-wrapper">
-            <form onSubmit={handleSubmit}>
-              <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange}/>
-              <input type="submit" />
-            </form>
+            {user ? renderForm() : <h3>Please log in to post a comment.</h3>}
           </div>
           <div className="comment-display">
             <div>

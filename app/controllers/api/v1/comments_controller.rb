@@ -2,7 +2,7 @@ class Api::V1::CommentsController < ApplicationController
     before_action :authenticate_user!, :except => [:show, :index]
     
     def index
-        @comments = Comment.find(params[:recipe_id])
+        @comments = Comment.where(recipe_id: params[:recipe_id]).all
         render json: @comments
     end
     

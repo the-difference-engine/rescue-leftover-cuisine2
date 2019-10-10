@@ -5,7 +5,7 @@ import './RecipeComments.css';
 
 const RecipeComments = ({ comments, recipeId, user }) => {
   const [comment, setComment] = useState('');
-  
+
   const handleChange = (event) => {
     event.preventDefault();
     setComment(event.target.value);

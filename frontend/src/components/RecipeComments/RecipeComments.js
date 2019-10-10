@@ -11,8 +11,7 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     setComment(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     createComment(comment, recipeId);
   };
 

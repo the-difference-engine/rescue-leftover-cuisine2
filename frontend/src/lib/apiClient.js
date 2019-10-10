@@ -104,7 +104,7 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
 
 // COMMENTS
 
-const getComments = id => apiClient.get(`api/v1/comments/${id}`);
+const getComments = recipeId => apiClient.get(`api/v1/recipes/${recipeId}`);
 
 const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${recipeId}/comments`, {
   comment: {

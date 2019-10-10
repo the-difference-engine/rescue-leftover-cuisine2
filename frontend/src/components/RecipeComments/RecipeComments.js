@@ -4,13 +4,15 @@ import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
 const RecipeComments = ({ comments, recipeId, user }) => {
+  
   const [comment, setComment] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
     setComment(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     createComment(comment, recipeId);
   };
 

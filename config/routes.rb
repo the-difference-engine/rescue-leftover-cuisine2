@@ -21,7 +21,6 @@ Rails.application.routes.draw do
         resources :comments
       end
       resources :users
-      resources :comments
 
       devise_scope :user do
         authenticate :user do

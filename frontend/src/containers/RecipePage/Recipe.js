@@ -2,6 +2,7 @@ import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import isNull from 'lodash/isNull';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
@@ -166,7 +167,8 @@ class Recipe extends Component {
             }
           </ul>
         </div>
-        { comments ? <RecipeComments comments={comments} recipeId={recipeId} user={user} /> : null }
+        {!isNull(comments)
+          ? <RecipeComments comments={comments} recipeId={recipeId} user={user} /> : null}
         <div className="row">
           <Footer />
         </div>

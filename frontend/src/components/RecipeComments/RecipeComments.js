@@ -22,20 +22,24 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     </form>
   );
 
-  const renderComments = () => {
-    return (
-      <div>
-        {map(comments, value => (
-          <div className="comment-content">
-            <hr />
-            <p><strong>{value.user.first_name} {value.user.last_name}</strong></p>
-            <p>{value.body}</p>
-          </div>
-        ))
-        }
-      </div>
-    );
-  };
+  const renderComments = () => (
+    <div>
+      {map(comments, value => (
+        <div className="comment-content">
+          <hr />
+          <p>
+            <strong>
+              {value.user.first_name}
+              {' '}
+              {value.user.last_name}
+            </strong>
+          </p>
+          <p>{value.body}</p>
+        </div>
+      ))
+      }
+    </div>
+  );
 
   return (
     <div className="comment-section container">

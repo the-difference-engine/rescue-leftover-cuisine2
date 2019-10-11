@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { createRecipe } from '../../lib/apiClient';
+import Select from 'react-select';
+import { createRecipe, getTags } from '../../lib/apiClient';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
 
@@ -10,13 +11,26 @@ const EditRecipeForm = ({ history }) => {
   const [difficulty, setDifficulty] = useState('ADVANCED');
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
+  const [tags, setTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState(null);
+
+  useEffect(() => {
+    getTags().then((data) => {
+      if (tags.length === 0) setTags(data);
+    });
+  }, [tags]);
 
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
 
     createRecipe({
-      title, description, difficulty, duration: parsedDuration, servings: parsedServings,
+      title,
+      description,
+      difficulty,
+      duration: parsedDuration,
+      servings: parsedServings,
+      selectedTags,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
@@ -34,6 +48,27 @@ const EditRecipeForm = ({ history }) => {
             Recipe Description
             <textarea className="form-control" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
           </label>
+        </div>
+        <div className="search-tag offset-4">
+          <Select
+            className="st-search-input"
+            value={selectedTags}
+                // onChange to pass an event to setselectedOption, rather than a tag,
+            // eslint-disable-next-line lodash/prefer-lodash-method
+            options={tags.map((tag, idx) => {
+              const obj = {
+                label: tag.title,
+                value: idx + 1,
+              };
+              return obj;
+            })}
+            onChange={(tag) => {
+              setSelectedTags(tag);
+            }
+            }
+            placeholder="Select a tag"
+            isMulti
+          />
         </div>
       </div>
       <div className="row form-dropdown">

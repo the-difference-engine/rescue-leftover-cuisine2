@@ -18,7 +18,7 @@ const RecipeComments = ({ comments, recipeId, user }) => {
   const renderForm = () => (
     <form onSubmit={handleSubmit}>
       <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
-      <input type="submit" />
+      <input id="submit-btn" type="submit" />
     </form>
   );
 

@@ -28,7 +28,7 @@ const loginUser = (data) => {
   });
 };
 
-const endSession = () => apiClient.delete('/api/v1/auth/logout', {
+const endSession = () => apiClient.delete('api/v1/auth/logout', {
   headers: {
     Authorization: localStorage.jwt,
   },

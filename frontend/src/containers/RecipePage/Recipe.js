@@ -45,6 +45,7 @@ class Recipe extends Component {
 
   render() {
     const { user, setJwt } = this.props;
+    const { match: { params: { id } } } = this.props;
     const {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
     } = this.state;
@@ -121,7 +122,7 @@ class Recipe extends Component {
           </div>
         </div>
         <div className="tags-bar">
-          <TagsBar />
+          <TagsBar id={id} />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">

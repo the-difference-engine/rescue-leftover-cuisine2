@@ -107,6 +107,9 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
 const getTags = () => apiClient.get('/api/v1/tags')
   .then(results => results.data);
 
+const getRecipeTags = id => apiClient.get(`/api/v1/recipes/${id}/tags`)
+  .then(results => results.data);
+
 
 // PASSWORD REQUEST
 
@@ -146,8 +149,9 @@ export {
   getUser,
   getRecipes,
   getRecipe,
-  getTags,
   createRecipe,
+  getTags,
+  getRecipeTags,
   adminEditUser,
   resetPassword,
   resetCurrentUserPassword,

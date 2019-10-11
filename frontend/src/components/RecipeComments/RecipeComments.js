@@ -23,21 +23,13 @@ const RecipeComments = ({ comments, recipeId, user }) => {
   );
 
   const renderComments = () => {
-    const commentsArr = [];
-    for (let i = comments.length - 1; i >= 0; i - 1) {
-      const commentArr = [];
-      const commenter = (`${comments[i].user.first_name} ${comments[i].user.last_name}`);
-      commentArr.push(commenter);
-      commentArr.push(comments[i].body);
-      commentsArr.push(commentArr);
-    }
     return (
       <div>
-        {map(commentsArr, value => (
+        {map(comments, value => (
           <div className="comment-content">
             <hr />
-            <p><strong>{value[0]}</strong></p>
-            <p>{value[1]}</p>
+            <p><strong>{value.user.first_name} {value.user.last_name}</strong></p>
+            <p>{value.body}</p>
           </div>
         ))
         }

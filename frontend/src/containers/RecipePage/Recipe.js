@@ -43,7 +43,7 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
-        comments: response.data.comments,
+        comments: response.data.comments.reverse(),
       });
     });
   }

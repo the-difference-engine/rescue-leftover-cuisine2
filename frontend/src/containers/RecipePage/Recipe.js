@@ -2,9 +2,11 @@ import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import isNull from 'lodash/isNull';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
+import RecipeComments from '../../components/RecipeComments/RecipeComments';
 import { getRecipe } from '../../lib/apiClient';
 import './Recipe.css';
 
@@ -20,6 +22,8 @@ class Recipe extends Component {
       duration: '',
       servings: '',
       photo: '',
+      recipeId: '',
+      comments: '',
     };
   }
 
@@ -29,6 +33,7 @@ class Recipe extends Component {
     const { match: { params } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({
+        recipeId: params.id,
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
@@ -39,6 +44,7 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
+        comments: response.data.comments.reverse(),
       });
     });
   }
@@ -46,7 +52,8 @@ class Recipe extends Component {
   render() {
     const { user, setJwt } = this.props;
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
+      recipeId, directions, title, ingredients, snippet, difficulty, duration, servings, photo,
+      userId, comments,
     } = this.state;
 
     const renderButtons = () => (
@@ -160,6 +167,8 @@ class Recipe extends Component {
             }
           </ul>
         </div>
+        {!isNull(comments)
+          ? <RecipeComments comments={comments} recipeId={recipeId} user={user} /> : null}
         <div className="row">
           <Footer />
         </div>

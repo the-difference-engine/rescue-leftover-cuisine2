@@ -102,6 +102,17 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
   },
 });
 
+// COMMENTS
+
+const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${recipeId}/comments`, {
+  comment: {
+    body: comment,
+  },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
 
 // PASSWORD REQUEST
 
@@ -149,4 +160,5 @@ export {
   suspendUser,
   endSession,
   confirmUser,
+  createComment,
 };

@@ -11,23 +11,21 @@ const RecipeComments = ({ comments, recipeId, user, rerenderComments }) => {
     setComment(event.target.value);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   createComment(comment, recipeId);
-  // };
-const submitComment = async () => {
-  await createComment(comment, recipeId);
-  const newData = { body: comment };
-  const newCommentData = { ...comments, ...newData };
-  rerenderComments(newCommentData);
-}
+  const submitComment = async () => {
+    setComment('');
+    await createComment(comment, recipeId);
+    const newData = { body: comment };
+    const newCommentData = { ...comments, ...newData };
+    rerenderComments(newCommentData);
+  }
+
   const clickEvent = event => {
     event.preventDefault();
     submitComment();
   }
 
   const renderForm = () => (
-    <form >
+    <form>
       <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
       <input id="submit-btn" type="submit" onClick={clickEvent} />
     </form>

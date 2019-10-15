@@ -27,7 +27,6 @@ class Recipe extends Component {
     };
   }
 
-
   componentDidMount() {
     window.scrollTo(0, 0);
     const { match: { params } } = this.props;
@@ -55,6 +54,15 @@ class Recipe extends Component {
       recipeId, directions, title, ingredients, snippet, difficulty, duration, servings, photo,
       userId, comments,
     } = this.state;
+
+    const rerenderComments = () => {
+      const { match: { params } } = this.props;
+      getRecipe(params.id).then((response) => {
+        this.setState({
+          comments: response.data.comments.reverse(),
+        });
+      });
+    }
 
     const renderButtons = () => (
       <div>
@@ -168,7 +176,7 @@ class Recipe extends Component {
           </ul>
         </div>
         {!isNull(comments)
-          ? <RecipeComments comments={comments} recipeId={recipeId} user={user} /> : null}
+          ? <RecipeComments comments={comments} recipeId={recipeId} user={user} rerenderComments={rerenderComments} /> : null}
         <div className="row">
           <Footer />
         </div>

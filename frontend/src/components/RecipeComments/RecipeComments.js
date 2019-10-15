@@ -3,7 +3,7 @@ import map from 'lodash/map';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
-const RecipeComments = ({ comments, recipeId, user }) => {
+const RecipeComments = ({ comments, recipeId, user, rerenderComments }) => {
   const [comment, setComment] = useState('');
 
   const handleChange = (event) => {
@@ -11,14 +11,25 @@ const RecipeComments = ({ comments, recipeId, user }) => {
     setComment(event.target.value);
   };
 
-  const handleSubmit = () => {
-    createComment(comment, recipeId);
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   createComment(comment, recipeId);
+  // };
+const submitComment = async () => {
+  await createComment(comment, recipeId);
+  const newData = { body: comment };
+  const newCommentData = { ...comments, ...newData };
+  rerenderComments(newCommentData);
+}
+  const clickEvent = event => {
+    event.preventDefault();
+    submitComment();
+  }
 
   const renderForm = () => (
-    <form onSubmit={handleSubmit}>
+    <form >
       <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
-      <input id="submit-btn" type="submit" />
+      <input id="submit-btn" type="submit" onClick={clickEvent} />
     </form>
   );
 

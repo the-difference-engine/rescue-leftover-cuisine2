@@ -77,7 +77,8 @@ const EditRecipeForm = ({ history }) => {
               })}
               onChange={(selected) => {
                 setSelectedTags(selected);
-                setSelectedTagsWithId(selected.map(e => ({ id: e.id, title: e.value })));
+                // eslint-disable-next-line max-len
+                if (selected) setSelectedTagsWithId(selected.map(e => ({ id: e.id, title: e.value })));
               }
             }
               placeholder="Search and tag"

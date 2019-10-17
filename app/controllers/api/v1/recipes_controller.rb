@@ -16,14 +16,24 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    rp = recipe_params
+    puts recipe_params
+    tags = rp.delete(:tags)
+
+    @recipe = Recipe.new(rp)
+    tags.each do |tag|
+      puts tag
+      @recipe.tags << Tag.find(tag["id"])
+    end
+
     @recipe.user = current_user
     @recipe.save
     render json: @recipe
   end
 
   def recipe_params
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings )
+    puts params
+   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, tags: [:id, :title])
   end
 
 end

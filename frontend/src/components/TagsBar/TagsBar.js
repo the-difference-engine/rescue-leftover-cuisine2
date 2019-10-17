@@ -18,7 +18,6 @@ export default class TagsBar extends Component {
   componentDidMount() {
     const { id } = this.props;
     getRecipeTags(id).then((data) => {
-      console.log('data', data);
       this.setState({
         tags: data,
       });

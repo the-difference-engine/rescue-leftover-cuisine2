@@ -31,7 +31,7 @@ label {
   font-size: 28.5px;
 }
 
-.form-title {
+.form-title, .form-snippet, .search-tag {
   margin-bottom: 50px;
 }
 
@@ -50,8 +50,7 @@ label {
   border: none;
 }
 
-.search-tag {
-  width: 35%;
+.st-search-input {
   font-size: 25px;
   font-weight: 200;
 }

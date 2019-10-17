@@ -5,6 +5,14 @@ import { createRecipe, getTags } from '../../lib/apiClient';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
 
+const customStyles = {
+  control: provided => ({
+    // none of react-select's styles are passed to <Control />
+    ...provided,
+    height: 70,
+  }),
+};
+
 const EditRecipeForm = ({ history }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -23,6 +31,7 @@ const EditRecipeForm = ({ history }) => {
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
+    const tagsArr = selectedTags.map(tag => tag.value);
 
     createRecipe({
       title,
@@ -30,7 +39,7 @@ const EditRecipeForm = ({ history }) => {
       difficulty,
       duration: parsedDuration,
       servings: parsedServings,
-      selectedTags,
+      tags: tagsArr,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
@@ -49,26 +58,30 @@ const EditRecipeForm = ({ history }) => {
             <textarea className="form-control" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
           </label>
         </div>
-        <div className="search-tag offset-4">
-          <Select
-            className="st-search-input"
-            value={selectedTags}
+        <div className="search-tag col-6 offset-3">
+          <label htmlFor="tags">
+            Tags
+            <Select
+              className="st-search-input"
+              styles={customStyles}
+              value={selectedTags}
                 // onChange to pass an event to setselectedOption, rather than a tag,
             // eslint-disable-next-line lodash/prefer-lodash-method
-            options={tags.map((tag, idx) => {
-              const obj = {
-                label: tag.title,
-                value: idx + 1,
-              };
-              return obj;
-            })}
-            onChange={(tag) => {
-              setSelectedTags(tag);
+              options={tags.map((tag) => {
+                const obj = {
+                  label: tag.title,
+                  value: { id: tag.id, title: tag.title },
+                };
+                return obj;
+              })}
+              onChange={(tag) => {
+                setSelectedTags(tag);
+              }
             }
-            }
-            placeholder="Select a tag"
-            isMulti
-          />
+              placeholder="Search and tag"
+              isMulti
+            />
+          </label>
         </div>
       </div>
       <div className="row form-dropdown">

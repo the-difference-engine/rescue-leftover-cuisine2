@@ -37,7 +37,7 @@ const RecipeComments = ({
   const renderComments = () => (
     <div>
       {map(comments, value => (
-        <div className="comment-content">
+        <div key={value.id} className="comment-content">
           <hr />
           <p>
             <strong>

@@ -21,6 +21,7 @@ const EditRecipeForm = ({ history }) => {
   const [servings, setServings] = useState('2');
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState(null);
+  const [selectedTagsWithId, setSelectedTagsWithId] = useState(null);
 
   useEffect(() => {
     getTags().then((data) => {
@@ -31,7 +32,6 @@ const EditRecipeForm = ({ history }) => {
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
-    const tagsArr = selectedTags.map(tag => tag.value);
 
     createRecipe({
       title,
@@ -39,7 +39,7 @@ const EditRecipeForm = ({ history }) => {
       difficulty,
       duration: parsedDuration,
       servings: parsedServings,
-      tags: tagsArr,
+      tags: selectedTagsWithId,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
@@ -70,12 +70,14 @@ const EditRecipeForm = ({ history }) => {
               options={tags.map((tag) => {
                 const obj = {
                   label: tag.title,
-                  value: { id: tag.id, title: tag.title },
+                  value: tag.title,
+                  id: tag.id,
                 };
                 return obj;
               })}
-              onChange={(tag) => {
-                setSelectedTags(tag);
+              onChange={(selected) => {
+                setSelectedTags(selected);
+                setSelectedTagsWithId(selected.map(e => ({ id: e.id, title: e.value })));
               }
             }
               placeholder="Search and tag"

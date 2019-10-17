@@ -55,14 +55,14 @@ class Recipe extends Component {
       userId, comments,
     } = this.state;
 
-    const rerenderComments = () => {
+    const reRenderComments = () => {
       const { match: { params } } = this.props;
       getRecipe(params.id).then((response) => {
         this.setState({
           comments: response.data.comments.reverse(),
         });
       });
-    }
+    };
 
     const renderButtons = () => (
       <div>
@@ -176,7 +176,14 @@ class Recipe extends Component {
           </ul>
         </div>
         {!isNull(comments)
-          ? <RecipeComments comments={comments} recipeId={recipeId} user={user} rerenderComments={rerenderComments} /> : null}
+          ? (
+            <RecipeComments
+              comments={comments}
+              recipeId={recipeId}
+              user={user}
+              reRenderComments={reRenderComments}
+            />
+          ) : null}
         <div className="row">
           <Footer />
         </div>

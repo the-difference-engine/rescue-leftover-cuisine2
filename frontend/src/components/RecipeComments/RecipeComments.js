@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import map from 'lodash/map';
+import * as moment from 'moment';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
-const RecipeComments = ({ comments, recipeId, user, rerenderComments }) => {
+const RecipeComments = ({
+  comments, recipeId, user, reRenderComments,
+}) => {
   const [comment, setComment] = useState('');
 
   const handleChange = (event) => {
@@ -16,18 +19,18 @@ const RecipeComments = ({ comments, recipeId, user, rerenderComments }) => {
     await createComment(comment, recipeId);
     const newData = { body: comment };
     const newCommentData = { ...comments, ...newData };
-    rerenderComments(newCommentData);
-  }
+    reRenderComments(newCommentData);
+  };
 
-  const clickEvent = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     submitComment();
-  }
+  };
 
   const renderForm = () => (
     <form>
       <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
-      <input id="submit-btn" type="submit" onClick={clickEvent} />
+      <input id="submit-btn" type="submit" onClick={handleSubmit} />
     </form>
   );
 
@@ -42,6 +45,8 @@ const RecipeComments = ({ comments, recipeId, user, rerenderComments }) => {
               {' '}
               {value.user.last_name}
             </strong>
+            <br />
+            {moment(value.created_at).format('MMMM Do YYYY, h:mm:ss a')}
           </p>
           <p>{value.body}</p>
         </div>

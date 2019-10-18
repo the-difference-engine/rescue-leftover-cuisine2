@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
+import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, getTags } from '../../lib/apiClient';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
@@ -20,14 +21,22 @@ const EditRecipeForm = ({ history }) => {
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
   const [tags, setTags] = useState([]);
-  const [selectedTags, setSelectedTags] = useState(null);
-  const [selectedTagsWithId, setSelectedTagsWithId] = useState(null);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
 
   useEffect(() => {
     getTags().then((data) => {
       if (tags.length === 0) setTags(data);
     });
   }, [tags]);
+
+  useEffect(() => {
+    let tagsWithIdObject = [];
+    if (selectedTags) {
+      tagsWithIdObject = selectedTags.map(e => ({ id: e.id, title: e.value }));
+    }
+    setSelectedTagsWithId(tagsWithIdObject);
+  }, [selectedTags]);
 
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
@@ -78,12 +87,12 @@ const EditRecipeForm = ({ history }) => {
               onChange={(selected) => {
                 setSelectedTags(selected);
                 // eslint-disable-next-line max-len
-                if (selected) setSelectedTagsWithId(selected.map(e => ({ id: e.id, title: e.value })));
               }
             }
               placeholder="Search and tag"
               isMulti
             />
+            <TagsBar tags={selectedTagsWithId} />
           </label>
         </div>
       </div>

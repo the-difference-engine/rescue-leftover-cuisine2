@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
-import { getRecipe } from '../../lib/apiClient';
+import { getRecipe, getRecipeTags } from '../../lib/apiClient';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -20,6 +20,7 @@ class Recipe extends Component {
       duration: '',
       servings: '',
       photo: '',
+      tags: [],
     };
   }
 
@@ -27,6 +28,7 @@ class Recipe extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     const { match: { params } } = this.props;
+    const { match: { params: { id } } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({
         title: response.data.title,
@@ -41,13 +43,17 @@ class Recipe extends Component {
         userId: response.data.user_id,
       });
     });
+    getRecipeTags(id).then((data) => {
+      this.setState({
+        tags: data,
+      });
+    });
   }
 
   render() {
     const { user, setJwt } = this.props;
-    const { match: { params: { id } } } = this.props;
     const {
-      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId,
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId, tags,
     } = this.state;
 
     const renderButtons = () => (
@@ -122,7 +128,7 @@ class Recipe extends Component {
           </div>
         </div>
         <div className="tags-bar">
-          <TagsBar id={id} />
+          <TagsBar tags={tags} />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">

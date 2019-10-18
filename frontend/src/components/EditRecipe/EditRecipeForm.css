@@ -1,6 +1,17 @@
+textarea, select, input{
+  border-color: #9b9b9b;
+}
+
+.recipe-detail-icons{
+  color: #9b9b9b;
+}
+
+#difficulty-icon{
+  height: 32px;
+}
+
 textarea {
   resize: none;
-  border-color: #9b9b9b;
 }
 
 select {

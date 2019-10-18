@@ -42,10 +42,10 @@ const EditRecipeForm = ({ history }) => {
             <img src="https://img.icons8.com/material/26/000000/bar-chart.png" alt="difficulty" />
             Difficulty
           </h2>
-          <select className="difficulty" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
-            <option>ADVANCED</option>
-            <option>MEDIUM</option>
-            <option>EASY</option>
+          <select name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+            <option>Advanced</option>
+            <option>Medium</option>
+            <option>Easy</option>
           </select>
         </div>
         <div className="dropdown col-2">
@@ -74,12 +74,12 @@ const EditRecipeForm = ({ history }) => {
             <option>12</option>
           </select>
         </div>
-      </div>
-      <div id="btn-container">
-        <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
-      </div>
-      <div className="row form-footer">
-        <Footer />
+        <div id="btn-container">
+          <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
+        </div>
+        <div className="row form-footer">
+          <Footer />
+        </div>
       </div>
     </div>
   );

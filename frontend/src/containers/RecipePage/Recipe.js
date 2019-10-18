@@ -55,7 +55,7 @@ class Recipe extends Component {
       userId, comments,
     } = this.state;
 
-    const reRenderComments = () => {
+    const reloadComments = () => {
       const { match: { params } } = this.props;
       getRecipe(params.id).then((response) => {
         this.setState({
@@ -181,7 +181,7 @@ class Recipe extends Component {
               comments={comments}
               recipeId={recipeId}
               user={user}
-              reRenderComments={reRenderComments}
+              reloadComments={reloadComments}
             />
           ) : null}
         <div className="row">

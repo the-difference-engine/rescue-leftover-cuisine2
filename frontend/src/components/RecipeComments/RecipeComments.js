@@ -5,7 +5,7 @@ import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
 const RecipeComments = ({
-  comments, recipeId, user, reRenderComments,
+  comments, recipeId, user, reloadComments,
 }) => {
   const [comment, setComment] = useState('');
 
@@ -17,9 +17,7 @@ const RecipeComments = ({
   const submitComment = async () => {
     setComment('');
     await createComment(comment, recipeId);
-    const newData = { body: comment };
-    const newCommentData = { ...comments, ...newData };
-    reRenderComments(newCommentData);
+    reloadComments();
   };
 
   const handleSubmit = (event) => {

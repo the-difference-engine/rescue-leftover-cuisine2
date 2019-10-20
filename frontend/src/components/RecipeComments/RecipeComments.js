@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import map from 'lodash/map';
-import * as moment from 'moment';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
@@ -9,6 +8,43 @@ const RecipeComments = ({
 }) => {
   const [comment, setComment] = useState('');
 
+  const formatDate = (date) => {
+    const monthFormatter = (n) => {
+      let month;
+      if (n === 0) {
+        month = 'January';
+      } else if (n === 1) {
+        month = 'February';
+      } else if (n === 2) {
+        month = 'March';
+      } else if (n === 3) {
+        month = 'April';
+      } else if (n === 4) {
+        month = 'May';
+      } else if (n === 5) {
+        month = 'June';
+      } else if (n === 6) {
+        month = 'July';
+      } else if (n === 7) {
+        month = 'August';
+      } else if (n === 8) {
+        month = 'September';
+      } else if (n === 9) {
+        month = 'October';
+      } else if (n === 10) {
+        month = 'November';
+      } else if (n === 11) {
+        month = 'December';
+      }
+      return month;
+    }
+    const d = new Date(date);
+    const day = d.getUTCDate();
+    const month = monthFormatter(d.getUTCMonth());
+    const year = d.getUTCFullYear();
+    return (`${day} ${month} ${year}`);
+  }
+
   const handleChange = (event) => {
     event.preventDefault();
     setComment(event.target.value);
@@ -16,6 +52,7 @@ const RecipeComments = ({
 
   const submitComment = async () => {
     setComment('');
+    console.log(comments[1].created_at);
     await createComment(comment, recipeId);
     reloadComments();
   };
@@ -42,9 +79,10 @@ const RecipeComments = ({
               {value.user.first_name}
               {' '}
               {value.user.last_name}
+              {' '}
+              {formatDate(value.created_at)}
             </strong>
             <br />
-            {moment(value.created_at).format('MMMM Do YYYY, h:mm:ss a')}
           </p>
           <p>{value.body}</p>
         </div>

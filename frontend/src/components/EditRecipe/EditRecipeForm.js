@@ -49,8 +49,8 @@ const EditRecipeForm = ({ history }) => {
           </select>
         </div>
         <div className="dropdown col-2">
-          <h2>
-            <i className="fas fa-clock" />
+          <h2 className="dropdown-headings">
+            <i className="recipe-detail-icons fas fa-clock" />
             Duration
           </h2>
           <select className="recipe-details detail-selection" name="duration" value={duration} onChange={e => setDuration(e.target.value)}>
@@ -61,8 +61,8 @@ const EditRecipeForm = ({ history }) => {
           </select>
         </div>
         <div className="dropdown col-2">
-          <h2>
-            <i className="fas fa-utensil-spoon" />
+          <h2 className="dropdown-headings">
+            <i className="recipe-detail-icons fas fa-utensil-spoon" />
             Servings
           </h2>
           <select className="recipe-details detail-selection" name="servings" value={servings} onChange={e => setServings(e.target.value)}>

@@ -9,40 +9,12 @@ const RecipeComments = ({
   const [comment, setComment] = useState('');
 
   const formatDate = (date) => {
-    const monthFormatter = (n) => {
-      let month;
-      if (n === 0) {
-        month = 'January';
-      } else if (n === 1) {
-        month = 'February';
-      } else if (n === 2) {
-        month = 'March';
-      } else if (n === 3) {
-        month = 'April';
-      } else if (n === 4) {
-        month = 'May';
-      } else if (n === 5) {
-        month = 'June';
-      } else if (n === 6) {
-        month = 'July';
-      } else if (n === 7) {
-        month = 'August';
-      } else if (n === 8) {
-        month = 'September';
-      } else if (n === 9) {
-        month = 'October';
-      } else if (n === 10) {
-        month = 'November';
-      } else if (n === 11) {
-        month = 'December';
-      }
-      return month;
-    }
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',	'November', 'December'];
     const d = new Date(date);
-    const day = d.getUTCDate();
-    const month = monthFormatter(d.getUTCMonth());
-    const year = d.getUTCFullYear();
-    return (`${day} ${month} ${year}`);
+    let hours = d.getHours();
+    var amOrPm = hours >= 12 ? 'PM' : 'AM';
+    hours = (hours % 12) || 12;
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' ' + hours + ':' + d.getMinutes() + ' ' + amOrPm;
   }
 
   const handleChange = (event) => {
@@ -80,8 +52,9 @@ const RecipeComments = ({
               {' '}
               {value.user.last_name}
               {' '}
-              {formatDate(value.created_at)}
             </strong>
+            <br />
+            {formatDate(value.created_at)}
             <br />
           </p>
           <p>{value.body}</p>

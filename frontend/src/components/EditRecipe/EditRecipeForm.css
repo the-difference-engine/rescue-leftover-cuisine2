@@ -1,4 +1,4 @@
-textarea, select, input{
+.recipe-details {
   border-color: #9b9b9b;
 }
 
@@ -10,11 +10,11 @@ textarea, select, input{
   height: 32px;
 }
 
-textarea {
+#descritpion {
   resize: none;
 }
 
-select {
+.detail-selection {
   width: 150px;
   height: 50px;
   text-align-last: center;
@@ -25,7 +25,7 @@ input {
   border-color: #9b9b9b;
 }
 
-label {
+.detail-labels {
   width: 75%;
 }
 
@@ -49,6 +49,10 @@ label {
 .editRecipeForm i.fas.fa-utensil-spoon {
   padding-right: 15px;
   padding-bottom: 0px;
+}
+
+.recipe-submit-container{
+  margin-top: 30px;
 }
 
 #recipe-submit-btn {

@@ -11,10 +11,11 @@ We require specific versions of Node (8.11.4) and Ruby (2.5.3) in this project. 
 
 
 ## Local Environment Setup
+If you've already used a package manager like rvm or rbenv for ruby or npm for node on your machine, make sure you have ruby 2.5.3 and node 8.11.4 installed for this project. Otherwise, please follow the instructions for installing asdf below:
 
 ### ASDF
 
-In order to be able to develop code locally, you'll want to [install asdf](https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm), then run:
+You'll need to [install asdf](https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm), then run:
 
 ```
 asdf plugin-add ruby
@@ -104,6 +105,20 @@ Sometimes issues will come up with your Docker instance than cannot be solved wi
     * If you receive the message `"docker rmi" requires at least 1 argument.` it means that there are no downloaded images; it is safe to proceed.
 4. Download images and rebuild containers: `docker-compose up`
 
+### Environment Variables
+
+We use [environment variables](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa) to control some configuration aspects of the application. When deployed to Heroku, these values are set using the "config var" apparatus, but in our local development environment, we don't have access to those. In most cases, we rely on defaults in development, but there are a few cases where environment variables are necessary.
+
+We use the `dotenv` [Ruby gem](https://github.com/bkeepers/dotenv) and [npm package](https://www.npmjs.com/package/dotenv). These packages allow us to define environment variables in our local environment using a file called `.env`. For example, the backend requires a variety of secret keys to generate JSON Web Tokens, and we define those in our `.env` file. When the application starts up, it reads those variables from that file.
+
+Since the `.env` file can contain sensitive information, we don't commit it (it's [gitignored](https://git-scm.com/docs/gitignore)), so you need to create one on your local computer. To set yours up, copy the existing `.env.example` file to the `.env` file:
+
+```
+cp .env.example .env
+```
+
+This will provide the minimum you need to run the site on your local computer. If you need to work on signup/confirmation/forgot password workflows, you'll also need to set the sendgrid configuration to enable sending emails. Talk to a tech lead if you need those credentials.
+
 
 ### Editorconfig
 
@@ -116,11 +131,46 @@ We have a `.editorconfig` file which specifies some default text editor settings
 * [Sublime Text](https://github.com/sindresorhus/editorconfig-sublime)
 
 
-The local setup ends here. Please continue to read about more tools and useful commands we're using, below:
+The local setup ends here. Please continue to read about Steps to Develop Locally, about more tools and useful commands we're using, below:
 _________________________________________________________________________________________________________
 
-## How we spin our app locally
-TBD 
+## Steps to spin the app locally
+
+1. Clone this repository locally unless you've already done so:
+git clone git@github.com:the-difference-engine/rescue-leftover-cuisine2.git
+
+2. in your terminal, navigate locally to the rescue-leftover-cuisine2 folder
+
+3. run 'bundle install'
+
+4. run 'rails server' or 'rails s' to start the server
+
+5. Change your current working directory to the `frontend` folder (`cd frontend` if you're currently in the project root)
+
+6. Run `npm install`
+
+7. Run `PORT=5000 npm start`
+
+8. Navigate to 'http://localhost:5000' in your browser
+
+
+## Steps to develop locally
+
+1. Ask your product manager to assign you on a Zenhub ticket.
+Ask questions and try to understand your requirement.
+
+2. Make a new git branch off of the staging branch
+
+3. On the new feature branch, start developing your solution. Try to commit often to be able to follow your progress.
+
+4. Feel free to use rails console and http://localhost:3000 to visually test your changes.
+
+5. Push you branch up: 'git push origin *branch_name*' or 'git push origin HEAD'
+
+6. In Github, make a Pull Request (PR) and follow up on the comments you receive, in order to make code changes.
+
+7. Mark your ticket as Done in Zenhub.
+Congrats on getting it done!
 
 
 # Deployment
@@ -167,20 +217,6 @@ npm run lint -- --fix
 ```
 
 Note: You will have to run `npm install` before-hand (again, also from within the `frontend/` directory) in order for this to work.
-
-### Environment Variables
-
-We use [environment variables](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa) to control some configuration aspects of the application. When deployed to Heroku, these values are set using the "config var" apparatus, but in our local development environment, we don't have access to those. In most cases, we rely on defaults in development, but there are a few cases where environment variables are necessary.
-
-We use the `dotenv` [Ruby gem](https://github.com/bkeepers/dotenv) and [npm package](https://www.npmjs.com/package/dotenv). These packages allow us to define environment variables in our local environment using a file called `.env`. For example, the backend requires a variety of secret keys to generate JSON Web Tokens, and we define those in our `.env` file. When the application starts up, it reads those variables from that file.
-
-Since the `.env` file can contain sensitive information, we don't commit it (it's [gitignored](https://git-scm.com/docs/gitignore)), so you need to create one on your local computer. To set yours up, copy the existing `.env.example` file to the `.env` file:
-
-```
-cp .env.example .env
-```
-
-This will provide the minimum you need to run the site on your local computer. If you need to work on signup/confirmation/forgot password workflows, you'll also need to set the sendgrid configuration to enable sending emails. Talk to a tech lead if you need those credentials.
 
 ### Dependencies
 

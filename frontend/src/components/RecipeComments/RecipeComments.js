@@ -9,7 +9,7 @@ const RecipeComments = ({
   const [comment, setComment] = useState('');
 
   const formatDate = (date) => {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',	'November', 'December'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const d = new Date(date);
     let hours = d.getHours();
     const amOrPm = hours >= 12 ? 'PM' : 'AM';
@@ -23,9 +23,9 @@ const RecipeComments = ({
   };
 
   const submitComment = async () => {
-    setComment('');
     await createComment(comment, recipeId);
     reloadComments();
+    setComment('');
   };
 
   const handleSubmit = (event) => {

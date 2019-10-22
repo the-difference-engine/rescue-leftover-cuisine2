@@ -12,10 +12,10 @@ const RecipeComments = ({
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',	'November', 'December'];
     const d = new Date(date);
     let hours = d.getHours();
-    var amOrPm = hours >= 12 ? 'PM' : 'AM';
+    const amOrPm = hours >= 12 ? 'PM' : 'AM';
     hours = (hours % 12) || 12;
-    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' ' + hours + ':' + d.getMinutes() + ' ' + amOrPm;
-  }
+    return (`${months[d.getMonth()]} ${d.getDate()} ${d.getFullYear()} ${hours}:${d.getMinutes()} ${amOrPm}`);
+  };
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -24,7 +24,6 @@ const RecipeComments = ({
 
   const submitComment = async () => {
     setComment('');
-    console.log(comments[1].created_at);
     await createComment(comment, recipeId);
     reloadComments();
   };

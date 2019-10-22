@@ -12,7 +12,7 @@ const RecipeComments = ({
     const zero = 0;
     if (minute <= 9) {
       return (`${zero}${minute}`);
-    } 
+    }
     return minute;
   };
 

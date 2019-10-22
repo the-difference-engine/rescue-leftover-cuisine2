@@ -8,13 +8,23 @@ const RecipeComments = ({
 }) => {
   const [comment, setComment] = useState('');
 
+  const formatMinutes = (minute) => {
+    let zero = 0;
+    if (minute <= 9) {
+      return (`${zero}${minute}`)
+    } else {
+      return minute;
+    }
+  }
+
   const formatDate = (date) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const d = new Date(date);
     let hours = d.getHours();
+    const min = formatMinutes(d.getMinutes());
     const amOrPm = hours >= 12 ? 'PM' : 'AM';
     hours = (hours % 12) || 12;
-    return (`${months[d.getMonth()]} ${d.getDate()} ${d.getFullYear()} ${hours}:${d.getMinutes()} ${amOrPm}`);
+    return (`${months[d.getMonth()]} ${d.getDate()} ${d.getFullYear()} ${hours}:${min} ${amOrPm}`);
   };
 
   const handleChange = (event) => {
@@ -54,6 +64,7 @@ const RecipeComments = ({
             </strong>
             <br />
             {formatDate(value.created_at)}
+            {console.log(value.created_at)}
             <br />
           </p>
           <p>{value.body}</p>

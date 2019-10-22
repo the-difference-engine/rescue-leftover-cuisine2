@@ -9,13 +9,12 @@ const RecipeComments = ({
   const [comment, setComment] = useState('');
 
   const formatMinutes = (minute) => {
-    let zero = 0;
+    const zero = 0;
     if (minute <= 9) {
-      return (`${zero}${minute}`)
-    } else {
-      return minute;
-    }
-  }
+      return (`${zero}${minute}`);
+    } 
+    return minute;
+  };
 
   const formatDate = (date) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -64,7 +63,6 @@ const RecipeComments = ({
             </strong>
             <br />
             {formatDate(value.created_at)}
-            {console.log(value.created_at)}
             <br />
           </p>
           <p>{value.body}</p>

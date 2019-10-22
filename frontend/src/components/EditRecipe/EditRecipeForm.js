@@ -12,6 +12,17 @@ const customStyles = {
     ...provided,
     height: 70,
   }),
+  multiValueLabel: provided => ({
+    ...provided,
+    display: 'none',
+    // backgroundColor: isSelected ? 'black' : 'black',
+  }),
+  multiValueRemove: provided => ({
+    ...provided,
+    display: 'none',
+    // backgroundColor: isSelected ? 'black' : 'black',
+  }),
+
 };
 
 const EditRecipeForm = ({ history }) => {
@@ -52,6 +63,13 @@ const EditRecipeForm = ({ history }) => {
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
+  const handleDelete = (tagTitle) => {
+    const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
+    setSelectedTagsWithId(newTagsWithId);
+    const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
+    setSelectedTags(newTags);
+  };
+
   return (
     <div className="editRecipeForm container-fluid">
       <div className="row form-recipe-label">
@@ -81,6 +99,7 @@ const EditRecipeForm = ({ history }) => {
                   label: tag.title,
                   value: tag.title,
                   id: tag.id,
+                  className: 'hide',
                 };
                 return obj;
               })}
@@ -92,7 +111,10 @@ const EditRecipeForm = ({ history }) => {
               placeholder="Search and tag"
               isMulti
             />
-            <TagsBar tags={selectedTagsWithId} />
+            <TagsBar
+              deleteSelTag={handleDelete}
+              tags={selectedTagsWithId}
+            />
           </label>
         </div>
       </div>

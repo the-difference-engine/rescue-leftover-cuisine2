@@ -40,6 +40,10 @@ label {
   padding-bottom: 0px;
 }
 
+.hide {
+  display: none;
+}
+
 #recipe-submit-btn {
   font-size: 22px;
   background-color: #4ec8ed;

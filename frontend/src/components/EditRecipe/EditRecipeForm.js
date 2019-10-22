@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { createRecipe } from '../../lib/apiClient';
+import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
 
@@ -36,10 +37,10 @@ const EditRecipeForm = ({ history }) => {
           </label>
         </div>
       </div>
-      <div className="row form-dropdown">
-        <div className="dropdown col-2 offset-3">
-          <h2>
-            <img src="https://img.icons8.com/material/26/000000/bar-chart.png" alt="difficulty" />
+      <div className="row">
+        <div className="dropdown col-2 offset-3 form-dropdown ">
+          <h2 className="dropdown-headings">
+            <img className="recipe-detail-icons" src={barChart} alt="difficulty" />
             Difficulty
           </h2>
           <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
@@ -48,7 +49,7 @@ const EditRecipeForm = ({ history }) => {
             <option>Easy</option>
           </select>
         </div>
-        <div className="dropdown col-2">
+        <div className="dropdown col-2 form-dropdown">
           <h2 className="dropdown-headings">
             <i className="recipe-detail-icons fas fa-clock" />
             Duration
@@ -60,7 +61,7 @@ const EditRecipeForm = ({ history }) => {
             <option>120 minutes</option>
           </select>
         </div>
-        <div className="dropdown col-2">
+        <div className="dropdown col-2 form-dropdown">
           <h2 className="dropdown-headings">
             <i className="recipe-detail-icons fas fa-utensil-spoon" />
             Servings

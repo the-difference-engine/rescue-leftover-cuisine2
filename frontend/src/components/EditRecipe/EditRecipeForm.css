@@ -6,8 +6,9 @@
   color: #9b9b9b;
 }
 
-#difficulty-icon{
-  height: 32px;
+.fa-clock{
+  height: 24px;
+  width: 32px;
 }
 
 #descritpion {
@@ -18,10 +19,6 @@
   width: 150px;
   height: 50px;
   text-align-last: center;
-  border-color: #9b9b9b;
-}
-
-input {
   border-color: #9b9b9b;
 }
 
@@ -63,4 +60,12 @@ input {
   height: 70px;
   width: 200px;
   border: none;
+}
+
+.form-dropdown{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }

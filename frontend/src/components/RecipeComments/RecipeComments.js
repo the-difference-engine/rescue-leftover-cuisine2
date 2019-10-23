@@ -16,7 +16,7 @@ const RecipeComments = ({
     return minute;
   };
 
-  const formatDate = (date) => {
+  const formatTimeStamp = (date) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const d = new Date(date);
     let hours = d.getHours();
@@ -59,10 +59,9 @@ const RecipeComments = ({
               {value.user.first_name}
               {' '}
               {value.user.last_name}
-              {' '}
             </strong>
             <br />
-            {formatDate(value.created_at)}
+            {formatTimeStamp(value.created_at)}
             <br />
           </p>
           <p>{value.body}</p>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { createRecipe } from '../../lib/apiClient';
+import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
 
@@ -24,48 +25,48 @@ const EditRecipeForm = ({ history }) => {
     <div className="editRecipeForm container-fluid">
       <div className="row form-recipe-label">
         <div className="form-title col-4 offset-4">
-          <label htmlFor="title">
+          <label className="detail-labels" htmlFor="title">
             Recipe Title
-            <input className="form-control input-sm" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} />
+            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} />
           </label>
         </div>
         <div className="form-snippet col-6 offset-3">
-          <label htmlFor="snippet">
+          <label className="detail-labels" htmlFor="snippet">
             Recipe Description
-            <textarea className="form-control" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
+            <textarea className="form-control recipe-details" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
           </label>
         </div>
       </div>
-      <div className="row form-dropdown">
-        <div className="dropdown col-2 offset-3">
-          <h2>
-            <img src="https://img.icons8.com/material/26/000000/bar-chart.png" alt="difficulty" />
+      <div className="row">
+        <div className="dropdown col-2 offset-3 form-dropdown ">
+          <h2 className="dropdown-headings">
+            <img className="recipe-detail-icons" src={barChart} alt="difficulty" />
             Difficulty
           </h2>
-          <select className="difficulty" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
-            <option>ADVANCED</option>
-            <option>MEDIUM</option>
-            <option>EASY</option>
+          <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+            <option>Advanced</option>
+            <option>Medium</option>
+            <option>Easy</option>
           </select>
         </div>
-        <div className="dropdown col-2">
-          <h2>
-            <i className="fas fa-clock" />
+        <div className="dropdown col-2 form-dropdown">
+          <h2 className="dropdown-headings">
+            <i className="recipe-detail-icons fas fa-clock" />
             Duration
           </h2>
-          <select className="duration" name="duration" value={duration} onChange={e => setDuration(e.target.value)}>
-            <option>30 mins</option>
-            <option>60 mins</option>
-            <option>90 mins</option>
-            <option>120 mins</option>
+          <select className="recipe-details detail-selection" name="duration" value={duration} onChange={e => setDuration(e.target.value)}>
+            <option>30 minutes</option>
+            <option>60 minutes</option>
+            <option>90 minutes</option>
+            <option>120 minutes</option>
           </select>
         </div>
-        <div className="dropdown col-2">
-          <h2>
-            <i className="fas fa-utensil-spoon" />
+        <div className="dropdown col-2 form-dropdown">
+          <h2 className="dropdown-headings">
+            <i className="recipe-detail-icons fas fa-utensil-spoon" />
             Servings
           </h2>
-          <select className="servings" name="servings" value={servings} onChange={e => setServings(e.target.value)}>
+          <select className="recipe-details detail-selection" name="servings" value={servings} onChange={e => setServings(e.target.value)}>
             <option>2</option>
             <option>4</option>
             <option>6</option>
@@ -75,7 +76,7 @@ const EditRecipeForm = ({ history }) => {
           </select>
         </div>
       </div>
-      <div id="btn-container">
+      <div id="recipe-submit-containaner">
         <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
       </div>
       <div className="row form-footer">

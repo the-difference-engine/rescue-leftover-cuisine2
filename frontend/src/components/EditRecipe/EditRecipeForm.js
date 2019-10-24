@@ -114,6 +114,7 @@ const EditRecipeForm = ({ history }) => {
             <TagsBar
               deleteSelTag={handleDelete}
               tags={selectedTagsWithId}
+              showDeleteButton="yes"
             />
           </label>
         </div>

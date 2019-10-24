@@ -109,7 +109,7 @@ const EditRecipeForm = ({ history }) => {
               onChange={(selected) => {
                 setSelectedTags(selected);
               }
-            }
+              }
               placeholder="Search and tag"
               isMulti
             />
@@ -158,6 +158,28 @@ const EditRecipeForm = ({ history }) => {
             <option>10</option>
             <option>12</option>
           </select>
+        </div>
+      </div>
+      <div>
+        <div className="App">
+          <h1>Ingredients</h1>
+
+          {ingredients.map((ingredients, idx) => (
+              <div key={`${ingredients}-${idx}`}>
+                <input
+                  type="text"
+                  placeholder="Enter text"
+                  value={ingredients || ""}
+                  onChange={e => handleChange(idx, e)}
+                />
+                <button type="button" onClick={() => handleRemove(idx)}>
+                  X
+                </button>
+              </div>
+            ))}
+          <button type="button" onClick={() => handleAdd()}>
+            + ADD
+          </button>
         </div>
       </div>
       <div id="recipe-submit-containaner">

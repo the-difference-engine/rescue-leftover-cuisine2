@@ -4,9 +4,10 @@ import './SingleTag.css';
 const SingleTag = ({ tag, deleteSelTag }) => (
   <div>
     <div className="single-tag">
-      {tag}
+      <div className="tag-name">{tag}</div>
+      <div className="delete-tag" onClick={() => deleteSelTag(tag)}>x</div>
     </div>
-    <button type="button" onClick={() => deleteSelTag(tag)}>x</button>
+    
   </div>
 );
 

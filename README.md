@@ -65,45 +65,7 @@ You should expect the results to look similar to:
 docker-compose version 1.22.0, build something
 ```
 
-Useful commands for using Docker:
-#### Building rlc images
-Build the docker images by running the following command:
-```
-docker-compose build
-```
-This will build your `web` image and download the `db` image.
-
-#### Running rlc-web containers
-
-1. Run following command to start your containers:
-```
-docker-compose up
-```
-
-#### Stopping rlc-web containers
-You can try to stop the running containers from the running `docker-compose up` session by pressing CTRL-C.
-
-You can delete the containers (resetting the database) entirely by running `docker-compose down`.
-
-#### Updating dependencies
-
-Sometimes, someone else will add or update a dependency, whether that's a Ruby gem or an npm package. When that gets merged into staging, you'll need to download the update, as well. To do that, it's easiest to destroy your containers and rebuild the application:
-
-```
-docker-compose down
-docker-compose build
-```
-
-#### Resetting images/containers
-Sometimes issues will come up with your Docker instance than cannot be solved with a simple `docker-compose up/down`. In these cases, it is recommended to use the "nuclear option" and wipe out all running containers and images and then rebuild them:
-
-1. Stop all containers: `docker stop $(docker ps -aq)`
-    * If you receive the message `"docker stop" requires at least 1 argument.` it means that there are no running containers; it is safe to proceed.
-2. Remove all containers: `docker rm $(docker ps -aq)`
-    * If you receive the message `"docker rm" requires at least 1 argument.` it means that there are no built containers; it is safe to proceed.
-3. Remove all images: `docker rmi $(docker images -q)`
-    * If you receive the message `"docker rmi" requires at least 1 argument.` it means that there are no downloaded images; it is safe to proceed.
-4. Download images and rebuild containers: `docker-compose up`
+After you're done setting up your local environment, you can read more about Docker and find some useful commands below, under "More about Docker"
 
 ### Environment Variables
 
@@ -225,6 +187,48 @@ For icons throughout the site, we use [icons8](https://icons8.com/).
 We use React on the frontend, employing Bootstrap and Reactstrap for styling.
 
 We use Ruby on Rails in API mode on the backend, with Devise for authentication.
+
+# More about Docker
+
+Useful commands for using Docker:
+## Building rlc images
+Build the docker images by running the following command:
+```
+docker-compose build
+```
+This will build your `web` image and download the `db` image.
+
+## Running rlc-web containers
+
+1. Run following command to start your containers:
+```
+docker-compose up
+```
+
+## Stopping rlc-web containers
+You can try to stop the running containers from the running `docker-compose up` session by pressing CTRL-C.
+
+You can delete the containers (resetting the database) entirely by running `docker-compose down`.
+
+#### Updating dependencies
+
+Sometimes, someone else will add or update a dependency, whether that's a Ruby gem or an npm package. When that gets merged into staging, you'll need to download the update, as well. To do that, it's easiest to destroy your containers and rebuild the application:
+
+```
+docker-compose down
+docker-compose build
+```
+
+## Resetting images/containers
+Sometimes issues will come up with your Docker instance than cannot be solved with a simple `docker-compose up/down`. In these cases, it is recommended to use the "nuclear option" and wipe out all running containers and images and then rebuild them:
+
+1. Stop all containers: `docker stop $(docker ps -aq)`
+    * If you receive the message `"docker stop" requires at least 1 argument.` it means that there are no running containers; it is safe to proceed.
+2. Remove all containers: `docker rm $(docker ps -aq)`
+    * If you receive the message `"docker rm" requires at least 1 argument.` it means that there are no built containers; it is safe to proceed.
+3. Remove all images: `docker rmi $(docker images -q)`
+    * If you receive the message `"docker rmi" requires at least 1 argument.` it means that there are no downloaded images; it is safe to proceed.
+4. Download images and rebuild containers: `docker-compose up`
 
 
 # Project directory structure

@@ -17,12 +17,10 @@ class Api::V1::RecipesController < ApplicationController
 
   def create
     rp = recipe_params
-    puts recipe_params
     tags = rp.delete(:tags)
 
     @recipe = Recipe.new(rp)
     tags.each do |tag|
-      puts tag
       @recipe.tags << Tag.find(tag["id"])
     end
 
@@ -32,7 +30,6 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def recipe_params
-    puts params
    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, tags: [:id, :title])
   end
 

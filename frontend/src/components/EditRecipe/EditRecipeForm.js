@@ -8,19 +8,16 @@ import './EditRecipeForm.css';
 
 const customStyles = {
   control: provided => ({
-    // none of react-select's styles are passed to <Control />
     ...provided,
     height: 70,
   }),
   multiValueLabel: provided => ({
     ...provided,
     display: 'none',
-    // backgroundColor: isSelected ? 'black' : 'black',
   }),
   multiValueRemove: provided => ({
     ...provided,
     display: 'none',
-    // backgroundColor: isSelected ? 'black' : 'black',
   }),
 
 };
@@ -92,8 +89,6 @@ const EditRecipeForm = ({ history }) => {
               className="st-search-input"
               styles={customStyles}
               value={selectedTags}
-                // onChange to pass an event to setselectedOption, rather than a tag,
-            // eslint-disable-next-line lodash/prefer-lodash-method
               options={tags.map((tag) => {
                 const obj = {
                   label: tag.title,
@@ -105,7 +100,6 @@ const EditRecipeForm = ({ history }) => {
               })}
               onChange={(selected) => {
                 setSelectedTags(selected);
-                // eslint-disable-next-line max-len
               }
             }
               placeholder="Search and tag"

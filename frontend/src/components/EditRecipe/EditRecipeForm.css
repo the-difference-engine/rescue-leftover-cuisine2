@@ -26,27 +26,14 @@
   width: 75%;
 }
 
-.editRecipeForm.container-fluid {
-  margin: 0px;
-  width: 100%;
-  margin-left: 0px;
-  text-align: center;
-}
-
 .form-recipe-label {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   font-size: 28.5px;
 }
 
-.form-title, .form-snippet, .search-tag {
+.form-title {
   margin-bottom: 50px;
-}
-
-.search-tag {
-  width: 35%;
-  font-size: 25px;
-  font-weight: 200;
 }
 
 .editRecipeForm i.fas.fa-utensil-spoon {
@@ -56,6 +43,45 @@
 
 .recipe-submit-container{
   margin-top: 30px;
+}
+
+.form-dropdown{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+textarea {
+  resize: none;
+  border-color: #9b9b9b;
+}
+
+select {
+  width: 150px;
+  height: 50px;
+  text-align-last: center;
+  border-color: #9b9b9b;
+}
+
+input {
+  border-color: #9b9b9b;
+}
+
+label {
+  width: 75%;
+}
+
+.editRecipeForm.container-fluid {
+  margin: 0px;
+  width: 100%;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.form-title, .form-snippet, .search-tag {
+  margin-bottom: 50px;
 }
 
 .hide {
@@ -70,14 +96,6 @@
   height: 70px;
   width: 200px;
   border: none;
-}
-
-.form-dropdown{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 50px;
 }
 
 .st-search-input {

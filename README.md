@@ -125,11 +125,21 @@ Ask questions and try to understand your requirement.
 
 3. On the new feature branch, start developing your solution. Try to commit often to be able to follow your progress.
 
-4. Feel free to use rails console and http://localhost:3000 to visually test your changes.
+4. Feel free to run `rails console` and http://localhost:5000 to visually test your changes.
 
 5. Push you branch up: 'git push origin *branch_name*' or 'git push origin HEAD'
 
-6. In Github, make a Pull Request (PR) and follow up on the comments you receive, in order to make code changes.
+6. In Github, make a Pull Request (PR), and make sure a tech lead or mentor is marked as a reviewer or assignee
+
+  1. Follow-up on the reviewer's feedback, and implement any requested code changes in your local branch
+
+  2. Push your local changes up to Github, making sure your local branch is up-to-date with the latest version of the `staging` branch
+
+  3. Re-request a review from a tech lead or mentor
+
+  4. Repeat steps 6a through 6c until your PR is approved
+
+  5. Merge your branch into Github
 
 7. Mark your ticket as Done in Zenhub.
 Congrats on getting it done!

@@ -183,7 +183,7 @@ const EditRecipeForm = ({ history }) => {
         </div>
       </div>
       <div>
-        <div className="App">
+        <div className="ingredients">
           <h1>Ingredients</h1>
 
 <<<<<<< HEAD
@@ -214,8 +214,12 @@ const EditRecipeForm = ({ history }) => {
               </button>
             </div>
           ))}
+<<<<<<< HEAD
 >>>>>>> fixed linter issues and issue of text box being deselected
           <button type="button" onClick={() => handleAdd()}>
+=======
+          <button className="btn navbar-btn btn-lg add-ingredient-button" type="button" onClick={() => handleAdd()}>
+>>>>>>> Added styling to the add recipes button
             + ADD
           </button>
         </div>

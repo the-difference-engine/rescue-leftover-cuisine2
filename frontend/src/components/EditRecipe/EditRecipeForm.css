@@ -1,20 +1,28 @@
-textarea {
-  resize: none;
+.recipe-details {
   border-color: #9b9b9b;
 }
 
-select {
+.recipe-detail-icons{
+  color: #9b9b9b;
+}
+
+.fa-clock{
+  height: 24px;
+  width: 32px;
+}
+
+#descritpion {
+  resize: none;
+}
+
+.detail-selection {
   width: 150px;
   height: 50px;
   text-align-last: center;
   border-color: #9b9b9b;
 }
 
-input {
-  border-color: #9b9b9b;
-}
-
-label {
+.detail-labels {
   width: 75%;
 }
 
@@ -46,6 +54,10 @@ label {
   padding-bottom: 0px;
 }
 
+.recipe-submit-container{
+  margin-top: 30px;
+}
+
 #recipe-submit-btn {
   font-size: 22px;
   background-color: #4ec8ed;
@@ -54,4 +66,12 @@ label {
   height: 70px;
   width: 200px;
   border: none;
+}
+
+.form-dropdown{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }

@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :recipes do
         resources :tags # /api/v1/recipes/14/tags
+        resources :comments
       end
       resources :users
-      
+
 
       devise_scope :user do
         authenticate :user do

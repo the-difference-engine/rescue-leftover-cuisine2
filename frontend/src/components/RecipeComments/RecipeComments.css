@@ -1,0 +1,49 @@
+#box-wrapper{
+  width: 100%;
+  justify-content: center;
+  background-color: rgb(242, 250, 254);
+}
+
+#comment-box{
+  height: 150px;
+  width: 100%;
+  border: solid 2px rgb(229, 229, 229);
+  padding: 15px;
+}
+
+.comment-section {
+  background-color: rgb(242, 250, 254);
+  padding-bottom: 30px;
+}
+
+.comment-section h1 {
+  padding: 20px;
+}
+
+.comment-section h3 {
+  padding: 20px;
+}
+
+.comment-section form {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.comment-display{
+  text-align: center;
+  margin-top: 5%;
+}
+
+.comment-content {
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#submit-btn{
+  background-color: #4EC8ED;
+  color: white;
+  border-radius: 10%;
+  border: solid 2px rgb(229, 229, 229);
+  padding: 5px;
+}

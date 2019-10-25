@@ -43,7 +43,7 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
-        comments: response.data.comments.reverse(),
+        comments: response.data.comments,
       });
     });
   }
@@ -58,7 +58,7 @@ class Recipe extends Component {
     const reloadComments = () => {
       const { match: { params } } = this.props;
       getRecipe(params.id).then((response) => {
-        this.setState({ comments: response.data.comments.reverse() });
+        this.setState({ comments: response.data.comments });
       });
     };
 

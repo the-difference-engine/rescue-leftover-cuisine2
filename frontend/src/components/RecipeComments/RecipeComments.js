@@ -9,9 +9,8 @@ const RecipeComments = ({
   const [comment, setComment] = useState('');
 
   const formatMinutes = (minute) => {
-    const zero = 0;
     if (minute <= 9) {
-      return (`${zero}${minute}`);
+      return (`0${minute}`);
     }
     return minute;
   };

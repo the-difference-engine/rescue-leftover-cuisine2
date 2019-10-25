@@ -202,15 +202,17 @@ const EditRecipeForm = ({ history }) => {
             ))}
 =======
           {map(ingredients, (ingredient, idx) => (
-            <div key={(idx)}>
+            <div className="ingredients" key={(idx)}>
+              <i className="fas fa-circle" />
               <input
+                id="ingredient-input"
                 type="text"
                 placeholder="Enter text"
                 value={ingredient || ''}
                 onChange={e => handleChange(idx, e)}
               />
-              <button type="button" onClick={() => handleRemove(idx)}>
-                X
+              <button id="recipe-delete-btn" type="button" onClick={() => handleRemove(idx)}>
+                <i className="fas fa-times" />
               </button>
             </div>
           ))}

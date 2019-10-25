@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import map from 'lodash/map';
 import { withRouter } from 'react-router-dom';
+<<<<<<< HEAD
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, getTags } from '../../lib/apiClient';
+=======
+import map from 'lodash/map';
+import { createRecipe } from '../../lib/apiClient';
+>>>>>>> fixed linter issues and issue of text box being deselected
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
@@ -164,6 +169,7 @@ const EditRecipeForm = ({ history }) => {
         <div className="App">
           <h1>Ingredients</h1>
 
+<<<<<<< HEAD
           {ingredients.map((ingredients, idx) => (
               <div key={`${ingredients}-${idx}`}>
                 <input
@@ -177,6 +183,21 @@ const EditRecipeForm = ({ history }) => {
                 </button>
               </div>
             ))}
+=======
+          {map(ingredients, (ingredient, idx) => (
+            <div key={(idx)}>
+              <input
+                type="text"
+                placeholder="Enter text"
+                value={ingredient || ''}
+                onChange={e => handleChange(idx, e)}
+              />
+              <button type="button" onClick={() => handleRemove(idx)}>
+                X
+              </button>
+            </div>
+          ))}
+>>>>>>> fixed linter issues and issue of text box being deselected
           <button type="button" onClick={() => handleAdd()}>
             + ADD
           </button>

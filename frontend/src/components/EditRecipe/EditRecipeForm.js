@@ -74,11 +74,28 @@ const EditRecipeForm = ({ history }) => {
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
+<<<<<<< HEAD
   const handleDelete = (tagTitle) => {
     const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
     setSelectedTagsWithId(newTagsWithId);
     const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
     setSelectedTags(newTags);
+=======
+  const handleChange = (i, event) => {
+    const values = [...ingredients];
+    values[i] = event.target.value;
+    setIngredients(values);
+  };
+  const handleAdd = () => {
+    const values = [...ingredients];
+    values.push('');
+    setIngredients(values);
+  };
+  const handleRemove = (i) => {
+    const values = [...ingredients];
+    values.splice(i, 1);
+    setIngredients(values);
+>>>>>>> removing console logs
   };
 
   return (

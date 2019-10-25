@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import map from 'lodash/map';
 import { withRouter } from 'react-router-dom';
-<<<<<<< HEAD
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, getTags } from '../../lib/apiClient';
-=======
-import map from 'lodash/map';
-import { createRecipe } from '../../lib/apiClient';
->>>>>>> fixed linter issues and issue of text box being deselected
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
@@ -74,28 +69,11 @@ const EditRecipeForm = ({ history }) => {
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
-<<<<<<< HEAD
   const handleDelete = (tagTitle) => {
     const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
     setSelectedTagsWithId(newTagsWithId);
     const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
     setSelectedTags(newTags);
-=======
-  const handleChange = (i, event) => {
-    const values = [...ingredients];
-    values[i] = event.target.value;
-    setIngredients(values);
-  };
-  const handleAdd = () => {
-    const values = [...ingredients];
-    values.push('');
-    setIngredients(values);
-  };
-  const handleRemove = (i) => {
-    const values = [...ingredients];
-    values.splice(i, 1);
-    setIngredients(values);
->>>>>>> removing console logs
   };
 
   return (
@@ -183,45 +161,23 @@ const EditRecipeForm = ({ history }) => {
         </div>
       </div>
       <div>
-        <div className="ingredients">
+        <div className="App">
           <h1>Ingredients</h1>
 
-<<<<<<< HEAD
           {ingredients.map((ingredients, idx) => (
-              <div key={`${ingredients}-${idx}`}>
-                <input
-                  type="text"
-                  placeholder="Enter text"
-                  value={ingredients || ""}
-                  onChange={e => handleChange(idx, e)}
-                />
-                <button type="button" onClick={() => handleRemove(idx)}>
-                  X
-                </button>
-              </div>
-            ))}
-=======
-          {map(ingredients, (ingredient, idx) => (
-            <div className="ingredients" key={(idx)}>
-              <i className="fas fa-circle" />
+            <div key={`${ingredients}-${idx}`}>
               <input
-                id="ingredient-input"
                 type="text"
                 placeholder="Enter text"
-                value={ingredient || ''}
+                value={ingredients || ''}
                 onChange={e => handleChange(idx, e)}
               />
-              <button id="recipe-delete-btn" type="button" onClick={() => handleRemove(idx)}>
-                <i className="fas fa-times" />
+              <button type="button" onClick={() => handleRemove(idx)}>
+                X
               </button>
             </div>
           ))}
-<<<<<<< HEAD
->>>>>>> fixed linter issues and issue of text box being deselected
           <button type="button" onClick={() => handleAdd()}>
-=======
-          <button className="btn navbar-btn btn-lg add-ingredient-button" type="button" onClick={() => handleAdd()}>
->>>>>>> Added styling to the add recipes button
             + ADD
           </button>
         </div>

@@ -52,6 +52,12 @@
   padding-bottom: 0px;
 }
 
+.ingredient-btn-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+}
+
 .add-ingredient-button {
   display: inline-block;
   margin: 20px 20px;

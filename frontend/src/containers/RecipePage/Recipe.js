@@ -56,7 +56,6 @@ class Recipe extends Component {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId, tags,
       recipeId, comments,
     } = this.state;
-<<<<<<< HEAD
 
     const reloadComments = () => {
       const { match: { params } } = this.props;
@@ -65,9 +64,6 @@ class Recipe extends Component {
       });
     };
 
-=======
-    console.log(ingredients);
->>>>>>> Form to add ingredients works, but still buggy
     const renderButtons = () => (
       <div>
         <button className="btn navbar-btn btn-lg edit-button" type="button">

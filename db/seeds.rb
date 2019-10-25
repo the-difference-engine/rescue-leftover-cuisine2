@@ -142,11 +142,19 @@ Recipe.create(
 )
 
 Tag.create(
+ title: "Breakfast"
+)
+
+Tag.create(
  title: "Lunch"
 )
 
 Tag.create(
  title: "Dinner"
+)
+
+Tag.create(
+ title: "Snack"
 )
 
 tag1 = Tag.find(1)
@@ -156,6 +164,7 @@ recipe1 = Recipe.find(1)
 recipe1.tags << tag1
 recipe1.tags << tag2
 recipe1.save
+
 Comment.create(
   body: "This is a test comment",
   user_id: 1,

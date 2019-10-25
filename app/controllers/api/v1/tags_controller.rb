@@ -1,18 +1,12 @@
-class TagController < ApplicationController
+class Api::V1::TagsController < ApplicationController
 
-    def index
-        if params[:search]
-            @tags = Tag.search(params[:search])
-        else
-          @tags = Tag.all
-        end
-          render json: @tag
-      end
-
-
-
-    # def tag_params
-    #     params.require(:tag).permit(:title)
-    # end
-
+  def index
+    if params[:recipe_id]
+      @tags = Recipe.find_by!(id: params[:recipe_id]).tags
+    else
+      @tags = Tag.all
     end
+      render json: @tags
+   end
+
+end

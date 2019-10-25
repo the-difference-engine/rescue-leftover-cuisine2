@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_005214) do
+ActiveRecord::Schema.define(version: 2019_10_09_225254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,9 +57,15 @@ ActiveRecord::Schema.define(version: 2019_10_01_005214) do
   end
 
   create_table "recipes_tags", id: false, force: :cascade do |t|
+<<<<<<< HEAD
     t.bigint "tag_id", null: false
     t.bigint "recipe_id", null: false
     t.index ["tag_id", "recipe_id"], name: "index_recipes_tags_on_tag_id_and_recipe_id"
+=======
+    t.bigint "recipe_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["recipe_id", "tag_id"], name: "index_recipes_tags_on_recipe_id_and_tag_id"
+>>>>>>> fa8dcd035d0d767f23843ac2f097cc709da1e414
   end
 
   create_table "tags", force: :cascade do |t|

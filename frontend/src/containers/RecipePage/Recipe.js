@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
 import RecipeComments from '../../components/RecipeComments/RecipeComments';
-import { getRecipe } from '../../lib/apiClient';
+import { getRecipe, getRecipeTags } from '../../lib/apiClient';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -24,6 +24,7 @@ class Recipe extends Component {
       photo: '',
       recipeId: '',
       comments: '',
+      tags: [],
     };
   }
 
@@ -31,6 +32,7 @@ class Recipe extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     const { match: { params } } = this.props;
+    const { match: { params: { id } } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({
         recipeId: params.id,
@@ -47,13 +49,18 @@ class Recipe extends Component {
         comments: response.data.comments.reverse(),
       });
     });
+    getRecipeTags(id).then((data) => {
+      this.setState({
+        tags: data,
+      });
+    });
   }
 
   render() {
     const { user, setJwt } = this.props;
     const {
-      recipeId, directions, title, ingredients, snippet, difficulty, duration, servings, photo,
-      userId, comments,
+      recipeId, directions, title, ingredients, snippet, difficulty, duration,
+      servings, photo, userId, comments, tags,
     } = this.state;
 
     const renderButtons = () => (
@@ -128,7 +135,7 @@ class Recipe extends Component {
           </div>
         </div>
         <div className="tags-bar">
-          <TagsBar />
+          <TagsBar tags={tags} />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">

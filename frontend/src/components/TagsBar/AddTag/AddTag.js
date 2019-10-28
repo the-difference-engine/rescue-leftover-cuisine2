@@ -13,10 +13,11 @@ const AddTag = (selectedRecipe, refreshTags) => {
     setAlertVisible(false);
   };
 
+
   const createTag = (event) => {
     event.preventDefault();
     const newData = event.target.elements;
-    const allTagsForRecipe = ['dinner', 'healthy']; // dummy data
+    const allTagsForRecipe = [];
 
     if (includes(allTagsForRecipe, newData.tag.value)) {
       setAlertVisible(true);

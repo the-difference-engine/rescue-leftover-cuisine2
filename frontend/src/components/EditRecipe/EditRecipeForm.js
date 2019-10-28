@@ -110,6 +110,7 @@ const EditRecipeForm = ({ history }) => {
               deleteSelTag={handleDelete}
               tags={selectedTagsWithId}
               showDeleteButton="yes"
+              allTags={tags}
             />
           </label>
         </div>

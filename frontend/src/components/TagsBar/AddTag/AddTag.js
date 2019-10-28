@@ -5,7 +5,7 @@ import {
 import includes from 'lodash/includes';
 import './AddTag.css';
 
-const AddTag = (selectedRecipe, refreshTags) => {
+const AddTag = (allTags) => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [editModal, setEditModal] = useState(false);
 
@@ -16,7 +16,7 @@ const AddTag = (selectedRecipe, refreshTags) => {
   const createTag = (event) => {
     event.preventDefault();
     const newData = event.target.elements;
-    const allTagsForRecipe = ['dinner', 'healthy']; // dummy data
+    const allTagsForRecipe = allTags;
 
     if (includes(allTagsForRecipe, newData.tag.value)) {
       setAlertVisible(true);
@@ -26,7 +26,7 @@ const AddTag = (selectedRecipe, refreshTags) => {
       //   refreshTags();
       // });
       setEditModal(false);
-      refreshTags();
+      // refreshTags();
     }
   };
 
@@ -45,10 +45,10 @@ const AddTag = (selectedRecipe, refreshTags) => {
 
   return (
     <div id="create-tag-container">
-      <button type="button" id="create-tag-text" onClick={setEditModal}>
+      <div id="create-tag-text">
         Add Tag
-        <div id="create-tag-icon">+</div>
-      </button>
+        <div id="create-tag-icon" onClick={setEditModal}>+</div>
+      </div>
       <Modal className="create-tag-text" isOpen={editModal} backdrop={false}>
         <ModalHeader close={closeBtn}>Add Tag</ModalHeader>
         <ModalBody>

@@ -16,7 +16,10 @@ const TagsBar = ({ tags, deleteSelTag, showDeleteButton }) => (
         showDeleteButton={showDeleteButton}
       />
     ))}
-    <AddTag />
+    { showDeleteButton
+      ? <AddTag />
+      : <div />
+    }
   </div>
 );
 

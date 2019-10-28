@@ -13,6 +13,7 @@ const AddTag = (allTags) => {
     setAlertVisible(false);
   };
 
+
   const createTag = (event) => {
     event.preventDefault();
     const newData = event.target.elements;

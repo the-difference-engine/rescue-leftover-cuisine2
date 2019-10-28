@@ -19,10 +19,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :recipes do
         resources :comments
-        resources :tags, only: [:index]
+        resources :tags, only: [:index, :create]
       end
       resources :users
-      resources :tags, only: [:index]
+      resources :tags, only: [:index, :create]
 
 
       devise_scope :user do

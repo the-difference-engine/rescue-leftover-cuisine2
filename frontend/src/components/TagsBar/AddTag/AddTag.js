@@ -4,30 +4,29 @@ import {
 } from 'reactstrap';
 import includes from 'lodash/includes';
 import './AddTag.css';
+import { createTag } from '../../../lib/apiClient';
 
-const AddTag = (allTags) => {
+const AddTag = ({ refreshTags, allTags }) => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [editModal, setEditModal] = useState(false);
+
 
   const onDismiss = () => {
     setAlertVisible(false);
   };
 
-
-  const createTag = (event) => {
+  const createNewTag = (event) => {
     event.preventDefault();
     const newData = event.target.elements;
-    const allTagsForRecipe = allTags;
+    const allTagsTitle = allTags.map(tag => tag.title);
 
-    if (includes(allTagsForRecipe, newData.tag.value)) {
+    if (includes(allTagsTitle, newData.tag.value)) {
       setAlertVisible(true);
     } else {
-      // createTagForRecipe(newData, selectedRecipe.id).then(() => {
-      //   toggleEditModal();
-      //   refreshTags();
-      // });
-      setEditModal(false);
-      // refreshTags();
+      createTag(newData.tag.value).then(() => {
+        setEditModal(false);
+        refreshTags(newData.tag.value);
+      });
     }
   };
 
@@ -53,7 +52,7 @@ const AddTag = (allTags) => {
       <Modal className="create-tag-text" isOpen={editModal} backdrop={false}>
         <ModalHeader close={closeBtn}>Add Tag</ModalHeader>
         <ModalBody>
-          <Form method="post" action="/create_tag" onSubmit={createTag}>
+          <Form method="post" action="/create_tag" onSubmit={createNewTag}>
             <FormGroup row>
               <Label for="tag" sm={4}>Tag</Label>
               <Col sm={8}>

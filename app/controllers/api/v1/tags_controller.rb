@@ -8,13 +8,12 @@ class Api::V1::TagsController < ApplicationController
     end
       render json: @tags
    end
-
   def create
-    @tags = Tag.new(tag_params)
+    @tag = Tag.new(tag_params)
 
-    @tags.save
-    render json: @tags
-    
+    @tag.save
+    render json: @tag
+
   end
 
 end
@@ -22,5 +21,5 @@ end
 
 
 def tag_params
-  params.require(:tags).permit(:title)
+  params.require(:tag).permit(:title)
  end

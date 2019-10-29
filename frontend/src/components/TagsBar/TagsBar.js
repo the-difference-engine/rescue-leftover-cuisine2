@@ -7,7 +7,7 @@ import SingleTag from './SingleTag/SingleTag';
 import './TagsBar.css';
 
 const TagsBar = ({
-  tags, deleteSelTag, showDeleteButton, allTags,
+  tags, deleteSelTag, showDeleteButton, allTags, refreshTags,
 }) => (
   <div className="tags-bar col-sm-10 offset-sm-1">
     {map(tags, tag => (
@@ -22,9 +22,10 @@ const TagsBar = ({
       ? (
         <AddTag
           allTags={allTags}
+          refreshTags={refreshTags}
         />
       )
-      : <div />
+      : null
     }
   </div>
 );

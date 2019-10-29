@@ -32,12 +32,16 @@ const EditRecipeForm = ({ history }) => {
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
+  const [refreshTags, setRefreshTags] = useState(true);
 
   useEffect(() => {
-    getTags().then((data) => {
-      if (tags.length === 0) setTags(data);
-    });
-  }, [tags]);
+    if (refreshTags) {
+      getTags().then((data) => {
+        setTags(data);
+      });
+      setRefreshTags(false);
+    }
+  }, [refreshTags]);
 
   useEffect(() => {
     let tagsWithIdObject = [];
@@ -65,6 +69,18 @@ const EditRecipeForm = ({ history }) => {
     const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
     setSelectedTagsWithId(newTagsWithId);
     const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
+    setSelectedTags(newTags);
+  };
+
+  const refreshSelectedTags = (newTagTitle) => {
+    setRefreshTags(true);
+    const newSelectedTag = {
+      className: 'hide',
+      id: tags.length,
+      label: newTagTitle,
+      value: newTagTitle,
+    };
+    const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
 
@@ -111,6 +127,7 @@ const EditRecipeForm = ({ history }) => {
               tags={selectedTagsWithId}
               showDeleteButton="yes"
               allTags={tags}
+              refreshTags={refreshSelectedTags}
             />
           </label>
         </div>

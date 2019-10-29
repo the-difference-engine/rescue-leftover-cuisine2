@@ -28,7 +28,7 @@ const loginUser = (data) => {
   });
 };
 
-const endSession = () => apiClient.delete('/api/v1/auth/logout', {
+const endSession = () => apiClient.delete('api/v1/auth/logout', {
   headers: {
     Authorization: localStorage.jwt,
   },
@@ -110,6 +110,18 @@ const getTags = () => apiClient.get('/api/v1/tags')
 
 const getRecipeTags = id => apiClient.get(`/api/v1/recipes/${id}/tags`)
   .then(results => results.data);
+  
+// COMMENTS
+
+const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${recipeId}/comments`, {
+  comment: {
+    body: comment,
+  },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
 
 // PASSWORD REQUEST
 
@@ -159,4 +171,5 @@ export {
   suspendUser,
   endSession,
   confirmUser,
+  createComment,
 };

@@ -43,6 +43,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "coverage": "react-scripts test --coverage ; open coverage/lcov-report/index.html",
     "lint": "bash ./scripts/lint.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -3,7 +3,7 @@ class Api::V1::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by!(id: params[:id])
-    render json: @recipe
+    render json: @recipe, :include => [{comments: {include: :user }}]
   end
 
   def index
@@ -12,7 +12,7 @@ class Api::V1::RecipesController < ApplicationController
     else
       @recipes = Recipe.includes(:user).all
     end
-      render json: @recipes, :include => [:user]
+    render json: @recipes, :include => [:user]
   end
 
   def create

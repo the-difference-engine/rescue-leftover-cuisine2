@@ -164,3 +164,15 @@ recipe1 = Recipe.find(1)
 recipe1.tags << tag1
 recipe1.tags << tag2
 recipe1.save
+
+Comment.create(
+  body: "This is a test comment",
+  user_id: 1,
+  recipe_id: 15
+)
+
+Comment.create(
+  body: "This is another test comment",
+  user_id: 2,
+  recipe_id: 20
+)

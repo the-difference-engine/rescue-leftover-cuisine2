@@ -2,10 +2,12 @@ import map from 'lodash/map';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import isNull from 'lodash/isNull';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
 import { getRecipe, getRecipeTags } from '../../lib/apiClient';
+import RecipeComments from '../../components/RecipeComments/RecipeComments';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -21,9 +23,10 @@ class Recipe extends Component {
       servings: '',
       photo: '',
       tags: [],
+      recipeId: '',
+      comments: '',
     };
   }
-
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -31,6 +34,7 @@ class Recipe extends Component {
     const { match: { params: { id } } } = this.props;
     getRecipe(params.id).then((response) => {
       this.setState({
+        recipeId: params.id,
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
@@ -41,6 +45,7 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
+        comments: response.data.comments,
       });
     });
     getRecipeTags(id).then((data) => {
@@ -54,7 +59,15 @@ class Recipe extends Component {
     const { user, setJwt } = this.props;
     const {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId, tags,
+      recipeId, comments,
     } = this.state;
+
+    const reloadComments = () => {
+      const { match: { params } } = this.props;
+      getRecipe(params.id).then((response) => {
+        this.setState({ comments: response.data.comments });
+      });
+    };
 
     const renderButtons = () => (
       <div>
@@ -167,6 +180,15 @@ class Recipe extends Component {
             }
           </ul>
         </div>
+        {!isNull(comments)
+          ? (
+            <RecipeComments
+              comments={comments}
+              recipeId={recipeId}
+              user={user}
+              reloadComments={reloadComments}
+            />
+          ) : null}
         <div className="row">
           <Footer />
         </div>

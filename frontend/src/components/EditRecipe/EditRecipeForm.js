@@ -32,12 +32,16 @@ const EditRecipeForm = ({ history }) => {
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
+  const [refreshTags, setRefreshTags] = useState([]);
 
   useEffect(() => {
-    getTags().then((data) => {
-      if (tags.length === 0) setTags(data);
-    });
-  }, [tags]);
+    if (refreshTags) {
+      getTags().then((data) => {
+        if (tags.length === 0) setTags(data);
+      });
+      setRefreshTags(false);
+    }
+  }, [refreshTags]);
 
   useEffect(() => {
     let tagsWithIdObject = [];

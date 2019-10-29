@@ -6,7 +6,6 @@ class Api::V1::TagsController < ApplicationController
     else
       @tags = Tag.all
     end
-      render json: @tags
-   end
-
+    render json: @tags
+  end
 end

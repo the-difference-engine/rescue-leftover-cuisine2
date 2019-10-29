@@ -30,11 +30,10 @@ class Recipe extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    const { match: { params } } = this.props;
     const { match: { params: { id } } } = this.props;
-    getRecipe(params.id).then((response) => {
+    getRecipe(id).then((response) => {
       this.setState({
-        recipeId: params.id,
+        recipeId: id,
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
@@ -45,12 +44,8 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
+        tags: response.data.tags,
         comments: response.data.comments,
-      });
-    });
-    getRecipeTags(id).then((data) => {
-      this.setState({
-        tags: data,
       });
     });
   }

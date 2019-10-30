@@ -6,7 +6,7 @@ import isNull from 'lodash/isNull';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
-import { getRecipe, getRecipeTags } from '../../lib/apiClient';
+import { getRecipe } from '../../lib/apiClient';
 import RecipeComments from '../../components/RecipeComments/RecipeComments';
 import './Recipe.css';
 

@@ -22,21 +22,6 @@
   border-color: #9b9b9b;
 }
 
-select {
-  width: 150px;
-  height: 50px;
-  text-align-last: center;
-  border-color: #9b9b9b;
-}
-
-input {
-  border-color: #9b9b9b;
-}
-
-label {
-  width: 75%;
-}
-
 .detail-labels {
   width: 75%;
 }

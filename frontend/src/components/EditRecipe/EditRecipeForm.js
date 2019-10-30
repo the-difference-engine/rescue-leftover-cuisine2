@@ -91,7 +91,7 @@ const EditRecipeForm = ({ history }) => {
           </label>
         </div>
         <div className="search-tag col-6 offset-3">
-          <label htmlFor="tags">
+          <label className="detail-labels" htmlFor="tags">
             Tags
             <Select
               className="st-search-input"

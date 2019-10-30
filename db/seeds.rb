@@ -11,7 +11,7 @@ User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmati
 User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Joe", last_name: "Domain", confirmed_at: Time.now)
 User.create(email: "vespucci@domain.com", password: "Vespucci@RLC123", password_confirmation: "Vespucci@RLC123", username: "Vespucci@RLC",first_name: "Vespucci", last_name: "Domain", confirmed_at: Time.now, is_suspended: true)
 
-Recipe.create(
+recipe = Recipe.create(
   title: "Cauliflower Salad",
   snippet: "Soul-satisfying despite its healthy ingredients, this salad sings",
   meal: "DINNER",
@@ -141,29 +141,23 @@ Recipe.create(
   user_id: 1
 )
 
-Tag.create(
+breakfast = Tag.create(
  title: "Breakfast"
 )
 
-Tag.create(
+lunch = Tag.create(
  title: "Lunch"
 )
 
-Tag.create(
+dinner = Tag.create(
  title: "Dinner"
 )
 
-Tag.create(
+snack = Tag.create(
  title: "Snack"
 )
 
-tag1 = Tag.find(1)
-tag2 = Tag.find(2)
-
-recipe1 = Recipe.find(1)
-recipe1.tags << tag1
-recipe1.tags << tag2
-recipe1.save
+recipe.tags = [breakfast, lunch, snack]
 
 Comment.create(
   body: "This is a test comment",

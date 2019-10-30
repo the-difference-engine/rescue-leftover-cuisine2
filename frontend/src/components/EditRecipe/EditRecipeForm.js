@@ -20,7 +20,10 @@ const customStyles = {
     ...provided,
     display: 'none',
   }),
-
+  clearIndicator: provided => ({
+    ...provided,
+    display: 'none',
+  }),
 };
 
 const EditRecipeForm = ({ history }) => {

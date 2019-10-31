@@ -98,7 +98,7 @@ const EditRecipeForm = ({ history }) => {
               className="st-search-input"
               styles={customStyles}
               value={selectedTags}
-              options={map(tags, tag => {
+              options={map(tags, (tag) => {
                 const obj = {
                   label: tag.title,
                   value: tag.title,
@@ -116,7 +116,7 @@ const EditRecipeForm = ({ history }) => {
             <TagsBar
               deleteSelectedTag={handleDelete}
               tags={selectedTagsWithId}
-              showDeleteButton={true}
+              showDeleteButton
             />
           </label>
         </div>

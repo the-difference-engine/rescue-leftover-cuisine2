@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import map from 'lodash/map';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, getTags } from '../../lib/apiClient';
+=======
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { createRecipe } from '../../lib/apiClient';
+>>>>>>> seperated ingredients addition into a componenent
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
+import Ingredients from '../Ingredients/Ingredients';
 
 const customStyles = {
   control: provided => ({
@@ -74,6 +81,20 @@ const EditRecipeForm = ({ history }) => {
     setSelectedTagsWithId(newTagsWithId);
     const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
     setSelectedTags(newTags);
+  };
+
+  const handleSubmit = () => {
+    const parsedDuration = parseInt(duration, 10);
+    const parsedServings = parseInt(servings, 10);
+
+    createRecipe({
+      title,
+      description,
+      difficulty,
+      duration: parsedDuration,
+      servings: parsedServings,
+      ingredients,
+    }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
   return (
@@ -161,6 +182,7 @@ const EditRecipeForm = ({ history }) => {
         </div>
       </div>
       <div>
+<<<<<<< HEAD
         <div className="App">
           <h1>Ingredients</h1>
 
@@ -180,13 +202,20 @@ const EditRecipeForm = ({ history }) => {
           <button type="button" onClick={() => handleAdd()}>
             + ADD
           </button>
+=======
+        <Ingredients
+          ingredients={ingredients}
+          handleIngredientChange={handleIngredientChange}
+          handleAdd={handleAdd}
+          handleRemove={handleRemove}
+        />
+        <div id="recipe-submit-containaner">
+          <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
         </div>
-      </div>
-      <div id="recipe-submit-containaner">
-        <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
-      </div>
-      <div className="row form-footer">
-        <Footer />
+        <div className="row form-footer">
+          <Footer />
+>>>>>>> seperated ingredients addition into a componenent
+        </div>
       </div>
     </div>
   );

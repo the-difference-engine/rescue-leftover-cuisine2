@@ -29,6 +29,16 @@ function UserInfo({ user, setUser }) {
     }
   };
 
+  const monthNames = [
+    'January', 'February', 'March',
+    'April', 'May', 'June', 'July',
+    'August', 'September', 'October',
+    'November', 'December',
+  ];
+  const month = user.created_at.slice(5, 7);
+  const year = user.created_at.slice(0, 4);
+  const userCreated = `${monthNames[month - 1]} ${year}`;
+
   const renderEditBox = () => {
     if (isEditing) {
       return (
@@ -109,7 +119,11 @@ function UserInfo({ user, setUser }) {
               {renderEditBox(isEditing)}
             </div>
             <br />
-            <p>Member since December 2018</p>
+            <p>
+              Member since
+              {' '}
+              {userCreated}
+            </p>
             <div className="user-bio">
               <button type="button" className="user-edit-button">
                 <img

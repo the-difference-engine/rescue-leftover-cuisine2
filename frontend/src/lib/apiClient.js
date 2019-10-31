@@ -95,12 +95,18 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
     difficulty: recipe.difficulty,
     duration: recipe.duration,
     servings: recipe.servings,
+    tags: recipe.tags,
   },
 }, {
   headers: {
     Authorization: localStorage.jwt,
   },
 });
+
+// TAGS
+
+const getTags = () => apiClient.get('/api/v1/tags')
+  .then(results => results.data);
 
 // COMMENTS
 
@@ -153,6 +159,7 @@ export {
   getRecipes,
   getRecipe,
   createRecipe,
+  getTags,
   adminEditUser,
   resetPassword,
   resetCurrentUserPassword,

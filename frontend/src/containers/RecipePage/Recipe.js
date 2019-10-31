@@ -6,8 +6,8 @@ import isNull from 'lodash/isNull';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
-import RecipeComments from '../../components/RecipeComments/RecipeComments';
 import { getRecipe } from '../../lib/apiClient';
+import RecipeComments from '../../components/RecipeComments/RecipeComments';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -22,6 +22,7 @@ class Recipe extends Component {
       duration: '',
       servings: '',
       photo: '',
+      tags: [],
       recipeId: '',
       comments: '',
     };
@@ -29,10 +30,10 @@ class Recipe extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    const { match: { params } } = this.props;
-    getRecipe(params.id).then((response) => {
+    const { match: { params: { id } } } = this.props;
+    getRecipe(id).then((response) => {
       this.setState({
-        recipeId: params.id,
+        recipeId: id,
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
@@ -43,6 +44,7 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
+        tags: response.data.tags,
         comments: response.data.comments,
       });
     });
@@ -51,8 +53,8 @@ class Recipe extends Component {
   render() {
     const { user, setJwt } = this.props;
     const {
-      recipeId, directions, title, ingredients, snippet, difficulty, duration, servings, photo,
-      userId, comments,
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId, tags,
+      recipeId, comments,
     } = this.state;
 
     const reloadComments = () => {
@@ -134,7 +136,7 @@ class Recipe extends Component {
           </div>
         </div>
         <div className="tags-bar">
-          <TagsBar />
+          <TagsBar tags={tags} />
         </div>
         <div className="row" id="blurb-title">
           <h1 id="recipe-title" className="col-sm-6 offset-sm-3">

@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import map from 'lodash/map';
 import { withRouter } from 'react-router-dom';
-import { createRecipe } from '../../lib/apiClient';
+import Select from 'react-select';
+import TagsBar from '../TagsBar/TagsBar';
+import { createRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
+
+const customStyles = {
+  control: provided => ({
+    ...provided,
+    height: 70,
+  }),
+  multiValueLabel: provided => ({
+    ...provided,
+    display: 'none',
+  }),
+  multiValueRemove: provided => ({
+    ...provided,
+    display: 'none',
+  }),
+  clearIndicator: provided => ({
+    ...provided,
+    display: 'none',
+  }),
+};
 
 const EditRecipeForm = ({ history }) => {
   const [title, setTitle] = useState('');
@@ -11,14 +33,47 @@ const EditRecipeForm = ({ history }) => {
   const [difficulty, setDifficulty] = useState('ADVANCED');
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
+  const [tags, setTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
+  const [refreshTags, setRefreshTags] = useState(true);
+
+  useEffect(() => {
+    if (refreshTags) {
+      getTags().then((data) => {
+        if (tags.length === 0) setTags(data);
+      });
+      setRefreshTags(false);
+    }
+  }, [refreshTags]);
+
+  useEffect(() => {
+    let tagsWithIdObject = [];
+    if (selectedTags) {
+      tagsWithIdObject = map(selectedTags, e => ({ id: e.id, title: e.value }));
+    }
+    setSelectedTagsWithId(tagsWithIdObject);
+  }, [selectedTags]);
 
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
 
     createRecipe({
-      title, description, difficulty, duration: parsedDuration, servings: parsedServings,
+      title,
+      description,
+      difficulty,
+      duration: parsedDuration,
+      servings: parsedServings,
+      tags: selectedTagsWithId,
     }).then(response => history.push(`/recipe/${response.data.id}`));
+  };
+
+  const handleDelete = (tagTitle) => {
+    const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
+    setSelectedTagsWithId(newTagsWithId);
+    const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
+    setSelectedTags(newTags);
   };
 
   return (
@@ -33,7 +88,36 @@ const EditRecipeForm = ({ history }) => {
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
-            <textarea className="form-control recipe-details" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
+            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
+          </label>
+        </div>
+        <div className="search-tag col-6 offset-3">
+          <label className="detail-labels" htmlFor="tags">
+            Tags
+            <Select
+              className="st-search-input"
+              styles={customStyles}
+              value={selectedTags}
+              options={map(tags, (tag) => {
+                const obj = {
+                  label: tag.title,
+                  value: tag.title,
+                  id: tag.id,
+                };
+                return obj;
+              })}
+              onChange={(selected) => {
+                setSelectedTags(selected);
+              }
+            }
+              placeholder="Search and tag"
+              isMulti
+            />
+            <TagsBar
+              deleteSelectedTag={handleDelete}
+              tags={selectedTagsWithId}
+              showDeleteButton
+            />
           </label>
         </div>
       </div>

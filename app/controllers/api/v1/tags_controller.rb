@@ -13,12 +13,8 @@ class Api::V1::TagsController < ApplicationController
 
     @tag.save
     render json: @tag
-
   end
-
 end
-
-
 
 def tag_params
   params.require(:tag).permit(:title)

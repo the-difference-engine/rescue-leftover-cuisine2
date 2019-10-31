@@ -71,7 +71,7 @@ const EditRecipeForm = ({ history }) => {
   };
 
   const handleDelete = (tagTitle) => {
-    const newTagsWithId = reject(selectedTagsWithId, ['value', tagTitle]);
+    const newTagsWithId = reject(selectedTagsWithId, ['title', tagTitle]);
     setSelectedTagsWithId(newTagsWithId);
     const newTags = reject(selectedTags, ['value', tagTitle]);
     setSelectedTags(newTags);

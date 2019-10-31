@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import map from 'lodash/map';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, getTags } from '../../lib/apiClient';
-=======
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import { createRecipe } from '../../lib/apiClient';
->>>>>>> seperated ingredients addition into a componenent
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
@@ -182,7 +176,6 @@ const EditRecipeForm = ({ history }) => {
         </div>
       </div>
       <div>
-<<<<<<< HEAD
         <div className="App">
           <h1>Ingredients</h1>
 
@@ -202,19 +195,6 @@ const EditRecipeForm = ({ history }) => {
           <button type="button" onClick={() => handleAdd()}>
             + ADD
           </button>
-=======
-        <Ingredients
-          ingredients={ingredients}
-          handleIngredientChange={handleIngredientChange}
-          handleAdd={handleAdd}
-          handleRemove={handleRemove}
-        />
-        <div id="recipe-submit-containaner">
-          <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
-        </div>
-        <div className="row form-footer">
-          <Footer />
->>>>>>> seperated ingredients addition into a componenent
         </div>
       </div>
     </div>

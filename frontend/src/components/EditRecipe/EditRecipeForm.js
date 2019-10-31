@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import map from 'lodash/map';
+import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
@@ -70,9 +71,9 @@ const EditRecipeForm = ({ history }) => {
   };
 
   const handleDelete = (tagTitle) => {
-    const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
+    const newTagsWithId = reject(selectedTagsWithId, ['value', tagTitle]);
     setSelectedTagsWithId(newTagsWithId);
-    const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
+    const newTags = reject(selectedTags, ['value', tagTitle]);
     setSelectedTags(newTags);
   };
 

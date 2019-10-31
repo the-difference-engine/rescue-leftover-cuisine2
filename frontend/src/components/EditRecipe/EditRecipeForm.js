@@ -27,21 +27,6 @@ const EditRecipeForm = ({ history }) => {
       directions,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
-  const handleDirectionsChange = (i, event) => {
-    const values = [...directions];
-    values[i] = event.target.value;
-    setDirections(values);
-  };
-  const handleDirectionsAdd = () => {
-    const values = [...directions];
-    values.push('');
-    setDirections(values);
-  };
-  const handleDirectionsRemove = (i) => {
-    const values = [...directions];
-    values.splice(i, 1);
-    setDirections(values);
-  };
 
   return (
     <div className="editRecipeForm container-fluid">
@@ -101,9 +86,7 @@ const EditRecipeForm = ({ history }) => {
       <div>
         <EditDirections
           directions={directions}
-          handleDirectionsAdd={handleDirectionsAdd}
-          handleDirectionsChange={handleDirectionsChange}
-          handleDirectionsRemove={handleDirectionsRemove}
+          setDirections={setDirections}
         />
       </div>
       <div id="recipe-submit-containaner">

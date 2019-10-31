@@ -68,6 +68,7 @@ class Recipe extends Component {
         </button>
       </div>
     );
+
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {
         return (

@@ -26,6 +26,13 @@
   width: 75%;
 }
 
+.editRecipeForm.container-fluid {
+  margin: 0px;
+  width: 100%;
+  margin-left: 0px;
+  text-align: center;
+}
+
 .form-recipe-label {
   margin-top: 50px;
   margin-bottom: 100px;
@@ -47,49 +54,6 @@
 
 .recipe-submit-container{
   margin-top: 30px;
-}
-
-.form-dropdown{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 50px;
-}
-
-textarea {
-  resize: none;
-  border-color: #9b9b9b;
-}
-
-select {
-  width: 150px;
-  height: 50px;
-  text-align-last: center;
-  border-color: #9b9b9b;
-}
-
-input {
-  border-color: #9b9b9b;
-}
-
-label {
-  width: 75%;
-}
-
-.editRecipeForm.container-fluid {
-  margin: 0px;
-  width: 100%;
-  margin-left: 0px;
-  text-align: center;
-}
-
-.form-title, .form-snippet, .search-tag {
-  margin-bottom: 50px;
-}
-
-.hide {
-  display: none;
 }
 
 #recipe-submit-btn {

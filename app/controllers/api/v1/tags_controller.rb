@@ -10,7 +10,6 @@ class Api::V1::TagsController < ApplicationController
    end
   def create
     @tag = Tag.new(tag_params)
-
     @tag.save
     render json: @tag
   end

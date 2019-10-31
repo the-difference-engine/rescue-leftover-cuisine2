@@ -19,10 +19,14 @@ const EditRecipeForm = ({ history }) => {
     const parsedServings = parseInt(servings, 10);
 
     createRecipe({
-      title, description, difficulty, duration: parsedDuration, servings: parsedServings, directions,
+      title,
+      description,
+      difficulty,
+      duration: parsedDuration,
+      servings: parsedServings,
+      directions,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
-  
   const handleDirectionsChange = (i, event) => {
     const values = [...directions];
     values[i] = event.target.value;
@@ -95,7 +99,12 @@ const EditRecipeForm = ({ history }) => {
         </div>
       </div>
       <div>
-        <EditDirections directions={directions} handleDirectionsAdd={handleDirectionsAdd} handleDirectionsChange={handleDirectionsChange} handleDirectionsRemove={handleDirectionsRemove} />
+        <EditDirections
+          directions={directions}
+          handleDirectionsAdd={handleDirectionsAdd}
+          handleDirectionsChange={handleDirectionsChange}
+          handleDirectionsRemove={handleDirectionsRemove}
+        />
       </div>
       <div id="recipe-submit-containaner">
         <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

@@ -6,8 +6,8 @@ import isNull from 'lodash/isNull';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
+import { getRecipe } from '../../lib/apiClient';
 import RecipeComments from '../../components/RecipeComments/RecipeComments';
-import { getRecipe, getRecipeTags } from '../../lib/apiClient';
 import './Recipe.css';
 
 class Recipe extends Component {
@@ -22,20 +22,18 @@ class Recipe extends Component {
       duration: '',
       servings: '',
       photo: '',
+      tags: [],
       recipeId: '',
       comments: '',
-      tags: [],
     };
   }
 
-
   componentDidMount() {
     window.scrollTo(0, 0);
-    const { match: { params } } = this.props;
     const { match: { params: { id } } } = this.props;
-    getRecipe(params.id).then((response) => {
+    getRecipe(id).then((response) => {
       this.setState({
-        recipeId: params.id,
+        recipeId: id,
         title: response.data.title,
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
@@ -46,12 +44,8 @@ class Recipe extends Component {
         duration: response.data.duration,
         servings: response.data.servings,
         userId: response.data.user_id,
-        comments: response.data.comments.reverse(),
-      });
-    });
-    getRecipeTags(id).then((data) => {
-      this.setState({
-        tags: data,
+        tags: response.data.tags,
+        comments: response.data.comments,
       });
     });
   }
@@ -59,9 +53,16 @@ class Recipe extends Component {
   render() {
     const { user, setJwt } = this.props;
     const {
-      recipeId, directions, title, ingredients, snippet, difficulty, duration,
-      servings, photo, userId, comments, tags,
+      directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId, tags,
+      recipeId, comments,
     } = this.state;
+
+    const reloadComments = () => {
+      const { match: { params } } = this.props;
+      getRecipe(params.id).then((response) => {
+        this.setState({ comments: response.data.comments });
+      });
+    };
 
     const renderButtons = () => (
       <div>
@@ -175,7 +176,14 @@ class Recipe extends Component {
           </ul>
         </div>
         {!isNull(comments)
-          ? <RecipeComments comments={comments} recipeId={recipeId} user={user} /> : null}
+          ? (
+            <RecipeComments
+              comments={comments}
+              recipeId={recipeId}
+              user={user}
+              reloadComments={reloadComments}
+            />
+          ) : null}
         <div className="row">
           <Footer />
         </div>

@@ -128,9 +128,6 @@ const createTag = title => apiClient.post('/api/v1/tags', {
   },
 });
 
-const getRecipeTags = id => apiClient.get(`/api/v1/recipes/${id}/tags`)
-  .then(results => results.data);
-
 // PASSWORD REQUEST
 
 const resetPassword = (resetPasswordToken, password) => apiClient.put('/api/v1/password', {
@@ -172,7 +169,6 @@ export {
   createRecipe,
   getTags,
   createTag,
-  getRecipeTags,
   adminEditUser,
   resetPassword,
   resetCurrentUserPassword,

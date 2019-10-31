@@ -3,7 +3,7 @@ class Api::V1::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by!(id: params[:id])
-    render json: @recipe, :include => [{comments: {include: :user }}]
+    render json: @recipe, :include => [{comments: {include: :user }}, :tags]
   end
 
   def index

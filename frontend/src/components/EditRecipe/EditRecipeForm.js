@@ -7,7 +7,7 @@ import { createRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
-import Ingredients from '../Ingredients/Ingredients';
+import Ingredients from './Ingredients/Ingredients';
 
 const customStyles = {
   control: provided => ({

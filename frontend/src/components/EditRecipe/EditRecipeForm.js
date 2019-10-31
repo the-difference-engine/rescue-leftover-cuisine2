@@ -4,6 +4,7 @@ import { createRecipe } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
+import EditDirections from './EditDirections/EditDirections';
 
 const EditRecipeForm = ({ history }) => {
   const [title, setTitle] = useState('');
@@ -11,14 +12,31 @@ const EditRecipeForm = ({ history }) => {
   const [difficulty, setDifficulty] = useState('ADVANCED');
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
+  const [directions, setDirections] = useState(['']);
 
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
 
     createRecipe({
-      title, description, difficulty, duration: parsedDuration, servings: parsedServings,
+      title, description, difficulty, duration: parsedDuration, servings: parsedServings, directions,
     }).then(response => history.push(`/recipe/${response.data.id}`));
+  };
+  
+  const handleDirectionsChange = (i, event) => {
+    const values = [...directions];
+    values[i] = event.target.value;
+    setDirections(values);
+  };
+  const handleDirectionsAdd = () => {
+    const values = [...directions];
+    values.push('');
+    setDirections(values);
+  };
+  const handleDirectionsRemove = (i) => {
+    const values = [...directions];
+    values.splice(i, 1);
+    setDirections(values);
   };
 
   return (
@@ -75,6 +93,9 @@ const EditRecipeForm = ({ history }) => {
             <option>12</option>
           </select>
         </div>
+      </div>
+      <div>
+        <EditDirections directions={directions} handleDirectionsAdd={handleDirectionsAdd} handleDirectionsChange={handleDirectionsChange} handleDirectionsRemove={handleDirectionsRemove} />
       </div>
       <div id="recipe-submit-containaner">
         <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

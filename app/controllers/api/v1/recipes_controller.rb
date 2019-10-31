@@ -23,7 +23,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, description: [])
+   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, directions: [])
   end
 
 end

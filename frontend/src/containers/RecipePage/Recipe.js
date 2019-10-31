@@ -68,7 +68,7 @@ class Recipe extends Component {
         </button>
       </div>
     );
-
+    console.log(this.state.directions)
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {
         return (

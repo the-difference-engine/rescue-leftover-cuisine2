@@ -3,6 +3,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Col, Input, Alert,
 } from 'reactstrap';
 import includes from 'lodash/includes';
+import map from 'lodash/map';
 import './AddTag.css';
 import { createTag } from '../../../lib/apiClient';
 
@@ -18,7 +19,7 @@ const AddTag = ({ refreshTags, allTags }) => {
   const createNewTag = (event) => {
     event.preventDefault();
     const newData = event.target.elements;
-    const allTagsTitle = allTags.map(tag => tag.title);
+    const allTagsTitle = map(allTags, 'tag.title');
 
     if (includes(allTagsTitle, newData.tag.value)) {
       setAlertVisible(true);

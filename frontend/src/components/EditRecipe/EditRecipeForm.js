@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import map from 'lodash/map';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
@@ -35,7 +36,7 @@ const EditRecipeForm = ({ history }) => {
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
-  const [refreshTags, setRefreshTags] = useState([]);
+  const [refreshTags, setRefreshTags] = useState(true);
 
   useEffect(() => {
     if (refreshTags) {
@@ -49,7 +50,7 @@ const EditRecipeForm = ({ history }) => {
   useEffect(() => {
     let tagsWithIdObject = [];
     if (selectedTags) {
-      tagsWithIdObject = selectedTags.map(e => ({ id: e.id, title: e.value }));
+      tagsWithIdObject = map(selectedTags, e => ({ id: e.id, title: e.value }));
     }
     setSelectedTagsWithId(tagsWithIdObject);
   }, [selectedTags]);
@@ -87,7 +88,7 @@ const EditRecipeForm = ({ history }) => {
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
-            <textarea className="form-control recipe-details" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
+            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
           </label>
         </div>
         <div className="search-tag col-6 offset-3">
@@ -97,12 +98,11 @@ const EditRecipeForm = ({ history }) => {
               className="st-search-input"
               styles={customStyles}
               value={selectedTags}
-              options={tags.map((tag) => {
+              options={map(tags, tag => {
                 const obj = {
                   label: tag.title,
                   value: tag.title,
                   id: tag.id,
-                  className: 'hide',
                 };
                 return obj;
               })}
@@ -114,9 +114,9 @@ const EditRecipeForm = ({ history }) => {
               isMulti
             />
             <TagsBar
-              deleteSelTag={handleDelete}
+              deleteSelectedTag={handleDelete}
               tags={selectedTagsWithId}
-              showDeleteButton="yes"
+              showDeleteButton={true}
             />
           </label>
         </div>

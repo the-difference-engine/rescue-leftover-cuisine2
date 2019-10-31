@@ -6,13 +6,13 @@ import SingleTag from './SingleTag/SingleTag';
 
 import './TagsBar.css';
 
-const TagsBar = ({ tags, deleteSelTag, showDeleteButton }) => (
+const TagsBar = ({ tags, deleteSelectedTag, showDeleteButton }) => (
   <div className="tags-bar col-sm-10 offset-sm-1">
     {map(tags, tag => (
       <SingleTag
         tag={tag.title}
         key={tag.id}
-        deleteSelTag={deleteSelTag}
+        deleteSelectedTag={deleteSelectedTag}
         showDeleteButton={showDeleteButton}
       />
     ))}

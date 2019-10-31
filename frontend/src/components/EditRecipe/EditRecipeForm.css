@@ -52,9 +52,6 @@
   padding-bottom: 0px;
 }
 
-.hide {
-  display: none;
-}
 .recipe-submit-container{
   margin-top: 30px;
 }
@@ -82,7 +79,6 @@
   margin-bottom: 50px;
 }
 
-textarea {
+.recipe-description {
   resize: none;
-  border-color: #9b9b9b;
 }

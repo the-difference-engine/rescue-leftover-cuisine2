@@ -11,7 +11,6 @@ const AddTag = ({ refreshTags, allTags }) => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [editModal, setEditModal] = useState(false);
 
-
   const onDismiss = () => {
     setAlertVisible(false);
   };
@@ -20,7 +19,6 @@ const AddTag = ({ refreshTags, allTags }) => {
     event.preventDefault();
     const newData = event.target.elements;
     const allTagsTitle = map(allTags, 'tag.title');
-
     if (includes(allTagsTitle, newData.tag.value)) {
       setAlertVisible(true);
     } else {

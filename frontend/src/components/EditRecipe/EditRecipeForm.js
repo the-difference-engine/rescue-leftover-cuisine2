@@ -176,25 +176,15 @@ const EditRecipeForm = ({ history }) => {
         </div>
       </div>
       <div>
-        <div className="App">
-          <h1>Ingredients</h1>
-
-          {ingredients.map((ingredients, idx) => (
-            <div key={`${ingredients}-${idx}`}>
-              <input
-                type="text"
-                placeholder="Enter text"
-                value={ingredients || ''}
-                onChange={e => handleChange(idx, e)}
-              />
-              <button type="button" onClick={() => handleRemove(idx)}>
-                X
-              </button>
-            </div>
-          ))}
-          <button type="button" onClick={() => handleAdd()}>
-            + ADD
-          </button>
+        <Ingredients
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+        />
+        <div id="recipe-submit-containaner">
+          <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
+        </div>
+        <div className="row form-footer">
+          <Footer />
         </div>
       </div>
     </div>

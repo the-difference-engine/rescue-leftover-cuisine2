@@ -6,7 +6,7 @@ const SingleTag = ({ tag, deleteSelectedTag, showDeleteButton }) => (
     <div className="single-tag">
       <div className="tag-name">{tag}</div>
       {showDeleteButton
-        ? <div className="delete-tag" onClick={() => deleteSelectedTag(tag)}>x</div> 
+        ? <div className="delete-tag" onClick={() => deleteSelectedTag(tag)}>x</div>
         : null
       }
     </div>

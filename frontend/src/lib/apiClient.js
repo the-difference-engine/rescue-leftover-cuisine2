@@ -107,7 +107,7 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
 
 const getTags = () => apiClient.get('/api/v1/tags')
   .then(results => results.data);
-  
+
 // COMMENTS
 
 const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${recipeId}/comments`, {

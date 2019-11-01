@@ -8,6 +8,7 @@ import { createRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
+import Ingredients from './Ingredients/Ingredients';
 
 const customStyles = {
   control: provided => ({
@@ -38,11 +39,12 @@ const EditRecipeForm = ({ history }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
   const [refreshTags, setRefreshTags] = useState(true);
+  const [ingredients, setIngredients] = useState(['']);
 
   useEffect(() => {
     if (refreshTags) {
       getTags().then((data) => {
-        if (tags.length === 0) setTags(data);
+        setTags(data);
       });
       setRefreshTags(false);
     }
@@ -67,6 +69,7 @@ const EditRecipeForm = ({ history }) => {
       duration: parsedDuration,
       servings: parsedServings,
       tags: selectedTagsWithId,
+      ingredients,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
@@ -74,6 +77,17 @@ const EditRecipeForm = ({ history }) => {
     const newTagsWithId = reject(selectedTagsWithId, ['title', tagTitle]);
     setSelectedTagsWithId(newTagsWithId);
     const newTags = reject(selectedTags, ['value', tagTitle]);
+    setSelectedTags(newTags);
+  };
+
+  const refreshSelectedTags = (newTagTitle) => {
+    setRefreshTags(true);
+    const newSelectedTag = {
+      id: tags.length,
+      label: newTagTitle,
+      value: newTagTitle,
+    };
+    const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
 
@@ -109,8 +123,7 @@ const EditRecipeForm = ({ history }) => {
               })}
               onChange={(selected) => {
                 setSelectedTags(selected);
-              }
-            }
+              }}
               placeholder="Search and tag"
               isMulti
             />
@@ -118,6 +131,8 @@ const EditRecipeForm = ({ history }) => {
               deleteSelectedTag={handleDelete}
               tags={selectedTagsWithId}
               showDeleteButton
+              allTags={tags}
+              refreshTags={refreshSelectedTags}
             />
           </label>
         </div>
@@ -161,11 +176,17 @@ const EditRecipeForm = ({ history }) => {
           </select>
         </div>
       </div>
-      <div id="recipe-submit-containaner">
-        <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
-      </div>
-      <div className="row form-footer">
-        <Footer />
+      <div>
+        <Ingredients
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+        />
+        <div id="recipe-submit-containaner">
+          <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
+        </div>
+        <div className="row form-footer">
+          <Footer />
+        </div>
       </div>
     </div>
   );

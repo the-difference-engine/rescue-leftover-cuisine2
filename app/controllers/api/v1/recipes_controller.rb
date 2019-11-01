@@ -30,15 +30,9 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def recipe_params
-<<<<<<< HEAD
-<<<<<<< HEAD
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, tags: [:id, :title])
-=======
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, :ingredients)
->>>>>>> Added ingredients to recipe parameters
-=======
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [])
->>>>>>> Form to add ingredients works, but still buggy
+    
+   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title])
+
   end
 
 end

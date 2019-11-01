@@ -38,6 +38,7 @@ const EditRecipeForm = ({ history }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
   const [refreshTags, setRefreshTags] = useState(true);
+  const [ingredients, setIngredients] = useState(['']);
 
   useEffect(() => {
     if (refreshTags) {
@@ -67,6 +68,7 @@ const EditRecipeForm = ({ history }) => {
       duration: parsedDuration,
       servings: parsedServings,
       tags: selectedTagsWithId,
+      ingredients,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
@@ -75,20 +77,6 @@ const EditRecipeForm = ({ history }) => {
     setSelectedTagsWithId(newTagsWithId);
     const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
     setSelectedTags(newTags);
-  };
-
-  const handleSubmit = () => {
-    const parsedDuration = parseInt(duration, 10);
-    const parsedServings = parseInt(servings, 10);
-
-    createRecipe({
-      title,
-      description,
-      difficulty,
-      duration: parsedDuration,
-      servings: parsedServings,
-      ingredients,
-    }).then(response => history.push(`/recipe/${response.data.id}`));
   };
 
   return (

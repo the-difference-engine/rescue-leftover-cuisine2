@@ -1,5 +1,6 @@
 import React from 'react';
 import map from 'lodash/map';
+import './ingredients.css';
 
 
 const Ingredients = ({ ingredients, setIngredients }) => {

@@ -48,7 +48,7 @@ const AddTag = ({ refreshTags, allTags }) => {
         Add Tag
         <div id="create-tag-icon" onClick={setEditModal}>+</div>
       </div>
-      <Modal className="create-tag-text" isOpen={editModal} backdrop={false}>
+      <Modal className="create-tag-text" isOpen={editModal} backdrop={false} centered>
         <ModalHeader close={closeBtn}>Add Tag</ModalHeader>
         <ModalBody>
           <Form method="post" action="/create_tag" onSubmit={createNewTag}>

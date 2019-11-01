@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         resources :comments
       end
       resources :users
-      resources :tags, only: [:index]
+      resources :tags, only: [:index, :create]
 
       devise_scope :user do
         authenticate :user do

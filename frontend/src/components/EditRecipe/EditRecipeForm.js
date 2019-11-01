@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import map from 'lodash/map';
+import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
@@ -43,7 +44,7 @@ const EditRecipeForm = ({ history }) => {
   useEffect(() => {
     if (refreshTags) {
       getTags().then((data) => {
-        if (tags.length === 0) setTags(data);
+        setTags(data);
       });
       setRefreshTags(false);
     }
@@ -73,9 +74,20 @@ const EditRecipeForm = ({ history }) => {
   };
 
   const handleDelete = (tagTitle) => {
-    const newTagsWithId = selectedTagsWithId.filter(tag => tag.title !== tagTitle);
+    const newTagsWithId = reject(selectedTagsWithId, ['title', tagTitle]);
     setSelectedTagsWithId(newTagsWithId);
-    const newTags = selectedTags.filter(tag => tag.value !== tagTitle);
+    const newTags = reject(selectedTags, ['value', tagTitle]);
+    setSelectedTags(newTags);
+  };
+
+  const refreshSelectedTags = (newTagTitle) => {
+    setRefreshTags(true);
+    const newSelectedTag = {
+      id: tags.length,
+      label: newTagTitle,
+      value: newTagTitle,
+    };
+    const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
 
@@ -119,6 +131,8 @@ const EditRecipeForm = ({ history }) => {
               deleteSelectedTag={handleDelete}
               tags={selectedTagsWithId}
               showDeleteButton
+              allTags={tags}
+              refreshTags={refreshSelectedTags}
             />
           </label>
         </div>

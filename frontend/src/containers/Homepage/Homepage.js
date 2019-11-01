@@ -40,9 +40,12 @@ const Homepage = ({ location, user, setJwt }) => {
           <div className="row">
             <RecipeSearchList searchTerm={searchTerm} />
           </div>
-          <div className="row">
-            <BottomSignUp />
-          </div>
+          { user ? null
+            : (
+              <div className="row">
+                <BottomSignUp />
+              </div>
+            )}
           <div className="row">
             <Footer />
           </div>

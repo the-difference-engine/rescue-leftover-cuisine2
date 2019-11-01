@@ -96,6 +96,7 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
     duration: recipe.duration,
     servings: recipe.servings,
     tags: recipe.tags,
+    ingredients: recipe.ingredients,
   },
 }, {
   headers: {

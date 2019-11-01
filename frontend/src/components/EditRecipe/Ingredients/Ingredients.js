@@ -2,7 +2,6 @@ import React from 'react';
 import map from 'lodash/map';
 import './ingredients.css';
 
-
 const Ingredients = ({ ingredients, setIngredients }) => {
   const handleIngredientChange = (i, event) => {
     const values = [...ingredients];
@@ -15,6 +14,7 @@ const Ingredients = ({ ingredients, setIngredients }) => {
     values.push('');
     setIngredients(values);
   };
+
   const handleIngredientRemove = (i) => {
     const values = [...ingredients];
     values.splice(i, 1);

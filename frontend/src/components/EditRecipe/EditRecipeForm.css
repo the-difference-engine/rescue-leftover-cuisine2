@@ -52,6 +52,19 @@
   padding-bottom: 0px;
 }
 
+.ingredient-btn-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+}
+
+.add-ingredient-button {
+  display: inline-block;
+  margin: 20px;
+  border: 2px solid #ffa616;
+  color: #ffa616;
+}
+
 .recipe-submit-container{
   margin-top: 30px;
 }

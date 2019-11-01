@@ -43,6 +43,10 @@
   margin-bottom: 50px;
 }
 
+.form-title, .form-snippet, .search-tag {
+  margin-bottom: 50px;
+}
+
 .editRecipeForm i.fas.fa-utensil-spoon {
   padding-right: 15px;
   padding-bottom: 0px;
@@ -62,10 +66,19 @@
   border: none;
 }
 
+.st-search-input {
+  font-size: 25px;
+  font-weight: 200;
+}
+
 .form-dropdown{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
+}
+
+.recipe-description {
+  resize: none;
 }

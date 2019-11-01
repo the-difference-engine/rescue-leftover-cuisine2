@@ -8,6 +8,7 @@ import { createRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './EditRecipeForm.css';
+import EditDirections from './EditDirections/EditDirections';
 import Ingredients from './Ingredients/Ingredients';
 
 const customStyles = {
@@ -35,6 +36,7 @@ const EditRecipeForm = ({ history }) => {
   const [difficulty, setDifficulty] = useState('ADVANCED');
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
+  const [directions, setDirections] = useState(['']);
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
@@ -69,6 +71,7 @@ const EditRecipeForm = ({ history }) => {
       duration: parsedDuration,
       servings: parsedServings,
       tags: selectedTagsWithId,
+      directions,
       ingredients,
     }).then(response => history.push(`/recipe/${response.data.id}`));
   };
@@ -176,11 +179,15 @@ const EditRecipeForm = ({ history }) => {
           </select>
         </div>
       </div>
+      <Ingredients
+        ingredients={ingredients}
+        setIngredients={setIngredients}
+      />
+      <EditDirections
+        directions={directions}
+        setDirections={setDirections}
+      />
       <div>
-        <Ingredients
-          ingredients={ingredients}
-          setIngredients={setIngredients}
-        />
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>
         </div>

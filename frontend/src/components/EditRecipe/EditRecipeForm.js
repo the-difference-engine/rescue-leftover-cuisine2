@@ -111,8 +111,7 @@ const EditRecipeForm = ({ history }) => {
               })}
               onChange={(selected) => {
                 setSelectedTags(selected);
-              }
-              }
+              }}
               placeholder="Search and tag"
               isMulti
             />

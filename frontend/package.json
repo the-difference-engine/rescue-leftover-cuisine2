@@ -16,6 +16,7 @@
     "react-router": "~5.0.1",
     "react-router-dom": "~5.0.1",
     "react-scripts": "~2.1.8",
+    "react-select": "^3.0.8",
     "react-test-renderer": "^16.9.0",
     "reactstrap": "^7.1.0",
     "universal-cookie": "~4.0.2"
@@ -40,7 +41,7 @@
     }
   },
   "scripts": {
-    "start": "PORT=5000 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "coverage": "react-scripts test --coverage ; open coverage/lcov-report/index.html",
     "lint": "bash ./scripts/lint.sh",

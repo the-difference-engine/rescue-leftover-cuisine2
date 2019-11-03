@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Header from '../../components/Header/Header';
 import EditRecipeForm from '../../components/EditRecipe/EditRecipeForm';
 import './CreateRecipe.css';

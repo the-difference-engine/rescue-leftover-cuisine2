@@ -1,20 +1,28 @@
-textarea {
-  resize: none;
+.recipe-details {
   border-color: #9b9b9b;
 }
 
-select {
+.recipe-detail-icons{
+  color: #9b9b9b;
+}
+
+.fa-clock{
+  height: 24px;
+  width: 32px;
+}
+
+#descritpion {
+  resize: none;
+}
+
+.detail-selection {
   width: 150px;
   height: 50px;
   text-align-last: center;
   border-color: #9b9b9b;
 }
 
-input {
-  border-color: #9b9b9b;
-}
-
-label {
+.detail-labels {
   width: 75%;
 }
 
@@ -35,9 +43,30 @@ label {
   margin-bottom: 50px;
 }
 
+.form-title, .form-snippet, .search-tag {
+  margin-bottom: 50px;
+}
+
 .editRecipeForm i.fas.fa-utensil-spoon {
   padding-right: 15px;
   padding-bottom: 0px;
+}
+
+.ingredient-btn-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+}
+
+.add-ingredient-button {
+  display: inline-block;
+  margin: 20px;
+  border: 2px solid #ffa616;
+  color: #ffa616;
+}
+
+.recipe-submit-container{
+  margin-top: 30px;
 }
 
 #recipe-submit-btn {
@@ -48,4 +77,21 @@ label {
   height: 70px;
   width: 200px;
   border: none;
+}
+
+.st-search-input {
+  font-size: 25px;
+  font-weight: 200;
+}
+
+.form-dropdown{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.recipe-description {
+  resize: none;
 }

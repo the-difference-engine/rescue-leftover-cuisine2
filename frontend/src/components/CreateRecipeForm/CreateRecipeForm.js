@@ -30,7 +30,7 @@ const customStyles = {
   }),
 };
 
-const EditRecipeForm = ({ history }) => {
+const CreateRecipeForm = ({ history }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [difficulty, setDifficulty] = useState('ADVANCED');
@@ -123,7 +123,7 @@ const EditRecipeForm = ({ history }) => {
   };
 
   return (
-    <div className="editRecipeForm container-fluid">
+    <div className="createRecipeForm container-fluid">
       <div className="row form-recipe-label">
         <div className="form-title col-4 offset-4">
           <label className="detail-labels" htmlFor="title">
@@ -231,4 +231,4 @@ const EditRecipeForm = ({ history }) => {
   );
 };
 
-export default withRouter(EditRecipeForm);
+export default withRouter(CreateRecipeForm);

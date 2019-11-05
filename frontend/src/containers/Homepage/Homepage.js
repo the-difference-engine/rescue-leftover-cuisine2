@@ -19,8 +19,6 @@ const Homepage = ({ location, user, setJwt }) => {
     scrollToRef(myRef);
   };
 
-  console.log('isNil', isNil(user));
-
   return (
     <div className="homepage container-fluid ">
       <div className="row">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import EditRecipeForm from '../../components/EditRecipe/EditRecipeForm';
+import CreateRecipeForm from '../../components/CreateRecipeForm/CreateRecipeForm';
 import './CreateRecipe.css';
 
 const CreateRecipe = ({ user, setJwt }) => (
@@ -15,7 +15,7 @@ const CreateRecipe = ({ user, setJwt }) => (
     </div>
     <div className="row">
       <div className="edit-recipe-form">
-        <EditRecipeForm user={user} />
+        <CreateRecipeForm user={user} />
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import map from 'lodash/map';
-import './EditDirections.css';
+import './CreateDirections.css';
 
 const EditDirections = ({
   directions, setDirections,

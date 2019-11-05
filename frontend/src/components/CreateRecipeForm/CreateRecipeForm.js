@@ -7,8 +7,8 @@ import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
-import './EditRecipeForm.css';
-import EditDirections from './EditDirections/EditDirections';
+import './CreateRecipeForm.css';
+import CreateDirections from './CreateDirections/CreateDirections';
 import Ingredients from './Ingredients/Ingredients';
 
 const customStyles = {
@@ -214,7 +214,7 @@ const EditRecipeForm = ({ history }) => {
         setIngredients={setIngredients}
       />
       <div className="error-message">{ingredients.length <= 1 ? ingredientsError : ''}</div>
-      <EditDirections
+      <CreateDirections
         directions={directions}
         setDirections={setDirections}
       />

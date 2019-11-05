@@ -83,12 +83,12 @@ const EditRecipeForm = ({ history }) => {
     setSelectedTags(newTags);
   };
 
-  const refreshSelectedTags = (newTagTitle) => {
+  const refreshSelectedTags = (newTagData) => {
     setRefreshTags(true);
     const newSelectedTag = {
-      id: tags.length,
-      label: newTagTitle,
-      value: newTagTitle,
+      id: newTagData.id,
+      label: newTagData.title,
+      value: newTagData.title,
     };
     const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);

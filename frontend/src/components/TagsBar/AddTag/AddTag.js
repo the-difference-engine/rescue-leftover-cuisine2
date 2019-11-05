@@ -22,9 +22,9 @@ const AddTag = ({ refreshTags, allTags }) => {
     if (includes(allTagsTitle, newData.tag.value)) {
       setAlertVisible(true);
     } else {
-      createTag(newData.tag.value).then(() => {
+      createTag(newData.tag.value).then((response) => {
         setEditModal(false);
-        refreshTags(newData.tag.value);
+        refreshTags(response.data);
       });
     }
   };

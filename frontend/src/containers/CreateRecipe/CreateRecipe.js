@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import CreateRecipeForm from '../../components/CreateRecipeForm/CreateRecipeForm';
+import { getRecipe } from '../../lib/apiClient';
 import './CreateRecipe.css';
 
-const CreateRecipe = ({ user, setJwt }) => (
-  <div className="createRecipePage container-fluid">
-    <div className="row">
-      <div className="createRecipePage-header">
-        <Header showSearchBar user={user} setJwt={setJwt} />
+const CreateRecipe = ({ user, setJwt, match }) => {
+  const [heading, setHeading] = useState('Create Recipe');
+  const getHeading = (id) => {
+    if (id >= 0) {
+      getRecipe(id).then((response) => {
+        setHeading(`Editing ${response.data.title}`);
+      });
+    }
+    return heading;
+  };
+
+  return (
+    <div className="createRecipePage container-fluid">
+      <div className="row">
+        <div className="createRecipePage-header">
+          <Header showSearchBar user={user} setJwt={setJwt} />
+        </div>
+      </div>
+      <div className="row justify-content-md-center">
+        <h1 className="text-center">
+          {getHeading(match.params.id)}
+        </h1>
+      </div>
+      <div className="row">
+        <div className="edit-recipe-form">
+          <CreateRecipeForm user={user} id={match.params.id >= 0 ? match.params.id : null} />
+        </div>
       </div>
     </div>
-    <div className="row justify-content-md-center">
-      <h1 className="text-center">Create Recipe</h1>
-    </div>
-    <div className="row">
-      <div className="edit-recipe-form">
-        <CreateRecipeForm user={user} />
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export default CreateRecipe;

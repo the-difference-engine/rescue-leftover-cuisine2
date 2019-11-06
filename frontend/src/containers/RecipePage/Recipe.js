@@ -51,7 +51,7 @@ class Recipe extends Component {
   }
 
   render() {
-    const { user, setJwt } = this.props;
+    const { user, setJwt, history } = this.props;
     const {
       directions, title, ingredients, snippet, difficulty, duration, servings, photo, userId, tags,
       recipeId, comments,
@@ -64,14 +64,17 @@ class Recipe extends Component {
       });
     };
 
-    const renderButtons = () => (
-      <div>
-        <button className="btn navbar-btn btn-lg edit-button" type="button">
-          <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
-          <p id="edit-icon-text">Edit</p>
-        </button>
-      </div>
-    );
+    const renderButtons = () => {
+      const { match: { params: { id } } } = this.props;
+      return (
+        <div>
+          <button className="btn navbar-btn btn-lg edit-button" onClick={() => { history.push(`/recipe/${id}/edit`); }} type="button">
+            <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
+            <p id="edit-icon-text">Edit</p>
+          </button>
+        </div>
+      );
+    };
 
     const mealDifficulty = () => {
       if (difficulty === 'EASY') {

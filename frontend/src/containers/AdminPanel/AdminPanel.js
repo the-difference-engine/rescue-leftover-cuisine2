@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink, Button,
 } from 'reactstrap';
+import isNil from 'lodash/isNil';
 import { Helmet } from 'react-helmet';
+import { Redirect } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
@@ -68,6 +70,11 @@ class AdminPanel extends Component {
   render() {
     const { user, setJwt } = this.props;
     const { activeTab, recipes, users } = this.state;
+    const isAdmin = isNil(user) ? 'loadingPage' : user.is_admin;
+
+    if (!localStorage.jwt) return <Redirect to="/" />;
+    if (isAdmin === 'loadingPage') return null;
+    if (!isAdmin) return <Redirect to="/" />;
 
     return (
       <div className="admin-panel-container">

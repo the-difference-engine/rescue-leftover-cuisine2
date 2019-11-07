@@ -22,7 +22,7 @@ const Homepage = ({ location, user, setJwt }) => {
     <div className="homepage container-fluid ">
       <div className="row">
         <div className="header">
-          <Header user={user} setJwt={setJwt} />
+          <Header user={user} setJwt={setJwt} scrollDown={executeScroll} />
         </div>
       </div>
       <div className="row">

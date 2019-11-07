@@ -7,7 +7,7 @@ import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
 import './Header.css';
 
 const Header = ({
-  history, user, setJwt, showSearchBar,
+  history, user, setJwt, showSearchBar, scrollDown,
 }) => {
   const loginOrCreateButton = () => {
     if (user) {
@@ -37,7 +37,7 @@ const Header = ({
       {showSearchBar ? <SearchBar /> : null}
 
       <div className="d-inline-flex justify-content-lg-end align-items-center">
-        <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
+        <button className="btn navbar-btn btn-lg browseButton" onClick={() => { history.location.pathname !== '/' ? history.push('/') : scrollDown(); }} type="button">
           Browse Recipes
         </button>
 

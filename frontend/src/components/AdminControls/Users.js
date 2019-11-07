@@ -108,7 +108,7 @@ const Users = ({ users, refreshUsers }) => {
                   alt="edit"
                 />
               </button>
-              <button type="button" className="admin-suspend-button">
+              <button type="button" className="admin-suspend-button" onClick={toggleSuspendModal}>
                 <img
                   src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
                   alt="user currently suspended"

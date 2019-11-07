@@ -4,7 +4,7 @@ import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
-import { createRecipe, getTags } from '../../lib/apiClient';
+import { createRecipe, getTags, getRecipe } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './CreateRecipeForm.css';
@@ -30,7 +30,7 @@ const customStyles = {
   }),
 };
 
-const CreateRecipeForm = ({ history }) => {
+const CreateRecipeForm = ({ history, id }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [difficulty, setDifficulty] = useState('ADVANCED');
@@ -46,8 +46,25 @@ const CreateRecipeForm = ({ history }) => {
   const [descriptionError, setDescriptionError] = useState('');
   const [ingredientsError, setIngredientError] = useState('');
   const [directionsError, setDirectionsError] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
 
-
+  const handleTitleChange = (x) => {
+    setTitle(x);
+    setIsEditing(true);
+  };
+  const handleDescriptionChange = (x) => {
+    // console.log('checkvalue ', x, description);
+    setDescription(x);
+    setIsEditing(true);
+  };
+  useEffect(() => {
+    if (id && !isEditing) {
+      getRecipe(id).then((response) => {
+        setTitle(response.data.title);
+        setDescription(response.data.snippet);
+      });
+    }
+  });
   useEffect(() => {
     window.scrollTo(0, 0);
     if (refreshTags) {
@@ -121,21 +138,28 @@ const CreateRecipeForm = ({ history }) => {
     const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
-
   return (
     <div className="createRecipeForm container-fluid">
       <div className="row form-recipe-label">
         <div className="form-title col-4 offset-4">
           <label className="detail-labels" htmlFor="title">
             Recipe Title
+<<<<<<< HEAD
             <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} required />
+=======
+            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => handleTitleChange(e.target.value)} />
+>>>>>>> Description and title auto-populate when editing
           </label>
           <div className="error-message">{title ? '' : titleError}</div>
         </div>
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
+<<<<<<< HEAD
             <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} required />
+=======
+            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => handleDescriptionChange(e.target.value)} />
+>>>>>>> Description and title auto-populate when editing
           </label>
           <div className="error-message">{description ? '' : descriptionError}</div>
         </div>

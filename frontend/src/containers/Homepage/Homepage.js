@@ -45,8 +45,7 @@ const Homepage = ({ location, user, setJwt }) => {
             <div className="row">
               <BottomSignUp />
             </div>
-          )
-            : null
+          ) : null
           }
           <div className="row">
             <Footer />

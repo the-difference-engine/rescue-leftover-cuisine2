@@ -35,7 +35,7 @@ const customStyles = {
 const CreateRecipeForm = ({ history, id }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [difficulty, setDifficulty] = useState('ADVANCED');
+  const [difficulty, setDifficulty] = useState('');
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
   const [directions, setDirections] = useState(['']);
@@ -59,11 +59,16 @@ const CreateRecipeForm = ({ history, id }) => {
     setDescription(x);
     setIsEditing(true);
   };
+  const handleDifficultyChange = (x) => {
+    setDifficulty(x);
+    setIsEditing(true);
+  };
   useEffect(() => {
     if (id && !isEditing) {
       getRecipe(id).then((response) => {
         setTitle(response.data.title);
         setDescription(response.data.snippet);
+        setDifficulty(response.data.difficulty);
       });
     }
   });
@@ -110,7 +115,7 @@ const CreateRecipeForm = ({ history, id }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (validate()) {
-      if (id && !isEditing) {
+      if (!id) {
         createRecipe({
           title,
           description,
@@ -207,7 +212,7 @@ const CreateRecipeForm = ({ history, id }) => {
             <img className="recipe-detail-icons" src={barChart} alt="difficulty" />
             Difficulty
           </h2>
-          <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+          <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => handleDifficultyChange(e.target.value)}>
             <option>Advanced</option>
             <option>Medium</option>
             <option>Easy</option>

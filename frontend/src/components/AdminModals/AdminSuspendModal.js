@@ -27,6 +27,13 @@ function AdminSuspendModal(props) {
     </button>
   );
 
+  const toggleSuspendText = (isSuspended) => {
+    const textForSuspendedUser = 'Clicking "UnSuspend" will allow the user to logging into the app. The user will remain unsuspended until this status is removed by an administrator.If you do not wish to unsuspend the user, close this dialog box.';
+    const textForActiveUser = 'Clicking "Suspend" will prevent the user from logging into the app. The user will remain suspended until this status is removed by an administrator.If you do not wish to suspend the user, close this dialog box.';
+    if (isSuspended) return textForSuspendedUser;
+    return textForActiveUser;
+  };
+
   return (
     <div>
       <Modal className="suspend-user-modal" isOpen={suspendModal} toggleSuspendModal={toggleSuspendModal} backdrop={false}>
@@ -34,7 +41,7 @@ function AdminSuspendModal(props) {
           { selectedUser.is_suspended ? 'Unsuspend User?' : 'Suspend User?' }
         </ModalHeader>
         <ModalBody>
-          { selectedUser.is_suspended ? 'Clicking "UnSuspend" will allow the user to logging into the app. The user will remain unsuspended until this status is removed by an administrator.If you do not wish to unsuspend the user, close this dialog box.' : 'Clicking "Suspended" will prevent the user from logging into the app. The user will remain suspended until this status is removed by an administrator.If you do not wish to suspend the user, close this dialog box.' }
+          { toggleSuspendText(selectedUser.is_suspended) }
         </ModalBody>
         <ModalFooter>
           <Button className="suspend-user-save-button" color="primary" onClick={toggleSuspend}>

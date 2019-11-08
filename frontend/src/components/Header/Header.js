@@ -40,7 +40,7 @@ const Header = ({
       {showSearchBar ? <SearchBar /> : null}
 
       <div className="d-inline-flex justify-content-lg-end align-items-center">
-        <button className="btn navbar-btn btn-lg browseButton" onClick={ handleClick} type="button">
+        <button className="btn navbar-btn btn-lg browseButton" onClick={ handleClick } type="button">
           Browse Recipes
         </button>
 

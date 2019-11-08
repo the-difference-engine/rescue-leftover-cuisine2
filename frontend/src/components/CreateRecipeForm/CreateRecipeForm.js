@@ -243,11 +243,17 @@ const CreateRecipeForm = ({ history, id }) => {
       <Ingredients
         ingredients={ingredients}
         setIngredients={setIngredients}
+        id={id}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
       />
       <div className="error-message">{ingredients.length <= 1 ? ingredientsError : ''}</div>
       <CreateDirections
         directions={directions}
         setDirections={setDirections}
+        id={id}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
       />
       <div className="error-message">{directions.length <= 1 ? directionsError : ''}</div>
       <div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
@@ -75,6 +75,10 @@ const ProfilePage = ({
       user_id: 1,
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 
   let activeTab = '';
 

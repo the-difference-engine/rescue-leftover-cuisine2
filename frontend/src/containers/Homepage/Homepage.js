@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import querystring from 'querystring';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -12,17 +12,24 @@ const Homepage = ({ location, user, setJwt }) => {
   const searchTerm = parsed.q;
 
   const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
+  const scrollToTop = () => window.scrollTo(0, 0);
+
 
   const myRef = useRef(null);
+
   const executeScroll = () => {
-    scrollToRef(myRef);
+      scrollToRef(myRef);
   };
 
+  useEffect(() => {
+    scrollToTop();
+}, []);
+
   return (
-    <div className="homepage container-fluid ">
+    <div className="homepage container-fluid">
       <div className="row">
         <div className="header">
-          <Header user={user} setJwt={setJwt} scrollDown={executeScroll} />
+          <Header user={user} setJwt={setJwt} scrollToRecipes={executeScroll} />
         </div>
       </div>
       <div className="row">

@@ -7,11 +7,11 @@ import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
 import './Header.css';
 
 const Header = ({
-  history, user, setJwt, showSearchBar, scrollDown,
+  history, user, setJwt, showSearchBar, scrollToRecipes,
 }) => {
-  const handleClick = () => {
-    history.location.pathname !== '/' ? history.push('/') : scrollDown();
-  }
+  const handleBrowseButton = () => {
+    history.location.pathname !== '/' ? history.push('/') : scrollToRecipes();
+  };
   const loginOrCreateButton = () => {
     if (user) {
       return (
@@ -40,7 +40,7 @@ const Header = ({
       {showSearchBar ? <SearchBar /> : null}
 
       <div className="d-inline-flex justify-content-lg-end align-items-center">
-        <button className="btn navbar-btn btn-lg browseButton" onClick={ handleClick } type="button">
+        <button className="btn navbar-btn btn-lg browseButton" onClick={handleBrowseButton} type="button">
           Browse Recipes
         </button>
 

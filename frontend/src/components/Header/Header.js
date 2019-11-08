@@ -9,6 +9,9 @@ import './Header.css';
 const Header = ({
   history, user, setJwt, showSearchBar, scrollDown,
 }) => {
+  const handleClick = () => {
+    history.location.pathname !== '/' ? history.push('/') : scrollDown();
+  }
   const loginOrCreateButton = () => {
     if (user) {
       return (
@@ -37,7 +40,7 @@ const Header = ({
       {showSearchBar ? <SearchBar /> : null}
 
       <div className="d-inline-flex justify-content-lg-end align-items-center">
-        <button className="btn navbar-btn btn-lg browseButton" onClick={() => { history.location.pathname !== '/' ? history.push('/') : scrollDown(); }} type="button">
+        <button className="btn navbar-btn btn-lg browseButton" onClick={ handleClick} type="button">
           Browse Recipes
         </button>
 

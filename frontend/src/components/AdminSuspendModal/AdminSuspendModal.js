@@ -10,7 +10,7 @@ function AdminSuspendModal(props) {
     toggleSuspendModal, suspendModal, selectedUser, refreshUsers,
   } = props;
 
-  const handleSuspend = () => {
+  const toggleSuspend = () => {
     suspendUser(selectedUser.id, !selectedUser.is_suspended).then(() => {
       toggleSuspendModal();
       refreshUsers();
@@ -37,7 +37,7 @@ function AdminSuspendModal(props) {
           { selectedUser.is_suspended ? 'Clicking "UnSuspend" will allow the user to logging into the app. The user will remain unsuspended until this status is removed by an administrator.If you do not wish to unsuspend the user, close this dialog box.' : 'Clicking "Suspended" will prevent the user from logging into the app. The user will remain suspended until this status is removed by an administrator.If you do not wish to suspend the user, close this dialog box.' }
         </ModalBody>
         <ModalFooter>
-          <Button className="suspend-user-save-button" color="primary" onClick={handleSuspend}>
+          <Button className="suspend-user-save-button" color="primary" onClick={toggleSuspend}>
             { selectedUser.is_suspended ? 'Unsuspend' : 'Suspend' }
           </Button>
         </ModalFooter>

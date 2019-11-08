@@ -12,18 +12,19 @@ const CreateRecipe = ({ user, setJwt, match }) => {
     if (match.params.id && !isEditing) {
       getRecipe(match.params.id).then((response) => {
         setCurrentRecipe(response.data);
+        setHeading(`Editing ${response.data.title}`);
         setIsEditing(true);
       });
     }
   });
-  const getHeading = (id) => {
-    if (id >= 0) {
-      getRecipe(id).then((response) => {
-        setHeading(`Editing ${response.data.title}`);
-      });
-    }
-    return heading;
-  };
+  // const getHeading = (id) => {
+  //   if (id >= 0) {
+  //     getRecipe(id).then((response) => {
+  //       setHeading(`Editing ${response.data.title}`);
+  //     });
+  //   }
+  //   return heading;
+  // };
 
   return (
     <div className="createRecipePage container-fluid">
@@ -34,7 +35,7 @@ const CreateRecipe = ({ user, setJwt, match }) => {
       </div>
       <div className="row justify-content-md-center">
         <h1 className="text-center">
-          {getHeading(match.params.id)}
+          {heading}
         </h1>
       </div>
       <div className="row">

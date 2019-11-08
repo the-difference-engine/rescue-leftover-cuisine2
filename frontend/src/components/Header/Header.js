@@ -10,7 +10,11 @@ const Header = ({
   history, user, setJwt, showSearchBar, scrollToRecipes,
 }) => {
   const handleBrowseButton = () => {
-    history.location.pathname !== '/' ? history.push('/') : scrollToRecipes();
+    if (history.location.pathname !== '/') {
+      history.push('/');
+    } else {
+      scrollToRecipes();
+    }
   };
   const loginOrCreateButton = () => {
     if (user) {

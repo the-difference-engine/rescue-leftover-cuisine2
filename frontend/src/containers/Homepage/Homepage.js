@@ -12,18 +12,17 @@ const Homepage = ({ location, user, setJwt }) => {
   const searchTerm = parsed.q;
 
   const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
-  const scrollToTop = () => window.scrollTo(0, 0);
 
 
   const myRef = useRef(null);
 
   const executeScroll = () => {
-      scrollToRef(myRef);
+    scrollToRef(myRef);
   };
 
   useEffect(() => {
-    scrollToTop();
-}, []);
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="homepage container-fluid">

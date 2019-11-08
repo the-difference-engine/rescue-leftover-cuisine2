@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import CreateRecipeForm from '../../components/CreateRecipeForm/CreateRecipeForm';
 import { getRecipe } from '../../lib/apiClient';
@@ -6,6 +6,16 @@ import './CreateRecipe.css';
 
 const CreateRecipe = ({ user, setJwt, match }) => {
   const [heading, setHeading] = useState('Create Recipe');
+  const [currentRecipe, setCurrentRecipe] = useState();
+  const [isEditing, setIsEditing] = useState(false);
+  useEffect(() => {
+    if (match.params.id && !isEditing) {
+      getRecipe(match.params.id).then((response) => {
+        setCurrentRecipe(response.data);
+        setIsEditing(true);
+      });
+    }
+  });
   const getHeading = (id) => {
     if (id >= 0) {
       getRecipe(id).then((response) => {
@@ -29,7 +39,10 @@ const CreateRecipe = ({ user, setJwt, match }) => {
       </div>
       <div className="row">
         <div className="edit-recipe-form">
-          <CreateRecipeForm user={user} id={match.params.id >= 0 ? match.params.id : null} />
+          <CreateRecipeForm
+            user={user}
+            currentRecipe={match.params.id >= 0 ? currentRecipe : null}
+          />
         </div>
       </div>
     </div>

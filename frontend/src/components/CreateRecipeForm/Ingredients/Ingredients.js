@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react';
 import map from 'lodash/map';
-import { getRecipe } from '../../../lib/apiClient';
 import './ingredients.css';
 
 const Ingredients = ({
   ingredients,
   setIngredients,
-  id,
+  currentRecipe,
   isEditing,
   setIsEditing,
 }) => {
   useEffect(() => {
-    if (id && !isEditing) {
-      getRecipe(id).then((response) => {
-        setIngredients(response.data.ingredients);
-      });
+    if (currentRecipe && !isEditing) {
+      setIngredients(currentRecipe.ingredients);
       setIsEditing(true);
     }
   });

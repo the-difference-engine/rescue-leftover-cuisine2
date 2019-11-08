@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
 import {
-  createRecipe, editRecipe, getTags, getRecipe,
+  createRecipe, editRecipe, getTags,
 } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
@@ -32,7 +32,7 @@ const customStyles = {
   }),
 };
 
-const CreateRecipeForm = ({ history, id }) => {
+const CreateRecipeForm = ({ history, currentRecipe }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [difficulty, setDifficulty] = useState('');
@@ -64,12 +64,10 @@ const CreateRecipeForm = ({ history, id }) => {
     setIsEditing(true);
   };
   useEffect(() => {
-    if (id && !isEditing) {
-      getRecipe(id).then((response) => {
-        setTitle(response.data.title);
-        setDescription(response.data.snippet);
-        setDifficulty(response.data.difficulty);
-      });
+    if (currentRecipe && !isEditing) {
+      setTitle(currentRecipe.title);
+      setDescription(currentRecipe.snippet);
+      setDifficulty(currentRecipe.difficulty);
     }
   });
   useEffect(() => {
@@ -115,7 +113,7 @@ const CreateRecipeForm = ({ history, id }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (validate()) {
-      if (!id) {
+      if (!currentRecipe) {
         createRecipe({
           title,
           description,
@@ -136,7 +134,7 @@ const CreateRecipeForm = ({ history, id }) => {
           tags: selectedTagsWithId,
           directions,
           ingredients,
-        }, id).then(() => { history.push(`/recipe/${id}`); });
+        }, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
       }
     }
   };
@@ -248,7 +246,7 @@ const CreateRecipeForm = ({ history, id }) => {
       <Ingredients
         ingredients={ingredients}
         setIngredients={setIngredients}
-        id={id}
+        currentRecipe={currentRecipe}
         isEditing={isEditing}
         setIsEditing={setIsEditing}
       />
@@ -256,7 +254,7 @@ const CreateRecipeForm = ({ history, id }) => {
       <CreateDirections
         directions={directions}
         setDirections={setDirections}
-        id={id}
+        currentRecipe={currentRecipe}
         isEditing={isEditing}
         setIsEditing={setIsEditing}
       />

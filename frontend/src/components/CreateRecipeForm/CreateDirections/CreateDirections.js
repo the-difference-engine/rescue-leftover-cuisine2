@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
 import map from 'lodash/map';
-import { getRecipe } from '../../../lib/apiClient';
 import './CreateDirections.css';
 
 const EditDirections = ({
-  directions, setDirections, id, isEditing, setIsEditing,
+  directions, setDirections, currentRecipe, isEditing, setIsEditing,
 }) => {
   useEffect(() => {
-    if (id && !isEditing) {
-      getRecipe(id).then((response) => {
-        setDirections(response.data.directions);
-      });
+    if (currentRecipe && !isEditing) {
+      setDirections(currentRecipe.directions);
       setIsEditing(true);
     }
   });

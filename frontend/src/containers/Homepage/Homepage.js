@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import querystring from 'querystring';
+import isNil from 'lodash/isNil';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainSearch from '../../components/MainSearch/MainSearch';
@@ -40,9 +41,12 @@ const Homepage = ({ location, user, setJwt }) => {
           <div className="row">
             <RecipeSearchList searchTerm={searchTerm} />
           </div>
-          <div className="row">
-            <BottomSignUp />
-          </div>
+          { isNil(user) ? (
+            <div className="row">
+              <BottomSignUp />
+            </div>
+          ) : null
+          }
           <div className="row">
             <Footer />
           </div>

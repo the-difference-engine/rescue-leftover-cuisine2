@@ -124,20 +124,6 @@ function UserInfo({ user, setUser }) {
               {' '}
               {userCreated}
             </p>
-            <div className="user-bio">
-              <button type="button" className="user-edit-button">
-                <img
-                  src="https://img.icons8.com/windows/32/000000/edit.png"
-                  alt="edit"
-                />
-              </button>
-              <p>
-                {'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '}
-                {'Nam sed varius diam, non egestas sapien. Phasellus a molestie augue, sit amet accumsan lectus. '}
-                {'Duis vel nulla viverra, semper diam non, eleifend sem. '}
-                {'Cras mattis sem nec nisl consectetur at posuere nulla aliquet.'}
-              </p>
-            </div>
           </div>
         </div>
       </div>

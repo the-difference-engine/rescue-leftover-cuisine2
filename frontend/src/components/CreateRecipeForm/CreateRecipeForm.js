@@ -4,7 +4,9 @@ import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
-import { createRecipe, getTags, getRecipe } from '../../lib/apiClient';
+import {
+  createRecipe, editRecipe, getTags, getRecipe,
+} from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './CreateRecipeForm.css';
@@ -108,16 +110,29 @@ const CreateRecipeForm = ({ history, id }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (validate()) {
-      createRecipe({
-        title,
-        description,
-        difficulty,
-        duration: parsedDuration,
-        servings: parsedServings,
-        tags: selectedTagsWithId,
-        directions,
-        ingredients,
-      }).then(response => history.push(`/recipe/${response.data.id}`));
+      if (id && !isEditing) {
+        createRecipe({
+          title,
+          description,
+          difficulty,
+          duration: parsedDuration,
+          servings: parsedServings,
+          tags: selectedTagsWithId,
+          directions,
+          ingredients,
+        }).then(response => history.push(`/recipe/${response.data.id}`));
+      } else {
+        editRecipe({
+          title,
+          description,
+          difficulty,
+          duration: parsedDuration,
+          servings: parsedServings,
+          tags: selectedTagsWithId,
+          directions,
+          ingredients,
+        }, id).then(() => { history.push(`/recipe/${id}`); });
+      }
     }
   };
 
@@ -144,22 +159,14 @@ const CreateRecipeForm = ({ history, id }) => {
         <div className="form-title col-4 offset-4">
           <label className="detail-labels" htmlFor="title">
             Recipe Title
-<<<<<<< HEAD
-            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} required />
-=======
-            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => handleTitleChange(e.target.value)} />
->>>>>>> Description and title auto-populate when editing
+            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => handleTitleChange(e.target.value)} required />
           </label>
           <div className="error-message">{title ? '' : titleError}</div>
         </div>
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
-<<<<<<< HEAD
-            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} required />
-=======
-            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => handleDescriptionChange(e.target.value)} />
->>>>>>> Description and title auto-populate when editing
+            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => handleDescriptionChange(e.target.value)} required />
           </label>
           <div className="error-message">{description ? '' : descriptionError}</div>
         </div>

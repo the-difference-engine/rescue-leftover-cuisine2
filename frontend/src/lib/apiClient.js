@@ -95,6 +95,9 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
     difficulty: recipe.difficulty,
     duration: recipe.duration,
     servings: recipe.servings,
+    tags: recipe.tags,
+    ingredients: recipe.ingredients,
+    directions: recipe.directions,
   },
 }, {
   headers: {
@@ -108,6 +111,19 @@ const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${re
   comment: {
     body: comment,
   },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
+// TAGS
+
+const getTags = () => apiClient.get('/api/v1/tags')
+  .then(results => results.data);
+
+const createTag = title => apiClient.post('/api/v1/tags', {
+  tag: { title },
 }, {
   headers: {
     Authorization: localStorage.jwt,
@@ -153,6 +169,8 @@ export {
   getRecipes,
   getRecipe,
   createRecipe,
+  getTags,
+  createTag,
   adminEditUser,
   resetPassword,
   resetCurrentUserPassword,

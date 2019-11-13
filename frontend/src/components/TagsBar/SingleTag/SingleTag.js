@@ -1,9 +1,15 @@
 import React from 'react';
 import './SingleTag.css';
 
-const SingleTag = ({ tag }) => (
-  <div className="single-tag">
-    {tag}
+const SingleTag = ({ tag, deleteSelectedTag, showDeleteButton }) => (
+  <div>
+    <div className="single-tag">
+      <div className="tag-name">{tag}</div>
+      {showDeleteButton
+        ? <div className="delete-tag" onClick={() => deleteSelectedTag(tag)}>x</div>
+        : null
+      }
+    </div>
   </div>
 );
 

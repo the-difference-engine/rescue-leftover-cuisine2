@@ -3,7 +3,7 @@ class Api::V1::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by!(id: params[:id])
-    render json: @recipe, :include => [{comments: {include: :user }}]
+    render json: @recipe, :include => [{comments: {include: :user }}, :tags]
   end
 
   def index
@@ -16,14 +16,21 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    rp = recipe_params
+    tags = rp.delete(:tags)
+
+    @recipe = Recipe.new(rp)
+    tags.each do |tag|
+      @recipe.tags << Tag.find(tag[:id])
+    end
+
     @recipe.user = current_user
     @recipe.save
     render json: @recipe
   end
 
   def recipe_params
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings )
+   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
   end
 
 end

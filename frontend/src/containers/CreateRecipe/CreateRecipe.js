@@ -14,18 +14,10 @@ const CreateRecipe = ({ user, setJwt, match }) => {
         setCurrentRecipe(response.data);
         setHeading(`Editing ${response.data.title}`);
         setIsEditing(true);
+        // console.log(currentRecipe);
       });
     }
   });
-  // const getHeading = (id) => {
-  //   if (id >= 0) {
-  //     getRecipe(id).then((response) => {
-  //       setHeading(`Editing ${response.data.title}`);
-  //     });
-  //   }
-  //   return heading;
-  // };
-
   return (
     <div className="createRecipePage container-fluid">
       <div className="row">

@@ -35,7 +35,7 @@ const customStyles = {
 const CreateRecipeForm = ({ history, currentRecipe }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [difficulty, setDifficulty] = useState('');
+  const [difficulty, setDifficulty] = useState('ADVANCED');
   const [duration, setDuration] = useState('30 mins');
   const [servings, setServings] = useState('2');
   const [directions, setDirections] = useState(['']);

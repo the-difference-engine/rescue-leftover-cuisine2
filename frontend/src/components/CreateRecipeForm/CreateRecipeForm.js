@@ -210,8 +210,8 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       </div>
       <div className="row">
         <div className="dropdown col-2 offset-3 form-dropdown ">
+          <h2><img className="recipe-detail-icons barchart" src={barChart} alt="difficulty" /></h2>
           <h2 className="dropdown-headings">
-            <img className="recipe-detail-icons" src={barChart} alt="difficulty" />
             Difficulty
           </h2>
           <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => handleDifficultyChange(e.target.value)}>
@@ -221,8 +221,8 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
           </select>
         </div>
         <div className="dropdown col-2 form-dropdown">
+          <h2><i className="recipe-detail-icons fas fa-clock" /></h2>
           <h2 className="dropdown-headings">
-            <i className="recipe-detail-icons fas fa-clock" />
             Duration
           </h2>
           <select className="recipe-details detail-selection" name="duration" value={duration} onChange={e => setDuration(e.target.value)}>
@@ -233,8 +233,8 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
           </select>
         </div>
         <div className="dropdown col-2 form-dropdown">
+          <h2><i className="recipe-detail-icons fas fa-utensil-spoon" /></h2>
           <h2 className="dropdown-headings">
-            <i className="recipe-detail-icons fas fa-utensil-spoon" />
             Servings
           </h2>
           <select className="recipe-details detail-selection" name="servings" value={servings} onChange={e => setServings(e.target.value)}>

@@ -68,6 +68,10 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setTitle(currentRecipe.title);
       setDescription(currentRecipe.snippet);
       setDifficulty(currentRecipe.difficulty);
+      setSelectedTagsWithId(currentRecipe.tags);
+      setDuration(`${currentRecipe.duration} minutes`);
+      setServings(currentRecipe.servings);
+      // console.log(currentRecipe);
     }
   });
   useEffect(() => {

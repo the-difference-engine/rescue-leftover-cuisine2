@@ -21,6 +21,7 @@ class AdminPanel extends Component {
       activeTab: 'recipes',
       recipes: [],
       users: [],
+      render: false,
     };
 
     this.toggle = this.toggle.bind(this);
@@ -38,6 +39,10 @@ class AdminPanel extends Component {
         users: this.createFullName(data),
       });
     });
+
+    setTimeout(() => {
+      this.setState({ render: true });
+    }, 2000);
   }
 
   refreshUsers = () => {
@@ -69,65 +74,71 @@ class AdminPanel extends Component {
 
   render() {
     const { user, setJwt } = this.props;
-    const { activeTab, recipes, users } = this.state;
-    const isAdmin = isNil(user) ? 'loadingPage' : user.is_admin;
+    const {
+      activeTab, recipes, users, render,
+    } = this.state;
+    let renderContainer = false;
+    if (render) {
+      if (isNil(user)) renderContainer = <Redirect to="/" />;
+      if (!isNil(user)) {
+        renderContainer = !user.is_admin ? <Redirect to="/" />
+          : (
+            <div className="admin-panel-container">
+              <Helmet>
+                <title>Admin</title>
+                <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
+              </Helmet>
 
-    if (!localStorage.jwt) return <Redirect to="/" />;
-    if (isAdmin === 'loadingPage') return null;
-    if (!isAdmin) return <Redirect to="/" />;
-
+              <div className="admin-header">
+                <Header showSearchBar user={user} setJwt={setJwt} />
+              </div>
+              <Nav tabs>
+                <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
+                  <NavLink
+                    className={activeTab === 'recipes' ? 'recipes' : ''}
+                    onClick={() => {
+                      this.toggle('recipes');
+                    }}
+                  >
+                    All Recipes
+                  </NavLink>
+                </NavItem>
+                <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
+                  <NavLink
+                    className={activeTab === 'users' ? 'users' : ''}
+                    onClick={() => {
+                      this.toggle('users');
+                    }}
+                  >
+                    All Members
+                  </NavLink>
+                </NavItem>
+                {activeTab === 'recipes' && (
+                <Button className="admin-add-button" size="lg">
+                    Add Recipe
+                </Button>
+                )}
+                {activeTab === 'users' && (
+                <Button className="admin-add-button" size="lg">
+                    Add Member
+                </Button>
+                )}
+              </Nav>
+              <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
+                <TabPane tabId="recipes" className="table">
+                  <Recipes recipes={recipes} />
+                </TabPane>
+                <TabPane tabId="users" className="table">
+                  <Users users={users} refreshUsers={this.refreshUsers} />
+                </TabPane>
+              </TabContent>
+              <Footer />
+            </div>
+          );
+      }
+    }
     return (
-      <div className="admin-panel-container">
-        <Helmet>
-          <title>Admin</title>
-          <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
-        </Helmet>
-
-        <div className="admin-header">
-          <Header showSearchBar user={user} setJwt={setJwt} />
-        </div>
-        <Nav tabs>
-          <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
-            <NavLink
-              className={activeTab === 'recipes' ? 'recipes' : ''}
-              onClick={() => {
-                this.toggle('recipes');
-              }}
-            >
-              All Recipes
-            </NavLink>
-          </NavItem>
-          <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
-            <NavLink
-              className={activeTab === 'users' ? 'users' : ''}
-              onClick={() => {
-                this.toggle('users');
-              }}
-            >
-              All Members
-            </NavLink>
-          </NavItem>
-          {activeTab === 'recipes' && (
-            <Button className="admin-add-button" size="lg">
-              Add Recipe
-            </Button>
-          )}
-          {activeTab === 'users' && (
-            <Button className="admin-add-button" size="lg">
-              Add Member
-            </Button>
-          )}
-        </Nav>
-        <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
-          <TabPane tabId="recipes" className="table">
-            <Recipes recipes={recipes} />
-          </TabPane>
-          <TabPane tabId="users" className="table">
-            <Users users={users} refreshUsers={this.refreshUsers} />
-          </TabPane>
-        </TabContent>
-        <Footer />
-      </div>
+      renderContainer
     );
   }
 }

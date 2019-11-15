@@ -46,6 +46,7 @@ const EditRecipeForm = ({ history }) => {
   const [descriptionError, setDescriptionError] = useState('');
   const [ingredientsError, setIngredientError] = useState('');
   const [directionsError, setDirectionsError] = useState('');
+  console.log(directions.length);
 
 
   useEffect(() => {
@@ -69,13 +70,13 @@ const EditRecipeForm = ({ history }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (!title) {
-      setTitleError('Must enter title');
+      setTitleError('Title cannot be blank');
     } if (!description) {
       setDescriptionError('Description cannot be blank');
-    } else if (ingredients.length <= 1) {
-      setIngredientError('Must have 1 ingredient');
-    } else if (directions.length <= 1) {
-      setDirectionsError('Please enter at least 1 set of directions');
+    } if (ingredients.length <= 1) {
+      setIngredientError('ingredients cannot be blank');
+    } if (directions.length <= 1) {
+      setDirectionsError('directions cannot be blank');
     } else {
       createRecipe({
         title,
@@ -199,12 +200,12 @@ const EditRecipeForm = ({ history }) => {
         ingredients={ingredients}
         setIngredients={setIngredients}
       />
-      <div className="errorMsg">{ingredients.length >= 1 ? '' : ingredientsError}</div>
+      <div className="errorMsg">{ingredients.length <= 1 ? ingredientsError : ''}</div>
       <EditDirections
         directions={directions}
         setDirections={setDirections}
       />
-      <div className="errorMsg">{directions.length >= 1 ? '' : directionsError}</div>
+      <div className="errorMsg">{directions.length <= 1 ? directionsError : ''}</div>
       <div>
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

@@ -77,69 +77,65 @@ class AdminPanel extends Component {
     const {
       activeTab, recipes, users, render,
     } = this.state;
-    let renderContainer = false;
     if (render) {
-      if (isNil(user)) renderContainer = <Redirect to="/" />;
+      if (isNil(user)) return (<Redirect to="/" />);
+      if (!user.is_admin) return (<Redirect to="/" />);
       if (!isNil(user)) {
-        renderContainer = !user.is_admin ? <Redirect to="/" />
-          : (
-            <div className="admin-panel-container">
-              <Helmet>
-                <title>Admin</title>
-                <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
-              </Helmet>
-
-              <div className="admin-header">
-                <Header showSearchBar user={user} setJwt={setJwt} />
-              </div>
-              <Nav tabs>
-                <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
-                  <NavLink
-                    className={activeTab === 'recipes' ? 'recipes' : ''}
-                    onClick={() => {
-                      this.toggle('recipes');
-                    }}
-                  >
+        return (
+          <div className="admin-panel-container">
+            <Helmet>
+              <title>Admin</title>
+              <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
+            </Helmet>
+            <div className="admin-header">
+              <Header showSearchBar user={user} setJwt={setJwt} />
+            </div>
+            <Nav tabs>
+              <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
+                <NavLink
+                  className={activeTab === 'recipes' ? 'recipes' : ''}
+                  onClick={() => {
+                    this.toggle('recipes');
+                  }}
+                >
                     All Recipes
-                  </NavLink>
-                </NavItem>
-                <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
-                  <NavLink
-                    className={activeTab === 'users' ? 'users' : ''}
-                    onClick={() => {
-                      this.toggle('users');
-                    }}
-                  >
+                </NavLink>
+              </NavItem>
+              <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
+                <NavLink
+                  className={activeTab === 'users' ? 'users' : ''}
+                  onClick={() => {
+                    this.toggle('users');
+                  }}
+                >
                     All Members
-                  </NavLink>
-                </NavItem>
-                {activeTab === 'recipes' && (
+                </NavLink>
+              </NavItem>
+              {activeTab === 'recipes' && (
                 <Button className="admin-add-button" size="lg">
                     Add Recipe
                 </Button>
-                )}
-                {activeTab === 'users' && (
+              )}
+              {activeTab === 'users' && (
                 <Button className="admin-add-button" size="lg">
                     Add Member
                 </Button>
-                )}
-              </Nav>
-              <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
-                <TabPane tabId="recipes" className="table">
-                  <Recipes recipes={recipes} />
-                </TabPane>
-                <TabPane tabId="users" className="table">
-                  <Users users={users} refreshUsers={this.refreshUsers} />
-                </TabPane>
-              </TabContent>
-              <Footer />
-            </div>
-          );
+              )}
+            </Nav>
+            <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
+              <TabPane tabId="recipes" className="table">
+                <Recipes recipes={recipes} />
+              </TabPane>
+              <TabPane tabId="users" className="table">
+                <Users users={users} refreshUsers={this.refreshUsers} />
+              </TabPane>
+            </TabContent>
+            <Footer />
+          </div>
+        );
       }
     }
-    return (
-      renderContainer
-    );
+    return null;
   }
 }
 

@@ -78,7 +78,7 @@ class AdminPanel extends Component {
       activeTab, recipes, users, render,
     } = this.state;
     if (render) {
-      if (isNil(user)) return (<Redirect to="/" />);
+      if (isNil(user)) return (<Redirect to="/login" />);
       if (!user.is_admin) return (<Redirect to="/" />);
       if (!isNil(user)) {
         return (

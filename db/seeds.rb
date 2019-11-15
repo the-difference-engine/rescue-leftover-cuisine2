@@ -11,7 +11,7 @@ User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmati
 User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Joe", last_name: "Domain", confirmed_at: Time.now)
 User.create(email: "vespucci@domain.com", password: "Vespucci@RLC123", password_confirmation: "Vespucci@RLC123", username: "Vespucci@RLC",first_name: "Vespucci", last_name: "Domain", confirmed_at: Time.now, is_suspended: true)
 
-recipe = Recipe.create(
+recipe1 = Recipe.create(
   title: "Cauliflower Salad",
   snippet: "Soul-satisfying despite its healthy ingredients, this salad sings",
   meal: "DINNER",
@@ -24,7 +24,7 @@ recipe = Recipe.create(
   user_id: 1
 )
 
-Recipe.create(
+recipe2 = Recipe.create(
   title: "Easiest Chicken Curry",
   snippet: "Exploding with flavor, but doable on a weeknight",
   meal: "DINNER",
@@ -37,7 +37,7 @@ Recipe.create(
   user_id: 2,
 )
 
-Recipe.create(
+recipe3 = Recipe.create(
   title: "Deviled Eggs",
   snippet: "Everyone's favorite party snack!",
   meal: "SNACK",
@@ -50,7 +50,7 @@ Recipe.create(
   user_id: 1
 )
 
-Recipe.create(
+recipe4 = Recipe.create(
   title: "Eggs Poached in Marinara",
   snippet: "This simple recipe will make you want to wake up early",
   meal: "BREAKFAST",
@@ -63,7 +63,7 @@ Recipe.create(
   user_id: 2
 )
 
-Recipe.create(
+recipe5 = Recipe.create(
   title: "Fettucine with Zucchini",
   snippet: "This pasta is sure to be a hit with vegetarians",
   meal: "DINNER",
@@ -157,7 +157,11 @@ snack = Tag.create(
  title: "Snack"
 )
 
-recipe.tags = [breakfast, lunch, snack]
+recipe1.tags = [breakfast, lunch, snack]
+recipe2.tags = [lunch, dinner, snack]
+recipe3.tags = [breakfast, snack]
+recipe4.tags = [snack, lunch, dinner]
+recipe5.tags = [breakfast, lunch, dinner, snack]
 
 Comment.create(
   body: "This is a test comment",

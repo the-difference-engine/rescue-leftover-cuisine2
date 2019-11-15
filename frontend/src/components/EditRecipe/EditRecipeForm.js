@@ -44,6 +44,7 @@ const EditRecipeForm = ({ history }) => {
   const [ingredients, setIngredients] = useState(['']);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (refreshTags) {
       getTags().then((data) => {
         setTags(data);

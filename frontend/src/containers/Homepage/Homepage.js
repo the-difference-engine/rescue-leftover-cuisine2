@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import querystring from 'querystring';
 import isNil from 'lodash/isNil';
 import Header from '../../components/Header/Header';
@@ -14,16 +14,22 @@ const Homepage = ({ location, user, setJwt }) => {
 
   const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
 
+
   const myRef = useRef(null);
+
   const executeScroll = () => {
     scrollToRef(myRef);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="homepage container-fluid ">
+    <div className="homepage container-fluid">
       <div className="row">
         <div className="header">
-          <Header user={user} setJwt={setJwt} />
+          <Header user={user} setJwt={setJwt} scrollToRecipes={executeScroll} />
         </div>
       </div>
       <div className="row">

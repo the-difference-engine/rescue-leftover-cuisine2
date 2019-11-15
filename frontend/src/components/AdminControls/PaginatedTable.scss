@@ -1,0 +1,29 @@
+.paginated-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    thead, tbody {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      tr {
+        display: flex;
+        width: 100%;
+
+        // TODO: Hide last column for mobile;
+        th, td {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

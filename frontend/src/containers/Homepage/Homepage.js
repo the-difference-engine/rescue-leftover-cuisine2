@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import MainSearch from '../../components/MainSearch/MainSearch';
 import RecipeSearchList from '../../components/RecipeSearchList/RecipeSearchList';
 import BottomSignUp from '../../components/BottomSignUp/BottomSignUp';
-import './Homepage.css';
+import './Homepage.scss';
 
 const Homepage = ({ location, user, setJwt }) => {
   const parsed = querystring.parse(location.search.slice(1)); // don't parse the question mark

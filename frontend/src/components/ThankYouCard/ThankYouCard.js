@@ -1,6 +1,6 @@
 import React from 'react';
 import Checkmark from '../../assets/checkmark-icon.png';
-import './ThankYouCard.css';
+import './ThankYouCard.scss';
 
 const ThankYouCard = () => (
   <div className="auth-card">

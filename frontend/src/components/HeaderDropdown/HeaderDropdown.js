@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import {
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
 } from 'reactstrap';
-import './HeaderDropdown.css';
+import './HeaderDropdown.scss';
 import defaultPic from '../../assets/default-profile-pic.png';
 import { endSession } from '../../lib/apiClient';
 

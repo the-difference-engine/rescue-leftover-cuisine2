@@ -7,7 +7,7 @@ import trim from 'lodash/trim';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './SearchLozenge.css';
+import './SearchLozenge.scss';
 
 const SearchLozenge = ({ history, searchTerm }) => {
   const lozenges = split(searchTerm, ' ');

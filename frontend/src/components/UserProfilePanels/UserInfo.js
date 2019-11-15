@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import trim from 'lodash/trim';
 import profilePic from '../../assets/profilePic.PNG';
-import './UserInfo.css';
+import './UserInfo.scss';
 import { editCurrentUserName } from '../../lib/apiClient';
 import checkmark from '../../assets/checkmark-iconSave.png';
 

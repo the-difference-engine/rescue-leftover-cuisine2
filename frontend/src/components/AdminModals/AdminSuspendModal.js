@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
-import './AdminSuspendModal.css';
+import './AdminSuspendModal.scss';
 import { suspendUser } from '../../lib/apiClient';
 
 function AdminSuspendModal(props) {

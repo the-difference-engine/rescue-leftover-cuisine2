@@ -2,7 +2,7 @@ import toLower from 'lodash/toLower';
 import React, { useState } from 'react';
 import LogInPageHeader from '../LogInPageHeader/LogInPageHeader';
 import Footer from '../Footer/Footer';
-import './AuthItems.css';
+import './AuthItems.scss';
 
 const AuthPage = ({ children }) => (
   <div className="auth-page container-fluid">

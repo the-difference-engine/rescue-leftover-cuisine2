@@ -6,12 +6,12 @@ import {
 import isNil from 'lodash/isNil';
 import { Helmet } from 'react-helmet';
 import { Redirect } from 'react-router-dom';
+import { getRecipes, getUsers } from '../../lib/apiClient';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
-import './AdminPanel.css';
-import { getRecipes, getUsers } from '../../lib/apiClient';
+import './AdminPanel.scss';
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -104,7 +104,7 @@ class AdminPanel extends Component {
                     this.toggle('recipes');
                   }}
                 >
-                    All Recipes
+                  All Recipes
                 </NavLink>
               </NavItem>
               <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
@@ -114,17 +114,17 @@ class AdminPanel extends Component {
                     this.toggle('users');
                   }}
                 >
-                    All Members
+                  All Members
                 </NavLink>
               </NavItem>
               {activeTab === 'recipes' && (
                 <Button className="admin-add-button" size="lg">
-                    Add Recipe
+                  Add Recipe
                 </Button>
               )}
               {activeTab === 'users' && (
                 <Button className="admin-add-button" size="lg">
-                    Add Member
+                  Add Member
                 </Button>
               )}
             </Nav>

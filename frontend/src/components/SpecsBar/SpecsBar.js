@@ -1,8 +1,8 @@
 import React from 'react';
-import './SpecsBar.css';
 import DifficultySpec from './DifficultySpec/DifficultySpec';
 import DurationSpec from './DurationSpec/DurationSpec';
 import ServingsSpec from './ServingsSpec/ServingsSpec';
+import './SpecsBar.scss';
 
 const SpecsBar = () => (
   <div className="specs-bar">

@@ -8,7 +8,7 @@ import Footer from '../../components/Footer/Footer';
 import TagsBar from '../../components/TagsBar/TagsBar';
 import { getRecipe } from '../../lib/apiClient';
 import RecipeComments from '../../components/RecipeComments/RecipeComments';
-import './Recipe.css';
+import './Recipe.scss';
 
 class Recipe extends Component {
   constructor() {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import rlcLogo from '../../assets/RLC_logo.png';
 import SearchBar from '../SearchBar/SearchBar';
 import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
-import './Header.css';
+import './Header.scss';
 
 const Header = ({
   history, user, setJwt, showSearchBar, scrollToRecipes, match,

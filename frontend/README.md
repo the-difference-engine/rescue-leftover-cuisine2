@@ -5,30 +5,45 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
-  - [npm start](#npm-start)
-  - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
+  - [`npm start`](#npm-start)
+  - [`npm test`](#npm-test)
+  - [`npm run lint`](#npm-run-lint)
+  - [`npm run build`](#npm-run-build)
+  - [`npm run eject`](#npm-run-eject)
 - [Supported Browsers](#supported-browsers)
-- [Supported Language Features](#supported-language-features)
+  - [Supported Language Features](#supported-language-features)
 - [Syntax Highlighting in the Editor](#syntax-highlighting-in-the-editor)
 - [Displaying Lint Output in the Editor](#displaying-lint-output-in-the-editor)
 - [Debugging in the Editor](#debugging-in-the-editor)
+  - [Visual Studio Code](#visual-studio-code)
+  - [WebStorm](#webstorm)
 - [Formatting Code Automatically](#formatting-code-automatically)
 - [Changing the Page `<title>`](#changing-the-page-title)
 - [Installing a Dependency](#installing-a-dependency)
 - [Importing a Component](#importing-a-component)
+  - [`Button.js`](#buttonjs)
+  - [`DangerButton.js`](#dangerbuttonjs)
 - [Code Splitting](#code-splitting)
+  - [`moduleA.js`](#moduleajs)
+  - [`App.js`](#appjs)
+  - [With React Router](#with-react-router)
 - [Adding a Stylesheet](#adding-a-stylesheet)
+  - [`Button.scss`](#buttonscss)
+  - [`Button.js`](#buttonjs-1)
 - [Adding a CSS Modules Stylesheet](#adding-a-css-modules-stylesheet)
+  - [`Button.module.scss`](#buttonmodulescss)
+  - [`another-stylesheet.scss`](#another-stylesheetscss)
+  - [`Button.js`](#buttonjs-2)
+  - [Result](#result)
 - [Adding a Sass Stylesheet](#adding-a-sass-stylesheet)
 - [Post-Processing CSS](#post-processing-css)
 - [Adding Images, Fonts, and Files](#adding-images-fonts-and-files)
-- [Adding SVGs](#adding-svgs)
+  - [Adding SVGs](#adding-svgs)
 - [Using the `public` Folder](#using-the-public-folder)
   - [Changing the HTML](#changing-the-html)
   - [Adding Assets Outside of the Module System](#adding-assets-outside-of-the-module-system)
@@ -42,16 +57,25 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Adding Custom Environment Variables](#adding-custom-environment-variables)
   - [Referencing Environment Variables in the HTML](#referencing-environment-variables-in-the-html)
   - [Adding Temporary Environment Variables In Your Shell](#adding-temporary-environment-variables-in-your-shell)
+    - [Windows (cmd.exe)](#windows-cmdexe)
+    - [Windows (Powershell)](#windows-powershell)
+    - [Linux, macOS (Bash)](#linux-macos-bash)
   - [Adding Development Environment Variables In `.env`](#adding-development-environment-variables-in-env)
+    - [What other `.env` files can be used?](#what-other-env-files-can-be-used)
+    - [Expanding Environment Variables In `.env`](#expanding-environment-variables-in-env)
 - [Can I Use Decorators?](#can-i-use-decorators)
 - [Fetching Data with AJAX Requests](#fetching-data-with-ajax-requests)
 - [Integrating with an API Backend](#integrating-with-an-api-backend)
   - [Node](#node)
   - [Ruby on Rails](#ruby-on-rails)
+  - [API Platform (PHP and Symfony)](#api-platform-php-and-symfony)
 - [Proxying API Requests in Development](#proxying-api-requests-in-development)
-  - ["Invalid Host Header" Errors After Configuring Proxy](#invalid-host-header-errors-after-configuring-proxy)
+  - ["Invalid Host Header" Errors After Configuring Proxy](#%22invalid-host-header%22-errors-after-configuring-proxy)
   - [Configuring the Proxy Manually](#configuring-the-proxy-manually)
 - [Using HTTPS in Development](#using-https-in-development)
+    - [Windows (cmd.exe)](#windows-cmdexe-1)
+    - [Windows (Powershell)](#windows-powershell-1)
+    - [Linux, macOS (Bash)](#linux-macos-bash-1)
 - [Generating Dynamic `<meta>` Tags on the Server](#generating-dynamic-meta-tags-on-the-server)
 - [Pre-Rendering into Static HTML Files](#pre-rendering-into-static-html-files)
 - [Injecting Data from the Server into the Page](#injecting-data-from-the-server-into-the-page)
@@ -61,11 +85,22 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Version Control Integration](#version-control-integration)
   - [Writing Tests](#writing-tests)
   - [Testing Components](#testing-components)
+    - [`src/setupTests.js`](#srcsetuptestsjs)
+    - [Use `react-testing-library`](#use-react-testing-library)
   - [Using Third Party Assertion Libraries](#using-third-party-assertion-libraries)
   - [Initializing Test Environment](#initializing-test-environment)
+    - [`src/setupTests.js`](#srcsetuptestsjs-1)
   - [Focusing and Excluding Tests](#focusing-and-excluding-tests)
   - [Coverage Reporting](#coverage-reporting)
+    - [Configuration](#configuration)
   - [Continuous Integration](#continuous-integration)
+  - [On CI servers](#on-ci-servers)
+    - [Travis CI](#travis-ci)
+    - [CircleCI](#circleci)
+  - [On your own environment](#on-your-own-environment)
+      - [Windows (cmd.exe)](#windows-cmdexe-2)
+      - [Windows (Powershell)](#windows-powershell-2)
+      - [Linux, macOS (Bash)](#linux-macos-bash-2)
   - [Disabling jsdom](#disabling-jsdom)
   - [Snapshot Testing](#snapshot-testing)
   - [Editor Integration](#editor-integration)
@@ -86,11 +121,24 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Other Solutions](#other-solutions)
   - [Serving Apps with Client-Side Routing](#serving-apps-with-client-side-routing)
   - [Building for Relative Paths](#building-for-relative-paths)
+    - [Serving the Same Build from Different Paths](#serving-the-same-build-from-different-paths)
   - [Customizing Environment Variables for Arbitrary Build Environments](#customizing-environment-variables-for-arbitrary-build-environments)
   - [Azure](#azure)
   - [Firebase](#firebase)
   - [GitHub Pages](#github-pages)
+    - [Step 1: Add `homepage` to `package.json`](#step-1-add-homepage-to-packagejson)
+    - [Step 2: Install `gh-pages` and add `deploy` to `scripts` in `package.json`](#step-2-install-gh-pages-and-add-deploy-to-scripts-in-packagejson)
+    - [Step 3: Deploy the site by running `npm run deploy`](#step-3-deploy-the-site-by-running-npm-run-deploy)
+    - [Step 4: Ensure your project’s settings use `gh-pages`](#step-4-ensure-your-projects-settings-use-gh-pages)
+    - [Step 5: Optionally, configure the domain](#step-5-optionally-configure-the-domain)
+    - [Notes on client-side routing](#notes-on-client-side-routing)
+    - [Troubleshooting](#troubleshooting)
+      - ["/dev/tty: No such a device or address"](#%22devtty-no-such-a-device-or-address%22)
+      - ["Cannot read property 'email' of null"](#%22cannot-read-property-email-of-null%22)
   - [Heroku](#heroku)
+    - [Resolving Heroku Deployment Errors](#resolving-heroku-deployment-errors)
+      - ["Module not found: Error: Cannot resolve 'file' or 'directory'"](#%22module-not-found-error-cannot-resolve-file-or-directory%22)
+      - ["Could not find a required file."](#%22could-not-find-a-required-file%22)
   - [Netlify](#netlify)
   - [Now](#now)
   - [S3 and CloudFront](#s3-and-cloudfront)
@@ -101,8 +149,8 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [`npm test` hangs or crashes on macOS Sierra](#npm-test-hangs-or-crashes-on-macos-sierra)
   - [`npm run build` exits too early](#npm-run-build-exits-too-early)
   - [`npm run build` fails on Heroku](#npm-run-build-fails-on-heroku)
-  - [`npm run build` fails to minify](#npm-run-build-fails-to-minify)
   - [Moment.js locales are missing](#momentjs-locales-are-missing)
+  - [`npm run build` fails to minify](#npm-run-build-fails-to-minify)
 - [Alternatives to Ejecting](#alternatives-to-ejecting)
 - [Something Missing?](#something-missing)
 
@@ -140,10 +188,10 @@ my-app/
     index.html
     favicon.ico
   src/
-    App.css
+    App.scss
     App.js
     App.test.js
-    index.css
+    index.scss
     index.js
     logo.svg
 ```
@@ -490,7 +538,7 @@ Also check out the [Code Splitting](https://reactjs.org/docs/code-splitting.html
 
 This project setup uses [Webpack](https://webpack.js.org/) for handling all assets. Webpack offers a custom way of “extending” the concept of `import` beyond JavaScript. To express that a JavaScript file depends on a CSS file, you need to **import the CSS from the JavaScript file**:
 
-### `Button.css`
+### `Button.scss`
 
 ```css
 .Button {
@@ -502,7 +550,7 @@ This project setup uses [Webpack](https://webpack.js.org/) for handling all asse
 
 ```js
 import React, { Component } from 'react';
-import './Button.css'; // Tell Webpack that Button.js uses these styles
+import './Button.scss'; // Tell Webpack that Button.js uses these styles
 
 class Button extends Component {
   render() {
@@ -514,21 +562,21 @@ class Button extends Component {
 
 **This is not required for React** but many people find this feature convenient. You can read about the benefits of this approach [here](https://medium.com/seek-blog/block-element-modifying-your-javascript-components-d7f99fcab52b). However you should be aware that this makes your code less portable to other build tools and environments than Webpack.
 
-In development, expressing dependencies this way allows your styles to be reloaded on the fly as you edit them. In production, all CSS files will be concatenated into a single minified `.css` file in the build output.
+In development, expressing dependencies this way allows your styles to be reloaded on the fly as you edit them. In production, all CSS files will be concatenated into a single minified `.scss` file in the build output.
 
-If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.css`. It would still be imported from `src/index.js`, but you could always remove that import if you later migrate to a different build tool.
+If you are concerned about using Webpack-specific semantics, you can put all your CSS right into `src/index.scss`. It would still be imported from `src/index.js`, but you could always remove that import if you later migrate to a different build tool.
 
 ## Adding a CSS Modules Stylesheet
 
 > Note: this feature is available with `react-scripts@2.0.0` and higher.
 
-This project supports [CSS Modules](https://github.com/css-modules/css-modules) alongside regular stylesheets using the `[name].module.css` file naming convention. CSS Modules allows the scoping of CSS by automatically creating a unique classname of the format `[filename]\_[classname]\_\_[hash]`.
+This project supports [CSS Modules](https://github.com/css-modules/css-modules) alongside regular stylesheets using the `[name].module.scss` file naming convention. CSS Modules allows the scoping of CSS by automatically creating a unique classname of the format `[filename]\_[classname]\_\_[hash]`.
 
 > **Tip:** Should you want to preprocess a stylesheet with Sass then make sure to [follow the installation instructions](#adding-a-sass-stylesheet) and then change the stylesheet file extension as follows: `[name].module.scss` or `[name].module.sass`.
 
 CSS Modules let you use the same CSS class name in different files without worrying about naming clashes. Learn more about CSS Modules [here](https://css-tricks.com/css-modules-part-1-need/).
 
-### `Button.module.css`
+### `Button.module.scss`
 
 ```css
 .error {
@@ -536,7 +584,7 @@ CSS Modules let you use the same CSS class name in different files without worry
 }
 ```
 
-### `another-stylesheet.css`
+### `another-stylesheet.scss`
 
 ```css
 .error {
@@ -548,8 +596,8 @@ CSS Modules let you use the same CSS class name in different files without worry
 
 ```js
 import React, { Component } from 'react';
-import styles from './Button.module.css'; // Import css modules stylesheet as styles
-import './another-stylesheet.css'; // Import regular stylesheet
+import styles from './Button.module.scss'; // Import css modules stylesheet as styles
+import './another-stylesheet.scss'; // Import regular stylesheet
 
 class Button extends Component {
   render() {
@@ -568,7 +616,7 @@ No clashes from other `.error` class names
 <button class="Button_error_ax7yz"></div>
 ```
 
-**This is an optional feature.** Regular `<link>` stylesheets and CSS files are fully supported. CSS Modules are turned on for files ending with the `.module.css` extension.
+**This is an optional feature.** Regular `<link>` stylesheets and CSS files are fully supported. CSS Modules are turned on for files ending with the `.module.scss` extension.
 
 ## Adding a Sass Stylesheet
 
@@ -586,7 +634,7 @@ $ # or
 $ yarn add node-sass
 ```
 
-Now you can rename `src/App.css` to `src/App.scss` and update `src/App.js` to import `src/App.scss`.
+Now you can rename `src/App.scss` to `src/App.scss` and update `src/App.js` to import `src/App.scss`.
 This file and any other file will be automatically compiled if imported with the extension `.scss` or `.sass`.
 
 To share variables between Sass files, you can use Sass imports. For example, `src/App.scss` and other component style files could include `@import "./shared.scss";` with variable definitions.
@@ -807,7 +855,7 @@ yarn add bootstrap@4 reactstrap
 Import Bootstrap CSS and optionally Bootstrap theme CSS in the beginning of your `src/index.js` file:
 
 ```js
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.scss';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 ```
@@ -839,7 +887,7 @@ $body-bg: #000;
 
 > **Note:** You must prefix imports from `node_modules` with `~` as displayed above.
 
-Finally, import the newly created `.scss` file instead of the default Bootstrap `.css` in the beginning of your `src/index.js` file, for example:
+Finally, import the newly created `.scss` file instead of the default Bootstrap `.scss` in the beginning of your `src/index.js` file, for example:
 
 ```javascript
 import './custom.scss';

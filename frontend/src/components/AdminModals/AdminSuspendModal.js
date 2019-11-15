@@ -28,10 +28,13 @@ function AdminSuspendModal(props) {
   );
 
   const toggleSuspendText = (isSuspended) => {
-    const textForSuspendedUser = 'Clicking "UnSuspend" will allow the user to logging into the app. The user will remain unsuspended until this status is removed by an administrator.If you do not wish to unsuspend the user, close this dialog box.';
-    const textForActiveUser = 'Clicking "Suspend" will prevent the user from logging into the app. The user will remain suspended until this status is removed by an administrator.If you do not wish to suspend the user, close this dialog box.';
-    if (isSuspended) return textForSuspendedUser;
-    return textForActiveUser;
+    const textForSuspendedUser = 'Clicking "UnSuspend" will allow the user to logging into the app.'
+    + 'The user will remain unsuspended until this status is removed by an administrator.'
+    + 'If you do not wish to unsuspend the user, close this dialog box.';
+    const textForActiveUser = 'Clicking "Suspend" will prevent the user from logging into the app.'
+    + 'The user will remain suspended until this status is removed by an administrator.'
+    + 'If you do not wish to suspend the user, close this dialog box.';
+    return (isSuspended) ? textForSuspendedUser : textForActiveUser;
   };
 
   return (

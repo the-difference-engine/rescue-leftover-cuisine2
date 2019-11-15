@@ -42,6 +42,11 @@ const EditRecipeForm = ({ history }) => {
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
   const [refreshTags, setRefreshTags] = useState(true);
   const [ingredients, setIngredients] = useState(['']);
+  const [titleError, setTitleError] = useState('');
+  const [descriptionError, setDescriptionError] = useState('');
+  const [ingredientsError, setIngredientError] = useState('');
+  const [directionsError, setDirectionsError] = useState('');
+
 
   useEffect(() => {
     if (refreshTags) {
@@ -63,17 +68,26 @@ const EditRecipeForm = ({ history }) => {
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
-
-    createRecipe({
-      title,
-      description,
-      difficulty,
-      duration: parsedDuration,
-      servings: parsedServings,
-      tags: selectedTagsWithId,
-      directions,
-      ingredients,
-    }).then(response => history.push(`/recipe/${response.data.id}`));
+    if (!title) {
+      setTitleError('Must enter title');
+    } if (!description) {
+      setDescriptionError('Description cannot be blank');
+    } else if (ingredients.length <= 1) {
+      setIngredientError('Must have 1 ingredient');
+    } else if (directions.length <= 1) {
+      setDirectionsError('Please enter at least 1 set of directions');
+    } else {
+      createRecipe({
+        title,
+        description,
+        difficulty,
+        duration: parsedDuration,
+        servings: parsedServings,
+        tags: selectedTagsWithId,
+        directions,
+        ingredients,
+      }).then(response => history.push(`/recipe/${response.data.id}`));
+    }
   };
 
   const handleDelete = (tagTitle) => {
@@ -100,14 +114,16 @@ const EditRecipeForm = ({ history }) => {
         <div className="form-title col-4 offset-4">
           <label className="detail-labels" htmlFor="title">
             Recipe Title
-            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} />
+            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} required />
           </label>
+          <div className="errorMsg">{title ? '' : titleError}</div>
         </div>
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
-            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} />
+            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} required />
           </label>
+          <div className="errorMsg">{description ? '' : descriptionError}</div>
         </div>
         <div className="search-tag col-6 offset-3">
           <label className="detail-labels" htmlFor="tags">
@@ -183,10 +199,12 @@ const EditRecipeForm = ({ history }) => {
         ingredients={ingredients}
         setIngredients={setIngredients}
       />
+      <div className="errorMsg">{ingredients.length >= 1 ? '' : ingredientsError}</div>
       <EditDirections
         directions={directions}
         setDirections={setDirections}
       />
+      <div className="errorMsg">{directions.length >= 1 ? '' : directionsError}</div>
       <div>
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

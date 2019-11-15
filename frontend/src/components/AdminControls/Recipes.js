@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Type } from 'react-bootstrap-table2-editor';
-import './AdminTables.css';
+import './AdminTables.scss';
 
 const Recipes = ({ recipes }) => {
   const columns = [

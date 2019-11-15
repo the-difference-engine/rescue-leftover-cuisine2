@@ -7,7 +7,7 @@ import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, editRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
-import './CreateRecipeForm.css';
+import './CreateRecipeForm.scss';
 import CreateDirections from './CreateDirections/CreateDirections';
 import Ingredients from './Ingredients/Ingredients';
 

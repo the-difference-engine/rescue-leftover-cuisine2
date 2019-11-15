@@ -1,5 +1,5 @@
 import React from 'react';
-import './ResultsCounter.css';
+import './ResultsCounter.scss';
 
 const ResultsCounter = ({ recipes }) => (
   <div className="container">

@@ -4,7 +4,7 @@ import {
 } from 'reactstrap';
 import includes from 'lodash/includes';
 import map from 'lodash/map';
-import './AddTag.css';
+import './AddTag.scss';
 import { createTag } from '../../../lib/apiClient';
 
 const AddTag = ({ refreshTags, allTags }) => {

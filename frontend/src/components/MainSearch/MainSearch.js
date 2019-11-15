@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import './MainSearch.css';
+import './MainSearch.scss';
 
 class MainSearch extends Component {
   constructor(props) {

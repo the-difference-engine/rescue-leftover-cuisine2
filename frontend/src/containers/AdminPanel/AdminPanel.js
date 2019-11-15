@@ -10,7 +10,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
-import './AdminPanel.css';
+import './AdminPanel.scss';
 import { getRecipes, getUsers } from '../../lib/apiClient';
 
 class AdminPanel extends Component {

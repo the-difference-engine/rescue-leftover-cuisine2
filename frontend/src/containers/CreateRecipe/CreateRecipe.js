@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import CreateRecipeForm from '../../components/CreateRecipeForm/CreateRecipeForm';
 import { getRecipe } from '../../lib/apiClient';
-import './CreateRecipe.css';
+import './CreateRecipe.scss';
 
 const CreateRecipe = ({ user, setJwt, match }) => {
   const [heading, setHeading] = useState('Create Recipe');

@@ -12,7 +12,7 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import UserInfo from '../../components/UserProfilePanels/UserInfo';
 import SettingsTab from '../../components/UserProfilePanels/SettingsTab';
 import { getUserRecipes } from '../../lib/apiClient';
-import './ProfilePage.css';
+import './ProfilePage.scss';
 
 const ProfilePage = ({
   user, setUser, setJwt, history, location,

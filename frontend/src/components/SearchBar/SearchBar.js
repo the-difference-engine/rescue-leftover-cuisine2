@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './SearchBar.css';
+import './SearchBar.scss';
 
 class SearchBar extends Component {
   constructor(props) {

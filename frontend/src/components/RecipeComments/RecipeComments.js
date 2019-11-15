@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import map from 'lodash/map';
 import { createComment } from '../../lib/apiClient';
-import './RecipeComments.css';
+import './RecipeComments.scss';
 import DeleteCommentModal from './DeleteCommentModal/DeleteCommentModal';
 
 const RecipeComments = ({

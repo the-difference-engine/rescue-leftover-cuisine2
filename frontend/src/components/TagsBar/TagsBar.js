@@ -4,7 +4,7 @@ import React from 'react';
 import AddTag from './AddTag/AddTag';
 import SingleTag from './SingleTag/SingleTag';
 
-import './TagsBar.css';
+import './TagsBar.scss';
 
 const TagsBar = ({
   tags, deleteSelectedTag, showDeleteButton, allTags, refreshTags,

@@ -32,8 +32,18 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
+    rp = recipe_params
+    tags = rp.delete(:tags)
+
     @recipe = Recipe.find_by!(id: params[:id])
-    @recipe.update(recipe_params)
+    db_tags = []
+    tags.each do |tag|
+      db_tags << Tag.find(tag[:id])
+      # @recipe.tags << Tag.find(tag[:id])
+    end
+   
+    @recipe.tags = db_tags
+    @recipe.update(rp)
   end
 
   def recipe_params

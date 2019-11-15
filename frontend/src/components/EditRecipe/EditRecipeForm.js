@@ -46,7 +46,6 @@ const EditRecipeForm = ({ history }) => {
   const [descriptionError, setDescriptionError] = useState('');
   const [ingredientsError, setIngredientError] = useState('');
   const [directionsError, setDirectionsError] = useState('');
-  console.log(directions.length);
 
 
   useEffect(() => {

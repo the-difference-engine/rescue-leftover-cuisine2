@@ -40,9 +40,13 @@ class AdminPanel extends Component {
       });
     });
 
-    setTimeout(() => {
-      this.setState({ render: true });
-    }, 2000);
+    const { user } = this.props;
+
+    if (isNil(user)) {
+      setTimeout(() => {
+        this.setState({ render: true });
+      }, 2000);
+    } else this.setState({ render: true });
   }
 
   refreshUsers = () => {
@@ -79,7 +83,9 @@ class AdminPanel extends Component {
     } = this.state;
     if (render) {
       if (isNil(user)) return (<Redirect to="/login" />);
+
       if (!user.is_admin) return (<Redirect to="/" />);
+
       if (!isNil(user)) {
         return (
           <div className="admin-panel-container">

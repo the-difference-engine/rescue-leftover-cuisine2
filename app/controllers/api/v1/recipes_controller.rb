@@ -10,6 +10,9 @@ class Api::V1::RecipesController < ApplicationController
     if params[:search]
       @recipes = Recipe.search(params[:search])
     else
+      if params[:user_id]
+      @recipes = Recipe.where(user_id: params[:user_id]).all
+      else
       @recipes = Recipe.includes(:user).all
     end
     render json: @recipes, :include => [:user]

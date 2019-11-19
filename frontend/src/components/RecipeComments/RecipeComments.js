@@ -48,6 +48,17 @@ const RecipeComments = ({
     </form>
   );
 
+  const showDeleteBtn = () => {
+    if (user.is_admin === true) {
+      return (
+        <button id="recipe-delete-btn" type="button">
+          <i className="fas fa-times" />
+        </button>
+      );
+    }
+    return null;
+  };
+
   const renderComments = () => (
     <div>
       {map(comments, value => (
@@ -64,6 +75,7 @@ const RecipeComments = ({
             <br />
           </p>
           <p>{value.body}</p>
+          {user ? showDeleteBtn() : null}
         </div>
       ))
       }

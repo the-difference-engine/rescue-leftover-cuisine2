@@ -205,12 +205,12 @@ const EditRecipeForm = ({ history }) => {
         ingredients={ingredients}
         setIngredients={setIngredients}
       />
-      <div className="error-message">{ingredients.length <= 1 ? '' : ingredientsError}</div>
+      <div className="error-message">{ingredients.length <= 1 ? ingredientsError : ''}</div>
       <EditDirections
         directions={directions}
         setDirections={setDirections}
       />
-      <div className="error-message">{directions.length <= 1 ? '' : directionsError}</div>
+      <div className="error-message">{directions.length <= 1 ? directionsError : ''}</div>
       <div>
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

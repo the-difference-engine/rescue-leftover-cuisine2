@@ -11,7 +11,7 @@ User.create(email: "bob@domain.com", password: "Bob@RLC123", password_confirmati
 User.create(email: "joe@domain.com", password: "Joe@RLC123", password_confirmation: "Joe@RLC123", username: "Joe@RLC",first_name: "Joe", last_name: "Domain", confirmed_at: Time.now)
 User.create(email: "vespucci@domain.com", password: "Vespucci@RLC123", password_confirmation: "Vespucci@RLC123", username: "Vespucci@RLC",first_name: "Vespucci", last_name: "Domain", confirmed_at: Time.now, is_suspended: true)
 
-recipe = Recipe.create(
+recipe1 = Recipe.create(
   title: "Cauliflower Salad",
   snippet: "Soul-satisfying despite its healthy ingredients, this salad sings",
   ingredients: ["1 head cauliflower", "2 Tbsp olive oil", "1 can oil packaged tuna", "2 tsp Dijon mustard", "Juice of 2 lemons", "Salt and pepper"],
@@ -23,7 +23,7 @@ recipe = Recipe.create(
   user_id: 1
 )
 
-Recipe.create(
+recipe2 = Recipe.create(
   title: "Easiest Chicken Curry",
   snippet: "Exploding with flavor, but doable on a weeknight",
   ingredients: ["1 chicken, in parts", "3 Tbsp curry powder", "1 cup cream", "1 Tbsp ground cumin", "1 minced red chili", "Vegetables"],
@@ -35,7 +35,7 @@ Recipe.create(
   user_id: 2,
 )
 
-Recipe.create(
+recipe3 = Recipe.create(
   title: "Deviled Eggs",
   snippet: "Everyone's favorite party snack!",
   ingredients: ["12 eggs", "2 Tbsp mustard", "3 Tbsp mayonnaise", "1 tsp paprika", "6 cornichons, diced", "Chives"],
@@ -47,7 +47,7 @@ Recipe.create(
   user_id: 1
 )
 
-Recipe.create(
+recipe4 = Recipe.create(
   title: "Eggs Poached in Marinara",
   snippet: "This simple recipe will make you want to wake up early",
   ingredients: ["2 cans tomatoes", "1 onion, diced", "3 cloves garlic, minced", "1/4 cup fresh basil, chiffonade", "1 tsp dried thyme", "6 eggs"],
@@ -59,7 +59,7 @@ Recipe.create(
   user_id: 2
 )
 
-Recipe.create(
+recipe5 = Recipe.create(
   title: "Fettucine with Zucchini",
   snippet: "This pasta is sure to be a hit with vegetarians",
   ingredients: ["1 pound fettucine", "3 zucchini", "1/2 cup parmesan cheese, grated", "1/4 cup olive oil", "3 cloves garlic, sliced"],
@@ -147,7 +147,11 @@ snack = Tag.create(
  title: "Snack"
 )
 
-recipe.tags = [breakfast, lunch, snack]
+recipe1.tags = [breakfast, lunch, snack]
+recipe2.tags = [lunch, dinner, snack]
+recipe3.tags = [breakfast, snack]
+recipe4.tags = [snack, lunch, dinner]
+recipe5.tags = [breakfast, lunch, dinner, snack]
 
 Comment.create(
   body: "This is a test comment",

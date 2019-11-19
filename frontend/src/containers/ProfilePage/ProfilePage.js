@@ -97,7 +97,6 @@ const ProfilePage = ({
   }
 
   if (!isNil(user)) {
-    console.log(user);
     return (
       <div className="profile-page container-fluid">
         <Helmet>

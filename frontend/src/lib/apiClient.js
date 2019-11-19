@@ -117,7 +117,11 @@ const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${re
   },
 });
 
-const deleteComment = (recipeId, commentId) => apiClient.delete(`api/v1/recipes/${recipeId}/comments/${commentId}`);
+const deleteComment = (recipeId, commentId) => apiClient.delete(`api/v1/recipes/${recipeId}/comments/${commentId}`, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
 
 // TAGS
 

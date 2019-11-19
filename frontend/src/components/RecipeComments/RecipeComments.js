@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import map from 'lodash/map';
-import { createComment } from '../../lib/apiClient';
+import { createComment, deleteComment } from '../../lib/apiClient';
 import './RecipeComments.css';
 
 const RecipeComments = ({
@@ -41,6 +41,17 @@ const RecipeComments = ({
     submitComment();
   };
 
+  const removeComment = async (commentId) => {
+    console.log(commentId);
+    await deleteComment(recipeId, commentId);
+    //reloadComments();
+  };
+
+  const handleDelete = (commentId, event) => {
+    event.preventDefault();
+    removeComment(commentId);
+  };
+
   const renderForm = () => (
     <form>
       <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
@@ -48,10 +59,10 @@ const RecipeComments = ({
     </form>
   );
 
-  const showDeleteBtn = () => {
+  const showDeleteBtn = (commentId) => {
     if (user.is_admin === true) {
       return (
-        <button id="recipe-delete-btn" type="button">
+        <button id="recipe-delete-btn" type="button" onClick={(e) => { handleDelete(commentId, e); }}>
           <i className="fas fa-times" />
         </button>
       );
@@ -59,28 +70,30 @@ const RecipeComments = ({
     return null;
   };
 
-  const renderComments = () => (
-    <div>
-      {map(comments, value => (
-        <div key={value.id} className="comment-content">
-          <hr />
-          <p>
-            <strong>
-              {value.user.first_name}
-              {' '}
-              {value.user.last_name}
-            </strong>
-            <br />
-            {formatTimeStamp(value.created_at)}
-            <br />
-          </p>
-          <p>{value.body}</p>
-          {user ? showDeleteBtn() : null}
-        </div>
-      ))
-      }
-    </div>
-  );
+  const renderComments = () => {
+    return (
+      <div>
+        {map(comments, value => (
+          <div key={value.id} className="comment-content">
+            <hr />
+            <p>
+              <strong>
+                {value.user.first_name}
+                {' '}
+                {value.user.last_name}
+              </strong>
+              <br />
+              {formatTimeStamp(value.created_at)}
+              <br />
+            </p>
+            <p>{value.body}</p>
+            {user ? showDeleteBtn(value.id) : null}
+          </div>
+        ))
+        }
+      </div>
+    );
+  };
 
   return (
     <div className="comment-section container">

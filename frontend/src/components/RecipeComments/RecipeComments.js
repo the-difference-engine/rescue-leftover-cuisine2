@@ -44,7 +44,6 @@ const RecipeComments = ({
   const removeComment = async (commentId) => {
     console.log(commentId);
     await deleteComment(recipeId, commentId);
-    //reloadComments();
   };
 
   const handleDelete = (commentId, event) => {
@@ -70,30 +69,28 @@ const RecipeComments = ({
     return null;
   };
 
-  const renderComments = () => {
-    return (
-      <div>
-        {map(comments, value => (
-          <div key={value.id} className="comment-content">
-            <hr />
-            <p>
-              <strong>
-                {value.user.first_name}
-                {' '}
-                {value.user.last_name}
-              </strong>
-              <br />
-              {formatTimeStamp(value.created_at)}
-              <br />
-            </p>
-            <p>{value.body}</p>
-            {user ? showDeleteBtn(value.id) : null}
-          </div>
-        ))
-        }
-      </div>
-    );
-  };
+  const renderComments = () => (
+    <div>
+      {map(comments, value => (
+        <div key={value.id} className="comment-content">
+          <hr />
+          <p>
+            <strong>
+              {value.user.first_name}
+              {' '}
+              {value.user.last_name}
+            </strong>
+            <br />
+            {formatTimeStamp(value.created_at)}
+            <br />
+          </p>
+          <p>{value.body}</p>
+          {user ? showDeleteBtn(value.id) : null}
+        </div>
+      ))
+      }
+    </div>
+  );
 
   return (
     <div className="comment-section container">

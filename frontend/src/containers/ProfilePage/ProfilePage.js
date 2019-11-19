@@ -76,6 +76,14 @@ const ProfilePage = ({
     },
   ];
 
+  const showAdminLink = () => (
+    <NavItem>
+      <NavLink onClick={() => history.push('/admin')}>
+        Administration
+      </NavLink>
+    </NavItem>
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -89,6 +97,7 @@ const ProfilePage = ({
   }
 
   if (!isNil(user)) {
+    console.log(user);
     return (
       <div className="profile-page container-fluid">
         <Helmet>
@@ -121,6 +130,7 @@ const ProfilePage = ({
                     Settings
                   </NavLink>
                 </NavItem>
+                {user.is_admin === true ? showAdminLink() : null}
               </Nav>
             </div>
             <div className="col-md-9 right-pane">

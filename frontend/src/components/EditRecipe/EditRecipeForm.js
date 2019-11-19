@@ -73,9 +73,9 @@ const EditRecipeForm = ({ history }) => {
     } if (!description) {
       setDescriptionError('Description cannot be blank');
     } if (ingredients.length <= 1) {
-      setIngredientError('ingredients cannot be blank');
+      setIngredientError('Ingredients cannot be blank');
     } if (directions.length <= 1) {
-      setDirectionsError('directions cannot be blank');
+      setDirectionsError('Directions cannot be blank');
     } else {
       createRecipe({
         title,
@@ -116,14 +116,14 @@ const EditRecipeForm = ({ history }) => {
             Recipe Title
             <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} required />
           </label>
-          <div className="errorMsg">{title ? '' : titleError}</div>
+          <div className="error-message">{titleError}</div>
         </div>
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
             <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} required />
           </label>
-          <div className="errorMsg">{description ? '' : descriptionError}</div>
+          <div className="error-message">{descriptionError}</div>
         </div>
         <div className="search-tag col-6 offset-3">
           <label className="detail-labels" htmlFor="tags">
@@ -199,12 +199,12 @@ const EditRecipeForm = ({ history }) => {
         ingredients={ingredients}
         setIngredients={setIngredients}
       />
-      <div className="errorMsg">{ingredients.length <= 1 ? ingredientsError : ''}</div>
+      <div className="error-message">{ingredientsError}</div>
       <EditDirections
         directions={directions}
         setDirections={setDirections}
       />
-      <div className="errorMsg">{directions.length <= 1 ? directionsError : ''}</div>
+      <div className="error-message">{directionsError}</div>
       <div>
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

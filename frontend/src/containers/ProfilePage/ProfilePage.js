@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import map from 'lodash/map';
 import isNil from 'lodash/isNil';
@@ -17,6 +17,8 @@ import './ProfilePage.scss';
 const ProfilePage = ({
   user, setUser, setJwt, history, location,
 }) => {
+  if (isNil(user)) return (<Redirect to="/login" />);
+
   const [recipes, setRecipes] = useState([]);
 
   const showAdminLink = () => (
@@ -30,7 +32,7 @@ const ProfilePage = ({
   useEffect(() => {
     window.scrollTo(0, 0);
     getUserRecipes(user.id).then(data => setRecipes(data));
-  }, []);
+  }, [user]);
 
   let activeTab = '';
 
@@ -40,80 +42,62 @@ const ProfilePage = ({
     activeTab = 'recipes';
   }
 
-  if (!isNil(user)) {
-    return (
-      <div className="profile-page container-fluid">
-        <Helmet>
-          <title>Profile</title>
-          <meta property="og:title" content="Profile | Rescuing Leftover Cuisine" />
-          <meta property="og:type" content="profile" />
-          <meta property="og:profile:first_name" content={user.first_name} />
-          <meta property="og:profile:last_name" content={user.last_name} />
-          <meta property="og:profile:username" content={user.email} />
-        </Helmet>
-        <div className="row">
-          <div className="profile-header">
-            <Header showSearchBar user={user} setJwt={setJwt} />
-          </div>
-        </div>
-        <div>
-          <UserInfo user={user} setUser={setUser} />
-          <div className="row user-panel">
-            <div className="col-md-2 user-nav-bar">
-              <Nav tabs>
-                <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
-                  <NavLink
-                    onClick={() => history.push('/profile#recipes')}
-                  >
-                    My Recipes
-                  </NavLink>
-                </NavItem>
-                <NavItem className={activeTab === 'settings' ? 'user-nav-tab-active' : ''}>
-                  <NavLink onClick={() => history.push('/profile#settings')}>
-                    Settings
-                  </NavLink>
-                </NavItem>
-                {user.is_admin ? showAdminLink() : null}
-              </Nav>
-            </div>
-            <div className="col-md-9 right-pane">
-              <TabContent activeTab={activeTab}>
-                <TabPane tabId="recipes" id="recipes">
-                  <div id="cards-wrapper">
-                    {map(recipes, recipe => (
-                      <RecipeCard
-                        {...recipe}
-                        key={recipe.id}
-                      />
-                    ))}
-                  </div>
-                </TabPane>
-                <TabPane tabId="settings" id="settings">
-                  <SettingsTab />
-                </TabPane>
-              </TabContent>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <Footer />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="profile-page container-fluid">
+      <Helmet>
+        <title>Profile</title>
+        <meta property="og:title" content="Profile | Rescuing Leftover Cuisine" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:profile:first_name" content={user.first_name} />
+        <meta property="og:profile:last_name" content={user.last_name} />
+        <meta property="og:profile:username" content={user.email} />
+      </Helmet>
       <div className="row">
         <div className="profile-header">
           <Header showSearchBar user={user} setJwt={setJwt} />
         </div>
       </div>
       <div>
-        <h1>Login to access this page.</h1>
-        <div className="row">
-          <Footer />
+        <UserInfo user={user} setUser={setUser} />
+        <div className="row user-panel">
+          <div className="col-md-2 user-nav-bar">
+            <Nav tabs>
+              <NavItem className={activeTab === 'recipes' ? 'user-nav-tab-active' : ''}>
+                <NavLink
+                  onClick={() => history.push('/profile#recipes')}
+                >
+                  My Recipes
+                </NavLink>
+              </NavItem>
+              <NavItem className={activeTab === 'settings' ? 'user-nav-tab-active' : ''}>
+                <NavLink onClick={() => history.push('/profile#settings')}>
+                  Settings
+                </NavLink>
+              </NavItem>
+              {user.is_admin ? showAdminLink() : null}
+            </Nav>
+          </div>
+          <div className="col-md-9 right-pane">
+            <TabContent activeTab={activeTab}>
+              <TabPane tabId="recipes" id="recipes">
+                <div id="cards-wrapper">
+                  {map(recipes, recipe => (
+                    <RecipeCard
+                      {...recipe}
+                      key={recipe.id}
+                    />
+                  ))}
+                </div>
+              </TabPane>
+              <TabPane tabId="settings" id="settings">
+                <SettingsTab />
+              </TabPane>
+            </TabContent>
+          </div>
         </div>
+      </div>
+      <div className="row">
+        <Footer />
       </div>
     </div>
   );

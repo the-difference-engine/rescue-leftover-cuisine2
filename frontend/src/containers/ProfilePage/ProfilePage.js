@@ -127,7 +127,7 @@ const ProfilePage = ({
                     Settings
                   </NavLink>
                 </NavItem>
-                {user.is_admin === true ? showAdminLink() : null}
+                {user.is_admin ? showAdminLink() : null}
               </Nav>
             </div>
             <div className="col-md-9 right-pane">

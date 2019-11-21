@@ -46,7 +46,7 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
         <Link className="header-dropdown-item" to="/profile#settings">
           <DropdownItem className="header-dropdown-item">Settings</DropdownItem>
         </Link>
-        {user.is_admin === true ? showAdminLink() : null}
+        {user.is_admin ? showAdminLink() : null}
         <DropdownItem divider />
         <DropdownItem onClick={logout} className="header-dropdown-item">Log Out</DropdownItem>
       </DropdownMenu>

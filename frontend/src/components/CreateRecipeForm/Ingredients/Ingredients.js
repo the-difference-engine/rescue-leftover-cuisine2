@@ -15,6 +15,7 @@ const Ingredients = ({
       setIsEditing(true);
     }
   });
+
   const handleIngredientChange = (i, event) => {
     const values = [...ingredients];
     values[i] = event.target.value;

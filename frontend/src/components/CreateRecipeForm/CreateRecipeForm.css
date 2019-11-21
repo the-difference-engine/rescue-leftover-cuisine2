@@ -1,5 +1,10 @@
 .recipe-details {
-  border-color: rgb(204, 204, 204);
+  border-color: #CCCCCC;
+  color: black;
+}
+
+.recipe-details:focus {
+  color: black;
 }
 
 .recipe-detail-icons{

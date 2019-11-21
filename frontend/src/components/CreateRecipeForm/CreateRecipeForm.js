@@ -4,9 +4,7 @@ import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
-import {
-  createRecipe, editRecipe, getTags,
-} from '../../lib/apiClient';
+import { createRecipe, editRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
 import './CreateRecipeForm.css';
@@ -52,17 +50,16 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
 
   const handleTitleChange = (x) => {
     setTitle(x);
-    setIsEditing(true);
   };
+
   const handleDescriptionChange = (x) => {
-    // console.log('checkvalue ', x, description);
     setDescription(x);
-    setIsEditing(true);
   };
+
   const handleDifficultyChange = (x) => {
     setDifficulty(x);
-    setIsEditing(true);
   };
+
   useEffect(() => {
     if (currentRecipe && !isEditing) {
       setTitle(currentRecipe.title);
@@ -71,9 +68,9 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setSelectedTagsWithId(currentRecipe.tags);
       setDuration(`${currentRecipe.duration} minutes`);
       setServings(currentRecipe.servings);
-      // console.log(currentRecipe);
     }
   });
+
   useEffect(() => {
     window.scrollTo(0, 0);
     if (refreshTags) {

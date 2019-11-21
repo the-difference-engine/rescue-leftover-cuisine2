@@ -11,21 +11,25 @@ const EditDirections = ({
       setIsEditing(true);
     }
   });
+
   const handleDirectionsChange = (i, event) => {
     const values = [...directions];
     values[i] = event.target.value;
     setDirections(values);
   };
+
   const handleDirectionsAdd = () => {
     const values = [...directions];
     values.push('');
     setDirections(values);
   };
+
   const handleDirectionsRemove = (i) => {
     const values = [...directions];
     values.splice(i, 1);
     setDirections(values);
   };
+
   return (
     <div>
       <div className="directions-container">

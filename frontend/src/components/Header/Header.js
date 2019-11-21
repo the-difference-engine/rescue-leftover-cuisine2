@@ -9,17 +9,17 @@ import './Header.css';
 const Header = ({
   history, user, setJwt, showSearchBar, scrollToRecipes, match,
 }) => {
+  const refreshCreatePage = () => {
+    history.push('/recipe/new');
+    window.location.reload(false);
+  };
+
   const handleBrowseButton = () => {
     if (history.location.pathname !== '/') {
       history.push('/');
     } else {
       scrollToRecipes();
     }
-  };
-
-  const refreshCreatePage = () => {
-    history.push('/recipe/new');
-    window.location.reload(false);
   };
 
   const loginOrCreateButton = () => {

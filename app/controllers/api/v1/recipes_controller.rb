@@ -39,7 +39,6 @@ class Api::V1::RecipesController < ApplicationController
     db_tags = []
     tags.each do |tag|
       db_tags << Tag.find(tag[:id])
-      # @recipe.tags << Tag.find(tag[:id])
     end
    
     @recipe.tags = db_tags
@@ -49,6 +48,5 @@ class Api::V1::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
   end
-
 
 end

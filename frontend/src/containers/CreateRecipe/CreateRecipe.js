@@ -6,18 +6,19 @@ import './CreateRecipe.css';
 
 const CreateRecipe = ({ user, setJwt, match }) => {
   const [heading, setHeading] = useState('Create Recipe');
-  const [currentRecipe, setCurrentRecipe] = useState();
+  const [currentRecipe, setCurrentRecipe] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+
   useEffect(() => {
     if (match.params.id && !isEditing) {
       getRecipe(match.params.id).then((response) => {
         setCurrentRecipe(response.data);
         setHeading(`Editing ${response.data.title}`);
         setIsEditing(true);
-        // console.log(currentRecipe);
       });
     }
   });
+
   return (
     <div className="createRecipePage container-fluid">
       <div className="row">
@@ -34,7 +35,7 @@ const CreateRecipe = ({ user, setJwt, match }) => {
         <div className="edit-recipe-form">
           <CreateRecipeForm
             user={user}
-            currentRecipe={match.params.id >= 0 ? currentRecipe : null}
+            currentRecipe={currentRecipe}
           />
         </div>
       </div>

@@ -7,25 +7,18 @@ import { deleteComment } from '../../../lib/apiClient';
 
 function DeleteCommentModal(props) {
   const {
-    toggleDeleteModal, deleteModal, recipeId, reloadComments,
+    toggleDeleteModal, deleteModal, recipeId, reloadComments, currentComment,
   } = props;
 
-  //   const handleSuspend = () => {
-  //     suspendUser(selectedUser.id, !selectedUser.is_suspended).then(() => {
-  //       toggleSuspendModal();
-  //       refreshUsers();
-  //     });
-  //   };
-
   const removeComment = async () => {
-    console.log();
-    await deleteComment(recipeId);
+    await deleteComment(recipeId, currentComment);
     reloadComments();
   };
 
   const handleDelete = (event) => {
     event.preventDefault();
     removeComment();
+    toggleDeleteModal();
   };
 
   const closeBtn = (
@@ -40,16 +33,14 @@ function DeleteCommentModal(props) {
 
   return (
     <div>
-      <Modal className="suspend-user-modal" isOpen={deleteModal} toggleDeleteModal={toggleDeleteModal} backdrop={false}>
-        <ModalHeader toggleDelete={toggleDeleteModal} close={closeBtn}>
+      <Modal className="suspend-user-modal" isOpen={deleteModal} backdrop={false}>
+        <ModalHeader close={closeBtn}>
           Delete Comment?
         </ModalHeader>
         <ModalBody>
-          Clicking &quot;Suspended&quot; will prevent the user from logging into the app.
+          Clicking &quot;Delete&quot; will permanently delete this comment from the database.
 
-            The user will remain suspended until this status is removed by an administrator.
-
-            If you do not wish to suspend the user, close this dialog box.
+            If you do not wish to delete this comment, close this dialog box.
         </ModalBody>
         <ModalFooter>
           <Button className="suspend-user-save-button" color="primary" onClick={handleDelete}>

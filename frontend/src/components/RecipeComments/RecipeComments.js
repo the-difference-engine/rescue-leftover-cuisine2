@@ -9,7 +9,7 @@ const RecipeComments = ({
 }) => {
   const [comment, setComment] = useState('');
   const [deleteModal, setDeleteModal] = useState(false);
-  const [currentComment, setCurrentComment] = useState();
+  const [currentComment, setCurrentComment] = useState(null);
 
   const toggleDeleteModal = () => {
     setDeleteModal(!deleteModal);
@@ -55,11 +55,15 @@ const RecipeComments = ({
     </form>
   );
 
+  const modalHandler = (id) => {
+    setCurrentComment(id);
+    toggleDeleteModal();
+  };
+
   const showDeleteBtn = (commentId) => {
-    setCurrentComment(commentId);
     if (user.is_admin) {
       return (
-        <button id="recipe-delete-btn" type="button" onClick={toggleDeleteModal}>
+        <button id="recipe-delete-btn" type="button" onClick={() => modalHandler(commentId)}>
           <i className="fas fa-times" />
         </button>
       );

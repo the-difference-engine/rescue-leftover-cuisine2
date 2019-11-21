@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
@@ -21,7 +21,6 @@ const ProfilePage = ({
       id: 1,
       title: 'Cauliflower Salad',
       snippet: 'Soul-satisfying despite its healthy ingredients, this salad sings',
-      meal: 'DINNER',
       ingredients: [
         '1 head cauliflower',
         '2 Tbsp olive oil',
@@ -49,7 +48,6 @@ const ProfilePage = ({
       id: 3,
       title: 'Deviled Eggs',
       snippet: 'Everyone\'s favorite party snack!',
-      meal: 'SNACK',
       ingredients: [
         '12 eggs',
         '2 Tbsp mustard',
@@ -75,6 +73,10 @@ const ProfilePage = ({
       user_id: 1,
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let activeTab = '';
 

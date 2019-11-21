@@ -8,7 +8,6 @@ const RecipeCard = (props) => {
   const {
     difficulty,
     duration,
-    meal,
     servings,
     snippet,
     title,
@@ -48,7 +47,6 @@ const RecipeCard = (props) => {
       <div className="card">
         <div className="image-holder">
           <img className="card-img-top" src={firstPhoto()} alt={title} />
-          <button className="card-meal-btn" type="button">{meal}</button>
         </div>
         <div className="card-body">
           <div className="card-title">{title}</div>
@@ -77,7 +75,6 @@ const RecipeCard = (props) => {
 };
 
 RecipeCard.propTypes = {
-  meal: PropTypes.string.isRequired,
   photos: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
   snippet: PropTypes.string.isRequired,

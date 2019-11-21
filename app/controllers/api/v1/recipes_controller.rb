@@ -15,7 +15,7 @@ class Api::V1::RecipesController < ApplicationController
         else
         @recipes = Recipe.includes(:user).all
       end
-      render json: @recipes, :include => [:user]
+      render json: @recipes.all.order("created_at DESC"), :include => [:user]
     end
 
     def create

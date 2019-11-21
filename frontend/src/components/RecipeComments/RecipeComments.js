@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import map from 'lodash/map';
-import { createComment, deleteComment } from '../../lib/apiClient';
+import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
+import DeleteCommentModal from './DeleteCommentModal/DeleteCommentModal';
 
 const RecipeComments = ({
   comments, recipeId, user, reloadComments,
 }) => {
   const [comment, setComment] = useState('');
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [currentComment, setCurrentComment] = useState();
+
+  const toggleDeleteModal = () => {
+    setDeleteModal(!deleteModal);
+  };
 
   const formatMinutes = (minute) => {
     if (minute <= 9) {
@@ -41,16 +48,6 @@ const RecipeComments = ({
     submitComment();
   };
 
-  const removeComment = async (commentId) => {
-    console.log(commentId);
-    await deleteComment(recipeId, commentId);
-  };
-
-  const handleDelete = (commentId, event) => {
-    event.preventDefault();
-    removeComment(commentId);
-  };
-
   const renderForm = () => (
     <form>
       <textarea id="comment-box" type="text" value={comment} placeholder="Type a comment" onChange={handleChange} />
@@ -59,9 +56,10 @@ const RecipeComments = ({
   );
 
   const showDeleteBtn = (commentId) => {
-    if (user.is_admin === true) {
+    setCurrentComment(commentId);
+    if (user.is_admin) {
       return (
-        <button id="recipe-delete-btn" type="button" onClick={(e) => { handleDelete(commentId, e); }}>
+        <button id="recipe-delete-btn" type="button" onClick={toggleDeleteModal}>
           <i className="fas fa-times" />
         </button>
       );
@@ -108,6 +106,13 @@ const RecipeComments = ({
           </div>
         </div>
       </div>
+      <DeleteCommentModal
+        deleteModal={deleteModal}
+        toggleDeleteModal={toggleDeleteModal}
+        recipeId={recipeId}
+        currentComment={currentComment}
+        reloadComments={reloadComments}
+      />
     </div>
   );
 };

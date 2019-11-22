@@ -1,5 +1,5 @@
 class Api::V1::RecipesController < ApplicationController
-before_action :authenticate_user!, :except => [:show, :index]
+  before_action :authenticate_user!, :except => [:show, :index]
 
   def show
     @recipe = Recipe.find_by!(id: params[:id])
@@ -32,7 +32,7 @@ before_action :authenticate_user!, :except => [:show, :index]
   end
 
   def recipe_params
-  params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
+    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
   end
 
 end

@@ -86,8 +86,12 @@ const RecipeComments = ({
             {formatTimeStamp(value.created_at)}
             <br />
           </p>
-          <p>{value.body}</p>
-          {user ? showDeleteBtn(value.id) : null}
+          <div className="comment-body">
+            <p>
+              {value.body}
+            </p>
+            {user ? showDeleteBtn(value.id) : null}
+          </div>
         </div>
       ))
       }

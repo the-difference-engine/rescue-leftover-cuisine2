@@ -120,6 +120,12 @@ const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${re
   },
 });
 
+const deleteComment = (recipeId, commentId) => apiClient.delete(`api/v1/recipes/${recipeId}/comments/${commentId}`, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
 // TAGS
 
 const getTags = () => apiClient.get('/api/v1/tags')
@@ -183,4 +189,5 @@ export {
   endSession,
   confirmUser,
   createComment,
+  deleteComment,
 };

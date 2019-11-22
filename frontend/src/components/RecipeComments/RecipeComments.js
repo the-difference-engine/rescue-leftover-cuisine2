@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import map from 'lodash/map';
 import { createComment } from '../../lib/apiClient';
 import './RecipeComments.css';
+import DeleteCommentModal from './DeleteCommentModal/DeleteCommentModal';
 
 const RecipeComments = ({
   comments, recipeId, user, reloadComments,
 }) => {
   const [comment, setComment] = useState('');
+  const [deleteModal, showDeleteModal] = useState(false);
+  const [currentComment, setCurrentComment] = useState(null);
+
+  const toggleDeleteModal = () => {
+    showDeleteModal(!deleteModal);
+  };
 
   const formatMinutes = (minute) => {
     if (minute <= 9) {
@@ -48,6 +55,22 @@ const RecipeComments = ({
     </form>
   );
 
+  const modalHandler = (id) => {
+    setCurrentComment(id);
+    toggleDeleteModal();
+  };
+
+  const showDeleteBtn = (commentId) => {
+    if (user.is_admin) {
+      return (
+        <button id="recipe-delete-btn" type="button" onClick={() => modalHandler(commentId)}>
+          <i className="fas fa-times" />
+        </button>
+      );
+    }
+    return null;
+  };
+
   const renderComments = () => (
     <div>
       {map(comments, value => (
@@ -63,7 +86,12 @@ const RecipeComments = ({
             {formatTimeStamp(value.created_at)}
             <br />
           </p>
-          <p>{value.body}</p>
+          <div className="comment-body">
+            <p>
+              {value.body}
+            </p>
+            {user ? showDeleteBtn(value.id) : null}
+          </div>
         </div>
       ))
       }
@@ -86,6 +114,13 @@ const RecipeComments = ({
           </div>
         </div>
       </div>
+      <DeleteCommentModal
+        deleteModal={deleteModal}
+        toggleDeleteModal={toggleDeleteModal}
+        recipeId={recipeId}
+        currentComment={currentComment}
+        reloadComments={reloadComments}
+      />
     </div>
   );
 };

@@ -11,6 +11,11 @@
   padding: 15px;
 }
 
+.comment-body {
+  display: flex;
+  justify-content: space-between;
+}
+
 .comment-section {
   background-color: rgb(242, 250, 254);
   padding-bottom: 30px;
@@ -29,8 +34,7 @@
   padding-right: 20px;
 }
 
-.comment-display{
-  text-align: center;
+.comment-display {
   margin-top: 5%;
 }
 

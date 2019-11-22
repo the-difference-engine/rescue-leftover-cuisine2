@@ -109,7 +109,7 @@ class Recipe extends Component {
             <Header user={user} setJwt={setJwt} />
           </div>
         </div>
-        {user && (user.id === userId) ? renderButtons() : null}
+        {user && (user.id === userId || user.is_admin) ? renderButtons() : null}
         <div className="recipe-image-wrapper">
           <img src={photo} alt="recipephoto" className="recipe-photo" />
         </div>

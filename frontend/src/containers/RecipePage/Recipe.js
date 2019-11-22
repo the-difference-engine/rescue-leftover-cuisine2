@@ -70,10 +70,6 @@ class Recipe extends Component {
           <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
           <p id="edit-icon-text">Edit</p>
         </button>
-        <button className="btn navbar-btn btn-lg cancel-button" type="button">
-          <img src="https://img.icons8.com/windows/32/ffa616/cancel.png" alt="delete" />
-          <p id="delete-icon-text">Delete</p>
-        </button>
       </div>
     );
 

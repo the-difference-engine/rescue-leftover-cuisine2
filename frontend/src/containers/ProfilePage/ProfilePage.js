@@ -19,10 +19,9 @@ const ProfilePage = ({
 }) => {
   const [recipes, setRecipes] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-    const recipesData = await getUserRecipes(user.id);
-    setRecipes(recipesData);
+    getUserRecipes(user.id).then(data => setRecipes(data));
   }, []);
 
   let activeTab = '';

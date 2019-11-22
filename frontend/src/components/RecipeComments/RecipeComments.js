@@ -8,11 +8,11 @@ const RecipeComments = ({
   comments, recipeId, user, reloadComments,
 }) => {
   const [comment, setComment] = useState('');
-  const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteModal, showDeleteModal] = useState(false);
   const [currentComment, setCurrentComment] = useState(null);
 
   const toggleDeleteModal = () => {
-    setDeleteModal(!deleteModal);
+    showDeleteModal(!deleteModal);
   };
 
   const formatMinutes = (minute) => {

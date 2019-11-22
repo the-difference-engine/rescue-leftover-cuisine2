@@ -15,6 +15,7 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def destroy
+      return head(:forbidden) unless current_user.is_admin
       @comment = Comment.find_by!(id: params[:id])
       @comment.destroy
     end

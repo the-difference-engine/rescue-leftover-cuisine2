@@ -66,23 +66,30 @@ const EditRecipeForm = ({ history }) => {
   }, [selectedTags]);
 
   const validate = () => {
+    let isValid = true;
     if (!title) {
       setTitleError('Title cannot be blank');
-    } if (!description) {
-      setDescriptionError('Description cannot be blank');
-    } if (ingredients.length <= 1) {
-      setIngredientError('Ingredients cannot be blank');
-    } if (directions.length <= 1) {
-      setDirectionsError('Directions cannot be blank');
+      isValid = false;
     }
+    if (!description) {
+      setDescriptionError('Description cannot be blank');
+      isValid = false;
+    }
+    if (ingredients.length <= 1) {
+      setIngredientError('Ingredients cannot be blank');
+      isValid = false;
+    }
+    if (directions.length <= 1) {
+      setDirectionsError('Directions cannot be blank');
+      isValid = false;
+    }
+    return isValid;
   };
 
   const handleSubmit = () => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
-    if (!title || !description || ingredients.length <= 1 || directions.length <= 1) {
-      validate();
-    } else {
+    if (validate()) {
       createRecipe({
         title,
         description,

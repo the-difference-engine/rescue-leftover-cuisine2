@@ -11,7 +11,7 @@ before_action :authenticate_user!, :except => [:show, :index]
       @recipes = Recipe.search(params[:search])
     elsif params[:user_id]
       @recipes = Recipe.where(user_id: params[:user_id]).all
-      else
+    else
       @recipes = Recipe.includes(:user).all
     end
     render json: @recipes.all.order("created_at DESC"), :include => [:user]

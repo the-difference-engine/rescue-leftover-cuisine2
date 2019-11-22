@@ -30,7 +30,7 @@ const PaginatedTable = ({ bodyRows, headerRow, rowsPerPage = 20 }) => {
         </PaginationItem>
         {
           map(paginatedBodyRows, (_rows, i) => (
-            <PaginationItem disabled={currentPage === i}>
+            <PaginationItem active={currentPage === i} disabled={currentPage === i}>
               <PaginationLink onClick={() => setCurrentPage(i)}>
                 { i + 1 }
               </PaginationLink>

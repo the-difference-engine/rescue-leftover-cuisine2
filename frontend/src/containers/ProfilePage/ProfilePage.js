@@ -19,6 +19,14 @@ const ProfilePage = ({
 }) => {
   const [recipes, setRecipes] = useState([]);
 
+  const showAdminLink = () => (
+    <NavItem>
+      <NavLink onClick={() => history.push('/admin')}>
+        Administration
+      </NavLink>
+    </NavItem>
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
     getUserRecipes(user.id).then(data => setRecipes(data));
@@ -65,6 +73,7 @@ const ProfilePage = ({
                     Settings
                   </NavLink>
                 </NavItem>
+                {user.is_admin ? showAdminLink() : null}
               </Nav>
             </div>
             <div className="col-md-9 right-pane">

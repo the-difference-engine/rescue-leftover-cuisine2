@@ -3,6 +3,7 @@ import React, { Fragment, useState } from 'react';
 import AdminEditModal from '../AdminModals/AdminEditModal';
 import AdminSuspendModal from '../AdminModals/AdminSuspendModal';
 import PaginatedTable from './PaginatedTable';
+import { formatDate } from '../../lib/utilities';
 import './AdminTables.scss';
 
 const Users = ({ users, refreshUsers }) => {
@@ -15,16 +16,6 @@ const Users = ({ users, refreshUsers }) => {
 
   const toggleSuspendModal = () => {
     setSuspendModal(!suspendModal);
-  };
-
-  const formatDate = (dateString) => {
-    const prependZero = n => (n < 10 ? `0${n}` : n);
-    const date = new Date(dateString);
-
-    const day = prependZero(date.getDate());
-    const month = prependZero(date.getMonth() + 1);
-
-    return `${month}/${day}/${date.getFullYear()}`;
   };
 
   const suspendButton = (isSuspended) => {
@@ -42,13 +33,13 @@ const Users = ({ users, refreshUsers }) => {
 
     return (
       <div>
-        <button type="button" className="admin-edit-button" onClick={toggleEditModal}>
+        <button type="button" className="icon-button" onClick={toggleEditModal}>
           <img
             src="https://img.icons8.com/windows/32/000000/edit.png"
             alt="edit"
           />
         </button>
-        <button type="button" className="admin-suspend-button">
+        <button type="button" className="icon-button">
           { suspendIcon }
         </button>
       </div>

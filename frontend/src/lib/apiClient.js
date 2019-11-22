@@ -108,6 +108,23 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
   },
 });
 
+const editRecipe = (recipe, id) => apiClient.put(`api/v1/recipes/${id}`, {
+  recipe: {
+    title: recipe.title,
+    snippet: recipe.description,
+    difficulty: recipe.difficulty,
+    duration: recipe.duration,
+    servings: recipe.servings,
+    tags: recipe.tags,
+    ingredients: recipe.ingredients,
+    directions: recipe.directions,
+  },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
 // COMMENTS
 
 const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${recipeId}/comments`, {
@@ -179,6 +196,7 @@ export {
   getUserRecipes,
   getRecipe,
   createRecipe,
+  editRecipe,
   getTags,
   createTag,
   adminEditUser,

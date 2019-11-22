@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import map from 'lodash/map';
 import './ingredients.css';
 
-const Ingredients = ({ ingredients, setIngredients }) => {
+const Ingredients = ({
+  ingredients,
+  setIngredients,
+  currentRecipe,
+  isEditing,
+  setIsEditing,
+}) => {
+  useEffect(() => {
+    if (currentRecipe && !isEditing) {
+      setIngredients(currentRecipe.ingredients);
+      setIsEditing(true);
+    }
+  });
+
   const handleIngredientChange = (i, event) => {
     const values = [...ingredients];
     values[i] = event.target.value;

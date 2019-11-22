@@ -4,11 +4,11 @@ import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
-import { createRecipe, getTags } from '../../lib/apiClient';
+import { createRecipe, editRecipe, getTags } from '../../lib/apiClient';
 import barChart from '../../assets/bar-chart.png';
 import Footer from '../Footer/Footer';
-import './EditRecipeForm.css';
-import EditDirections from './EditDirections/EditDirections';
+import './CreateRecipeForm.css';
+import CreateDirections from './CreateDirections/CreateDirections';
 import Ingredients from './Ingredients/Ingredients';
 
 const customStyles = {
@@ -30,7 +30,7 @@ const customStyles = {
   }),
 };
 
-const EditRecipeForm = ({ history }) => {
+const CreateRecipeForm = ({ history, currentRecipe }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [difficulty, setDifficulty] = useState('ADVANCED');
@@ -46,7 +46,30 @@ const EditRecipeForm = ({ history }) => {
   const [descriptionError, setDescriptionError] = useState('');
   const [ingredientsError, setIngredientError] = useState('');
   const [directionsError, setDirectionsError] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
 
+  const handleTitleChange = (x) => {
+    setTitle(x);
+  };
+
+  const handleDescriptionChange = (x) => {
+    setDescription(x);
+  };
+
+  const handleDifficultyChange = (x) => {
+    setDifficulty(x);
+  };
+
+  useEffect(() => {
+    if (currentRecipe && !isEditing) {
+      setTitle(currentRecipe.title);
+      setDescription(currentRecipe.snippet);
+      setDifficulty(currentRecipe.difficulty);
+      setSelectedTagsWithId(currentRecipe.tags);
+      setDuration(`${currentRecipe.duration} minutes`);
+      setServings(currentRecipe.servings);
+    }
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -91,16 +114,29 @@ const EditRecipeForm = ({ history }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (validate()) {
-      createRecipe({
-        title,
-        description,
-        difficulty,
-        duration: parsedDuration,
-        servings: parsedServings,
-        tags: selectedTagsWithId,
-        directions,
-        ingredients,
-      }).then(response => history.push(`/recipe/${response.data.id}`));
+      if (!currentRecipe) {
+        createRecipe({
+          title,
+          description,
+          difficulty,
+          duration: parsedDuration,
+          servings: parsedServings,
+          tags: selectedTagsWithId,
+          directions,
+          ingredients,
+        }).then(response => history.push(`/recipe/${response.data.id}`));
+      } else {
+        editRecipe({
+          title,
+          description,
+          difficulty,
+          duration: parsedDuration,
+          servings: parsedServings,
+          tags: selectedTagsWithId,
+          directions,
+          ingredients,
+        }, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
+      }
     }
   };
 
@@ -121,21 +157,20 @@ const EditRecipeForm = ({ history }) => {
     const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
-
   return (
-    <div className="editRecipeForm container-fluid">
+    <div className="createRecipeForm container-fluid">
       <div className="row form-recipe-label">
         <div className="form-title col-4 offset-4">
           <label className="detail-labels" htmlFor="title">
             Recipe Title
-            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} required />
+            <input className="form-control input-sm recipe-details" id="title" type="text" name="title" value={title} onChange={e => handleTitleChange(e.target.value)} required />
           </label>
           <div className="error-message">{title ? '' : titleError}</div>
         </div>
         <div className="form-snippet col-6 offset-3">
           <label className="detail-labels" htmlFor="snippet">
             Recipe Description
-            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => setDescription(e.target.value)} required />
+            <textarea className="form-control recipe-details recipe-description" id="description" name="description" value={description} rows="4" onChange={e => handleDescriptionChange(e.target.value)} required />
           </label>
           <div className="error-message">{description ? '' : descriptionError}</div>
         </div>
@@ -172,19 +207,19 @@ const EditRecipeForm = ({ history }) => {
       </div>
       <div className="row">
         <div className="dropdown col-2 offset-3 form-dropdown ">
+          <h2><img className="recipe-detail-icons barchart" src={barChart} alt="difficulty" /></h2>
           <h2 className="dropdown-headings">
-            <img className="recipe-detail-icons" src={barChart} alt="difficulty" />
             Difficulty
           </h2>
-          <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+          <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => handleDifficultyChange(e.target.value)}>
             <option>Advanced</option>
             <option>Medium</option>
             <option>Easy</option>
           </select>
         </div>
         <div className="dropdown col-2 form-dropdown">
+          <h2><i className="recipe-detail-icons fas fa-clock" /></h2>
           <h2 className="dropdown-headings">
-            <i className="recipe-detail-icons fas fa-clock" />
             Duration
           </h2>
           <select className="recipe-details detail-selection" name="duration" value={duration} onChange={e => setDuration(e.target.value)}>
@@ -195,8 +230,8 @@ const EditRecipeForm = ({ history }) => {
           </select>
         </div>
         <div className="dropdown col-2 form-dropdown">
+          <h2><i className="recipe-detail-icons fas fa-utensil-spoon" /></h2>
           <h2 className="dropdown-headings">
-            <i className="recipe-detail-icons fas fa-utensil-spoon" />
             Servings
           </h2>
           <select className="recipe-details detail-selection" name="servings" value={servings} onChange={e => setServings(e.target.value)}>
@@ -212,11 +247,17 @@ const EditRecipeForm = ({ history }) => {
       <Ingredients
         ingredients={ingredients}
         setIngredients={setIngredients}
+        currentRecipe={currentRecipe}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
       />
       <div className="error-message">{ingredients.length <= 1 ? ingredientsError : ''}</div>
-      <EditDirections
+      <CreateDirections
         directions={directions}
         setDirections={setDirections}
+        currentRecipe={currentRecipe}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
       />
       <div className="error-message">{directions.length <= 1 ? directionsError : ''}</div>
       <div>
@@ -231,4 +272,4 @@ const EditRecipeForm = ({ history }) => {
   );
 };
 
-export default withRouter(EditRecipeForm);
+export default withRouter(CreateRecipeForm);

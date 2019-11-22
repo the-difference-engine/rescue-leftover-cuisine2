@@ -7,8 +7,13 @@ import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
 import './Header.css';
 
 const Header = ({
-  history, user, setJwt, showSearchBar, scrollToRecipes,
+  history, user, setJwt, showSearchBar, scrollToRecipes, match,
 }) => {
+  const refreshCreatePage = () => {
+    history.push('/recipe/new');
+    window.location.reload(false);
+  };
+
   const handleBrowseButton = () => {
     if (history.location.pathname !== '/') {
       history.push('/');
@@ -16,7 +21,15 @@ const Header = ({
       scrollToRecipes();
     }
   };
+
   const loginOrCreateButton = () => {
+    if (user && match.params.id) {
+      return (
+        <button className="btn navbar-btn btn-lg login-or-create-button ml-3" onClick={() => { refreshCreatePage(); }} type="button">
+          Create Recipe +
+        </button>
+      );
+    }
     if (user) {
       return (
         <button className="btn navbar-btn btn-lg login-or-create-button ml-3" onClick={() => { history.push('/recipe/new'); }} type="button">

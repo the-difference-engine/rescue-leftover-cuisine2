@@ -1,9 +1,15 @@
 .recipe-details {
-  border-color: #9b9b9b;
+  border-color: #CCCCCC;
+  color: black;
+}
+
+.recipe-details:focus {
+  color: black;
 }
 
 .recipe-detail-icons{
   color: #9b9b9b;
+  margin: 10px;
 }
 
 .fa-clock{
@@ -19,14 +25,14 @@
   width: 150px;
   height: 50px;
   text-align-last: center;
-  border-color: #9b9b9b;
+  border-color: rgb(204, 204, 204);
 }
 
 .detail-labels {
   width: 75%;
 }
 
-.editRecipeForm.container-fluid {
+.createRecipeForm.container-fluid {
   margin: 0px;
   width: 100%;
   margin-left: 0px;
@@ -43,13 +49,12 @@
   margin-bottom: 50px;
 }
 
-.form-title, .form-snippet, .search-tag {
+.form-title, .form-snippet {
   margin-bottom: 50px;
 }
 
-.editRecipeForm i.fas.fa-utensil-spoon {
-  padding-right: 15px;
-  padding-bottom: 0px;
+.createRecipeForm i.fas.fa-utensil-spoon {
+  margin-bottom: 5px;
 }
 
 .ingredient-btn-container{
@@ -77,10 +82,11 @@
   height: 70px;
   width: 200px;
   border: none;
+  border-radius: 5px;
 }
 
 .st-search-input {
-  font-size: 25px;
+  font-size: 16.5px;
   font-weight: 200;
 }
 
@@ -99,4 +105,13 @@
 .error-message{
   color: red;
   font-size: .7em;
+}
+
+.dropdown-headings {
+  margin: 10px;
+}
+
+.barchart {
+  width: 75%;
+  margin-bottom: 0px;
 }

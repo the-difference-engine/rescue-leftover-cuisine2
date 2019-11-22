@@ -31,6 +31,20 @@ class Api::V1::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def update
+    rp = recipe_params
+    tags = rp.delete(:tags)
+
+    @recipe = Recipe.find_by!(id: params[:id])
+    db_tags = []
+    tags.each do |tag|
+      db_tags << Tag.find(tag[:id])
+    end
+   
+    @recipe.tags = db_tags
+    @recipe.update(rp)
+  end
+
   def recipe_params
     params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
   end

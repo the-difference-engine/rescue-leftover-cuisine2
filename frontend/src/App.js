@@ -58,8 +58,13 @@ const App = () => {
           render={props => <CreateRecipe {...props} user={user} setJwt={setJwt} />}
         />
         <Route
+          exact
           path="/recipe/:id"
           render={props => <Recipe {...props} user={user} setJwt={setJwt} />}
+        />
+        <Route
+          path="/recipe/:id/edit"
+          render={props => <CreateRecipe {...props} user={user} setJwt={setJwt} />}
         />
         <Route
           path="/profile"

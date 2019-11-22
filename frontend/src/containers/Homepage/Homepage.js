@@ -39,15 +39,15 @@ const Homepage = ({ location, user, setJwt }) => {
           </div>
           <div className="row suggestions" ref={myRef}>
             <div className="col-12">
-              <h2>Our Suggestions</h2>
+              <h2>Recent Recipes</h2>
               <br />
-              <h5>Based on this week&apos;s popular ingredient donations</h5>
+              <h5>Newest recipes from our community.</h5>
             </div>
           </div>
           <div className="row">
             <RecipeSearchList searchTerm={searchTerm} />
           </div>
-          { isNil(user) ? (
+          {isNil(user) ? (
             <div className="row">
               <BottomSignUp />
             </div>

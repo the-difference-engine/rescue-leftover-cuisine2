@@ -9,6 +9,8 @@ class Api::V1::RecipesController < ApplicationController
   def index
     if params[:search]
       @recipes = Recipe.search(params[:search])
+    elsif params[:user_id]
+      @recipes = Recipe.where(user_id: params[:user_id]).all
     else
       @recipes = Recipe.includes(:user).all
     end
@@ -30,7 +32,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def recipe_params
-   params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
+    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
   end
 
 end

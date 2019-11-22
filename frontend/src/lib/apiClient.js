@@ -88,6 +88,9 @@ const getRecipes = (search) => {
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
+const getUserRecipes = userId => apiClient.get(`api/v1/users/${userId}/recipes`)
+  .then(results => results.data);
+
 const createRecipe = recipe => apiClient.post('api/v1/recipes', {
   recipe: {
     title: recipe.title,
@@ -167,6 +170,7 @@ export {
   getUsers,
   getUser,
   getRecipes,
+  getUserRecipes,
   getRecipe,
   createRecipe,
   getTags,

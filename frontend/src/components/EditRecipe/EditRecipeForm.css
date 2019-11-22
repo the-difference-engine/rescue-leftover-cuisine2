@@ -95,3 +95,8 @@
 .recipe-description {
   resize: none;
 }
+
+.error-message{
+  color: red;
+  font-size: .7em;
+}

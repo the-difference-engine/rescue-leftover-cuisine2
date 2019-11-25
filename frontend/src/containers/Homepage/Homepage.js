@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import querystring from 'querystring';
 import isNil from 'lodash/isNil';
 import Header from '../../components/Header/Header';
@@ -14,16 +14,22 @@ const Homepage = ({ location, user, setJwt }) => {
 
   const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
 
+
   const myRef = useRef(null);
+
   const executeScroll = () => {
     scrollToRef(myRef);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="homepage container-fluid ">
+    <div className="homepage container-fluid">
       <div className="row">
         <div className="header">
-          <Header user={user} setJwt={setJwt} />
+          <Header user={user} setJwt={setJwt} scrollToRecipes={executeScroll} />
         </div>
       </div>
       <div className="row">
@@ -33,15 +39,19 @@ const Homepage = ({ location, user, setJwt }) => {
           </div>
           <div className="row suggestions" ref={myRef}>
             <div className="col-12">
-              <h2>Our Suggestions</h2>
+              <h2>Recent Recipes</h2>
               <br />
-              <h5>Based on this week&apos;s popular ingredient donations</h5>
+              <h5>Newest recipes from our community.</h5>
             </div>
           </div>
           <div className="row">
             <RecipeSearchList searchTerm={searchTerm} />
           </div>
+<<<<<<< HEAD
           { isNil(user) ? (
+=======
+          {isNil(user) ? (
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
             <div className="row">
               <BottomSignUp />
             </div>

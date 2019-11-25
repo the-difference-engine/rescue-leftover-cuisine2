@@ -7,9 +7,29 @@ import HeaderDropdown from '../HeaderDropdown/HeaderDropdown';
 import './Header.css';
 
 const Header = ({
-  history, user, setJwt, showSearchBar,
+  history, user, setJwt, showSearchBar, scrollToRecipes, match,
 }) => {
+  const refreshCreatePage = () => {
+    history.push('/recipe/new');
+    window.location.reload(false);
+  };
+
+  const handleBrowseButton = () => {
+    if (history.location.pathname !== '/') {
+      history.push('/');
+    } else {
+      scrollToRecipes();
+    }
+  };
+
   const loginOrCreateButton = () => {
+    if (user && match.params.id) {
+      return (
+        <button className="btn navbar-btn btn-lg login-or-create-button ml-3" onClick={() => { refreshCreatePage(); }} type="button">
+          Create Recipe +
+        </button>
+      );
+    }
     if (user) {
       return (
         <button className="btn navbar-btn btn-lg login-or-create-button ml-3" onClick={() => { history.push('/recipe/new'); }} type="button">
@@ -37,7 +57,7 @@ const Header = ({
       {showSearchBar ? <SearchBar /> : null}
 
       <div className="d-inline-flex justify-content-lg-end align-items-center">
-        <button className="btn navbar-btn btn-lg browseButton" href="/" type="button">
+        <button className="btn navbar-btn btn-lg browseButton" onClick={handleBrowseButton} type="button">
           Browse Recipes
         </button>
 

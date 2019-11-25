@@ -18,6 +18,12 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
     history.push('/');
   };
 
+  const showAdminLink = () => (
+    <Link className="header-dropdown-item" to="/admin">
+      <DropdownItem className="header-dropdown-item">Administration</DropdownItem>
+    </Link>
+  );
+
   return (
     <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
       <DropdownToggle tag="button" className="header-dropdown-toggle">
@@ -40,6 +46,7 @@ const HeaderDropdown = ({ history, user, setJwt }) => {
         <Link className="header-dropdown-item" to="/profile#settings">
           <DropdownItem className="header-dropdown-item">Settings</DropdownItem>
         </Link>
+        {user.is_admin ? showAdminLink() : null}
         <DropdownItem divider />
         <DropdownItem onClick={logout} className="header-dropdown-item">Log Out</DropdownItem>
       </DropdownMenu>

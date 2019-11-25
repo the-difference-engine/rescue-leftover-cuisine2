@@ -21,7 +21,13 @@ Rails.application.routes.draw do
         resources :tags, only: [:index]
         resources :comments
       end
+<<<<<<< HEAD
       resources :users
+=======
+      resources :users do
+        resources :recipes, only: [:index]
+      end
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
       resources :tags, only: [:index, :create]
 
       devise_scope :user do

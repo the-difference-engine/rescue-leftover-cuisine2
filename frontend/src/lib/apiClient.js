@@ -88,6 +88,9 @@ const getRecipes = (search) => {
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);
 
+const getUserRecipes = userId => apiClient.get(`api/v1/users/${userId}/recipes`)
+  .then(results => results.data);
+
 const createRecipe = recipe => apiClient.post('api/v1/recipes', {
   recipe: {
     title: recipe.title,
@@ -98,6 +101,26 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
     tags: recipe.tags,
     ingredients: recipe.ingredients,
     directions: recipe.directions,
+<<<<<<< HEAD
+=======
+  },
+}, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
+const editRecipe = (recipe, id) => apiClient.put(`api/v1/recipes/${id}`, {
+  recipe: {
+    title: recipe.title,
+    snippet: recipe.description,
+    difficulty: recipe.difficulty,
+    duration: recipe.duration,
+    servings: recipe.servings,
+    tags: recipe.tags,
+    ingredients: recipe.ingredients,
+    directions: recipe.directions,
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
   },
 }, {
   headers: {
@@ -117,6 +140,15 @@ const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${re
   },
 });
 
+<<<<<<< HEAD
+=======
+const deleteComment = (recipeId, commentId) => apiClient.delete(`api/v1/recipes/${recipeId}/comments/${commentId}`, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
 // TAGS
 
 const getTags = () => apiClient.get('/api/v1/tags')
@@ -167,8 +199,13 @@ export {
   getUsers,
   getUser,
   getRecipes,
+  getUserRecipes,
   getRecipe,
   createRecipe,
+<<<<<<< HEAD
+=======
+  editRecipe,
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
   getTags,
   createTag,
   adminEditUser,
@@ -179,4 +216,5 @@ export {
   endSession,
   confirmUser,
   createComment,
+  deleteComment,
 };

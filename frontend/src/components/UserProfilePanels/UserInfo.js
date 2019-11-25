@@ -124,6 +124,7 @@ function UserInfo({ user, setUser }) {
               {' '}
               {userCreated}
             </p>
+<<<<<<< HEAD
             <div className="user-bio">
               <button type="button" className="user-edit-button">
                 <img
@@ -138,6 +139,8 @@ function UserInfo({ user, setUser }) {
                 {'Cras mattis sem nec nisl consectetur at posuere nulla aliquet.'}
               </p>
             </div>
+=======
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
           </div>
         </div>
       </div>

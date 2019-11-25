@@ -26,6 +26,7 @@ asdf install nodejs 8.11.4
 ```
 
 ### Docker
+<<<<<<< HEAD
 
 #### New to Docker?
 If you are completely new to Docker, please see the [Getting Started with Docker Guide](https://docs.docker.com/get-started/) on Docker's official website. Your first exposure to using containers can be confusing, so please don't hesitate to ask your team's Technical Lead for help.
@@ -52,25 +53,40 @@ chmod +x /usr/local/bin/docker-compose
 
 <<<<<<< HEAD
 ### Lodash
+=======
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
 
-This project uses [`lodash`](https://lodash.com/docs/4.17) to provide some additional JavaScript helper functions. Check out lodash's developer documentation, it's super helpful.
+#### New to Docker?
+If you are completely new to Docker, please see the [Getting Started with Docker Guide](https://docs.docker.com/get-started/) on Docker's official website. Your first exposure to using containers can be confusing, so please don't hesitate to ask your team's Technical Lead for help.
 
-If you find a function you'd like to use (e.g. [`map`](https://lodash.com/docs/4.17.11#map)), you should import it individually at the top of your file like so:
+#### Install Docker
+Select the installation guide below for your laptop's operating system:
+- [**Mac OSX**](https://docs.docker.com/docker-for-mac/install/)
+- [**Linux**](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#set-up-the-repository)
+- [**Windows**](https://docs.docker.com/docker-for-windows/install/)
 
-```javascript
-import map from 'lodash/map';
+#### Install Docker Compose
+##### Mac OSX & Windows
+For **Mac OSX** and **Windows** users, Docker Compose is already included with the Docker toolbox.
+
+##### Linux
+For linux users, you will have to install the docker compose binary from the [Docker Compoose release repository](https://github.com/docker/compose/releases). Please follow the instructions below to properly install docker compose:
+
+1. Run this command in your terminal to install the Docker Compose binary
+
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.22.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 ```
 
-### Testing
-
-This project uses [`jest` 23.x](https://jestjs.io/docs/en/23.x/getting-started.html) for unit testing. Use the `npm test` command from within the `frontend` folder to run the existing tests.
-
-In order to add new tests for a component (e.g. `YourComponent.js`), add a `YourComponent.test.js` file to the same folder as the component you would like to test.
-
+<<<<<<< HEAD
 ### Linting
 =======
 2. Apply [executable permissions](https://ryanstutorials.net/linuxtutorial/permissions.php) to the binary
 >>>>>>> 03692cb8d40b180e9d1069f8b78573ca1616e50a
+=======
+2. Apply [executable permissions](https://ryanstutorials.net/linuxtutorial/permissions.php) to the binary
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
 
 ```
 sudo chmod +x /usr/local/bin/docker-compose

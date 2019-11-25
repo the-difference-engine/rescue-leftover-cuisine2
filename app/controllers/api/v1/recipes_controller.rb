@@ -9,10 +9,12 @@ class Api::V1::RecipesController < ApplicationController
   def index
     if params[:search]
       @recipes = Recipe.search(params[:search])
+    elsif params[:user_id]
+      @recipes = Recipe.where(user_id: params[:user_id]).all
     else
       @recipes = Recipe.includes(:user).all
     end
-    render json: @recipes, :include => [:user]
+    render json: @recipes.all.order("created_at DESC"), :include => [:user]
   end
 
   def create
@@ -29,8 +31,26 @@ class Api::V1::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def update
+    rp = recipe_params
+    tags = rp.delete(:tags)
+
+    @recipe = Recipe.find_by!(id: params[:id])
+    db_tags = []
+    tags.each do |tag|
+      db_tags << Tag.find(tag[:id])
+    end
+   
+    @recipe.tags = db_tags
+    @recipe.update(rp)
+  end
+
   def recipe_params
+<<<<<<< HEAD
    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
+=======
+    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
+>>>>>>> ac28029caf8c833015d84decb96087edc0bfcebf
   end
 
 end

@@ -12,10 +12,12 @@
 }
 
 .notFoundTitle {
-  font-size: 300px;
+  /* stylelint-disable-next-line unit-whitelist */
+  font-size: 30vw;
   color: #06a6d3;
 }
 
 .notFoundText {
-  font-size: 30px;
+  /* stylelint-disable-next-line unit-whitelist */
+  font-size: 4vh;
 }

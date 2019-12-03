@@ -15,6 +15,7 @@ import ProfilePage from './containers/ProfilePage/ProfilePage';
 import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
 import ThanksPage from './containers/ThanksPage/ThanksPage';
 import ConfirmUser from './components/ConfirmUser/ConfirmUser';
+import Page404 from './containers/Page404/Page404';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -91,6 +92,7 @@ const App = () => {
             />
           )}
         />
+        <Route component={Page404} />
       </Switch>
     </div>
   );

@@ -1,0 +1,21 @@
+#error {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.notFoundTitle {
+  font-size: 300px;
+  color: #06a6d3;
+}
+
+.notFoundText {
+  font-size: 30px;
+}

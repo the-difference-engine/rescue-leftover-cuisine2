@@ -20,4 +20,7 @@
 .notFoundText {
   /* stylelint-disable-next-line unit-whitelist */
   font-size: 4vh;
+  /* stylelint-disable-next-line unit-whitelist */
+  line-height: 4vh;
+  text-align: center;
 }

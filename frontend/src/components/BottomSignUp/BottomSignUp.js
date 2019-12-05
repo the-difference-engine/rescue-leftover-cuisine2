@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import signupImage from '../../assets/adults-beverages.jpg';
-import './BottomSignUp.css';
+import './BottomSignUp.scss';
 
 const BottomSignUp = ({ history }) => (
   <div className="container-fluid containerSection">

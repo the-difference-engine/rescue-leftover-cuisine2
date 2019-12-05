@@ -259,24 +259,24 @@ frontend/
 |   |-- components/
 |   |   |-- App/
 |   |   |   |-- App.js
-|   |   |   |-- App.css
+|   |   |   |-- App.scss
 |   |   |
 |   |   |-- LogIn/
 |   |   |   |-- LogIn.js
-|   |   |   |-- LogIn.css
+|   |   |   |-- LogIn.scss
 |   |   |
 |   |   |-- RecipeCard/
 |   |   |   |-- RecipeCard.js
-|   |   |   |-- RecipeCard.css
+|   |   |   |-- RecipeCard.scss
 |   |   |
 |   |   |-- YetAnotherComponent/
 |   |       |-- YetAnotherComponent.js
-|   |       |-- YetAnotherComponent.css
+|   |       |-- YetAnotherComponent.scss
 |   |
 |   |-- containers/
 |   |   |-- HomePage/
 |   |       |-- HomePage.js
-|   |       |-- HomePage.css
+|   |       |-- HomePage.scss
 |   |
 |   |-- index.js
 |

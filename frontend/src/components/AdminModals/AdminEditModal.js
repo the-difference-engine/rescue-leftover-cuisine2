@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Col, Input, Alert,
 } from 'reactstrap';
-import './AdminEditModal.css';
+import './AdminEditModal.scss';
 import { adminEditUser } from '../../lib/apiClient';
 
 

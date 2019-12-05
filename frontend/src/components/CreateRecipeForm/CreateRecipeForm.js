@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 import TagsBar from '../TagsBar/TagsBar';
 import { createRecipe, editRecipe, getTags } from '../../lib/apiClient';
-import barChart from '../../assets/bar-chart.png';
-import Footer from '../Footer/Footer';
-import './CreateRecipeForm.css';
 import CreateDirections from './CreateDirections/CreateDirections';
 import Ingredients from './Ingredients/Ingredients';
+import barChart from '../../assets/bar-chart.png';
+import Footer from '../Footer/Footer';
+import './CreateRecipeForm.scss';
 
 const customStyles = {
   control: provided => ({

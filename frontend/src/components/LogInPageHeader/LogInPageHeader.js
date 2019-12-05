@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/RLC_logo.png';
-import './LogInPageHeader.css';
+import './LogInPageHeader.scss';
 
 const LogInPageHeader = () => (
   <div className="container-fluid text-center">

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import map from 'lodash/map';
-import './ingredients.css';
+import './ingredients.scss';
 
 const Ingredients = ({
   ingredients,

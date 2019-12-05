@@ -12,7 +12,7 @@ $dir/node_modules/.bin/eslint $1 src/App.js src/App.test.js src/index.js 'src/*/
 }
 
 echo "Linting CSS... 🕵️"
-./node_modules/stylelint/bin/stylelint.js $1 'src/**/*.css' && {
+./node_modules/stylelint/bin/stylelint.js $1 'src/**/*.scss' && {
   echo "We're lint free! 🚀"
 } || {
    echo "Oh no! Lint! 😭"

@@ -1,5 +1,5 @@
 import React from 'react';
-import './ServingsSpec.css';
+import './ServingsSpec.scss';
 
 const ServingsSpec = () => (
   <div className="spec-unique">

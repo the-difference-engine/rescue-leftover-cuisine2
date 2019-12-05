@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
-import './DeleteCommentModal.css';
+import './DeleteCommentModal.scss';
 import { deleteComment } from '../../../lib/apiClient';
 
 function DeleteCommentModal(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './DifficultySpec.css';
+import './DifficultySpec.scss';
 
 export default class DifficultySpec extends Component {
   constructor() {

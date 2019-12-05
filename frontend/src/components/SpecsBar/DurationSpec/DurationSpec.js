@@ -1,5 +1,5 @@
 import React from 'react';
-import './DurationSpec.css';
+import './DurationSpec.scss';
 
 const DurationSpec = () => (
   <div className="spec-unique">

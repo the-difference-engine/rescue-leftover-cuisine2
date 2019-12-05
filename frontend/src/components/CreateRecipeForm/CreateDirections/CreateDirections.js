@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import map from 'lodash/map';
-import './CreateDirections.css';
+import './CreateDirections.scss';
 
 const EditDirections = ({
   directions, setDirections, currentRecipe, isEditing, setIsEditing,

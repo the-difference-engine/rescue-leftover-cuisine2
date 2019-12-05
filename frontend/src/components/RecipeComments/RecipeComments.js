@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import map from 'lodash/map';
 import { createComment } from '../../lib/apiClient';
-import './RecipeComments.css';
 import DeleteCommentModal from './DeleteCommentModal/DeleteCommentModal';
+import './RecipeComments.scss';
 
 const RecipeComments = ({
   comments, recipeId, user, reloadComments,

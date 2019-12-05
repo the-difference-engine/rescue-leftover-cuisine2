@@ -1,5 +1,5 @@
 import React from 'react';
-import './SingleTag.css';
+import './SingleTag.scss';
 
 const SingleTag = ({ tag, deleteSelectedTag, showDeleteButton }) => (
   <div>

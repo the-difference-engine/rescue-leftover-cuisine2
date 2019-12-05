@@ -6,13 +6,13 @@ import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import map from 'lodash/map';
 import isNil from 'lodash/isNil';
+import { getUserRecipes } from '../../lib/apiClient';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import UserInfo from '../../components/UserProfilePanels/UserInfo';
 import SettingsTab from '../../components/UserProfilePanels/SettingsTab';
-import { getUserRecipes } from '../../lib/apiClient';
-import './ProfilePage.css';
+import './ProfilePage.scss';
 
 const ProfilePage = ({
   user, setUser, setJwt, history, location,

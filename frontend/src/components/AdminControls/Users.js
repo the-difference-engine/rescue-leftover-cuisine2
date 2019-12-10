@@ -9,6 +9,7 @@ import './AdminTables.scss';
 const Users = ({ users, refreshUsers }) => {
   const [editModal, setEditModal] = useState(false);
   const [suspendModal, setSuspendModal] = useState(false);
+  // const [adminPromoteModal, setAdminPromoteModal] = useState(false);
 
   const toggleEditModal = () => {
     setEditModal(!editModal);
@@ -17,6 +18,21 @@ const Users = ({ users, refreshUsers }) => {
   const toggleSuspendModal = () => {
     setSuspendModal(!suspendModal);
   };
+
+  // const toggleAdminPromoteModal = () => {
+  //   setAdminPromoteModal(!adminPromoteModal);
+  // };
+
+  const editButton = () => (
+    <div>
+      <button type="button" className="icon-button" onClick={toggleEditModal}>
+        <img
+          src="https://img.icons8.com/windows/32/000000/edit.png"
+          alt="edit"
+        />
+      </button>
+    </div>
+  );
 
   const suspendButton = (isSuspended) => {
     const suspendIcon = isSuspended ? (
@@ -33,12 +49,6 @@ const Users = ({ users, refreshUsers }) => {
 
     return (
       <div>
-        <button type="button" className="icon-button" onClick={toggleEditModal}>
-          <img
-            src="https://img.icons8.com/windows/32/000000/edit.png"
-            alt="edit"
-          />
-        </button>
         <button type="button" className="icon-button">
           { suspendIcon }
         </button>
@@ -46,17 +56,48 @@ const Users = ({ users, refreshUsers }) => {
     );
   };
 
+  const adminPromoteButton = (isAdmin) => {
+    const adminPromoteIcon = isAdmin ? (
+      <img
+        src="https://img.icons8.com/material-rounded/24/000000/level-up.png"
+        alt="user has an admin status"
+      />
+    ) : (
+      <img
+        src="https://img.icons8.com/ios-glyphs/30/000000/down3.png"
+        alt="promote admin status to user"
+      />
+    );
+
+    return (
+      <div>
+        <button type="button" className="icon-button">
+          { adminPromoteIcon }
+        </button>
+      </div>
+    );
+  };
+
+  const buttonsRow = (isSuspended, isAdmin) => (
+    <div className="icon-row">
+      {editButton()}
+      {suspendButton(isSuspended)}
+      {adminPromoteButton(isAdmin)}
+    </div>
+  );
+
   const userRow = ({
     full_name: fullName,
     created_at: createdAt,
     is_suspended: isSuspended,
     recipes,
+    is_admin: isAdmin,
   }) => (
     <tr>
       <td>{fullName}</td>
       <td>{formatDate(createdAt)}</td>
       <td>{recipes.length}</td>
-      <td>{suspendButton(isSuspended)}</td>
+      <td>{buttonsRow(isSuspended, isAdmin)}</td>
     </tr>
   );
 

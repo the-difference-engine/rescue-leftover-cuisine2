@@ -2,6 +2,7 @@ import map from 'lodash/map';
 import React, { Fragment, useState } from 'react';
 import AdminEditModal from '../AdminModals/AdminEditModal';
 import AdminSuspendModal from '../AdminModals/AdminSuspendModal';
+import AdminPromoteModal from '../AdminModals/AdminPromoteModal';
 import PaginatedTable from './PaginatedTable';
 import { formatDate } from '../../lib/utilities';
 import './AdminTables.scss';
@@ -9,7 +10,7 @@ import './AdminTables.scss';
 const Users = ({ users, refreshUsers }) => {
   const [editModal, setEditModal] = useState(false);
   const [suspendModal, setSuspendModal] = useState(false);
-  // const [adminPromoteModal, setAdminPromoteModal] = useState(false);
+  const [adminPromoteModal, setAdminPromoteModal] = useState(false);
 
   const toggleEditModal = () => {
     setEditModal(!editModal);
@@ -19,9 +20,9 @@ const Users = ({ users, refreshUsers }) => {
     setSuspendModal(!suspendModal);
   };
 
-  // const toggleAdminPromoteModal = () => {
-  //   setAdminPromoteModal(!adminPromoteModal);
-  // };
+  const toggleAdminPromoteModal = () => {
+    setAdminPromoteModal(!adminPromoteModal);
+  };
 
   const editButton = () => (
     <div>
@@ -59,19 +60,19 @@ const Users = ({ users, refreshUsers }) => {
   const adminPromoteButton = (isAdmin) => {
     const adminPromoteIcon = isAdmin ? (
       <img
-        src="https://img.icons8.com/material-rounded/24/000000/level-up.png"
+        src="https://img.icons8.com/ios-glyphs/30/000000/down3.png"
         alt="user has an admin status"
       />
     ) : (
       <img
-        src="https://img.icons8.com/ios-glyphs/30/000000/down3.png"
+        src="https://img.icons8.com/material-rounded/24/000000/level-up.png"
         alt="promote admin status to user"
       />
     );
 
     return (
       <div>
-        <button type="button" className="icon-button">
+        <button type="button" className="icon-button" onClick={toggleAdminPromoteModal}>
           { adminPromoteIcon }
         </button>
       </div>
@@ -110,6 +111,8 @@ const Users = ({ users, refreshUsers }) => {
     </tr>
   );
 
+  console.log('users', users);
+
   return (
     <Fragment>
       <h1 className="admin-users-title">Admin Dashboard</h1>
@@ -123,6 +126,12 @@ const Users = ({ users, refreshUsers }) => {
       <AdminSuspendModal
         suspendModal={suspendModal}
         toggleSuspendModal={toggleSuspendModal}
+        selectedUser={{ full_name: "IT'S A ME" }}
+        refreshUsers={refreshUsers}
+      />
+      <AdminPromoteModal
+        adminPromoteModal={adminPromoteModal}
+        toggleAdminPromoteModal={toggleAdminPromoteModal}
         selectedUser={{ full_name: "IT'S A ME" }}
         refreshUsers={refreshUsers}
       />

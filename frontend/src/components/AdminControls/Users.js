@@ -10,7 +10,8 @@ import './AdminTables.scss';
 const Users = ({ users, refreshUsers }) => {
   const [editModal, setEditModal] = useState(false);
   const [suspendModal, setSuspendModal] = useState(false);
-  const [adminPromoteModal, setAdminPromoteModal] = useState(false);
+  const [promoteModal, setPromoteModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
 
   const toggleEditModal = () => {
     setEditModal(!editModal);
@@ -20,8 +21,13 @@ const Users = ({ users, refreshUsers }) => {
     setSuspendModal(!suspendModal);
   };
 
-  const toggleAdminPromoteModal = () => {
-    setAdminPromoteModal(!adminPromoteModal);
+  const togglePromoteModal = () => {
+    setPromoteModal(!promoteModal);
+  };
+
+  const promoteButtonFunction = (userId, isAdmin) => {
+    setSelectedUser({ userId, isAdmin });
+    togglePromoteModal();
   };
 
   const editButton = () => (
@@ -57,8 +63,8 @@ const Users = ({ users, refreshUsers }) => {
     );
   };
 
-  const adminPromoteButton = (isAdmin) => {
-    const adminPromoteIcon = isAdmin ? (
+  const promoteButton = (userId, isAdmin) => {
+    const promoteIcon = isAdmin ? (
       <img
         src="https://img.icons8.com/ios-glyphs/30/000000/down3.png"
         alt="user has an admin status"
@@ -72,22 +78,23 @@ const Users = ({ users, refreshUsers }) => {
 
     return (
       <div>
-        <button type="button" className="icon-button" onClick={toggleAdminPromoteModal}>
-          { adminPromoteIcon }
+        <button type="button" className="icon-button" onClick={() => promoteButtonFunction(userId, isAdmin)}>
+          { promoteIcon }
         </button>
       </div>
     );
   };
 
-  const buttonsRow = (isSuspended, isAdmin) => (
+  const buttonsRow = (userId, isSuspended, isAdmin) => (
     <div className="icon-row">
       {editButton()}
       {suspendButton(isSuspended)}
-      {adminPromoteButton(isAdmin)}
+      {promoteButton(userId, isAdmin)}
     </div>
   );
 
   const userRow = ({
+    id: userId,
     full_name: fullName,
     created_at: createdAt,
     is_suspended: isSuspended,
@@ -98,7 +105,7 @@ const Users = ({ users, refreshUsers }) => {
       <td>{fullName}</td>
       <td>{formatDate(createdAt)}</td>
       <td>{recipes.length}</td>
-      <td>{buttonsRow(isSuspended, isAdmin)}</td>
+      <td>{buttonsRow(userId, isSuspended, isAdmin)}</td>
     </tr>
   );
 
@@ -110,8 +117,6 @@ const Users = ({ users, refreshUsers }) => {
       <th />
     </tr>
   );
-
-  console.log('users', users);
 
   return (
     <Fragment>
@@ -130,9 +135,10 @@ const Users = ({ users, refreshUsers }) => {
         refreshUsers={refreshUsers}
       />
       <AdminPromoteModal
-        adminPromoteModal={adminPromoteModal}
-        toggleAdminPromoteModal={toggleAdminPromoteModal}
-        selectedUser={{ full_name: "IT'S A ME" }}
+        promoteModal={promoteModal}
+        togglePromoteModal={togglePromoteModal}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
         refreshUsers={refreshUsers}
       />
     </Fragment>

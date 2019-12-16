@@ -15,6 +15,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :is_suspended)
+    params.require(:user).permit(:first_name, :last_name, :email, :is_suspended, :is_admin)
   end
 end

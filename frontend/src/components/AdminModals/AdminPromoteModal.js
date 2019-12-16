@@ -3,27 +3,27 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 import './AdminSuspendModal.scss';
-// import { promoteUser } from '../../lib/apiClient';
+import { promoteUser } from '../../lib/apiClient';
 
 function AdminPromoteModal(props) {
   const {
-    toggleAdminPromoteModal, adminPromoteModal, selectedUser, refreshUsers,
+    togglePromoteModal, promoteModal, selectedUser, setSelectedUser, refreshUsers,
   } = props;
 
   const togglePromote = () => {
-    toggleAdminPromoteModal();
-    refreshUsers();
-    // promoteUser(selectedUser.id, !selectedUser.is_admin).then(() => {
-    //   toggleAdminPromoteModal();
-    //   refreshUsers();
-    // });
+    const { isAdmin, userId } = selectedUser;
+    promoteUser(userId, !isAdmin).then(() => {
+      togglePromoteModal();
+      refreshUsers();
+      setSelectedUser({});
+    });
   };
 
   const closeBtn = (
     <button
       type="button"
-      className="suspend-user-close-button"
-      onClick={toggleAdminPromoteModal}
+      className="promote-user-close-button"
+      onClick={togglePromoteModal}
     >
       <img src="https://img.icons8.com/windows/32/000000/cancel.png" alt="close" />
     </button>
@@ -37,16 +37,16 @@ function AdminPromoteModal(props) {
 
   return (
     <div>
-      <Modal className="suspend-user-modal" isOpen={adminPromoteModal} toggleSuspendModal={toggleAdminPromoteModal} backdrop={false}>
-        <ModalHeader toggleSuspendModal={toggleAdminPromoteModal} close={closeBtn}>
-          { selectedUser.is_admin ? 'Demote to Normal User??' : 'Promote to Administrator?' }
+      <Modal className="promote-user-modal" isOpen={promoteModal} toggleSuspendModal={togglePromoteModal} backdrop={false}>
+        <ModalHeader toggleSuspendModal={togglePromoteModal} close={closeBtn}>
+          { selectedUser.isAdmin ? 'Demote to Normal User??' : 'Promote to Administrator?' }
         </ModalHeader>
         <ModalBody>
-          { modalText(selectedUser.is_admin) }
+          { modalText(selectedUser.isAdmin) }
         </ModalBody>
         <ModalFooter>
           <Button className="promote-user-save-button" color="primary" onClick={togglePromote}>
-            { selectedUser.is_admin ? 'Promote' : 'Demote' }
+            { selectedUser.isAdmin ? 'Demote' : 'Promote' }
           </Button>
         </ModalFooter>
       </Modal>

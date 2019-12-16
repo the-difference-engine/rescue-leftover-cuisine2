@@ -19,11 +19,16 @@ function AdminPromoteModal(props) {
     });
   };
 
+  const closeModal = () => {
+    togglePromoteModal();
+    setSelectedUser({});
+  };
+
   const closeBtn = (
     <button
       type="button"
       className="promote-user-close-button"
-      onClick={togglePromoteModal}
+      onClick={closeModal}
     >
       <img src="https://img.icons8.com/windows/32/000000/cancel.png" alt="close" />
     </button>
@@ -37,8 +42,8 @@ function AdminPromoteModal(props) {
 
   return (
     <div>
-      <Modal className="promote-user-modal" isOpen={promoteModal} toggleSuspendModal={togglePromoteModal} backdrop={false}>
-        <ModalHeader toggleSuspendModal={togglePromoteModal} close={closeBtn}>
+      <Modal className="promote-user-modal" isOpen={promoteModal} togglePromoteModal={togglePromoteModal} backdrop={false}>
+        <ModalHeader togglePromoteModal={togglePromoteModal} close={closeBtn}>
           { selectedUser.isAdmin ? 'Demote to Normal User??' : 'Promote to Administrator?' }
         </ModalHeader>
         <ModalBody>

@@ -55,3 +55,4 @@ gem "foreman", "~> 0.63.0"
 
 gem "pg_search", "~> 2.1.4"
 gem "cloudinary", "~> 1.11"
+gem "will_paginate", "~> 3.0.4", :require => nil

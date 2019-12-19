@@ -7,10 +7,29 @@ import { getRecipes } from '../../lib/apiClient';
 
 const RecipeSearchList = ({ searchTerm }) => {
   const [recipes, setRecipes] = useState([]);
+  const [page, setPage] = useState(1);
+  const [newSearchTerm, setnewSearchTerm] = useState(false);
+
   useEffect(() => {
-    getRecipes(searchTerm)
+    setnewSearchTerm(true);
+    setPage(1);
+    getRecipes(1, searchTerm)
       .then(data => setRecipes(data));
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (!newSearchTerm) {
+      getRecipes(page, searchTerm)
+        .then(data => setRecipes(recipes.concat(data)));
+    }
+  }, [page]);
+
+  const loadMoreRecipes = () => {
+    setPage(page + 1);
+    if (newSearchTerm) {
+      setnewSearchTerm(false);
+    }
+  };
 
   const renderCounter = searchTerm ? <ResultsCounter recipes={recipes} /> : <div />;
   const renderLozenge = searchTerm ? <SearchLozenge searchTerm={searchTerm} /> : <div />;
@@ -25,6 +44,7 @@ const RecipeSearchList = ({ searchTerm }) => {
           key={recipe.id}
         />
       ))}
+      <button type="button" onClick={loadMoreRecipes}>load more</button>
     </div>
   );
 };

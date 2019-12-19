@@ -80,9 +80,10 @@ const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`
 
 // RECIPES
 
-const getRecipes = (search) => {
-  const query = search ? `?search=${search}` : '';
-  return apiClient.get(`api/v1/recipes${query}`)
+const getRecipes = (page, search) => {
+  const query1 = search ? `search=${search}` : '';
+  const query2 = `page=${page}`;
+  return apiClient.get(`api/v1/recipes?${query1}&${query2}`)
     .then(results => results.data);
 };
 

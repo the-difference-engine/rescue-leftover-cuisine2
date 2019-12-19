@@ -9,7 +9,7 @@ class Api::V1::RecipesController < ApplicationController
   def index
     puts params
     if params[:search]
-      @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 1)
+      @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
     elsif params[:user_id]
       @recipes = Recipe.where(user_id: params[:user_id]).all
     else

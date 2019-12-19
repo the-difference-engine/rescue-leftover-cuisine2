@@ -4,6 +4,7 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import ResultsCounter from '../ResultsCounter/ResultsCounter';
 import SearchLozenge from '../SearchLozenge/SearchLozenge';
 import { getRecipes } from '../../lib/apiClient';
+import './RecipeSearchList.scss';
 
 const RecipeSearchList = ({ searchTerm }) => {
   const [recipes, setRecipes] = useState([]);
@@ -35,16 +36,18 @@ const RecipeSearchList = ({ searchTerm }) => {
   const renderLozenge = searchTerm ? <SearchLozenge searchTerm={searchTerm} /> : <div />;
 
   return (
-    <div id="cards-wrapper">
-      {renderCounter}
-      {renderLozenge}
-      {map(recipes, recipe => (
-        <RecipeCard
-          {...recipe}
-          key={recipe.id}
-        />
-      ))}
-      <button type="button" onClick={loadMoreRecipes}>load more</button>
+    <div className="cards-container">
+      <div id="cards-wrapper">
+        {renderCounter}
+        {renderLozenge}
+        {map(recipes, recipe => (
+          <RecipeCard
+            {...recipe}
+            key={recipe.id}
+          />
+        ))}
+      </div>
+      <button className="btn load-more-button ml-3" type="button" onClick={loadMoreRecipes}>load more</button>
     </div>
   );
 };

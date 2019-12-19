@@ -37,6 +37,7 @@ function AdminPromoteModal(props) {
   const modalText = (isAdmin) => {
     const textForPromoteUser = 'Clicking "Promote" will promote this user to an administrator. They will have access to ALL administrator functionality in the app, including the ability to suspend users, edit or delete all recipes, and delete comments. If you do not wish to promote this user, close this dialog box.';
     const textForDemoteUser = 'Clicking "Demote" will demote this administrator to a normal user. They will lose access to ALL administrator functionality in the app, including the ability to suspend users, edit or delete all recipes, and delete comments. If you do not wish to demote this user, close this dialog box.';
+
     return (isAdmin) ? textForDemoteUser : textForPromoteUser;
   };
 

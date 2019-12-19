@@ -25,7 +25,7 @@ const Users = ({ users, refreshUsers }) => {
     setPromoteModal(!promoteModal);
   };
 
-  const promoteButtonFunction = (userId, isAdmin) => {
+  const handlePromote = (userId, isAdmin) => {
     setSelectedUser({ userId, isAdmin });
     togglePromoteModal();
   };
@@ -78,7 +78,7 @@ const Users = ({ users, refreshUsers }) => {
 
     return (
       <div>
-        <button type="button" className="icon-button" onClick={() => promoteButtonFunction(userId, isAdmin)}>
+        <button type="button" className="icon-button" onClick={() => handlePromote(userId, isAdmin)}>
           { promoteIcon }
         </button>
       </div>

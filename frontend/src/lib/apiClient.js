@@ -72,6 +72,10 @@ const suspendUser = (userId, isSuspended) => apiClient.patch(`api/v1/users/${use
   is_suspended: isSuspended,
 });
 
+const promoteUser = (userId, isAdmin) => apiClient.patch(`api/v1/users/${userId}`, {
+  is_admin: isAdmin,
+});
+
 const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`, {
   first_name: data.firstName.value,
   last_name: data.lastName.value,
@@ -204,6 +208,7 @@ export {
   resetCurrentUserPassword,
   requestPasswordReset,
   suspendUser,
+  promoteUser,
   endSession,
   confirmUser,
   createComment,

@@ -212,9 +212,9 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
             Difficulty
           </h2>
           <select className="recipe-details detail-selection" name="difficulty" value={difficulty} onChange={e => handleDifficultyChange(e.target.value)}>
-            <option>Advanced</option>
-            <option>Medium</option>
-            <option>Easy</option>
+            <option>ADVANCED</option>
+            <option>MEDIUM</option>
+            <option>EASY</option>
           </select>
         </div>
         <div className="dropdown col-2 form-dropdown">

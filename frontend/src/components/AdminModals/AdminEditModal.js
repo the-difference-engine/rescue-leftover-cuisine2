@@ -32,7 +32,7 @@ class AdminEditModal extends React.Component {
     && newData.lastName.value === oldData.lastName) {
       this.setState({ alertVisible: true });
     } else {
-      adminEditUser(newData, userId).then(() => {
+      adminEditUser(newData, selectedUser.userId).then(() => {
         toggleEditModal();
         refreshUsers();
       });

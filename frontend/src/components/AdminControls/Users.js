@@ -36,7 +36,12 @@ const Users = ({ users, refreshUsers }) => {
   };
 
   const handleEdit = (userId, firstName, lastName, email) => {
-    setSelectedUser({ userId, firstName, lastName, email });
+    setSelectedUser({
+      userId,
+      firstName,
+      lastName,
+      email,
+    });
     toggleEditModal();
   };
 
@@ -110,7 +115,7 @@ const Users = ({ users, refreshUsers }) => {
     is_suspended: isSuspended,
     recipes,
     is_admin: isAdmin,
-    email: email,
+    email,
     first_name: firstName,
     last_name: lastName,
   }) => (

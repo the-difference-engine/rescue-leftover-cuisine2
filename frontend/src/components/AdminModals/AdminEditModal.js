@@ -28,11 +28,11 @@ class AdminEditModal extends React.Component {
     const oldData = selectedUser;
 
     if (newData.email.value === oldData.email
-    && newData.firstName.value === oldData.first_name
-    && newData.lastName.value === oldData.last_name) {
+    && newData.firstName.value === oldData.firstName
+    && newData.lastName.value === oldData.lastName) {
       this.setState({ alertVisible: true });
     } else {
-      adminEditUser(newData, selectedUser.id).then(() => {
+      adminEditUser(newData, userId).then(() => {
         toggleEditModal();
         refreshUsers();
       });
@@ -67,13 +67,13 @@ class AdminEditModal extends React.Component {
               <FormGroup row>
                 <Label for="firstName" sm={4}>First Name</Label>
                 <Col sm={8}>
-                  <Input type="text" name="text" id="firstName" defaultValue={selectedUser.first_name} />
+                  <Input type="text" name="text" id="firstName" defaultValue={selectedUser.firstName} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="lastName" sm={4}>Last Name</Label>
                 <Col sm={8}>
-                  <Input type="text" name="text" id="lastName" defaultValue={selectedUser.last_name} />
+                  <Input type="text" name="text" id="lastName" defaultValue={selectedUser.lastName} />
                 </Col>
               </FormGroup>
               <FormGroup row>

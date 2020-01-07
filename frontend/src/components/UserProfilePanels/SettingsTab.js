@@ -3,15 +3,19 @@ import {
   Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 import './SettingsTab.scss';
-import { resetCurrentUserPassword } from '../../lib/apiClient';
+import { resetPassword } from '../../lib/apiClient';
 
 const SettingsTab = () => {
   const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [pwordVisible, setPwordVisible] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    resetCurrentUserPassword(currentPassword, newPassword);
+    if (newPassword === confirmPassword) {
+      resetPassword(currentPassword, newPassword);
+    }
   };
 
   return (
@@ -34,11 +38,18 @@ const SettingsTab = () => {
             onClick={() => setPwordVisible(!pwordVisible)}
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Change Password </Button>
+        <FormGroup>
+          <Label for="confirmPassword" hidden>Confirm New Password</Label>
+          <Input type={pwordVisible ? 'text' : 'password'} value={confirmPassword} name="confirm-password" id="confirmPassword" placeholder="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} />
+          <span
+            className={pwordVisible ? 'fas fa-eye-slash fa-lg pword-vis' : 'fas fa-eye fa-lg pword-vis'}
+            onClick={() => setPwordVisible(!pwordVisible)}
+          />
+        </FormGroup>
+        <Button onClick={handleSubmit}>Change Password</Button>
       </Form>
     </div>
   );
 };
-
 
 export default SettingsTab;

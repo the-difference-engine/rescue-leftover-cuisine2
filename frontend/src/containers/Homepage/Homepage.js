@@ -41,7 +41,7 @@ const Homepage = ({ location, user, setJwt }) => {
             <div className="col-12">
               <h2>Recent Recipes</h2>
               <br />
-              <h5>Newest recipes from our community.</h5>
+              <h5>Newest recipes from our community</h5>
             </div>
           </div>
           <div className="row">

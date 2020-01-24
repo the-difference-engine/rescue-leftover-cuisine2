@@ -162,6 +162,13 @@ const Users = ({ users, refreshUsers }) => {
         setSelectedUser={setSelectedUser}
         refreshUsers={refreshUsers}
       />
+      <AdminPromoteModal
+        promoteModal={promoteModal}
+        togglePromoteModal={togglePromoteModal}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        refreshUsers={refreshUsers}
+      />
     </Fragment>
   );
 };

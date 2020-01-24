@@ -10,7 +10,6 @@ const Recipes = ({ history, recipes, refreshRecipes }) => {
     history.push(`/recipe/${recipeId}/edit`);
   };
 
-
   const handleDelete = async (recipeId) => {
     await deleteRecipe(recipeId);
     refreshRecipes();

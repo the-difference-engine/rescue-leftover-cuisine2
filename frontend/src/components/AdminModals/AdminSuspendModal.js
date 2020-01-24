@@ -7,21 +7,28 @@ import { suspendUser } from '../../lib/apiClient';
 
 function AdminSuspendModal(props) {
   const {
-    toggleSuspendModal, suspendModal, selectedUser, refreshUsers,
+    toggleSuspendModal, suspendModal, selectedUser, setSelectedUser, refreshUsers,
   } = props;
 
   const toggleSuspend = () => {
-    suspendUser(selectedUser.id, !selectedUser.is_suspended).then(() => {
+    const { isSuspended, userId } = selectedUser;
+    suspendUser(userId, !isSuspended).then(() => {
       toggleSuspendModal();
       refreshUsers();
+      setSelectedUser({});
     });
+  };
+
+  const closeModal = () => {
+    toggleSuspendModal();
+    setSelectedUser({});
   };
 
   const closeBtn = (
     <button
       type="button"
       className="suspend-user-close-button"
-      onClick={toggleSuspendModal}
+      onClick={closeModal}
     >
       <img src="https://img.icons8.com/windows/32/000000/cancel.png" alt="close" />
     </button>
@@ -37,14 +44,14 @@ function AdminSuspendModal(props) {
     <div>
       <Modal className="suspend-user-modal" isOpen={suspendModal} toggleSuspendModal={toggleSuspendModal} backdrop={false}>
         <ModalHeader toggleSuspendModal={toggleSuspendModal} close={closeBtn}>
-          { selectedUser.is_suspended ? 'Unsuspend User?' : 'Suspend User?' }
+          { selectedUser.isSuspended ? 'Unsuspend User?' : 'Suspend User?' }
         </ModalHeader>
         <ModalBody>
-          { modalText(selectedUser.is_suspended) }
+          { modalText(selectedUser.isSuspended) }
         </ModalBody>
         <ModalFooter>
           <Button className="suspend-user-save-button" color="primary" onClick={toggleSuspend}>
-            { selectedUser.is_suspended ? 'Unsuspend' : 'Suspend' }
+            { selectedUser.isSuspended ? 'Unsuspend' : 'Suspend' }
           </Button>
         </ModalFooter>
       </Modal>

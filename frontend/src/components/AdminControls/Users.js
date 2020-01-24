@@ -30,9 +30,24 @@ const Users = ({ users, refreshUsers }) => {
     togglePromoteModal();
   };
 
-  const editButton = () => (
+  const handleSuspend = (userId, isSuspended) => {
+    setSelectedUser({ userId, isSuspended });
+    toggleSuspendModal();
+  };
+
+  const handleEdit = (userId, firstName, lastName, email) => {
+    setSelectedUser({
+      userId,
+      firstName,
+      lastName,
+      email,
+    });
+    toggleEditModal();
+  };
+
+  const editButton = (userId, firstName, lastName, email) => (
     <div>
-      <button type="button" className="icon-button" onClick={toggleEditModal}>
+      <button type="button" className="icon-button" onClick={() => handleEdit(userId, firstName, lastName, email)}>
         <img
           src="https://img.icons8.com/windows/32/000000/edit.png"
           alt="edit"
@@ -41,7 +56,7 @@ const Users = ({ users, refreshUsers }) => {
     </div>
   );
 
-  const suspendButton = (isSuspended) => {
+  const suspendButton = (userId, isSuspended) => {
     const suspendIcon = isSuspended ? (
       <img
         src="https://img.icons8.com/ios/25/000000/cancel-2-filled.png"
@@ -56,7 +71,7 @@ const Users = ({ users, refreshUsers }) => {
 
     return (
       <div>
-        <button type="button" className="icon-button">
+        <button type="button" className="icon-button" onClick={() => handleSuspend(userId, isSuspended)}>
           { suspendIcon }
         </button>
       </div>
@@ -85,10 +100,10 @@ const Users = ({ users, refreshUsers }) => {
     );
   };
 
-  const buttonsRow = (userId, isSuspended, isAdmin) => (
+  const buttonsRow = (userId, isSuspended, isAdmin, firstName, lastName, email) => (
     <div className="icon-row">
-      {editButton()}
-      {suspendButton(isSuspended)}
+      {editButton(userId, firstName, lastName, email)}
+      {suspendButton(userId, isSuspended)}
       {promoteButton(userId, isAdmin)}
     </div>
   );
@@ -100,14 +115,18 @@ const Users = ({ users, refreshUsers }) => {
     is_suspended: isSuspended,
     recipes,
     is_admin: isAdmin,
+    email,
+    first_name: firstName,
+    last_name: lastName,
   }) => (
     <tr>
       <td>{fullName}</td>
       <td>{formatDate(createdAt)}</td>
       <td>{recipes.length}</td>
-      <td>{buttonsRow(userId, isSuspended, isAdmin)}</td>
+      <td>{buttonsRow(userId, isSuspended, isAdmin, firstName, lastName, email)}</td>
     </tr>
   );
+
 
   const headerRow = (
     <tr>
@@ -125,13 +144,22 @@ const Users = ({ users, refreshUsers }) => {
       <AdminEditModal
         editModal={editModal}
         toggleEditModal={toggleEditModal}
-        selectedUser={{ full_name: "IT'S A ME" }}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
         refreshUsers={refreshUsers}
       />
       <AdminSuspendModal
         suspendModal={suspendModal}
         toggleSuspendModal={toggleSuspendModal}
-        selectedUser={{ full_name: "IT'S A ME" }}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        refreshUsers={refreshUsers}
+      />
+      <AdminPromoteModal
+        promoteModal={promoteModal}
+        togglePromoteModal={togglePromoteModal}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
         refreshUsers={refreshUsers}
       />
       <AdminPromoteModal

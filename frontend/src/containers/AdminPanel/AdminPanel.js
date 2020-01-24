@@ -57,6 +57,14 @@ class AdminPanel extends Component {
     });
   }
 
+  refreshRecipes = () => {
+    getRecipes().then((data) => {
+      this.setState({
+        recipes: data,
+      });
+    });
+  }
+
   createFullName = (data) => {
     const newData = map(data, (obj) => {
       const newObj = obj;
@@ -77,7 +85,7 @@ class AdminPanel extends Component {
   }
 
   render() {
-    const { user, setJwt } = this.props;
+    const { user, setJwt, history } = this.props;
     const {
       activeTab, recipes, users, render,
     } = this.state;
@@ -130,7 +138,7 @@ class AdminPanel extends Component {
             </Nav>
             <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
               <TabPane tabId="recipes" className="table">
-                <Recipes recipes={recipes} />
+                <Recipes recipes={recipes} history={history} refreshRecipes={this.refreshRecipes} />
               </TabPane>
               <TabPane tabId="users" className="table">
                 <Users users={users} refreshUsers={this.refreshUsers} />

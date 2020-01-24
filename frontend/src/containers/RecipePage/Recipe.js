@@ -68,7 +68,13 @@ class Recipe extends Component {
       const { match: { params: { id } } } = this.props;
       return (
         <div>
-          <button className="btn navbar-btn btn-lg edit-button" onClick={() => { history.push(`/recipe/${id}/edit`); }} type="button">
+          <button
+            className="btn navbar-btn btn-lg edit-button"
+            onClick={() => {
+              history.push(`/recipe/${id}/edit`);
+            }}
+            type="button"
+          >
             <img src="https://img.icons8.com/windows/32/ffa616/edit.png" alt="edit" />
             <p id="edit-icon-text">Edit</p>
           </button>

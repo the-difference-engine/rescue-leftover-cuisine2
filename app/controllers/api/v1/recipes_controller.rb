@@ -40,9 +40,15 @@ class Api::V1::RecipesController < ApplicationController
     tags.each do |tag|
       db_tags << Tag.find(tag[:id])
     end
-   
+
     @recipe.tags = db_tags
     @recipe.update(rp)
+  end
+
+  def destroy
+    return head(:forbidden) unless current_user.is_admin
+    @recipe = Recipe.find_by!(id: params[:id])
+    @recipe.destroy
   end
 
   def recipe_params

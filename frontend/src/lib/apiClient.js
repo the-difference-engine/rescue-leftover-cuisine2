@@ -129,6 +129,12 @@ const editRecipe = (recipe, id) => apiClient.put(`api/v1/recipes/${id}`, {
   },
 });
 
+const deleteRecipe = recipeId => apiClient.delete(`api/v1/recipes/${recipeId}`, {
+  headers: {
+    Authorization: localStorage.jwt,
+  },
+});
+
 // COMMENTS
 
 const createComment = (comment, recipeId) => apiClient.post(`api/v1/recipes/${recipeId}/comments`, {
@@ -201,6 +207,7 @@ export {
   getRecipe,
   createRecipe,
   editRecipe,
+  deleteRecipe,
   getTags,
   createTag,
   adminEditUser,

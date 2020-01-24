@@ -122,11 +122,6 @@ class AdminPanel extends Component {
                   Add Recipe
                 </Button>
               )}
-              {activeTab === 'users' && (
-                <Button className="admin-add-button" size="lg">
-                  Add Member
-                </Button>
-              )}
             </Nav>
             <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
               <TabPane tabId="recipes" className="table">

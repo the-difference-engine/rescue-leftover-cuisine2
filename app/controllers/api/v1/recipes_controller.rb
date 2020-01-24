@@ -40,7 +40,7 @@ class Api::V1::RecipesController < ApplicationController
     tags.each do |tag|
       db_tags << Tag.find(tag[:id])
     end
-   
+
     @recipe.tags = db_tags
     @recipe.update(rp)
   end

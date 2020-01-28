@@ -11,10 +11,20 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     @user = User.find_by!(id: params[:id])
-    @user.update(user_params)
+
+    up = user_params
+    photo = up.delete(:profile_photo)
+    if photo
+      url = ImageUploader.upload_image(photo, user_id: @user.id)
+      if url
+        up[:profile_photo] = url
+      end
+    end
+
+    @user.update(up)
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :is_suspended, :is_admin)
+    params.require(:user).permit(:first_name, :last_name, :email, :profile_photo, :is_suspended, :is_admin)
   end
 end

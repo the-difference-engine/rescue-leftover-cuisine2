@@ -1,7 +1,7 @@
 import map from 'lodash/map';
 import React, { useEffect, useState } from 'react';
 import {
-  TabContent, TabPane, Nav, NavItem, NavLink, Button,
+  TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
 import isNil from 'lodash/isNil';
 import { Helmet } from 'react-helmet';
@@ -68,11 +68,6 @@ const AdminPanel = ({ user, setJwt }) => {
             All Members
           </NavLink>
         </NavItem>
-        {activeTab === 'recipes' && (
-          <Button className="admin-add-button" size="lg">
-            Add Recipe
-          </Button>
-        )}
       </Nav>
       <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
         <TabPane tabId="recipes" className="table">

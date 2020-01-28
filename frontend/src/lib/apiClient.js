@@ -117,6 +117,7 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
     tags: recipe.tags,
     ingredients: recipe.ingredients,
     directions: recipe.directions,
+    photo: recipe.photo,
   },
 }, {
   headers: {
@@ -134,6 +135,7 @@ const editRecipe = (recipe, id) => apiClient.put(`api/v1/recipes/${id}`, {
     tags: recipe.tags,
     ingredients: recipe.ingredients,
     directions: recipe.directions,
+    photo: recipe.photo,
   },
 }, {
   headers: {

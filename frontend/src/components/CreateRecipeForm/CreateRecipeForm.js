@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import map from 'lodash/map';
 import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
@@ -42,11 +43,20 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
   const [refreshTags, setRefreshTags] = useState(true);
   const [ingredients, setIngredients] = useState(['']);
+  const [photo, setPhoto] = useState('');
   const [titleError, setTitleError] = useState('');
   const [descriptionError, setDescriptionError] = useState('');
   const [ingredientsError, setIngredientError] = useState('');
   const [directionsError, setDirectionsError] = useState('');
+  const [photoError, setPhotoError] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+
+  const getBase64 = (file, cb) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => cb(reader.result);
+    reader.onerror = err => console.log('Error: ', err);
+  };
 
   const handleTitleChange = (x) => {
     setTitle(x);
@@ -68,6 +78,9 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setSelectedTagsWithId(currentRecipe.tags);
       setDuration(`${currentRecipe.duration} minutes`);
       setServings(currentRecipe.servings);
+
+      axios.get(currentRecipe.photo)
+        .then(resp => getBase64(resp.data, setPhoto));
     }
   });
 
@@ -107,6 +120,10 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setDirectionsError('Directions cannot be blank');
       isValid = false;
     }
+    if (photo.length <= 1) {
+      setPhotoError('A photo is required');
+      isValid = false;
+    }
     return isValid;
   };
 
@@ -124,6 +141,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
           tags: selectedTagsWithId,
           directions,
           ingredients,
+          photo,
         }).then(response => history.push(`/recipe/${response.data.id}`));
       } else {
         editRecipe({
@@ -135,6 +153,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
           tags: selectedTagsWithId,
           directions,
           ingredients,
+          photo,
         }, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
       }
     }
@@ -157,6 +176,12 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
     const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
+
+  const changePhoto = (e) => {
+    e.preventDefault();
+    getBase64(e.target.file, setPhoto);
+  };
+
   return (
     <div className="createRecipeForm container-fluid">
       <div className="row form-recipe-label">
@@ -260,6 +285,15 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
         setIsEditing={setIsEditing}
       />
       <div className="error-message">{directions.length <= 1 ? directionsError : ''}</div>
+
+      <div className="form-photo col-4 offset-4">
+        <label className="detail-labels" htmlFor="photo">
+          <img src={photo} alt="Recipe Upload" id="recipe-form-photo" />
+          <input className="form-control input-sm recipe-details" id="photo" type="file" name="photo" value={photo} onChange={changePhoto} required />
+        </label>
+        <div className="error-message">{photo ? '' : photoError}</div>
+      </div>
+
       <div>
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

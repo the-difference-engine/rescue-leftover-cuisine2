@@ -1,5 +1,5 @@
 import map from 'lodash/map';
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink, Button,
 } from 'reactstrap';
@@ -13,59 +13,16 @@ import Recipes from '../../components/AdminControls/Recipes';
 import Users from '../../components/AdminControls/Users';
 import './AdminPanel.scss';
 
-class AdminPanel extends Component {
-  constructor(props) {
-    super(props);
+const AdminPanel = ({ user, setJwt }) => {
+  if (isNil(user)) return (<Redirect to="/login" />);
 
-    this.state = {
-      activeTab: 'recipes',
-      recipes: [],
-      users: [],
-      render: false,
-    };
+  if (!user.is_admin) return (<Redirect to="/" />);
 
-    this.toggle = this.toggle.bind(this);
-  }
+  const [activeTab, setActiveTab] = useState('recipes');
+  const [recipes, setRecipes] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  componentDidMount() {
-    getRecipes().then((data) => {
-      this.setState({
-        recipes: data,
-      });
-    });
-
-    getUsers().then((data) => {
-      this.setState({
-        users: this.createFullName(data),
-      });
-    });
-
-    const { user } = this.props;
-
-    if (isNil(user)) {
-      setTimeout(() => {
-        this.setState({ render: true });
-      }, 2000);
-    } else this.setState({ render: true });
-  }
-
-  refreshUsers = () => {
-    getUsers().then((data) => {
-      this.setState({
-        users: this.createFullName(data),
-      });
-    });
-  }
-
-  refreshRecipes = () => {
-    getRecipes().then((data) => {
-      this.setState({
-        recipes: data,
-      });
-    });
-  }
-
-  createFullName = (data) => {
+  const createFullName = (data) => {
     const newData = map(data, (obj) => {
       const newObj = obj;
       newObj.full_name = `${obj.first_name} ${obj.last_name}`;
@@ -74,83 +31,62 @@ class AdminPanel extends Component {
     return newData;
   };
 
-  toggle(tab) {
-    const { activeTab } = this.state;
+  const refreshUsers = () => getUsers().then(data => setUsers(createFullName(data)));
 
-    if (activeTab !== tab) {
-      this.setState({
-        activeTab: tab,
-      });
-    }
-  }
+  const refreshRecipes = () => getRecipes().then(data => setRecipes(data));
 
-  render() {
-    const { user, setJwt, history } = this.props;
-    const {
-      activeTab, recipes, users, render,
-    } = this.state;
-    if (render) {
-      if (isNil(user)) return (<Redirect to="/login" />);
+  useEffect(() => {
+    getRecipes().then(data => setRecipes(data));
+    refreshUsers();
+  }, []);
 
-      if (!user.is_admin) return (<Redirect to="/" />);
-
-      if (!isNil(user)) {
-        return (
-          <div className="admin-panel-container">
-            <Helmet>
-              <title>Admin</title>
-              <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
-            </Helmet>
-            <div className="admin-header">
-              <Header showSearchBar user={user} setJwt={setJwt} />
-            </div>
-            <Nav tabs>
-              <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
-                <NavLink
-                  className={activeTab === 'recipes' ? 'recipes' : ''}
-                  onClick={() => {
-                    this.toggle('recipes');
-                  }}
-                >
-                  All Recipes
-                </NavLink>
-              </NavItem>
-              <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
-                <NavLink
-                  className={activeTab === 'users' ? 'users' : ''}
-                  onClick={() => {
-                    this.toggle('users');
-                  }}
-                >
-                  All Members
-                </NavLink>
-              </NavItem>
-              {activeTab === 'recipes' && (
-                <Button className="admin-add-button" size="lg">
-                  Add Recipe
-                </Button>
-              )}
-              {activeTab === 'users' && (
-                <Button className="admin-add-button" size="lg">
-                  Add Member
-                </Button>
-              )}
-            </Nav>
-            <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
-              <TabPane tabId="recipes" className="table">
-                <Recipes recipes={recipes} history={history} refreshRecipes={this.refreshRecipes} />
-              </TabPane>
-              <TabPane tabId="users" className="table">
-                <Users users={users} refreshUsers={this.refreshUsers} />
-              </TabPane>
-            </TabContent>
-            <Footer />
-          </div>
-        );
-      }
-    }
-    return null;
-  }
-}
+  return (
+    <div className="admin-panel-container">
+      <Helmet>
+        <title>Admin</title>
+        <meta property="og:title" content="Admin | Rescuing Leftover Cuisine" />
+      </Helmet>
+      <div className="admin-header">
+        <Header showSearchBar user={user} setJwt={setJwt} />
+      </div>
+      <Nav tabs>
+        <NavItem className={activeTab === 'recipes' ? 'nav-tab-line' : ''}>
+          <NavLink
+            className={activeTab === 'recipes' ? 'recipes' : ''}
+            onClick={() => {
+              setActiveTab('recipes');
+            }}
+          >
+            All Recipes
+          </NavLink>
+        </NavItem>
+        <NavItem className={activeTab === 'users' ? 'nav-tab-line' : ''}>
+          <NavLink
+            className={activeTab === 'users' ? 'users' : ''}
+            onClick={() => {
+              setActiveTab('users');
+            }}
+          >
+            All Members
+          </NavLink>
+        </NavItem>
+        {activeTab === 'recipes' && (
+          <Button className="admin-add-button" size="lg">
+            Add Recipe
+          </Button>
+        )}
+      </Nav>
+      <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
+        <TabPane tabId="recipes" className="table">
+          <Recipes recipes={recipes} refreshRecipes={refreshRecipes} />
+        </TabPane>
+        <TabPane tabId="users" className="table">
+          <Users users={users} refreshUsers={refreshUsers} />
+        </TabPane>
+      </TabContent>
+      <Footer />
+    </div>
+  );
+};
 
 export default AdminPanel;

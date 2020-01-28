@@ -16,22 +16,27 @@ import ResetRequestPage from './containers/ResetRequestPage/ResetRequestPage';
 import ThanksPage from './containers/ThanksPage/ThanksPage';
 import ConfirmUser from './components/ConfirmUser/ConfirmUser';
 import Page404 from './containers/Page404/Page404';
+import Loading from './components/Loading/Loading';
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [jwt, setJwt] = useState(localStorage.jwt);
 
   useEffect(() => {
+    setIsLoading(true);
     if (isNil(jwt)) {
       localStorage.removeItem('jwt');
       setUser(null);
+      setIsLoading(false);
       return;
     }
 
     localStorage.setItem('jwt', jwt);
     getCurrentUser()
       .then(response => setUser(response.data))
-      .catch(() => setUser(null));
+      .catch(() => setUser(null))
+      .finally(() => setIsLoading(false));
   }, [jwt]);
 
   return (
@@ -52,11 +57,13 @@ const App = () => {
         <Route path="/login" render={props => <LoginPage {...props} setJwt={setJwt} />} />
         <Route
           path="/admin"
-          render={props => <AdminPanel {...props} user={user} setJwt={setJwt} />}
+          render={props => (isLoading ? <Loading />
+            : <AdminPanel {...props} user={user} setJwt={setJwt} />)}
         />
         <Route
           path="/recipe/new"
-          render={props => <CreateRecipe {...props} user={user} setJwt={setJwt} />}
+          render={props => (isLoading ? <Loading />
+            : <CreateRecipe {...props} user={user} setJwt={setJwt} />)}
         />
         <Route
           exact
@@ -65,11 +72,13 @@ const App = () => {
         />
         <Route
           path="/recipe/:id/edit"
-          render={props => <CreateRecipe {...props} user={user} setJwt={setJwt} />}
+          render={props => (isLoading ? <Loading />
+            : <CreateRecipe {...props} user={user} setJwt={setJwt} />)}
         />
         <Route
           path="/profile"
-          render={props => <ProfilePage {...props} user={user} setUser={setUser} setJwt={setJwt} />}
+          render={props => (isLoading ? <Loading />
+            : <ProfilePage {...props} user={user} setUser={setUser} setJwt={setJwt} />)}
         />
         <Route
           path="/resetpassword"

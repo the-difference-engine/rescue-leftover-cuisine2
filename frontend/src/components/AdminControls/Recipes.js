@@ -43,14 +43,18 @@ const Recipes = ({ history, recipes, refreshRecipes }) => {
   );
 
   const recipeRow = ({
-    id, title, user, created_at: createdAt,
+    id,
+    title,
+    user,
+    comment_count: commentCount,
+    created_at: createdAt,
   }) => (
     <tr>
       <td>{title}</td>
       <td>{`${user.first_name} ${user.last_name}`}</td>
       <td>{formatDate(createdAt)}</td>
-      <td>TBD</td>
-      <td>{adminButtons(id)}</td>
+      <td>{commentCount}</td>
+      <td>{adminButtons}</td>
     </tr>
   );
 

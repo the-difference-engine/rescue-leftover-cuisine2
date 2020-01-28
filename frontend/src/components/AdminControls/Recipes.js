@@ -32,12 +32,17 @@ const Recipes = ({ recipes }) => {
     </tr>
   );
 
-  const recipeRow = ({ title, user, created_at: createdAt }) => (
+  const recipeRow = ({
+    title,
+    user,
+    comment_count: commentCount,
+    created_at: createdAt,
+  }) => (
     <tr>
       <td>{title}</td>
       <td>{`${user.first_name} ${user.last_name}`}</td>
       <td>{formatDate(createdAt)}</td>
-      <td>TBD</td>
+      <td>{commentCount}</td>
       <td>{adminButtons}</td>
     </tr>
   );

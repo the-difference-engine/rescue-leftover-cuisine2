@@ -47,8 +47,10 @@ class Api::V1::RecipesController < ApplicationController
 
   def destroy
     return head(:forbidden) unless current_user.is_admin
-    @recipe = Recipe.find_by!(id: params[:id])
-    @recipe.destroy
+    @recipe = Recipe.find(params[:id])
+    if @recipe
+      @recipe.destroy
+    end
   end
 
   def recipe_params

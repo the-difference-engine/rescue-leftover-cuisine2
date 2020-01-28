@@ -27,15 +27,17 @@ class Api::V1::RecipesController < ApplicationController
       @recipe.tags << Tag.find(tag[:id])
     end
 
+    @recipe.user = current_user
+    @recipe.save
+
     if photo
       url = ImageUploader.upload_image(photo, recipe_id: @recipe.id)
       if url
         @recipe.photo = url
+        @recipe.save
       end
     end
 
-    @recipe.user = current_user
-    @recipe.save
     render json: @recipe
   end
 

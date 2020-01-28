@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import isNil from 'lodash/isNil';
 import map from 'lodash/map';
 import reject from 'lodash/reject';
@@ -56,7 +55,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => cb(reader.result);
-    reader.onerror = err => console.log('Error: ', err);
+    reader.onerror = () => setPhotoError('Unable to process photo. Try again or use a different photo.');
   };
 
   const handleTitleChange = (x) => {
@@ -79,9 +78,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setSelectedTagsWithId(currentRecipe.tags);
       setDuration(`${currentRecipe.duration} minutes`);
       setServings(currentRecipe.servings);
-
-      axios.get(currentRecipe.photo)
-        .then(resp => getBase64(resp.data, setPhoto));
+      setPhoto(currentRecipe.photo);
     }
   });
 

@@ -34,7 +34,6 @@ function UserInfo({ user, setUser }) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => cb(reader.result);
-    reader.onerror = err => console.log('Error: ', err);
   };
 
   const putPhotoUpdate = p => putCurrentUserPhoto(p).then(() => setPhoto(p));

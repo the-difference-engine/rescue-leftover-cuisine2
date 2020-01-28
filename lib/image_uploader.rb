@@ -24,6 +24,6 @@ class ImageUploader
 
   def self.upload_image(image, opts)
     resp = upload(image, opts)
-    resp[:secure_url] || resp[:url]
+    resp["secure_url"] || resp["url"]
   end
 end

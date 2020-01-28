@@ -38,7 +38,7 @@ class Recipe extends Component {
         snippet: response.data.snippet,
         ingredients: response.data.ingredients,
         // TODO: add placeholder photo later
-        photo: response.data.photos ? response.data.photos[0] : '',
+        photo: response.data.photo || '',
         directions: response.data.directions,
         difficulty: response.data.difficulty,
         duration: response.data.duration,

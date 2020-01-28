@@ -9,11 +9,15 @@ module ImageUploader
       args = {
         allowed_extensions: ['jpg', 'png', 'gif'],
         tags: opts[:tags],
+        overwrite: true,
       }
 
       if opts[:user_id]
         args[:public_id] = "user_#{opts[:user_id]}"
-        args[:overwrite] = true
+      end
+
+      if opts[:recipe_id]
+        args[:public_id] = "recipe_#{opts[:recipe_id]}"
       end
 
       Cloudinary::Uploader.upload(image, args)

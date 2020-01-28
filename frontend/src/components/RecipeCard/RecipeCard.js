@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import './RecipeCard.scss';
 
-
 const RecipeCard = (props) => {
   const {
     difficulty,
@@ -11,6 +10,7 @@ const RecipeCard = (props) => {
     servings,
     snippet,
     title,
+    photo,
     id,
   } = props;
 
@@ -33,20 +33,13 @@ const RecipeCard = (props) => {
     return undefined; // TODO: This is probably bad. What should this return for invalid difficulty?
   };
 
-  const firstPhoto = () => {
-    if (props.photos && props.photos.length > 0) {
-      return props.photos[0];
-    }
-    return '';
-  };
-
   const goRecipePage = () => props.history.push(`/recipe/${id}`);
 
   return (
     <div className="card-deck d-inline-flex" onClick={goRecipePage}>
       <div className="card">
         <div className="image-holder">
-          <img className="card-img-top" src={firstPhoto()} alt={title} />
+          <img className="card-img-top" src={photo} alt={title} />
         </div>
         <div className="card-body">
           <div className="card-title">{title}</div>
@@ -75,12 +68,16 @@ const RecipeCard = (props) => {
 };
 
 RecipeCard.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  photo: PropTypes.string,
   title: PropTypes.string.isRequired,
   snippet: PropTypes.string.isRequired,
   difficulty: PropTypes.string.isRequired,
   duration: PropTypes.number.isRequired,
   servings: PropTypes.number.isRequired,
+};
+
+RecipeCard.defaultProps = {
+  photo: '',
 };
 
 

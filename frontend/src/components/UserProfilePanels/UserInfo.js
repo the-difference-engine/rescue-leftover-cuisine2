@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import trim from 'lodash/trim';
-import profilePic from '../../assets/profilePic.PNG';
 import './UserInfo.scss';
-import { editCurrentUserName } from '../../lib/apiClient';
+import { editCurrentUserName, putCurrentUserPhoto } from '../../lib/apiClient';
 import checkmark from '../../assets/checkmark-iconSave.png';
 
 function UserInfo({ user, setUser }) {
@@ -10,6 +9,7 @@ function UserInfo({ user, setUser }) {
   const [userFirstName, setUserFirstName] = useState(user.first_name);
   const [userLastName, setUserLastName] = useState(user.last_name);
   const [error, setError] = useState('');
+  const [photo, setPhoto] = useState(user.photo);
 
   const validateUserName = (userInputName, userInputLast) => {
     if (userInputName === '' || userInputLast === '') {
@@ -27,6 +27,20 @@ function UserInfo({ user, setUser }) {
       setUser(newUserData);
       setIsEditing(false);
     }
+  };
+
+  const getBase64 = (file, cb) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => cb(reader.result);
+    reader.onerror = err => console.log('Error: ', err);
+  };
+
+  const changeProfilePhoto = (e) => {
+    e.preventDefault();
+
+    getBase64(e.target.file, putCurrentUserPhoto);
+    setPhoto(e.target.file);
   };
 
   const monthNames = [
@@ -95,24 +109,26 @@ function UserInfo({ user, setUser }) {
         <div className="row profilePage-user">
           <div className="col-md-2" align="center">
             <img
-              src={profilePic}
+              src={photo}
               alt="User"
               className="profilePage-profilePic"
             />
-            <div>
-              <button type="button" className="user-edit-button">
-                <img
-                  src="https://img.icons8.com/windows/32/000000/edit.png"
-                  alt="edit"
-                />
-              </button>
-              <button type="button" className="user-edit-button">
-                <img
-                  src="https://img.icons8.com/windows/32/000000/cancel.png"
-                  alt="delete"
-                />
-              </button>
-            </div>
+            <label htmlFor="profile-photo">
+              <input
+                id="profile-photo"
+                type="file"
+                style={{ visibility: 'hidden' }}
+                onChange={changeProfilePhoto}
+              />
+              <div>
+                <button type="button" className="user-edit-button">
+                  <img
+                    src="https://img.icons8.com/windows/32/000000/edit.png"
+                    alt="edit"
+                  />
+                </button>
+              </div>
+            </label>
           </div>
           <div className="col-md-9 user-info">
             <div className="profilePage-user-name">

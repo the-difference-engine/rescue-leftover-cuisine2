@@ -17,10 +17,20 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    if params[:current_password]
-      return resource.update_with_password(params)
+    up = params
+    photo = up.delete(:profile_photo)
+
+    if photo
+      url = ImageUploader.upload_image(photo, user_id: current_user.id)
+      if url
+        up[:profile_photo] = url
+      end
     end
-    resource.update_without_password(params)    
+
+    if params[:current_password]
+      return resource.update_with_password(up)
+    end
+    resource.update_without_password(up)
   end
 
   def after_update_path_for(resource)

@@ -11,17 +11,7 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     @user = User.find_by!(id: params[:id])
-
-    up = user_params
-    photo = up.delete(:profile_photo)
-    if photo
-      url = ImageUploader.upload_image(photo, user_id: @user.id)
-      if url
-        up[:profile_photo] = url
-      end
-    end
-
-    @user.update(up)
+    @user.update(user_params)
   end
 
   def user_params

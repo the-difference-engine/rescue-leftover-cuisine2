@@ -57,6 +57,18 @@ const editCurrentUserName = (firstName, lastName) => apiClient.put('api/v1/auth'
     },
   });
 
+const putCurrentUserPhoto = photo => apiClient.put('api/v1/auth',
+  {
+    user: {
+      profile_photo: photo,
+    },
+  },
+  {
+    headers: {
+      Authorization: localStorage.jwt,
+    },
+  });
+
 // USERS
 
 const getUsers = () => apiClient.get('api/v1/users')
@@ -194,6 +206,7 @@ export {
   loginUser,
   getCurrentUser,
   editCurrentUserName,
+  putCurrentUserPhoto,
   getUsers,
   getUser,
   getRecipes,

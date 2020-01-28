@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import isNil from 'lodash/isNil';
 import trim from 'lodash/trim';
 import './UserInfo.scss';
 import { editCurrentUserName, putCurrentUserPhoto } from '../../lib/apiClient';
@@ -9,7 +10,7 @@ function UserInfo({ user, setUser }) {
   const [userFirstName, setUserFirstName] = useState(user.first_name);
   const [userLastName, setUserLastName] = useState(user.last_name);
   const [error, setError] = useState('');
-  const [photo, setPhoto] = useState(user.photo);
+  const [photo, setPhoto] = useState(user.profile_photo);
 
   const validateUserName = (userInputName, userInputLast) => {
     if (userInputName === '' || userInputLast === '') {
@@ -36,11 +37,16 @@ function UserInfo({ user, setUser }) {
     reader.onerror = err => console.log('Error: ', err);
   };
 
+  const putPhotoUpdate = p => putCurrentUserPhoto(p).then(() => setPhoto(p));
+
   const changeProfilePhoto = (e) => {
     e.preventDefault();
 
-    getBase64(e.target.file, putCurrentUserPhoto);
-    setPhoto(e.target.file);
+    if (isNil(e.target.files[0])) {
+      return;
+    }
+
+    getBase64(e.target.files[0], putPhotoUpdate);
   };
 
   const monthNames = [
@@ -113,21 +119,20 @@ function UserInfo({ user, setUser }) {
               alt="User"
               className="profilePage-profilePic"
             />
-            <label htmlFor="profile-photo">
+            <br />
+            <label htmlFor="profile-photo" id="profile-photo-label">
               <input
                 id="profile-photo"
                 type="file"
                 style={{ visibility: 'hidden' }}
                 onChange={changeProfilePhoto}
               />
-              <div>
-                <button type="button" className="user-edit-button">
-                  <img
-                    src="https://img.icons8.com/windows/32/000000/edit.png"
-                    alt="edit"
-                  />
-                </button>
-              </div>
+              <i className="user-edit-button">
+                <img
+                  src="https://img.icons8.com/windows/32/000000/edit.png"
+                  alt="edit"
+                />
+              </i>
             </label>
           </div>
           <div className="col-md-9 user-info">

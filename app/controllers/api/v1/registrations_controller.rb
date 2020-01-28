@@ -5,6 +5,19 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     render json: current_user
   end
 
+  def update
+    photo = params.delete(:profile_photo)
+    if photo
+      url = ImageUploader.upload_image(photo, user_id: current_user.id)
+      if url
+        current_user.profile_photo = url
+        current_user.save
+      end
+    end
+
+    super
+  end
+
   protected
 
   def user_fields
@@ -17,20 +30,10 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    up = params
-    photo = up.delete(:profile_photo)
-
-    if photo
-      url = ImageUploader.upload_image(photo, user_id: current_user.id)
-      if url
-        up[:profile_photo] = url
-      end
-    end
-
     if params[:current_password]
-      return resource.update_with_password(up)
+      return resource.update_with_password(params)
     end
-    resource.update_without_password(up)
+    resource.update_without_password(params)
   end
 
   def after_update_path_for(resource)

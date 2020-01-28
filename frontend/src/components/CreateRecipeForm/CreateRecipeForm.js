@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import isNil from 'lodash/isNil';
 import map from 'lodash/map';
 import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
@@ -179,7 +180,12 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
 
   const changePhoto = (e) => {
     e.preventDefault();
-    getBase64(e.target.file, setPhoto);
+
+    if (isNil(e.target.files[0])) {
+      return;
+    }
+
+    getBase64(e.target.files[0], setPhoto);
   };
 
   return (
@@ -289,7 +295,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       <div className="form-photo col-4 offset-4">
         <label className="detail-labels" htmlFor="photo">
           <img src={photo} alt="Recipe Upload" id="recipe-form-photo" />
-          <input className="form-control input-sm recipe-details" id="photo" type="file" name="photo" value={photo} onChange={changePhoto} required />
+          <input className="form-control input-sm recipe-details" id="photo" type="file" name="photo" onChange={changePhoto} required />
         </label>
         <div className="error-message">{photo ? '' : photoError}</div>
       </div>

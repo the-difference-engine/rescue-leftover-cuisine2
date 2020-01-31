@@ -46,6 +46,14 @@ class Api::V1::RecipesController < ApplicationController
     @recipe.update(rp)
   end
 
+  def destroy
+    return head(:forbidden) unless current_user.is_admin
+    @recipe = Recipe.find(params[:id])
+    if @recipe
+      @recipe.destroy
+    end
+  end
+
   def recipe_params
     params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
   end

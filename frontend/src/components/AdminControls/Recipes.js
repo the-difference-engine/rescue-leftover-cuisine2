@@ -2,18 +2,28 @@ import map from 'lodash/map';
 import React, { Fragment } from 'react';
 import PaginatedTable from './PaginatedTable';
 import { formatDate } from '../../lib/utilities';
+import { deleteRecipe } from '../../lib/apiClient';
 import './AdminTables.scss';
 
-const Recipes = ({ recipes }) => {
-  const adminButtons = (
+const Recipes = ({ history, recipes, refreshRecipes }) => {
+  const handleEdit = (recipeId) => {
+    history.push(`/recipe/${recipeId}/edit`);
+  };
+
+  const handleDelete = async (recipeId) => {
+    await deleteRecipe(recipeId);
+    refreshRecipes();
+  };
+
+  const adminButtons = id => (
     <div>
-      <button type="button" className="icon-button">
+      <button type="button" className="icon-button" onClick={() => handleEdit(id)}>
         <img
           src="https://img.icons8.com/windows/32/000000/edit.png"
           alt="edit"
         />
       </button>
-      <button type="button" className="icon-button">
+      <button type="button" className="icon-button" onClick={() => handleDelete(id)}>
         <img
           src="https://img.icons8.com/windows/32/000000/cancel.png"
           alt="delete"
@@ -33,6 +43,7 @@ const Recipes = ({ recipes }) => {
   );
 
   const recipeRow = ({
+    id,
     title,
     user,
     comment_count: commentCount,
@@ -43,7 +54,7 @@ const Recipes = ({ recipes }) => {
       <td>{`${user.first_name} ${user.last_name}`}</td>
       <td>{formatDate(createdAt)}</td>
       <td>{commentCount}</td>
-      <td>{adminButtons}</td>
+      <td>{adminButtons(id)}</td>
     </tr>
   );
 

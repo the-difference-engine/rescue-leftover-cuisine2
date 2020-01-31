@@ -33,6 +33,8 @@ const AdminPanel = ({ user, setJwt }) => {
 
   const refreshUsers = () => getUsers().then(data => setUsers(createFullName(data)));
 
+  const refreshRecipes = () => getRecipes().then(data => setRecipes(data));
+
   useEffect(() => {
     getRecipes().then(data => setRecipes(data));
     refreshUsers();
@@ -71,7 +73,7 @@ const AdminPanel = ({ user, setJwt }) => {
       </Nav>
       <TabContent id="bootstrap-overrides-pagination" activeTab={activeTab}>
         <TabPane tabId="recipes" className="table">
-          <Recipes recipes={recipes} />
+          <Recipes recipes={recipes} refreshRecipes={refreshRecipes} />
         </TabPane>
         <TabPane tabId="users" className="table">
           <Users users={users} refreshUsers={refreshUsers} />

@@ -57,6 +57,18 @@ const editCurrentUserName = (firstName, lastName) => apiClient.put('api/v1/auth'
     },
   });
 
+const putCurrentUserPhoto = photo => apiClient.put('api/v1/auth',
+  {
+    user: {
+      profile_photo: photo,
+    },
+  },
+  {
+    headers: {
+      Authorization: localStorage.jwt,
+    },
+  });
+
 // USERS
 
 const getUsers = () => apiClient.get('api/v1/users')
@@ -106,6 +118,7 @@ const createRecipe = recipe => apiClient.post('api/v1/recipes', {
     tags: recipe.tags,
     ingredients: recipe.ingredients,
     directions: recipe.directions,
+    photo: recipe.photo,
   },
 }, {
   headers: {
@@ -123,6 +136,7 @@ const editRecipe = (recipe, id) => apiClient.put(`api/v1/recipes/${id}`, {
     tags: recipe.tags,
     ingredients: recipe.ingredients,
     directions: recipe.directions,
+    photo: recipe.photo,
   },
 }, {
   headers: {
@@ -201,6 +215,7 @@ export {
   loginUser,
   getCurrentUser,
   editCurrentUserName,
+  putCurrentUserPhoto,
   getUsers,
   getUser,
   getRecipes,

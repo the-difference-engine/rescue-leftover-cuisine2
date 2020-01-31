@@ -45,12 +45,12 @@
   font-size: 28.5px;
 }
 
-.form-title {
+.form-title, .form-snippet {
   margin-bottom: 50px;
 }
 
-.form-title, .form-snippet {
-  margin-bottom: 50px;
+.form-photo, .search-tags {
+  margin-bottom: 0;
 }
 
 .createRecipeForm i.fas.fa-utensil-spoon {
@@ -114,4 +114,9 @@
 .barchart {
   width: 75%;
   margin-bottom: 0px;
+}
+
+#recipe-form-photo {
+  max-height: 350px;
+  max-width: 350px;
 }

@@ -1,36 +1,29 @@
 require 'cloudinary';
 
-module ImageUploader
+class ImageUploader
   class UploadError < RuntimeError
   end
 
-  class CloudinaryUploader
-    def upload(image, opts)
-      args = {
-        allowed_extensions: ['jpg', 'png', 'gif'],
-        tags: opts[:tags],
-      }
+  def self.upload(image, opts)
+    args = {
+      allowed_extensions: ['jpg', 'png', 'gif'],
+      tags: opts[:tags],
+      overwrite: true,
+    }
 
-      if opts[:user_id]
-        args[:public_id] = "user_#{opts[:user_id]}"
-        args[:overwrite] = true
-      end
-
-      Cloudinary::Uploader.upload(image, args)
+    if opts[:user_id]
+      args[:public_id] = "user_#{opts[:user_id]}"
     end
-  end
 
-  class LocalUploader
-    def upload(image, opts)
-      raise UploadError('Not implemented')
+    if opts[:recipe_id]
+      args[:public_id] = "recipe_#{opts[:recipe_id]}"
     end
-  end
 
-  upload_service = CloudinaryUploader
+    Cloudinary::Uploader.upload(image, args)
+  end
 
   def self.upload_image(image, opts)
-    svc = upload_service()
-    resp = svc.upload(image, opts)
-    resp[:secure_url] || resp[:url]
+    resp = upload(image, opts)
+    resp["secure_url"] || resp["url"]
   end
 end

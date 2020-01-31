@@ -36,7 +36,7 @@ const Ingredients = ({
 
   return (
     <div className="ingredients-container">
-      <h1>Ingredients</h1>
+      <h2 className="dropdown-headings">Ingredients</h2>
       {map(ingredients, (ingredient, idx) => (
         <div className="ingredients" key={(idx)}>
           <i className="fas fa-circle" />

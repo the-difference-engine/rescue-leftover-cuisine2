@@ -33,7 +33,7 @@ const EditDirections = ({
   return (
     <div>
       <div className="directions-container">
-        <h1>Directions</h1>
+        <h2 className="dropdown-headings">Directions</h2>
         {map(directions, (direction, idx) => (
           <div className="directions" key={(idx)}>
             <i className="fas fa-circle" />

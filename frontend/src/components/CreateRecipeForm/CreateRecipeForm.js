@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import isNil from 'lodash/isNil';
 import map from 'lodash/map';
 import reject from 'lodash/reject';
 import { withRouter } from 'react-router-dom';
@@ -42,11 +43,20 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
   const [selectedTagsWithId, setSelectedTagsWithId] = useState([]);
   const [refreshTags, setRefreshTags] = useState(true);
   const [ingredients, setIngredients] = useState(['']);
+  const [photo, setPhoto] = useState('');
   const [titleError, setTitleError] = useState('');
   const [descriptionError, setDescriptionError] = useState('');
   const [ingredientsError, setIngredientError] = useState('');
   const [directionsError, setDirectionsError] = useState('');
+  const [photoError, setPhotoError] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+
+  const getBase64 = (file, cb) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => cb(reader.result);
+    reader.onerror = () => setPhotoError('Unable to process photo. Try again or use a different photo.');
+  };
 
   const handleTitleChange = (x) => {
     setTitle(x);
@@ -68,6 +78,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setSelectedTagsWithId(currentRecipe.tags);
       setDuration(`${currentRecipe.duration} minutes`);
       setServings(currentRecipe.servings);
+      setPhoto(currentRecipe.photo);
     }
   });
 
@@ -107,6 +118,10 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setDirectionsError('Directions cannot be blank');
       isValid = false;
     }
+    if (photo.length === 0 && (isNil(currentRecipe) || currentRecipe.photo !== photo)) {
+      setPhotoError('A photo is required');
+      isValid = false;
+    }
     return isValid;
   };
 
@@ -114,28 +129,24 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (validate()) {
+      const data = {
+        title,
+        description,
+        difficulty,
+        duration: parsedDuration,
+        servings: parsedServings,
+        tags: selectedTagsWithId,
+        directions,
+        ingredients,
+      };
+      if (isNil(currentRecipe) || photo !== currentRecipe.photo) {
+        data.photo = photo;
+      }
+
       if (!currentRecipe) {
-        createRecipe({
-          title,
-          description,
-          difficulty,
-          duration: parsedDuration,
-          servings: parsedServings,
-          tags: selectedTagsWithId,
-          directions,
-          ingredients,
-        }).then(response => history.push(`/recipe/${response.data.id}`));
+        createRecipe(data).then(response => history.push(`/recipe/${response.data.id}`));
       } else {
-        editRecipe({
-          title,
-          description,
-          difficulty,
-          duration: parsedDuration,
-          servings: parsedServings,
-          tags: selectedTagsWithId,
-          directions,
-          ingredients,
-        }, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
+        editRecipe(data, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
       }
     }
   };
@@ -157,6 +168,17 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
     const newTags = selectedTags.concat(newSelectedTag);
     setSelectedTags(newTags);
   };
+
+  const changePhoto = (e) => {
+    e.preventDefault();
+
+    if (isNil(e.target.files[0])) {
+      return;
+    }
+
+    getBase64(e.target.files[0], setPhoto);
+  };
+
   return (
     <div className="createRecipeForm container-fluid">
       <div className="row form-recipe-label">
@@ -260,6 +282,18 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
         setIsEditing={setIsEditing}
       />
       <div className="error-message">{directions.length <= 1 ? directionsError : ''}</div>
+
+      <div className="row form-recipe-label">
+        <div className="form-photo col-4 offset-4">
+          <label className="detail-labels" htmlFor="photo">
+            Photo Upload
+            <img src={photo} alt="" id="recipe-form-photo" />
+            <input className="form-control input-sm recipe-details" id="photo" type="file" name="photo" onChange={changePhoto} required />
+          </label>
+          <div className="error-message">{photo ? '' : photoError}</div>
+        </div>
+      </div>
+
       <div>
         <div id="recipe-submit-containaner">
           <button type="submit" id="recipe-submit-btn" value="submit" onClick={handleSubmit}>Submit</button>

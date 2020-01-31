@@ -21,6 +21,7 @@ class Api::V1::RecipesController < ApplicationController
   def create
     rp = recipe_params
     tags = rp.delete(:tags)
+    photo = rp.delete(:photo)
 
     @recipe = Recipe.new(rp)
     tags.each do |tag|
@@ -29,17 +30,34 @@ class Api::V1::RecipesController < ApplicationController
 
     @recipe.user = current_user
     @recipe.save
+
+    if photo
+      url = ImageUploader.upload_image(photo, recipe_id: @recipe.id)
+      if url
+        @recipe.photo = url
+        @recipe.save
+      end
+    end
+
     render json: @recipe
   end
 
   def update
     rp = recipe_params
     tags = rp.delete(:tags)
+    photo = rp.delete(:photo)
 
     @recipe = Recipe.find_by!(id: params[:id])
     db_tags = []
     tags.each do |tag|
       db_tags << Tag.find(tag[:id])
+    end
+
+    if photo
+      url = ImageUploader.upload_image(photo, recipe_id: @recipe.id)
+      if url
+        rp[:photo] = url
+      end
     end
 
     @recipe.tags = db_tags
@@ -55,7 +73,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, ingredients: [], tags: [:id, :title], directions: [])
+    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, :photo, ingredients: [], tags: [:id, :title], directions: [])
   end
 
 end

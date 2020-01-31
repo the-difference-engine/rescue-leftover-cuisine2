@@ -19,7 +19,7 @@ recipe1 = Recipe.create(
   difficulty: "EASY",
   duration: 60,
   servings: 6,
-  photos: ["/recipe-seeds/cauliflowersalad.jpg"],
+  photo: "/recipe-seeds/cauliflowersalad.jpg",
   user_id: 1
 )
 
@@ -31,7 +31,7 @@ recipe2 = Recipe.create(
   difficulty: "EASY",
   duration: 45,
   servings: 6,
-  photos: ["/recipe-seeds/chickencurry.jpg"],
+  photo: "/recipe-seeds/chickencurry.jpg",
   user_id: 2,
 )
 
@@ -43,7 +43,7 @@ recipe3 = Recipe.create(
   difficulty: "MEDIUM",
   duration: 30,
   servings: 4,
-  photos: ["/recipe-seeds/deviledeggs.jpg"],
+  photo: "/recipe-seeds/deviledeggs.jpg",
   user_id: 1
 )
 
@@ -55,7 +55,7 @@ recipe4 = Recipe.create(
   difficulty: "EASY",
   duration: 30,
   servings: 6,
-  photos: ["/recipe-seeds/eggspoachedinmarinara.jpg"],
+  photo: "/recipe-seeds/eggspoachedinmarinara.jpg",
   user_id: 2
 )
 
@@ -67,7 +67,7 @@ recipe5 = Recipe.create(
   difficulty: "MEDIUM",
   duration: 30,
   servings: 6,
-  photos: ["/recipe-seeds/fettucinezucchini.jpg"],
+  photo: "/recipe-seeds/fettucinezucchini.jpg",
   user_id: 2
 )
 
@@ -79,7 +79,7 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 300,
   servings: 12,
-  photos: ["/recipe-seeds/lasagna.jpg"],
+  photo: "/recipe-seeds/lasagna.jpg",
   user_id: 1
 )
 
@@ -91,7 +91,7 @@ Recipe.create(
   difficulty: "ADVANCED",
   duration: 90,
   servings: 12,
-  photos: ["/recipe-seeds/roseappletart.jpg"],
+  photo: "/recipe-seeds/roseappletart.jpg",
   user_id: 2
 )
 
@@ -103,7 +103,7 @@ Recipe.create(
   difficulty: "EASY",
   duration: 60,
   servings: 6,
-  photos: ["/recipe-seeds/simpleroastchicken.jpg"],
+  photo: "/recipe-seeds/simpleroastchicken.jpg",
   user_id: 1
 )
 
@@ -115,7 +115,7 @@ Recipe.create(
   difficulty: "MEDIUM",
   duration: 15,
   servings: 4,
-  photos: ["/recipe-seeds/scambledeggszucchini.jpg"],
+  photo: "/recipe-seeds/scrambledeggszucchini.jpg",
   user_id: 2
 )
 
@@ -127,7 +127,7 @@ Recipe.create(
   difficulty: "ADVANCED",
   duration: 90,
   servings: 8,
-  photos: ["recipe-seeds/tartetatin.jpg"],
+  photo: "recipe-seeds/tartetatin.jpg",
   user_id: 1
 )
 

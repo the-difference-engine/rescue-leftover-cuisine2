@@ -118,7 +118,7 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       setDirectionsError('Directions cannot be blank');
       isValid = false;
     }
-    if (photo.length <= 1) {
+    if (photo.length === 0 && (isNil(currentRecipe) || currentRecipe.photo !== photo)) {
       setPhotoError('A photo is required');
       isValid = false;
     }
@@ -129,30 +129,24 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
     const parsedDuration = parseInt(duration, 10);
     const parsedServings = parseInt(servings, 10);
     if (validate()) {
+      const data = {
+        title,
+        description,
+        difficulty,
+        duration: parsedDuration,
+        servings: parsedServings,
+        tags: selectedTagsWithId,
+        directions,
+        ingredients,
+      };
+      if (isNil(currentRecipe) || photo !== currentRecipe.photo) {
+        data.photo = photo;
+      }
+
       if (!currentRecipe) {
-        createRecipe({
-          title,
-          description,
-          difficulty,
-          duration: parsedDuration,
-          servings: parsedServings,
-          tags: selectedTagsWithId,
-          directions,
-          ingredients,
-          photo,
-        }).then(response => history.push(`/recipe/${response.data.id}`));
+        createRecipe(data).then(response => history.push(`/recipe/${response.data.id}`));
       } else {
-        editRecipe({
-          title,
-          description,
-          difficulty,
-          duration: parsedDuration,
-          servings: parsedServings,
-          tags: selectedTagsWithId,
-          directions,
-          ingredients,
-          photo,
-        }, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
+        editRecipe(data, currentRecipe.id).then(() => { history.push(`/recipe/${currentRecipe.id}`); });
       }
     }
   };
@@ -289,12 +283,15 @@ const CreateRecipeForm = ({ history, currentRecipe }) => {
       />
       <div className="error-message">{directions.length <= 1 ? directionsError : ''}</div>
 
-      <div className="form-photo col-4 offset-4">
-        <label className="detail-labels" htmlFor="photo">
-          <img src={photo} alt="Recipe Upload" id="recipe-form-photo" />
-          <input className="form-control input-sm recipe-details" id="photo" type="file" name="photo" onChange={changePhoto} required />
-        </label>
-        <div className="error-message">{photo ? '' : photoError}</div>
+      <div className="row form-recipe-label">
+        <div className="form-photo col-4 offset-4">
+          <label className="detail-labels" htmlFor="photo">
+            Photo Upload
+            <img src={photo} alt="" id="recipe-form-photo" />
+            <input className="form-control input-sm recipe-details" id="photo" type="file" name="photo" onChange={changePhoto} required />
+          </label>
+          <div className="error-message">{photo ? '' : photoError}</div>
+        </div>
       </div>
 
       <div>

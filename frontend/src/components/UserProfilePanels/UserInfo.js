@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import isNil from 'lodash/isNil';
 import trim from 'lodash/trim';
 import './UserInfo.scss';
@@ -11,6 +11,15 @@ function UserInfo({ user, setUser }) {
   const [userLastName, setUserLastName] = useState(user.last_name);
   const [error, setError] = useState('');
   const [photo, setPhoto] = useState(user.profile_photo);
+
+  useEffect(() => {
+    setUser({
+      ...user,
+      first_name: userFirstName,
+      last_name: userLastName,
+      profile_photo: photo,
+    });
+  }, [userFirstName, userLastName, photo]);
 
   const validateUserName = (userInputName, userInputLast) => {
     if (userInputName === '' || userInputLast === '') {

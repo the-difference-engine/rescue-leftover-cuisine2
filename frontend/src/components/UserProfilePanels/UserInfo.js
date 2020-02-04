@@ -15,8 +15,6 @@ function UserInfo({ user, setUser }) {
   useEffect(() => {
     setUser({
       ...user,
-      first_name: userFirstName,
-      last_name: userLastName,
       profile_photo: photo,
     });
   }, [userFirstName, userLastName, photo]);

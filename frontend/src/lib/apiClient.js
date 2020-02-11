@@ -97,10 +97,12 @@ const adminEditUser = (data, userId) => apiClient.patch(`api/v1/users/${userId}`
 // RECIPES
 
 const getRecipes = (page, search) => {
-  const query1 = search ? `search=${search}` : '';
-  const query2 = `page=${page}`;
-  return apiClient.get(`api/v1/recipes?${query1}&${query2}`)
-    .then(results => results.data);
+  const params = {};
+
+  if (page) params.page = page;
+  if (search) params.search = search;
+
+  return apiClient.get('api/v1/recipes', { params }).then(results => results.data);
 };
 
 const getRecipe = id => apiClient.get(`api/v1/recipes/${id}`);

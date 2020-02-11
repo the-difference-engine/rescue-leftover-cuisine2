@@ -7,7 +7,6 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def index
-    puts params
     if params[:search]
       @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
     elsif params[:user_id]
@@ -72,8 +71,20 @@ class Api::V1::RecipesController < ApplicationController
     end
   end
 
-  def recipe_params
-    params.require(:recipe).permit(:title, :snippet, :difficulty, :duration, :servings, :photo, ingredients: [], tags: [:id, :title], directions: [])
-  end
+  private
 
+  def recipe_params
+    params.require(:recipe).permit(
+      :title,
+      :snippet,
+      :difficulty,
+      :duration,
+      :servings,
+      :photo,
+      :search,
+      :page,
+      ingredients: [],
+      tags: [:id, :title],
+      directions: [])
+  end
 end

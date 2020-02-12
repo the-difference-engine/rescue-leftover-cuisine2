@@ -1,5 +1,6 @@
 import map from 'lodash/map';
 import React, { Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import PaginatedTable from './PaginatedTable';
 import { formatDate } from '../../lib/utilities';
 import { deleteRecipe } from '../../lib/apiClient';
@@ -66,4 +67,4 @@ const Recipes = ({ history, recipes, refreshRecipes }) => {
   );
 };
 
-export default Recipes;
+export default withRouter(Recipes);

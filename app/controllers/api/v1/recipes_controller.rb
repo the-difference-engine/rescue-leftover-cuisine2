@@ -8,13 +8,18 @@ class Api::V1::RecipesController < ApplicationController
 
   def index
     if params[:search]
-      @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
+      @recipes = Recipe.search(params[:search])
     elsif params[:user_id]
       @recipes = Recipe.where(user_id: params[:user_id]).all
     else
-      @recipes = Recipe.includes(:user).paginate(:page => params[:page], :per_page => 20)
+      @recipes = Recipe.includes(:user)
     end
-    render json: @recipes.all.order("created_at DESC"), :include => [:user]
+
+    if params[:page]
+      render json: @recipes.paginate(:page => params[:page], :per_page => 20).all.order("created_at DESC"), :include => [:user]
+    else
+      render json: @recipes.all.order("created_at DESC"), :include => [:user]
+    end
   end
 
   def create
